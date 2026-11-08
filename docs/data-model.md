@@ -66,18 +66,18 @@ A variant is one physical part. **Role and contact gender are independent**:
 A family can have several profiles (AC single-phase, AC three-phase, DC, or one per rating system).
 Profiles are declared once per family and referenced by the variants that support them.
 
-| Field                         | Notes                                                                                                                                                               |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `currentType`, `supply`       | `ac`/`dc`; `single_phase`, `split_phase`, `three_phase`, `dc`                                                                                                       |
-| `phases`, `frequencyHz`       | required for AC (nullable), forbidden for DC                                                                                                                        |
-| `neutral`, `protectiveEarth`  | booleans or `null`                                                                                                                                                  |
-| `voltage`                     | `qualifier` (`rated`, `max`, `range`), `value` or `min`/`max`, `reference` (`line_to_neutral`, `line_to_line`, `dc`)                                                |
-| `current`                     | same qualifiers, in amperes                                                                                                                                         |
-| `maxPowerKw`                  | only when a cited source states it, with its own `sourceRefs`; never computed                                                                                       |
-| `cooling`                     | only when the rating depends on cooling                                                                                                                             |
-| `contactFunctions`            | contact id → function under this profile (`line`, `neutral`, `protective_earth`, `control_pilot`, `proximity_pilot`, `dc_positive`, `dc_negative`, `communication`) |
-| `standardRef`, `jurisdiction` | the standard defining the values, and the rating system when it varies by region (`IEC`, `UL/CSA`, `NEMA`)                                                          |
-| `sourceRefs`, `confidence`    | sources backing this profile and a `high`/`medium`/`low` confidence                                                                                                 |
+| Field                         | Notes                                                                                                                                                                                                                        |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `currentType`, `supply`       | `ac`/`dc`; `single_phase`, `split_phase`, `three_phase`, `dc`                                                                                                                                                                |
+| `phases`, `frequencyHz`       | required for AC (nullable), forbidden for DC                                                                                                                                                                                 |
+| `neutral`, `protectiveEarth`  | booleans or `null`                                                                                                                                                                                                           |
+| `voltage`                     | `qualifier` (`rated`, `max`, `range`), `value` or `min`/`max`, `reference` (`line_to_neutral`, `line_to_line`, `dc`)                                                                                                         |
+| `current`                     | same qualifiers, in amperes                                                                                                                                                                                                  |
+| `maxPowerKw`                  | only when a cited source states it, with its own `sourceRefs`; never computed                                                                                                                                                |
+| `cooling`                     | only when the rating depends on cooling                                                                                                                                                                                      |
+| `contactFunctions`            | contact id → function under this profile (`line`, `neutral`, `line_or_neutral` for an unpolarised or unassigned pole, `protective_earth`, `control_pilot`, `proximity_pilot`, `dc_positive`, `dc_negative`, `communication`) |
+| `standardRef`, `jurisdiction` | the standard defining the values, and the rating system when it varies by region (`IEC`, `UL/CSA`, `NEMA`)                                                                                                                   |
+| `sourceRefs`, `confidence`    | sources backing this profile and a `high`/`medium`/`low` confidence                                                                                                                                                          |
 
 Contact functions belong to the profile, not to the contact, because the same pin can change role:
 the two power contacts of SAE J3400 carry DC+/DC− in DC and L1/L2 in AC.

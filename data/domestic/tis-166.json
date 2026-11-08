@@ -34,9 +34,22 @@
       "role": "plug",
       "contactGender": "male",
       "contacts": [
-        { "id": "L", "label": "L", "gender": "male" },
-        { "id": "N", "label": "N", "gender": "male" },
-        { "id": "PE", "label": "PE", "gender": "male", "form": "earth_pin" }
+        {
+          "id": "L",
+          "label": "L",
+          "gender": "male"
+        },
+        {
+          "id": "N",
+          "label": "N",
+          "gender": "male"
+        },
+        {
+          "id": "PE",
+          "label": "PE",
+          "gender": "male",
+          "form": "earth_pin"
+        }
       ],
       "keying": "The earth pin above the line pins enforces polarity; L, N and the earth symbol are marked on the engagement face.",
       "mechanicalNotes": [
@@ -45,7 +58,12 @@
         "Seen on the pin side with the earth pin up, neutral is on the left and line on the right (figure 1)."
       ],
       "electricalProfiles": ["ac-1ph"],
-      "matesWith": [{ "family": "tis-166", "variant": "socket" }],
+      "matesWith": [
+        {
+          "family": "tis-166",
+          "variant": "socket"
+        }
+      ],
       "visuals": [
         {
           "kind": "front_view",
@@ -66,8 +84,16 @@
       "role": "plug",
       "contactGender": "male",
       "contacts": [
-        { "id": "P1", "label": "L/N", "gender": "male" },
-        { "id": "P2", "label": "L/N", "gender": "male" }
+        {
+          "id": "P1",
+          "label": "L/N",
+          "gender": "male"
+        },
+        {
+          "id": "P2",
+          "label": "L/N",
+          "gender": "male"
+        }
       ],
       "keying": "None: unpolarised.",
       "mechanicalNotes": [
@@ -75,7 +101,12 @@
         "Non-rewirable version has an elongated hexagonal face 35.5 × 14.6 mm (figure 2)."
       ],
       "electricalProfiles": ["ac-1ph-class-ii"],
-      "matesWith": [{ "family": "tis-166", "variant": "socket" }],
+      "matesWith": [
+        {
+          "family": "tis-166",
+          "variant": "socket"
+        }
+      ],
       "visuals": []
     },
     {
@@ -84,9 +115,22 @@
       "role": "socket_outlet",
       "contactGender": "female",
       "contacts": [
-        { "id": "L", "label": "L", "gender": "female" },
-        { "id": "N", "label": "N", "gender": "female" },
-        { "id": "PE", "label": "PE", "gender": "female", "form": "earth_hole" }
+        {
+          "id": "L",
+          "label": "L",
+          "gender": "female"
+        },
+        {
+          "id": "N",
+          "label": "N",
+          "gender": "female"
+        },
+        {
+          "id": "PE",
+          "label": "PE",
+          "gender": "female",
+          "form": "earth_hole"
+        }
       ],
       "keying": "Earth hole above the line and neutral holes; L, N and the earth symbol are marked on the face.",
       "mechanicalNotes": [
@@ -131,14 +175,25 @@
       "phases": 1,
       "neutral": true,
       "protectiveEarth": true,
-      "voltage": { "qualifier": "rated", "value": 250, "reference": "line_to_neutral" },
-      "current": { "qualifier": "rated", "value": 16 },
+      "voltage": {
+        "qualifier": "rated",
+        "value": 250,
+        "reference": "line_to_neutral"
+      },
+      "current": {
+        "qualifier": "rated",
+        "value": 16
+      },
       "frequencyHz": null,
       "maxPowerKw": null,
       "conditions": [
         "Table 1 rates the socket-outlet and rewirable plugs 250 V, 16 A; non-rewirable plugs may be rated 2.5, 6, 10 or 16 A."
       ],
-      "contactFunctions": { "L": "line", "N": "neutral", "PE": "protective_earth" },
+      "contactFunctions": {
+        "L": "line",
+        "N": "neutral",
+        "PE": "protective_earth"
+      },
       "standardRef": "tis-166-2549",
       "jurisdiction": null,
       "sourceRefs": ["tis-166-2549-text"],
@@ -152,15 +207,25 @@
       "phases": 1,
       "neutral": true,
       "protectiveEarth": false,
-      "voltage": { "qualifier": "rated", "value": 250, "reference": "line_to_neutral" },
-      "current": { "qualifier": "rated", "value": 16 },
+      "voltage": {
+        "qualifier": "rated",
+        "value": 250,
+        "reference": "line_to_neutral"
+      },
+      "current": {
+        "qualifier": "rated",
+        "value": 16
+      },
       "frequencyHz": null,
       "maxPowerKw": null,
       "conditions": [
         "Table 1 rates rewirable two-pole plugs 250 V, 16 A; non-rewirable plugs may be rated 2.5, 6, 10 or 16 A.",
         "Not polarised: P1 and P2 are interchangeable."
       ],
-      "contactFunctions": { "P1": "line", "P2": "neutral" },
+      "contactFunctions": {
+        "P1": "line_or_neutral",
+        "P2": "line_or_neutral"
+      },
       "standardRef": "tis-166-2549",
       "jurisdiction": null,
       "sourceRefs": ["tis-166-2549-text"],
@@ -169,7 +234,11 @@
   ],
   "mappings": {
     "ocpi-2.2.1": [
-      { "value": "DOMESTIC_O", "match": "exact", "variants": ["earthed-plug", "socket"] },
+      {
+        "value": "DOMESTIC_O",
+        "match": "exact",
+        "variants": ["earthed-plug", "socket"]
+      },
       {
         "value": "DOMESTIC_O",
         "match": "partial",
@@ -178,7 +247,11 @@
       }
     ],
     "ocpi-2.3.0": [
-      { "value": "DOMESTIC_O", "match": "exact", "variants": ["earthed-plug", "socket"] },
+      {
+        "value": "DOMESTIC_O",
+        "match": "exact",
+        "variants": ["earthed-plug", "socket"]
+      },
       {
         "value": "DOMESTIC_O",
         "match": "partial",

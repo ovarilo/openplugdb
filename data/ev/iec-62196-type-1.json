@@ -42,10 +42,26 @@
       "role": "vehicle_inlet",
       "contactGender": "male",
       "contacts": [
-        { "id": "L1", "label": "L1", "gender": "male" },
-        { "id": "L2-N", "label": "L2/N", "gender": "male" },
-        { "id": "PE", "label": "PE", "gender": "male" },
-        { "id": "CP", "label": "CP", "gender": "male" },
+        {
+          "id": "L1",
+          "label": "L1",
+          "gender": "male"
+        },
+        {
+          "id": "L2-N",
+          "label": "L2/N",
+          "gender": "male"
+        },
+        {
+          "id": "PE",
+          "label": "PE",
+          "gender": "male"
+        },
+        {
+          "id": "CP",
+          "label": "CP",
+          "gender": "male"
+        },
         {
           "id": "CS",
           "label": "CS",
@@ -58,7 +74,12 @@
         "Power contacts L1 and L2/N in the upper row, CP and CS on either side below them, PE at the bottom; CP and CS are smaller than the power and earth contacts."
       ],
       "electricalProfiles": ["ac-1ph", "ac-1ph-80a"],
-      "matesWith": [{ "family": "iec-62196-type-1", "variant": "vehicle-connector" }],
+      "matesWith": [
+        {
+          "family": "iec-62196-type-1",
+          "variant": "vehicle-connector"
+        }
+      ],
       "visuals": [
         {
           "kind": "front_view",
@@ -91,10 +112,26 @@
       "role": "vehicle_connector",
       "contactGender": "female",
       "contacts": [
-        { "id": "L1", "label": "L1", "gender": "female" },
-        { "id": "L2-N", "label": "L2/N", "gender": "female" },
-        { "id": "PE", "label": "PE", "gender": "female" },
-        { "id": "CP", "label": "CP", "gender": "female" },
+        {
+          "id": "L1",
+          "label": "L1",
+          "gender": "female"
+        },
+        {
+          "id": "L2-N",
+          "label": "L2/N",
+          "gender": "female"
+        },
+        {
+          "id": "PE",
+          "label": "PE",
+          "gender": "female"
+        },
+        {
+          "id": "CP",
+          "label": "CP",
+          "gender": "female"
+        },
         {
           "id": "CS",
           "label": "CS",
@@ -120,8 +157,15 @@
       "phases": 1,
       "neutral": null,
       "protectiveEarth": true,
-      "voltage": { "qualifier": "max", "value": 250, "reference": "line_to_neutral" },
-      "current": { "qualifier": "max", "value": 32 },
+      "voltage": {
+        "qualifier": "max",
+        "value": 250,
+        "reference": "line_to_neutral"
+      },
+      "current": {
+        "qualifier": "max",
+        "value": 32
+      },
       "frequencyHz": [50, 60],
       "maxPowerKw": null,
       "conditions": [
@@ -134,7 +178,8 @@
         "L1": "line",
         "PE": "protective_earth",
         "CP": "control_pilot",
-        "CS": "proximity_pilot"
+        "CS": "proximity_pilot",
+        "L2-N": "line_or_neutral"
       },
       "standardRef": "iec-62196-2",
       "jurisdiction": "IEC",
@@ -149,8 +194,15 @@
       "phases": 1,
       "neutral": null,
       "protectiveEarth": true,
-      "voltage": { "qualifier": "max", "value": 250, "reference": "line_to_neutral" },
-      "current": { "qualifier": "max", "value": 80 },
+      "voltage": {
+        "qualifier": "max",
+        "value": 250,
+        "reference": "line_to_neutral"
+      },
+      "current": {
+        "qualifier": "max",
+        "value": 80
+      },
       "frequencyHz": [50, 60],
       "maxPowerKw": null,
       "conditions": [
@@ -162,7 +214,8 @@
         "L1": "line",
         "PE": "protective_earth",
         "CP": "control_pilot",
-        "CS": "proximity_pilot"
+        "CS": "proximity_pilot",
+        "L2-N": "line_or_neutral"
       },
       "standardRef": "iec-62196-2",
       "jurisdiction": "US, KR, JP",
@@ -185,8 +238,18 @@
         "note": "Type 1 at a charging station is a tethered vehicle connector (OCPI ConnectorFormat CABLE)."
       }
     ],
-    "openchargemap": [{ "value": "1", "match": "exact" }],
-    "openstreetmap": [{ "value": "socket:type1", "match": "exact" }]
+    "openchargemap": [
+      {
+        "value": "1",
+        "match": "exact"
+      }
+    ],
+    "openstreetmap": [
+      {
+        "value": "socket:type1",
+        "match": "exact"
+      }
+    ]
   },
   "sources": [
     {

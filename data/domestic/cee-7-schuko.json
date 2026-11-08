@@ -48,8 +48,16 @@
       "role": "socket_outlet",
       "contactGender": "female",
       "contacts": [
-        { "id": "P1", "label": "L/N", "gender": "female" },
-        { "id": "P2", "label": "L/N", "gender": "female" },
+        {
+          "id": "P1",
+          "label": "L/N",
+          "gender": "female"
+        },
+        {
+          "id": "P2",
+          "label": "L/N",
+          "gender": "female"
+        },
         {
           "id": "PE",
           "label": "PE",
@@ -97,8 +105,16 @@
       "role": "plug",
       "contactGender": "male",
       "contacts": [
-        { "id": "P1", "label": "L/N", "gender": "male" },
-        { "id": "P2", "label": "L/N", "gender": "male" },
+        {
+          "id": "P1",
+          "label": "L/N",
+          "gender": "male"
+        },
+        {
+          "id": "P2",
+          "label": "L/N",
+          "gender": "male"
+        },
         {
           "id": "PE",
           "label": "PE",
@@ -110,7 +126,12 @@
       "keying": "None: unpolarised, can be inserted either way.",
       "mechanicalNotes": ["Round pins 4.8 mm in diameter and 19 mm long, 19 mm between centres."],
       "electricalProfiles": ["ac-1ph"],
-      "matesWith": [{ "family": "cee-7-schuko", "variant": "cee-7-3-socket" }],
+      "matesWith": [
+        {
+          "family": "cee-7-schuko",
+          "variant": "cee-7-3-socket"
+        }
+      ],
       "visuals": []
     },
     {
@@ -120,9 +141,22 @@
       "role": "plug",
       "contactGender": "mixed",
       "contacts": [
-        { "id": "P1", "label": "L/N", "gender": "male" },
-        { "id": "P2", "label": "L/N", "gender": "male" },
-        { "id": "PE", "label": "PE strips", "gender": "sexless", "form": "side_clip" },
+        {
+          "id": "P1",
+          "label": "L/N",
+          "gender": "male"
+        },
+        {
+          "id": "P2",
+          "label": "L/N",
+          "gender": "male"
+        },
+        {
+          "id": "PE",
+          "label": "PE strips",
+          "gender": "sexless",
+          "form": "side_clip"
+        },
         {
           "id": "PE-hole",
           "label": "PE hole",
@@ -166,8 +200,15 @@
       "phases": 1,
       "neutral": true,
       "protectiveEarth": true,
-      "voltage": { "qualifier": "rated", "value": 250, "reference": "line_to_neutral" },
-      "current": { "qualifier": "rated", "value": 16 },
+      "voltage": {
+        "qualifier": "rated",
+        "value": 250,
+        "reference": "line_to_neutral"
+      },
+      "current": {
+        "qualifier": "rated",
+        "value": 16
+      },
       "frequencyHz": null,
       "maxPowerKw": null,
       "conditions": [
@@ -175,8 +216,8 @@
         "The rating comes from secondary sources citing DIN 49440-1 and DIN 49441; the CEE 7 text was not reviewed."
       ],
       "contactFunctions": {
-        "P1": "line",
-        "P2": "neutral",
+        "P1": "line_or_neutral",
+        "P2": "line_or_neutral",
         "PE": "protective_earth"
       },
       "standardRef": "din-49440-1",
@@ -187,7 +228,11 @@
   ],
   "mappings": {
     "ocpi-2.2.1": [
-      { "value": "DOMESTIC_F", "match": "exact", "variants": ["cee-7-3-socket", "cee-7-4-plug"] },
+      {
+        "value": "DOMESTIC_F",
+        "match": "exact",
+        "variants": ["cee-7-3-socket", "cee-7-4-plug"]
+      },
       {
         "value": "DOMESTIC_F",
         "match": "partial",
@@ -196,7 +241,11 @@
       }
     ],
     "ocpi-2.3.0": [
-      { "value": "DOMESTIC_F", "match": "exact", "variants": ["cee-7-3-socket", "cee-7-4-plug"] },
+      {
+        "value": "DOMESTIC_F",
+        "match": "exact",
+        "variants": ["cee-7-3-socket", "cee-7-4-plug"]
+      },
       {
         "value": "DOMESTIC_F",
         "match": "partial",
@@ -205,10 +254,18 @@
       }
     ],
     "openchargemap": [
-      { "value": "28", "match": "exact", "variants": ["cee-7-3-socket", "cee-7-4-plug"] }
+      {
+        "value": "28",
+        "match": "exact",
+        "variants": ["cee-7-3-socket", "cee-7-4-plug"]
+      }
     ],
     "openstreetmap": [
-      { "value": "socket:schuko", "match": "exact", "variants": ["cee-7-3-socket"] }
+      {
+        "value": "socket:schuko",
+        "match": "exact",
+        "variants": ["cee-7-3-socket"]
+      }
     ]
   },
   "sources": [

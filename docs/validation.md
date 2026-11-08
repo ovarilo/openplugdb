@@ -25,9 +25,11 @@ exporter and the site cannot read the data differently.
    - phases match the supply (1 for single-phase, 3 for three-phase);
    - the voltage reference matches the current type (`dc` for DC; no line-to-line for single-phase);
    - ranges have `min ≤ max`;
-   - contact functions: one line for single-phase, two for split-phase, three for three-phase; both
-     DC poles and no line or neutral for DC; a neutral contact when `neutral` is true, none when it
-     is false; an earth contact when `protectiveEarth` is true;
+   - contact functions: single-phase has two current-carrying contacts with at most one `line`
+     (unpolarised or unassigned poles use `line_or_neutral`), split-phase two lines, three-phase
+     three lines; DC has both DC poles and no AC function; a neutral (or `line_or_neutral`)
+     contact when `neutral` is true, none when it is false; an earth contact when
+     `protectiveEarth` is true;
    - every contact named in `contactFunctions` exists on every variant using the profile;
    - a stated `maxPowerKw` does not exceed the V × I bound (√3 × V<sub>LL</sub> × I or
      3 × V<sub>LN</sub> × I for three-phase), with 2 % tolerance for rounded published figures.

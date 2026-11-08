@@ -306,12 +306,13 @@
         "conditions": { "$ref": "#/$defs/uniqueTexts" },
         "contactFunctions": {
           "type": ["object", "null"],
-          "description": "Function of each energised contact under this profile, keyed by contact id. null when unknown.",
+          "description": "Function of each energised contact under this profile, keyed by contact id. null when unknown. line_or_neutral marks a pole whose line/neutral assignment is not fixed (unpolarised or unassigned by the sources).",
           "propertyNames": { "pattern": "^[A-Za-z0-9+_-]+$" },
           "additionalProperties": {
             "enum": [
               "line",
               "neutral",
+              "line_or_neutral",
               "protective_earth",
               "control_pilot",
               "proximity_pilot",

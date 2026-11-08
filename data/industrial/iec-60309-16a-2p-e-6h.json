@@ -33,16 +33,35 @@
       "role": "plug",
       "contactGender": "male",
       "contacts": [
-        { "id": "P1", "label": "Pole 1", "gender": "male" },
-        { "id": "P2", "label": "Pole 2", "gender": "male" },
-        { "id": "PE", "label": "PE", "gender": "male", "form": "earth_pin" }
+        {
+          "id": "P1",
+          "label": "Pole 1",
+          "gender": "male"
+        },
+        {
+          "id": "P2",
+          "label": "Pole 2",
+          "gender": "male"
+        },
+        {
+          "id": "PE",
+          "label": "PE",
+          "gender": "male",
+          "form": "earth_pin"
+        }
       ],
       "keying": "Earth pin at 6 h, aligned with the major keyway; earth pin larger than the pole pins.",
       "mechanicalNotes": [],
       "electricalProfiles": ["ac-1ph"],
       "matesWith": [
-        { "family": "iec-60309-16a-2p-e-6h", "variant": "socket-outlet" },
-        { "family": "iec-60309-16a-2p-e-6h", "variant": "connector" }
+        {
+          "family": "iec-60309-16a-2p-e-6h",
+          "variant": "socket-outlet"
+        },
+        {
+          "family": "iec-60309-16a-2p-e-6h",
+          "variant": "connector"
+        }
       ],
       "visuals": []
     },
@@ -52,9 +71,21 @@
       "role": "socket_outlet",
       "contactGender": "female",
       "contacts": [
-        { "id": "P1", "label": "Pole 1", "gender": "female" },
-        { "id": "P2", "label": "Pole 2", "gender": "female" },
-        { "id": "PE", "label": "PE", "gender": "female" }
+        {
+          "id": "P1",
+          "label": "Pole 1",
+          "gender": "female"
+        },
+        {
+          "id": "P2",
+          "label": "Pole 2",
+          "gender": "female"
+        },
+        {
+          "id": "PE",
+          "label": "PE",
+          "gender": "female"
+        }
       ],
       "keying": "Earth contact at 6 h, aligned with the major keyway.",
       "mechanicalNotes": ["Common enclosures are IP44 (splash-proof) and IP67 (watertight)."],
@@ -91,14 +122,31 @@
       "role": "cable_connector",
       "contactGender": "female",
       "contacts": [
-        { "id": "P1", "label": "Pole 1", "gender": "female" },
-        { "id": "P2", "label": "Pole 2", "gender": "female" },
-        { "id": "PE", "label": "PE", "gender": "female" }
+        {
+          "id": "P1",
+          "label": "Pole 1",
+          "gender": "female"
+        },
+        {
+          "id": "P2",
+          "label": "Pole 2",
+          "gender": "female"
+        },
+        {
+          "id": "PE",
+          "label": "PE",
+          "gender": "female"
+        }
       ],
       "keying": "Earth contact at 6 h, aligned with the major keyway.",
       "mechanicalNotes": ["Portable socket on a flexible cable."],
       "electricalProfiles": ["ac-1ph"],
-      "matesWith": [{ "family": "iec-60309-16a-2p-e-6h", "variant": "appliance-inlet" }],
+      "matesWith": [
+        {
+          "family": "iec-60309-16a-2p-e-6h",
+          "variant": "appliance-inlet"
+        }
+      ],
       "visuals": [
         {
           "kind": "front_view",
@@ -119,9 +167,22 @@
       "role": "appliance_inlet",
       "contactGender": "male",
       "contacts": [
-        { "id": "P1", "label": "Pole 1", "gender": "male" },
-        { "id": "P2", "label": "Pole 2", "gender": "male" },
-        { "id": "PE", "label": "PE", "gender": "male", "form": "earth_pin" }
+        {
+          "id": "P1",
+          "label": "Pole 1",
+          "gender": "male"
+        },
+        {
+          "id": "P2",
+          "label": "Pole 2",
+          "gender": "male"
+        },
+        {
+          "id": "PE",
+          "label": "PE",
+          "gender": "male",
+          "form": "earth_pin"
+        }
       ],
       "keying": "Earth pin at 6 h, aligned with the major keyway.",
       "mechanicalNotes": [],
@@ -139,15 +200,27 @@
       "phases": 1,
       "neutral": null,
       "protectiveEarth": true,
-      "voltage": { "qualifier": "range", "min": 200, "max": 250, "reference": "line_to_neutral" },
-      "current": { "qualifier": "rated", "value": 16 },
+      "voltage": {
+        "qualifier": "range",
+        "min": 200,
+        "max": 250,
+        "reference": "line_to_neutral"
+      },
+      "current": {
+        "qualifier": "rated",
+        "value": 16
+      },
       "frequencyHz": [50, 60],
       "maxPowerKw": null,
       "conditions": [
         "Looking into the socket-outlet, the line (P1) is the pole next to the earth contact clockwise and the second pole (P2) follows (Mennekes front view, Wikipedia).",
         "P2 is the neutral or a second line depending on the installation, so its function is not recorded."
       ],
-      "contactFunctions": { "P1": "line", "PE": "protective_earth" },
+      "contactFunctions": {
+        "P1": "line_or_neutral",
+        "PE": "protective_earth",
+        "P2": "line_or_neutral"
+      },
       "standardRef": "iec-60309-2",
       "jurisdiction": null,
       "sourceRefs": ["pce-9136", "wikipedia-iec-60309", "mennekes-clock-positions"],
@@ -155,10 +228,24 @@
     }
   ],
   "mappings": {
-    "ocpi-2.2.1": [{ "value": "IEC_60309_2_single_16", "match": "exact" }],
-    "ocpi-2.3.0": [{ "value": "IEC_60309_2_single_16", "match": "exact" }],
+    "ocpi-2.2.1": [
+      {
+        "value": "IEC_60309_2_single_16",
+        "match": "exact"
+      }
+    ],
+    "ocpi-2.3.0": [
+      {
+        "value": "IEC_60309_2_single_16",
+        "match": "exact"
+      }
+    ],
     "openchargemap": [
-      { "value": "34", "match": "broader", "note": "IEC 60309 3-pin, any current rating." },
+      {
+        "value": "34",
+        "match": "broader",
+        "note": "IEC 60309 3-pin, any current rating."
+      },
       {
         "value": "4",
         "match": "broader",
@@ -166,7 +253,11 @@
       }
     ],
     "openstreetmap": [
-      { "value": "socket:cee_blue", "match": "exact", "variants": ["socket-outlet"] }
+      {
+        "value": "socket:cee_blue",
+        "match": "exact",
+        "variants": ["socket-outlet"]
+      }
     ]
   },
   "sources": [

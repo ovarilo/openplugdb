@@ -33,14 +33,31 @@
       "role": "cable_connector",
       "contactGender": "female",
       "contacts": [
-        { "id": "P1", "label": "L/N", "gender": "female" },
-        { "id": "P2", "label": "L/N", "gender": "female" },
-        { "id": "PE", "label": "PE", "gender": "female" }
+        {
+          "id": "P1",
+          "label": "L/N",
+          "gender": "female"
+        },
+        {
+          "id": "P2",
+          "label": "L/N",
+          "gender": "female"
+        },
+        {
+          "id": "PE",
+          "label": "PE",
+          "gender": "female"
+        }
       ],
       "keying": "Two chamfered top corners; earth contact at top centre.",
       "mechanicalNotes": [],
       "electricalProfiles": ["iec", "ul-csa"],
-      "matesWith": [{ "family": "iec-60320-c13-c14", "variant": "c14-inlet" }],
+      "matesWith": [
+        {
+          "family": "iec-60320-c13-c14",
+          "variant": "c14-inlet"
+        }
+      ],
       "visuals": [
         {
           "kind": "front_view",
@@ -61,9 +78,21 @@
       "role": "appliance_inlet",
       "contactGender": "male",
       "contacts": [
-        { "id": "P1", "label": "L/N", "gender": "male" },
-        { "id": "P2", "label": "L/N", "gender": "male" },
-        { "id": "PE", "label": "PE", "gender": "male" }
+        {
+          "id": "P1",
+          "label": "L/N",
+          "gender": "male"
+        },
+        {
+          "id": "P2",
+          "label": "L/N",
+          "gender": "male"
+        },
+        {
+          "id": "PE",
+          "label": "PE",
+          "gender": "male"
+        }
       ],
       "keying": "Two chamfered top corners; earth pin at top centre.",
       "mechanicalNotes": ["Flat blade-shaped pins."],
@@ -104,15 +133,26 @@
       "phases": 1,
       "neutral": null,
       "protectiveEarth": true,
-      "voltage": { "qualifier": "rated", "value": 250, "reference": "line_to_neutral" },
-      "current": { "qualifier": "rated", "value": 10 },
+      "voltage": {
+        "qualifier": "rated",
+        "value": 250,
+        "reference": "line_to_neutral"
+      },
+      "current": {
+        "qualifier": "rated",
+        "value": 10
+      },
       "frequencyHz": [50],
       "maxPowerKw": null,
       "conditions": [
         "Cold conditions: maximum pin temperature 70 °C.",
         "Schurter 6010 marks L/N on the rear terminal view only; no source assigns them on the mating face."
       ],
-      "contactFunctions": { "P1": "line", "PE": "protective_earth" },
+      "contactFunctions": {
+        "P1": "line_or_neutral",
+        "PE": "protective_earth",
+        "P2": "line_or_neutral"
+      },
       "standardRef": "iec-60320-1",
       "jurisdiction": "IEC",
       "sourceRefs": ["schurter-6010", "iec-60320-1-2021-preview"],
@@ -126,15 +166,26 @@
       "phases": 1,
       "neutral": null,
       "protectiveEarth": true,
-      "voltage": { "qualifier": "rated", "value": 250, "reference": "line_to_neutral" },
-      "current": { "qualifier": "rated", "value": 15 },
+      "voltage": {
+        "qualifier": "rated",
+        "value": 250,
+        "reference": "line_to_neutral"
+      },
+      "current": {
+        "qualifier": "rated",
+        "value": 15
+      },
       "frequencyHz": [60],
       "maxPowerKw": null,
       "conditions": [
         "North American rating under UL 60320-1 and CSA C22.2 No. 60320-1.",
         "Schurter 6010 marks L/N on the rear terminal view only; no source assigns them on the mating face."
       ],
-      "contactFunctions": { "P1": "line", "PE": "protective_earth" },
+      "contactFunctions": {
+        "P1": "line_or_neutral",
+        "PE": "protective_earth",
+        "P2": "line_or_neutral"
+      },
       "standardRef": null,
       "jurisdiction": "UL/CSA",
       "sourceRefs": ["schurter-6010"],

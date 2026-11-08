@@ -124,6 +124,61 @@ describe('checkProfile', () => {
     expect(checkProfile(p, []).join('\n')).toMatch(/reference/);
   });
 
+  describe('unassigned poles (line_or_neutral)', () => {
+    const withFunctions = (contactFunctions: ElectricalProfile['contactFunctions']) =>
+      checkProfile({ ...ac1, neutral: null, contactFunctions }, []);
+
+    it('accepts two unassigned poles on a single-phase profile', () => {
+      expect(
+        withFunctions({ P1: 'line_or_neutral', P2: 'line_or_neutral', PE: 'protective_earth' }),
+      ).toEqual([]);
+    });
+
+    it('accepts one line and one pole that is either L2 or the neutral', () => {
+      expect(withFunctions({ L1: 'line', P2: 'line_or_neutral', PE: 'protective_earth' })).toEqual(
+        [],
+      );
+    });
+
+    it('requires exactly two current-carrying contacts on a single-phase profile', () => {
+      expect(withFunctions({ P1: 'line_or_neutral', PE: 'protective_earth' }).join('\n')).toMatch(
+        /2 current-carrying/,
+      );
+      expect(withFunctions({ L: 'line', PE: 'protective_earth' }).join('\n')).toMatch(
+        /2 current-carrying/,
+      );
+    });
+
+    it('rejects two assigned lines on a single-phase profile', () => {
+      expect(withFunctions({ L1: 'line', L2: 'line' }).join('\n')).toMatch(/at most 1 line/);
+    });
+
+    it('accepts an unassigned pole as the neutral when neutral is true', () => {
+      const p: ElectricalProfile = {
+        ...ac1,
+        contactFunctions: { P1: 'line_or_neutral', P2: 'line_or_neutral', PE: 'protective_earth' },
+      };
+      expect(checkProfile(p, [])).toEqual([]);
+    });
+
+    it('rejects unassigned poles when neutral is false', () => {
+      const p: ElectricalProfile = {
+        ...ac1,
+        neutral: false,
+        contactFunctions: { P1: 'line_or_neutral', P2: 'line_or_neutral' },
+      };
+      expect(checkProfile(p, []).join('\n')).toMatch(/neutral is false/);
+    });
+
+    it('rejects unassigned poles on a DC profile', () => {
+      const p: ElectricalProfile = {
+        ...dc,
+        contactFunctions: { ...dc.contactFunctions, P3: 'line_or_neutral' },
+      };
+      expect(checkProfile(p, []).join('\n')).toMatch(/DC profile assigns AC functions/);
+    });
+  });
+
   it('requires three line contacts for a three-phase profile', () => {
     const p: ElectricalProfile = {
       ...ac3,

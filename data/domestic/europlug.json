@@ -47,8 +47,16 @@
       "role": "plug",
       "contactGender": "male",
       "contacts": [
-        { "id": "P1", "label": "L/N", "gender": "male" },
-        { "id": "P2", "label": "L/N", "gender": "male" }
+        {
+          "id": "P1",
+          "label": "L/N",
+          "gender": "male"
+        },
+        {
+          "id": "P2",
+          "label": "L/N",
+          "gender": "male"
+        }
       ],
       "keying": "None: unpolarised, can be inserted either way.",
       "mechanicalNotes": [
@@ -59,8 +67,14 @@
       ],
       "electricalProfiles": ["ac-1ph"],
       "matesWith": [
-        { "family": "cee-7-schuko", "variant": "cee-7-3-socket" },
-        { "family": "cee-7-type-e", "variant": "cee-7-5-socket" },
+        {
+          "family": "cee-7-schuko",
+          "variant": "cee-7-3-socket"
+        },
+        {
+          "family": "cee-7-type-e",
+          "variant": "cee-7-5-socket"
+        },
         {
           "family": "si-32",
           "variant": "si-32-socket",
@@ -132,15 +146,25 @@
       "phases": 1,
       "neutral": true,
       "protectiveEarth": false,
-      "voltage": { "qualifier": "rated", "value": 250, "reference": "line_to_neutral" },
-      "current": { "qualifier": "rated", "value": 2.5 },
+      "voltage": {
+        "qualifier": "rated",
+        "value": 250,
+        "reference": "line_to_neutral"
+      },
+      "current": {
+        "qualifier": "rated",
+        "value": 2.5
+      },
       "frequencyHz": null,
       "maxPowerKw": null,
       "conditions": [
         "Not polarised: line and neutral can be on either pin (P1 and P2 are interchangeable).",
         "For class II equipment only: no earthing contact."
       ],
-      "contactFunctions": { "P1": "line", "P2": "neutral" },
+      "contactFunctions": {
+        "P1": "line_or_neutral",
+        "P2": "line_or_neutral"
+      },
       "standardRef": "en-50075",
       "jurisdiction": null,
       "sourceRefs": ["en-50075-catalogue", "worldstandards-type-c"],
@@ -162,7 +186,12 @@
         "note": "OCPI describes DOMESTIC_C as type C, CEE 7/17; the Europlug is CEE 7/16, the other type C plug."
       }
     ],
-    "openchargemap": [{ "value": "13", "match": "exact" }],
+    "openchargemap": [
+      {
+        "value": "13",
+        "match": "exact"
+      }
+    ],
     "openstreetmap": [
       {
         "value": "socket:typec",

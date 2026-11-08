@@ -24,7 +24,7 @@ export function powerUpperBoundKw(profile: ElectricalProfile): number | null {
   return (factor * v * i) / 1000;
 }
 
-const AC_FUNCTIONS: ContactFunction[] = ['line', 'neutral'];
+const AC_FUNCTIONS: ContactFunction[] = ['line', 'neutral', 'line_or_neutral'];
 const DC_FUNCTIONS: ContactFunction[] = ['dc_positive', 'dc_negative'];
 /** Rounding tolerance for published power figures (e.g. 22 kW for 22.17 kW). */
 const POWER_TOLERANCE = 1.02;
@@ -77,6 +77,8 @@ export function checkProfile(profile: ElectricalProfile, variants: Variant[]): s
   if (functions) {
     const values = Object.values(functions);
     const count = (f: ContactFunction) => values.filter((v) => v === f).length;
+    // Contacts that may carry the neutral: assigned ones and unassigned poles.
+    const possibleNeutrals = count('neutral') + count('line_or_neutral');
 
     if (profile.currentType === 'dc') {
       const ac = values.filter((v) => AC_FUNCTIONS.includes(v));
@@ -87,15 +89,26 @@ export function checkProfile(profile: ElectricalProfile, variants: Variant[]): s
       const dc = values.filter((v) => DC_FUNCTIONS.includes(v));
       if (dc.length > 0) issues.push(`${at}: AC profile assigns DC functions (${dc.join(', ')})`);
       const lines = count('line');
-      const required =
-        profile.supply === 'three_phase' ? 3 : profile.supply === 'split_phase' ? 2 : 1;
-      if (lines !== required) {
-        issues.push(`${at}: '${profile.supply}' needs ${required} line contact(s), found ${lines}`);
+      if (profile.supply === 'single_phase') {
+        // Two current-carrying contacts; unpolarised or unassigned poles use line_or_neutral.
+        const carrying = lines + possibleNeutrals;
+        if (lines > 1)
+          issues.push(`${at}: single-phase allows at most 1 line contact, found ${lines}`);
+        if (carrying !== 2) {
+          issues.push(`${at}: single-phase needs 2 current-carrying contacts, found ${carrying}`);
+        }
+      } else {
+        const required = profile.supply === 'three_phase' ? 3 : 2;
+        if (lines !== required) {
+          issues.push(
+            `${at}: '${profile.supply}' needs ${required} line contact(s), found ${lines}`,
+          );
+        }
       }
     }
-    if (profile.neutral === true && count('neutral') === 0)
+    if (profile.neutral === true && possibleNeutrals === 0)
       issues.push(`${at}: neutral is true but no neutral contact`);
-    if (profile.neutral === false && count('neutral') > 0)
+    if (profile.neutral === false && possibleNeutrals > 0)
       issues.push(`${at}: neutral is false but a neutral contact is assigned`);
     if (profile.protectiveEarth === true && count('protective_earth') === 0) {
       issues.push(`${at}: protectiveEarth is true but no protective_earth contact`);

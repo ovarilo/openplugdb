@@ -63,18 +63,42 @@
       "role": "vehicle_inlet",
       "contactGender": "male",
       "contacts": [
-        { "id": "L1", "label": "L1", "gender": "male" },
-        { "id": "L2-N", "label": "L2/N", "gender": "male" },
-        { "id": "PE", "label": "PE", "gender": "male" },
-        { "id": "CP", "label": "CP", "gender": "male" },
+        {
+          "id": "L1",
+          "label": "L1",
+          "gender": "male"
+        },
+        {
+          "id": "L2-N",
+          "label": "L2/N",
+          "gender": "male"
+        },
+        {
+          "id": "PE",
+          "label": "PE",
+          "gender": "male"
+        },
+        {
+          "id": "CP",
+          "label": "CP",
+          "gender": "male"
+        },
         {
           "id": "CS",
           "label": "CS",
           "gender": "male",
           "note": "Connection switch, also called proximity (PP)."
         },
-        { "id": "DC+", "label": "DC+", "gender": "male" },
-        { "id": "DC-", "label": "DC−", "gender": "male" }
+        {
+          "id": "DC+",
+          "label": "DC+",
+          "gender": "male"
+        },
+        {
+          "id": "DC-",
+          "label": "DC−",
+          "gender": "male"
+        }
       ],
       "keying": "Type 1 section (circular, latch receptacle at the top) above a separate DC section with two large contacts.",
       "mechanicalNotes": [
@@ -82,7 +106,10 @@
       ],
       "electricalProfiles": ["dc", "ac-1ph"],
       "matesWith": [
-        { "family": "ccs-combo-1", "variant": "vehicle-connector" },
+        {
+          "family": "ccs-combo-1",
+          "variant": "vehicle-connector"
+        },
         {
           "family": "iec-62196-type-1",
           "variant": "vehicle-connector",
@@ -120,16 +147,32 @@
       "role": "vehicle_connector",
       "contactGender": "female",
       "contacts": [
-        { "id": "PE", "label": "PE", "gender": "female" },
-        { "id": "CP", "label": "CP", "gender": "female" },
+        {
+          "id": "PE",
+          "label": "PE",
+          "gender": "female"
+        },
+        {
+          "id": "CP",
+          "label": "CP",
+          "gender": "female"
+        },
         {
           "id": "CS",
           "label": "CS",
           "gender": "female",
           "note": "Connection switch, also called proximity (PP)."
         },
-        { "id": "DC+", "label": "DC+", "gender": "female" },
-        { "id": "DC-", "label": "DC−", "gender": "female" }
+        {
+          "id": "DC+",
+          "label": "DC+",
+          "gender": "female"
+        },
+        {
+          "id": "DC-",
+          "label": "DC−",
+          "gender": "female"
+        }
       ],
       "keying": "Type 1 shaped upper section without AC contacts, above the DC section.",
       "mechanicalNotes": [
@@ -148,8 +191,15 @@
       "supply": "dc",
       "neutral": false,
       "protectiveEarth": true,
-      "voltage": { "qualifier": "max", "value": 1000, "reference": "dc" },
-      "current": { "qualifier": "max", "value": 400 },
+      "voltage": {
+        "qualifier": "max",
+        "value": 1000,
+        "reference": "dc"
+      },
+      "current": {
+        "qualifier": "max",
+        "value": 400
+      },
       "maxPowerKw": null,
       "conditions": [
         "Maximum rating of configuration EE in IEC 62196-3:2022 (edition 2.0), tables 302 and 303.",
@@ -178,8 +228,15 @@
       "phases": 1,
       "neutral": null,
       "protectiveEarth": true,
-      "voltage": { "qualifier": "max", "value": 250, "reference": "line_to_neutral" },
-      "current": { "qualifier": "max", "value": 32 },
+      "voltage": {
+        "qualifier": "max",
+        "value": 250,
+        "reference": "line_to_neutral"
+      },
+      "current": {
+        "qualifier": "max",
+        "value": 32
+      },
       "frequencyHz": [50, 60],
       "maxPowerKw": null,
       "conditions": [
@@ -191,7 +248,8 @@
         "L1": "line",
         "PE": "protective_earth",
         "CP": "control_pilot",
-        "CS": "proximity_pilot"
+        "CS": "proximity_pilot",
+        "L2-N": "line_or_neutral"
       },
       "standardRef": "iec-62196-2",
       "jurisdiction": "IEC",
@@ -200,10 +258,30 @@
     }
   ],
   "mappings": {
-    "ocpi-2.2.1": [{ "value": "IEC_62196_T1_COMBO", "match": "exact" }],
-    "ocpi-2.3.0": [{ "value": "IEC_62196_T1_COMBO", "match": "exact" }],
-    "openchargemap": [{ "value": "32", "match": "exact" }],
-    "openstreetmap": [{ "value": "socket:type1_combo", "match": "exact" }]
+    "ocpi-2.2.1": [
+      {
+        "value": "IEC_62196_T1_COMBO",
+        "match": "exact"
+      }
+    ],
+    "ocpi-2.3.0": [
+      {
+        "value": "IEC_62196_T1_COMBO",
+        "match": "exact"
+      }
+    ],
+    "openchargemap": [
+      {
+        "value": "32",
+        "match": "exact"
+      }
+    ],
+    "openstreetmap": [
+      {
+        "value": "socket:type1_combo",
+        "match": "exact"
+      }
+    ]
   },
   "sources": [
     {

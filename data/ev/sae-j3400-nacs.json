@@ -41,16 +41,41 @@
       "role": "vehicle_inlet",
       "contactGender": "male",
       "contacts": [
-        { "id": "P1", "label": "DC+ / L1", "gender": "male" },
-        { "id": "P2", "label": "DC− / L2", "gender": "male" },
-        { "id": "PE", "label": "Ground", "gender": "male" },
-        { "id": "CP", "label": "CP", "gender": "male" },
-        { "id": "PP", "label": "PP", "gender": "male" }
+        {
+          "id": "P1",
+          "label": "DC+ / L1",
+          "gender": "male"
+        },
+        {
+          "id": "P2",
+          "label": "DC− / L2",
+          "gender": "male"
+        },
+        {
+          "id": "PE",
+          "label": "Ground",
+          "gender": "male"
+        },
+        {
+          "id": "CP",
+          "label": "CP",
+          "gender": "male"
+        },
+        {
+          "id": "PP",
+          "label": "PP",
+          "gender": "male"
+        }
       ],
       "keying": null,
       "mechanicalNotes": ["Inlet contacts are described as exterior-facing pins."],
       "electricalProfiles": ["dc", "ac-1ph"],
-      "matesWith": [{ "family": "sae-j3400-nacs", "variant": "vehicle-connector" }],
+      "matesWith": [
+        {
+          "family": "sae-j3400-nacs",
+          "variant": "vehicle-connector"
+        }
+      ],
       "visuals": [
         {
           "kind": "front_view",
@@ -82,11 +107,31 @@
       "role": "vehicle_connector",
       "contactGender": "female",
       "contacts": [
-        { "id": "P1", "label": "DC+ / L1", "gender": "female" },
-        { "id": "P2", "label": "DC− / L2", "gender": "female" },
-        { "id": "PE", "label": "Ground", "gender": "female" },
-        { "id": "CP", "label": "CP", "gender": "female" },
-        { "id": "PP", "label": "PP", "gender": "female" }
+        {
+          "id": "P1",
+          "label": "DC+ / L1",
+          "gender": "female"
+        },
+        {
+          "id": "P2",
+          "label": "DC− / L2",
+          "gender": "female"
+        },
+        {
+          "id": "PE",
+          "label": "Ground",
+          "gender": "female"
+        },
+        {
+          "id": "CP",
+          "label": "CP",
+          "gender": "female"
+        },
+        {
+          "id": "PP",
+          "label": "PP",
+          "gender": "female"
+        }
       ],
       "keying": null,
       "mechanicalNotes": ["The connector includes a latch switch (S1) in the proximity circuit."],
@@ -115,7 +160,11 @@
       "supply": "dc",
       "neutral": false,
       "protectiveEarth": true,
-      "voltage": { "qualifier": "max", "value": 1000, "reference": "dc" },
+      "voltage": {
+        "qualifier": "max",
+        "value": 1000,
+        "reference": "dc"
+      },
       "current": null,
       "maxPowerKw": null,
       "conditions": [
@@ -155,7 +204,8 @@
         "P1": "line",
         "PE": "protective_earth",
         "CP": "control_pilot",
-        "PP": "proximity_pilot"
+        "PP": "proximity_pilot",
+        "P2": "line_or_neutral"
       },
       "standardRef": "sae-j3400",
       "jurisdiction": null,
@@ -172,15 +222,28 @@
       }
     ],
     "ocpi-2.3.0": [
-      { "value": "SAE_J3400", "match": "exact" },
+      {
+        "value": "SAE_J3400",
+        "match": "exact"
+      },
       {
         "value": "TESLA_S",
         "match": "partial",
         "note": "Mechanically compatible, but uses CAN bus instead of power line communication."
       }
     ],
-    "openchargemap": [{ "value": "27", "match": "exact" }],
-    "openstreetmap": [{ "value": "socket:nacs", "match": "exact" }]
+    "openchargemap": [
+      {
+        "value": "27",
+        "match": "exact"
+      }
+    ],
+    "openstreetmap": [
+      {
+        "value": "socket:nacs",
+        "match": "exact"
+      }
+    ]
   },
   "sources": [
     {

@@ -54,8 +54,16 @@
       "role": "socket_outlet",
       "contactGender": "mixed",
       "contacts": [
-        { "id": "P1", "label": "L/N", "gender": "female" },
-        { "id": "P2", "label": "L/N", "gender": "female" },
+        {
+          "id": "P1",
+          "label": "L/N",
+          "gender": "female"
+        },
+        {
+          "id": "P2",
+          "label": "L/N",
+          "gender": "female"
+        },
         {
           "id": "PE",
           "label": "PE",
@@ -110,8 +118,16 @@
       "role": "plug",
       "contactGender": "mixed",
       "contacts": [
-        { "id": "P1", "label": "L/N", "gender": "male" },
-        { "id": "P2", "label": "L/N", "gender": "male" },
+        {
+          "id": "P1",
+          "label": "L/N",
+          "gender": "male"
+        },
+        {
+          "id": "P2",
+          "label": "L/N",
+          "gender": "male"
+        },
         {
           "id": "PE",
           "label": "PE hole",
@@ -123,7 +139,12 @@
       "keying": "The earth hole lets the plug enter a CEE 7/5 socket one way only.",
       "mechanicalNotes": ["Round pins 4.8 mm in diameter and 19 mm long, 19 mm between centres."],
       "electricalProfiles": ["ac-1ph"],
-      "matesWith": [{ "family": "cee-7-type-e", "variant": "cee-7-5-socket" }],
+      "matesWith": [
+        {
+          "family": "cee-7-type-e",
+          "variant": "cee-7-5-socket"
+        }
+      ],
       "visuals": []
     }
   ],
@@ -136,15 +157,26 @@
       "phases": 1,
       "neutral": true,
       "protectiveEarth": true,
-      "voltage": { "qualifier": "rated", "value": 250, "reference": "line_to_neutral" },
-      "current": { "qualifier": "rated", "value": 16 },
+      "voltage": {
+        "qualifier": "rated",
+        "value": 250,
+        "reference": "line_to_neutral"
+      },
+      "current": {
+        "qualifier": "rated",
+        "value": 16
+      },
       "frequencyHz": null,
       "maxPowerKw": null,
       "conditions": [
         "The 16 A/250 V system of NF C 61-314 (title of the 2017 edition); the same standard also defines a 6 A/250 V system that is not type E.",
         "The cited sources do not fix which pin carries line: P1 and P2 are interchangeable here."
       ],
-      "contactFunctions": { "P1": "line", "P2": "neutral", "PE": "protective_earth" },
+      "contactFunctions": {
+        "P1": "line_or_neutral",
+        "P2": "line_or_neutral",
+        "PE": "protective_earth"
+      },
       "standardRef": "nf-c-61-314",
       "jurisdiction": null,
       "sourceRefs": ["nf-c-61-314-catalogue", "wikipedia-ac-plugs", "worldstandards-type-e"],
@@ -153,13 +185,33 @@
   ],
   "mappings": {
     "ocpi-2.2.1": [
-      { "value": "DOMESTIC_E", "match": "exact", "variants": ["cee-7-5-socket", "cee-7-6-plug"] }
+      {
+        "value": "DOMESTIC_E",
+        "match": "exact",
+        "variants": ["cee-7-5-socket", "cee-7-6-plug"]
+      }
     ],
     "ocpi-2.3.0": [
-      { "value": "DOMESTIC_E", "match": "exact", "variants": ["cee-7-5-socket", "cee-7-6-plug"] }
+      {
+        "value": "DOMESTIC_E",
+        "match": "exact",
+        "variants": ["cee-7-5-socket", "cee-7-6-plug"]
+      }
     ],
-    "openchargemap": [{ "value": "23", "match": "exact", "variants": ["cee-7-5-socket"] }],
-    "openstreetmap": [{ "value": "socket:typee", "match": "exact", "variants": ["cee-7-5-socket"] }]
+    "openchargemap": [
+      {
+        "value": "23",
+        "match": "exact",
+        "variants": ["cee-7-5-socket"]
+      }
+    ],
+    "openstreetmap": [
+      {
+        "value": "socket:typee",
+        "match": "exact",
+        "variants": ["cee-7-5-socket"]
+      }
+    ]
   },
   "sources": [
     {

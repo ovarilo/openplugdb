@@ -1593,7 +1593,8 @@
             "L1": "line",
             "PE": "protective_earth",
             "CP": "control_pilot",
-            "CS": "proximity_pilot"
+            "CS": "proximity_pilot",
+            "L2-N": "line_or_neutral"
           },
           "standardRef": "iec-62196-2",
           "jurisdiction": "IEC",
@@ -2360,8 +2361,8 @@
             "The rating comes from secondary sources citing DIN 49440-1 and DIN 49441; the CEE 7 text was not reviewed."
           ],
           "contactFunctions": {
-            "P1": "line",
-            "P2": "neutral",
+            "P1": "line_or_neutral",
+            "P2": "line_or_neutral",
             "PE": "protective_earth"
           },
           "standardRef": "din-49440-1",
@@ -2689,8 +2690,8 @@
             "The cited sources do not fix which pin carries line: P1 and P2 are interchangeable here."
           ],
           "contactFunctions": {
-            "P1": "line",
-            "P2": "neutral",
+            "P1": "line_or_neutral",
+            "P2": "line_or_neutral",
             "PE": "protective_earth"
           },
           "standardRef": "nf-c-61-314",
@@ -3108,8 +3109,8 @@
             "Values come from secondary sources; the CEI 23-50 standard sheets were not reviewed."
           ],
           "contactFunctions": {
-            "P1": "line",
-            "P2": "neutral",
+            "P1": "line_or_neutral",
+            "P2": "line_or_neutral",
             "PE": "protective_earth"
           },
           "standardRef": "cei-23-50-2007",
@@ -3145,8 +3146,8 @@
             "Product example: a porcelain bipasso socket-outlet marked 10/16 A 250 V (collection site)."
           ],
           "contactFunctions": {
-            "P1": "line",
-            "P2": "neutral",
+            "P1": "line_or_neutral",
+            "P2": "line_or_neutral",
             "PE": "protective_earth"
           },
           "standardRef": "cei-23-50-2007",
@@ -4036,8 +4037,8 @@
             "For class II equipment only: no earthing contact."
           ],
           "contactFunctions": {
-            "P1": "line",
-            "P2": "neutral"
+            "P1": "line_or_neutral",
+            "P2": "line_or_neutral"
           },
           "standardRef": "en-50075",
           "jurisdiction": null,
@@ -5228,8 +5229,9 @@
             "P2 is the neutral or a second line depending on the installation, so its function is not recorded."
           ],
           "contactFunctions": {
-            "P1": "line",
-            "PE": "protective_earth"
+            "P1": "line_or_neutral",
+            "PE": "protective_earth",
+            "P2": "line_or_neutral"
           },
           "standardRef": "iec-60309-2",
           "jurisdiction": null,
@@ -5902,8 +5904,9 @@
             "Schurter 6010 marks L/N on the rear terminal view only; no source assigns them on the mating face."
           ],
           "contactFunctions": {
-            "P1": "line",
-            "PE": "protective_earth"
+            "P1": "line_or_neutral",
+            "PE": "protective_earth",
+            "P2": "line_or_neutral"
           },
           "standardRef": "iec-60320-1",
           "jurisdiction": "IEC",
@@ -5939,8 +5942,9 @@
             "Schurter 6010 marks L/N on the rear terminal view only; no source assigns them on the mating face."
           ],
           "contactFunctions": {
-            "P1": "line",
-            "PE": "protective_earth"
+            "P1": "line_or_neutral",
+            "PE": "protective_earth",
+            "P2": "line_or_neutral"
           },
           "standardRef": null,
           "jurisdiction": "UL/CSA",
@@ -6731,7 +6735,8 @@
             "L1": "line",
             "PE": "protective_earth",
             "CP": "control_pilot",
-            "CS": "proximity_pilot"
+            "CS": "proximity_pilot",
+            "L2-N": "line_or_neutral"
           },
           "standardRef": "iec-62196-2",
           "jurisdiction": "IEC",
@@ -6772,7 +6777,8 @@
             "L1": "line",
             "PE": "protective_earth",
             "CP": "control_pilot",
-            "CS": "proximity_pilot"
+            "CS": "proximity_pilot",
+            "L2-N": "line_or_neutral"
           },
           "standardRef": "iec-62196-2",
           "jurisdiction": "US, KR, JP",
@@ -8280,7 +8286,8 @@
             "P1": "line",
             "PE": "protective_earth",
             "CP": "control_pilot",
-            "PP": "proximity_pilot"
+            "PP": "proximity_pilot",
+            "P2": "line_or_neutral"
           },
           "standardRef": "sae-j3400",
           "jurisdiction": null,
@@ -9265,8 +9272,8 @@
             "Not polarised: P1 and P2 are interchangeable."
           ],
           "contactFunctions": {
-            "P1": "line",
-            "P2": "neutral"
+            "P1": "line_or_neutral",
+            "P2": "line_or_neutral"
           },
           "standardRef": "tis-166-2549",
           "jurisdiction": null,

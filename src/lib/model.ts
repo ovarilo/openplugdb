@@ -22,6 +22,7 @@ export type ContactGender = 'male' | 'female' | 'mixed' | 'unknown';
 export type ContactFunction =
   | 'line'
   | 'neutral'
+  | 'line_or_neutral'
   | 'protective_earth'
   | 'control_pilot'
   | 'proximity_pilot'
