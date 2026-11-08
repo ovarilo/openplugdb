@@ -1,0 +1,262 @@
+{
+  "$schema": "../../schemas/connector-family.schema.json",
+  "id": "cee-7-schuko",
+  "name": "Schuko (CEE 7/3, CEE 7/4, CEE 7/7)",
+  "aliases": ["Schuko", "Type F", "CEE 7/3", "CEE 7/4", "CEE 7/7"],
+  "category": "domestic",
+  "subcategory": "household",
+  "description": "Household plug and socket system with two round 4.8 mm pins and earthing through side clips and strips. Unpolarised: the plug can be inserted either way. The CEE 7/7 hybrid plug also fits type E (CEE 7/5) sockets.",
+  "status": "current",
+  "regions": ["europe"],
+  "countries": [],
+  "standards": [
+    {
+      "id": "iec-tr-60083",
+      "designation": "IEC TR 60083",
+      "edition": "7.0 (2015)",
+      "title": "Plugs and socket-outlets for domestic and similar general use standardized in member countries of IEC",
+      "scope": "Catalogue of national plug and socket-outlet systems",
+      "url": "https://webstore.iec.ch/en/publication/23628"
+    },
+    {
+      "id": "cee-7",
+      "designation": "CEE Publication 7",
+      "edition": null,
+      "title": "Specification for plugs and socket-outlets for domestic and similar purposes",
+      "scope": "Standard sheets VII (CEE 7/3 socket, CEE 7/4 plug, CEE 7/7 plug)"
+    },
+    {
+      "id": "din-49440-1",
+      "designation": "DIN 49440-1",
+      "edition": "2006",
+      "title": null,
+      "scope": "Socket-outlets (cited by secondary sources)"
+    },
+    {
+      "id": "din-49441",
+      "designation": "DIN 49441",
+      "edition": null,
+      "title": null,
+      "scope": "Plugs (cited by secondary sources)"
+    }
+  ],
+  "relations": [],
+  "variants": [
+    {
+      "id": "cee-7-3-socket",
+      "name": "CEE 7/3 socket-outlet",
+      "role": "socket_outlet",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "P1", "label": "L/N", "gender": "female" },
+        { "id": "P2", "label": "L/N", "gender": "female" },
+        {
+          "id": "PE",
+          "label": "PE",
+          "gender": "sexless",
+          "form": "side_clip",
+          "note": "Two earthing clips on the recess wall; they engage before the line contacts."
+        }
+      ],
+      "keying": "None: the socket is symmetric and accepts the plug either way.",
+      "mechanicalNotes": [
+        "Recessed socket; the two pin holes are 19 mm apart on a horizontal line.",
+        "Earthing clips sit at 12 and 6 o'clock on the recess wall, 16 mm from the midpoint between the pin holes.",
+        "Recess depth differs between secondary sources (15 mm or 17.5 mm) and is not recorded."
+      ],
+      "electricalProfiles": ["ac-1ph"],
+      "matesWith": [],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/cee-7-schuko/cee-7-3-socket-front.svg",
+          "title": "CEE 7/3 Schuko socket-outlet (female), mating face",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["wikipedia-schuko", "worldstandards-type-f"]
+        },
+        {
+          "kind": "icon",
+          "file": "icons/evicons/plug-schuko.svg",
+          "title": "Schuko CEE 7/3 socket-outlet, mating face (EVicons icon)",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "third_party",
+          "author": "Landolsi Digital (EVicons)",
+          "license": "MIT",
+          "sourceUrl": "https://github.com/evicons/evicons/blob/v0.8.0/packages/svg/svg/plug-schuko.svg"
+        }
+      ]
+    },
+    {
+      "id": "cee-7-4-plug",
+      "name": "CEE 7/4 plug",
+      "role": "plug",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "P1", "label": "L/N", "gender": "male" },
+        { "id": "P2", "label": "L/N", "gender": "male" },
+        {
+          "id": "PE",
+          "label": "PE",
+          "gender": "sexless",
+          "form": "side_clip",
+          "note": "Two earthing strips on the top and bottom of the plug body."
+        }
+      ],
+      "keying": "None: unpolarised, can be inserted either way.",
+      "mechanicalNotes": ["Round pins 4.8 mm in diameter and 19 mm long, 19 mm between centres."],
+      "electricalProfiles": ["ac-1ph"],
+      "matesWith": [{ "family": "cee-7-schuko", "variant": "cee-7-3-socket" }],
+      "visuals": []
+    },
+    {
+      "id": "cee-7-7-plug",
+      "name": "CEE 7/7 hybrid plug",
+      "aliases": ["Type E/F plug"],
+      "role": "plug",
+      "contactGender": "mixed",
+      "contacts": [
+        { "id": "P1", "label": "L/N", "gender": "male" },
+        { "id": "P2", "label": "L/N", "gender": "male" },
+        { "id": "PE", "label": "PE strips", "gender": "sexless", "form": "side_clip" },
+        {
+          "id": "PE-hole",
+          "label": "PE hole",
+          "gender": "female",
+          "form": "earth_hole",
+          "note": "Receives the earth pin of a type E (CEE 7/5) socket."
+        }
+      ],
+      "keying": "In a CEE 7/3 socket it is unpolarised; in a CEE 7/5 socket the earth pin enforces one orientation.",
+      "mechanicalNotes": [
+        "Combines the earthing strips of CEE 7/4 with the earth hole of CEE 7/6."
+      ],
+      "electricalProfiles": ["ac-1ph"],
+      "matesWith": [
+        {
+          "family": "cee-7-schuko",
+          "variant": "cee-7-3-socket"
+        }
+      ],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/cee-7-schuko/cee-7-7-plug-front.svg",
+          "title": "CEE 7/7 hybrid plug (male pins, earth hole), mating face",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["icc-70142", "pro-elec-ecs002-shu"]
+        }
+      ]
+    }
+  ],
+  "electricalProfiles": [
+    {
+      "id": "ac-1ph",
+      "name": "AC single-phase",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": true,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "rated", "value": 250, "reference": "line_to_neutral" },
+      "current": { "qualifier": "rated", "value": 16 },
+      "frequencyHz": null,
+      "maxPowerKw": null,
+      "conditions": [
+        "Not polarised: line and neutral can be on either pin (P1 and P2 are interchangeable).",
+        "The rating comes from secondary sources citing DIN 49440-1 and DIN 49441; the CEE 7 text was not reviewed."
+      ],
+      "contactFunctions": {
+        "P1": "line",
+        "P2": "neutral",
+        "PE": "protective_earth"
+      },
+      "standardRef": "din-49440-1",
+      "jurisdiction": null,
+      "sourceRefs": ["wikipedia-schuko", "worldstandards-type-f"],
+      "confidence": "medium"
+    }
+  ],
+  "mappings": {
+    "ocpi-2.2.1": [
+      { "value": "DOMESTIC_F", "match": "exact", "variants": ["cee-7-3-socket", "cee-7-4-plug"] },
+      {
+        "value": "DOMESTIC_F",
+        "match": "partial",
+        "variants": ["cee-7-7-plug"],
+        "note": "CEE 7/7 also fits DOMESTIC_E sockets."
+      }
+    ],
+    "ocpi-2.3.0": [
+      { "value": "DOMESTIC_F", "match": "exact", "variants": ["cee-7-3-socket", "cee-7-4-plug"] },
+      {
+        "value": "DOMESTIC_F",
+        "match": "partial",
+        "variants": ["cee-7-7-plug"],
+        "note": "CEE 7/7 also fits DOMESTIC_E sockets."
+      }
+    ],
+    "openchargemap": [
+      { "value": "28", "match": "exact", "variants": ["cee-7-3-socket", "cee-7-4-plug"] }
+    ],
+    "openstreetmap": [
+      { "value": "socket:schuko", "match": "exact", "variants": ["cee-7-3-socket"] }
+    ]
+  },
+  "sources": [
+    {
+      "id": "wikipedia-schuko",
+      "title": "Schuko",
+      "publisher": "Wikipedia",
+      "type": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/Schuko",
+      "accessed": "2026-11-08",
+      "note": "Secondary source citing DIN 49440-1 and DIN 49441."
+    },
+    {
+      "id": "worldstandards-type-f",
+      "title": "Plug type F",
+      "publisher": "WorldStandards",
+      "type": "reference_database",
+      "url": "https://www.worldstandards.eu/electricity/plugs-and-sockets/f/",
+      "accessed": "2026-11-08",
+      "note": "Facts only (dimensions, rating); no text or image reused."
+    },
+    {
+      "id": "icc-70142",
+      "title": "70142 European Schuko CEE 7/7 straight plug drawing",
+      "publisher": "International Configurations",
+      "type": "manufacturer",
+      "url": "https://internationalconfigurations.com/diagrams/product%20PDFs/70142.pdf",
+      "accessed": "2026-11-08",
+      "note": "Dimensioned front view of the CEE 7/7 plug face; facts only, no image reused."
+    },
+    {
+      "id": "pro-elec-ecs002-shu",
+      "title": "Mains power plug Schuko 16 A (ECS002-SHU) datasheet",
+      "publisher": "pro-ELEC (Farnell)",
+      "type": "manufacturer",
+      "url": "https://www.farnell.com/datasheets/3762752.pdf",
+      "accessed": "2026-11-08",
+      "note": "Front view of a dual-earthing (CEE 7/7 type) plug: 36.5 mm diameter, 32 mm across the flats; facts only, no image reused."
+    }
+  ],
+  "verification": {
+    "status": "partial",
+    "lastVerified": "2026-11-08",
+    "notes": [
+      "Ratings rely on secondary sources; the CEE 7 publication and DIN standards were not reviewed.",
+      "Frequency is not stated by the cited sources.",
+      "The CEE 7/7 plug face is drawn from two manufacturer front views (International Configurations 70142, pro-ELEC ECS002-SHU): 36.5 mm face with flats 32 mm apart and guide ribs, pins 19 mm apart, earthing strips top and bottom, earth hole below the pin line. The earth hole offset is scaled from the 70142 drawing, not dimensioned; the CEE 7/7 standard sheet was not reviewed.",
+      "No CEE 7/4 plug drawing: no source found depicts the face of a plain CEE 7/4 plug with dimensions, and it is not derived from the CEE 7/7 drawing or by mirroring the socket."
+    ]
+  }
+}

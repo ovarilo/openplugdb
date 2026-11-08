@@ -1,0 +1,187 @@
+{
+  "$schema": "../schemas/vocabulary.schema.json",
+  "system": "openchargemap",
+  "name": "Open Charge Map ConnectionType",
+  "vocabulary": "closed",
+  "note": "Values are ConnectionType IDs (as strings). Labels are trimmed titles; status suffixes such as obsolete/discontinued are omitted.",
+  "source": {
+    "url": "https://raw.githubusercontent.com/openchargemap/ocm-export/8e3bedca48ca94807d96b2f5e7ee02cffe63ae54/data/referencedata.json",
+    "revision": "ocm-export commit 8e3bedca (2026-04-22)",
+    "accessed": "2026-11-08"
+  },
+  "licenseNote": "Identifiers and titles only, for interoperability. No license is stated for the OCM reference data itself.",
+  "values": [
+    {
+      "value": "0",
+      "label": "Unknown"
+    },
+    {
+      "value": "1",
+      "label": "Type 1 (J1772)"
+    },
+    {
+      "value": "2",
+      "label": "CHAdeMO"
+    },
+    {
+      "value": "3",
+      "label": "BS1363 3 Pin 13 Amp"
+    },
+    {
+      "value": "4",
+      "label": "Blue Commando (2P+E)"
+    },
+    {
+      "value": "5",
+      "label": "LP Inductive"
+    },
+    {
+      "value": "6",
+      "label": "SP Inductive"
+    },
+    {
+      "value": "7",
+      "label": "Avcon Connector"
+    },
+    {
+      "value": "8",
+      "label": "Tesla (Roadster)"
+    },
+    {
+      "value": "9",
+      "label": "NEMA 5-20R"
+    },
+    {
+      "value": "10",
+      "label": "NEMA 14-30"
+    },
+    {
+      "value": "11",
+      "label": "NEMA 14-50"
+    },
+    {
+      "value": "13",
+      "label": "Europlug 2-Pin (CEE 7/16)"
+    },
+    {
+      "value": "14",
+      "label": "NEMA 6-20"
+    },
+    {
+      "value": "15",
+      "label": "NEMA 6-15"
+    },
+    {
+      "value": "16",
+      "label": "CEE 3 Pin"
+    },
+    {
+      "value": "17",
+      "label": "CEE 5 Pin"
+    },
+    {
+      "value": "18",
+      "label": "CEE+ 7 Pin"
+    },
+    {
+      "value": "21",
+      "label": "XLR Plug (4 pin)"
+    },
+    {
+      "value": "22",
+      "label": "NEMA 5-15R"
+    },
+    {
+      "value": "23",
+      "label": "CEE 7/5"
+    },
+    {
+      "value": "24",
+      "label": "Wireless Charging"
+    },
+    {
+      "value": "25",
+      "label": "Type 2 (Socket Only)"
+    },
+    {
+      "value": "26",
+      "label": "SCAME Type 3C (Schneider-Legrand)"
+    },
+    {
+      "value": "27",
+      "label": "NACS / Tesla Supercharger"
+    },
+    {
+      "value": "28",
+      "label": "CEE 7/4 - Schuko - Type F"
+    },
+    {
+      "value": "29",
+      "label": "Type I (AS 3112)"
+    },
+    {
+      "value": "30",
+      "label": "Tesla (Model S/X)"
+    },
+    {
+      "value": "31",
+      "label": "Tesla Battery Swap"
+    },
+    {
+      "value": "32",
+      "label": "CCS (Type 1)"
+    },
+    {
+      "value": "33",
+      "label": "CCS (Type 2)"
+    },
+    {
+      "value": "34",
+      "label": "IEC 60309 3-pin"
+    },
+    {
+      "value": "35",
+      "label": "IEC 60309 5-pin"
+    },
+    {
+      "value": "36",
+      "label": "SCAME Type 3A (Low Power)"
+    },
+    {
+      "value": "1036",
+      "label": "Type 2 (Tethered Connector)"
+    },
+    {
+      "value": "1037",
+      "label": "T13 - SEC1011 ( Swiss domestic 3-pin ) - Type J"
+    },
+    {
+      "value": "1038",
+      "label": "GB-T AC - GB/T 20234.2 (Socket)"
+    },
+    {
+      "value": "1039",
+      "label": "GB-T AC - GB/T 20234.2 (Tethered Cable)"
+    },
+    {
+      "value": "1040",
+      "label": "GB-T DC - GB/T 20234.3"
+    },
+    {
+      "value": "1041",
+      "label": "Three Phase 5-Pin (AS/NZ 3123)"
+    },
+    {
+      "value": "1042",
+      "label": "NEMA TT-30R"
+    },
+    {
+      "value": "1043",
+      "label": "Type M"
+    },
+    {
+      "value": "1044",
+      "label": "ChaoJi / CHAdeMO 3.x"
+    }
+  ]
+}

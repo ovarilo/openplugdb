@@ -1,0 +1,46 @@
+{
+  "name": "openplugdb",
+  "version": "0.1.0",
+  "private": true,
+  "description": "An open, international and static reference of electrical plugs and connectors.",
+  "homepage": "https://openplugdb.org",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ovarilo/openplugdb.git"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "validate": "bun scripts/validate.ts",
+    "export": "bun scripts/export.ts",
+    "export:check": "bun scripts/export.ts --check",
+    "icons:sync": "bun scripts/sync-evicons.ts",
+    "icons:check": "bun scripts/sync-evicons.ts --check",
+    "test": "vp test run",
+    "lint": "vp lint",
+    "fmt": "vp fmt",
+    "fmt:check": "vp fmt --check",
+    "check": "astro check",
+    "build": "bun run export && astro build && pagefind --site dist",
+    "preview": "astro preview",
+    "ci": "bun run validate && bun run export:check && bun run icons:check && bun run fmt:check && bun run lint && bun run test && bun run check && bun run build"
+  },
+  "dependencies": {
+    "astro": "7.4.7"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.12",
+    "@astrojs/sitemap": "3.7.4",
+    "@evicons/svg": "0.8.0",
+    "@types/node": "24.19.2",
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "pagefind": "1.6.0",
+    "typescript": "6.0.3",
+    "vite-plus": "1.5.0"
+  },
+  "engines": {
+    "node": ">=22.23.4"
+  }
+}

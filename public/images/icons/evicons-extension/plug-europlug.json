@@ -1,0 +1,47 @@
+{
+  "category": "connector",
+  "meaning": {
+    "en": "Europlug (CEE 7/16, EN 50075, two-pin plug without earth), shown as the plug face seen from the front",
+    "de": "Eurostecker (CEE 7/16, EN 50075, zweipoliger Stecker ohne Schutzkontakt), dargestellt als Steckerfläche von vorn"
+  },
+  "tags": {
+    "en": [
+      "europlug",
+      "cee 7/16",
+      "en 50075",
+      "type c",
+      "two-pin plug",
+      "ac",
+      "plug"
+    ],
+    "de": [
+      "eurostecker",
+      "cee 7/16",
+      "en 50075",
+      "typ c",
+      "zweipolig",
+      "ac",
+      "stecker"
+    ],
+    "fr": [
+      "europlug",
+      "fiche europe",
+      "cee 7/16",
+      "en 50075",
+      "type c",
+      "ac",
+      "fiche"
+    ]
+  },
+  "since": "0.9.0",
+  "aliases": [],
+  "standard": {
+    "norm": "EN 50075 (CEE 7/16)",
+    "source": "EN 50075 (CEE 7/16) not consulted; contact layout taken from the OpenPlugDB front view \"Europlug CEE 7/16 plug (male), mating face\" (https://github.com/ovarilo/openplugdb/blob/main/public/images/connectors/europlug/europlug-plug-front.svg, retrieved 2026-11-08), drawn from Wikipedia \"Europlug\" (https://en.wikipedia.org/wiki/Europlug, retrieved 2026-11-08); WorldStandards \"Plug type C\" (https://www.worldstandards.eu/electricity/plugs-and-sockets/c/, retrieved 2026-11-08)"
+  },
+  "provenance": {
+    "createdBy": "ai",
+    "approvedBy": null,
+    "approvedOn": null
+  }
+}

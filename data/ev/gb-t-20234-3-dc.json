@@ -1,0 +1,228 @@
+{
+  "$schema": "../../schemas/connector-family.schema.json",
+  "id": "gb-t-20234-3-dc",
+  "name": "GB/T 20234.3 DC",
+  "aliases": ["GB/T DC", "GBT DC", "GB-T DC", "Chinese DC charging coupler"],
+  "category": "ev",
+  "subcategory": "dc-charging",
+  "description": "Chinese national DC charging coupler defined by GB/T 20234.3, rated up to 1500 V DC and 800 A since the 2023 edition (1000 V and 250 A in the 2015 edition). Nine contacts: DC+, DC−, protective earth, CAN charging communication (S+, S−), two charging connection confirmation contacts (CC1, CC2) and a low-voltage auxiliary supply (A+, A−). The vehicle inlet carries contact tubes and the vehicle connector carries pins.",
+  "status": "current",
+  "regions": ["asia"],
+  "countries": ["CN"],
+  "standards": [
+    {
+      "id": "gb-t-20234-3-2023",
+      "designation": "GB/T 20234.3",
+      "edition": "2023",
+      "title": "Connection set for conductive charging of electric vehicles – Part 3: DC charging coupler",
+      "scope": "Current edition: ratings (Table 1), contact functions (Table 2), contact arrangement, locking device and dimensions. Replaces GB/T 20234.3-2015."
+    },
+    {
+      "id": "gb-t-20234-3-2015",
+      "designation": "GB/T 20234.3",
+      "edition": "2015",
+      "title": "Connection set for conductive charging of electric vehicles – Part 3: DC charging coupler",
+      "scope": "Superseded edition (charging mode 4, connection mode C); source of the contact ratings recorded in the conditions."
+    },
+    {
+      "id": "gb-t-20234-4-2023",
+      "designation": "GB/T 20234.4",
+      "edition": "2023",
+      "title": "Connection set for conductive charging of electric vehicles – Part 4: High power DC charging coupler",
+      "scope": "Separate, newer high-power DC coupler (ChaoJi), not part of this family and not modelled yet."
+    }
+  ],
+  "relations": [],
+  "variants": [
+    {
+      "id": "vehicle-inlet",
+      "name": "GB/T DC vehicle inlet",
+      "aliases": ["Vehicle socket (GB/T terminology)"],
+      "role": "vehicle_inlet",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "DC+", "label": "DC+", "gender": "female" },
+        { "id": "DC-", "label": "DC−", "gender": "female" },
+        { "id": "PE", "label": "PE", "gender": "female" },
+        { "id": "S+", "label": "S+", "gender": "female" },
+        { "id": "S-", "label": "S−", "gender": "female" },
+        { "id": "CC1", "label": "CC1", "gender": "female" },
+        { "id": "CC2", "label": "CC2", "gender": "female" },
+        { "id": "A+", "label": "A+", "gender": "female" },
+        { "id": "A-", "label": "A−", "gender": "female" }
+      ],
+      "keying": "Circular face: three small signal contacts at the top, the two DC contacts side by side in the middle, the auxiliary contacts either side of PE at the bottom.",
+      "mechanicalNotes": [
+        "Called \"vehicle socket\" in the English translations of GB/T 20234.3.",
+        "The vehicle inlet has a locking notch for the mechanical lock head of the vehicle connector (2023 edition).",
+        "The 2023 edition changed the height of the CC2 contact sleeve of the vehicle inlet."
+      ],
+      "electricalProfiles": ["dc"],
+      "matesWith": [{ "family": "gb-t-20234-3-dc", "variant": "vehicle-connector" }],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/gb-t-20234-3-dc/vehicle-inlet-front.svg",
+          "title": "GB/T 20234.3 DC vehicle inlet (female), mating face",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["phoenix-1271833"]
+        }
+      ]
+    },
+    {
+      "id": "vehicle-connector",
+      "name": "GB/T DC vehicle connector",
+      "aliases": ["Vehicle plug (GB/T terminology)"],
+      "role": "vehicle_connector",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "DC+", "label": "DC+", "gender": "male" },
+        { "id": "DC-", "label": "DC−", "gender": "male" },
+        { "id": "PE", "label": "PE", "gender": "male" },
+        { "id": "S+", "label": "S+", "gender": "male" },
+        { "id": "S-", "label": "S−", "gender": "male" },
+        { "id": "CC1", "label": "CC1", "gender": "male" },
+        { "id": "CC2", "label": "CC2", "gender": "male" },
+        { "id": "A+", "label": "A+", "gender": "male" },
+        { "id": "A-", "label": "A−", "gender": "male" }
+      ],
+      "keying": null,
+      "mechanicalNotes": [
+        "Called \"vehicle plug\" in the English translations of GB/T 20234.3.",
+        "Tethered to the DC charger; has a mechanical locking rod and lock head and, as a recommendation, an electronic lock with emergency release (2023 edition)."
+      ],
+      "electricalProfiles": ["dc"],
+      "matesWith": [],
+      "visuals": []
+    }
+  ],
+  "electricalProfiles": [
+    {
+      "id": "dc",
+      "name": "DC",
+      "currentType": "dc",
+      "supply": "dc",
+      "neutral": false,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "max", "value": 1500, "reference": "dc" },
+      "current": { "qualifier": "max", "value": 800 },
+      "maxPowerKw": null,
+      "conditions": [
+        "Upper limits of the scope of GB/T 20234.3-2023: rated voltage up to 1500 V DC, rated current (maximum continuous operating current) up to 800 A. The Table 1 rating steps of the 2023 edition were not reviewed.",
+        "GB/T 20234.3-2015 (superseded) covered couplers up to 1000 V DC and 250 A, with DC+/DC− rated 750 V or 1000 V and 80, 125, 200 or 250 A.",
+        "In the 2015 edition, S+, S−, CC1 and CC2 are rated 0 to 30 V, 2 A, and the auxiliary supply A+/A− 0 to 30 V, 20 A.",
+        "Under active cooling the maximum continuous current can exceed the table values (2023 edition, notes to Table 1).",
+        "Mating sequence (2023 edition): PE first, then CC2, DC±, A±, S± and CC1 last.",
+        "S+/S− carry the CAN charging communication (CAN_H, CAN_L).",
+        "CC1 and CC2 are charging connection confirmation contacts, recorded as proximity_pilot, the closest function in the OpenPlugDB vocabulary.",
+        "A+/A− (low-voltage auxiliary supply from the charger) have no function in the OpenPlugDB vocabulary and are left out of contactFunctions."
+      ],
+      "contactFunctions": {
+        "DC+": "dc_positive",
+        "DC-": "dc_negative",
+        "PE": "protective_earth",
+        "S+": "communication",
+        "S-": "communication",
+        "CC1": "proximity_pilot",
+        "CC2": "proximity_pilot"
+      },
+      "standardRef": "gb-t-20234-3-2023",
+      "jurisdiction": null,
+      "sourceRefs": [
+        "gb-t-20234-3-2023-translation",
+        "gb-t-20234-3-2023-preview",
+        "gb-t-20234-3-2015-translation"
+      ],
+      "confidence": "high"
+    }
+  ],
+  "mappings": {
+    "ocpi-2.2.1": [{ "value": "GBT_DC", "match": "exact" }],
+    "ocpi-2.3.0": [{ "value": "GBT_DC", "match": "exact" }],
+    "openchargemap": [{ "value": "1040", "match": "exact" }],
+    "openstreetmap": []
+  },
+  "sources": [
+    {
+      "id": "samr-gb-t-20234-list",
+      "title": "National standards catalogue, GB/T 20234 series: status and dates of each part and edition",
+      "publisher": "State Administration for Market Regulation (SAMR), openstd.samr.gov.cn",
+      "type": "standard_abstract",
+      "url": "https://openstd.samr.gov.cn/bzgk/gb/std_list?p.p1=0&p.p90=circulation_date&p.p91=desc&p.p2=20234",
+      "accessed": "2026-11-08",
+      "note": "GB/T 20234.3-2023 current (published and implemented 2023-09-07), GB/T 20234.3-2015 withdrawn, GB/T 20234.4-2023 current (implemented 2024-04-01)."
+    },
+    {
+      "id": "gb-t-20234-3-2023-translation",
+      "title": "GB/T 20234.3-2023, English translation preview: foreword, scope, clauses 1 to 7",
+      "publisher": "ChineseStandard.net (unofficial commercial translation)",
+      "type": "standard",
+      "url": "https://www.chinesestandard.net/PDF/English.aspx/GBT20234.3-2023",
+      "accessed": "2026-11-08",
+      "note": "Unofficial translation; facts only. Used for the scope limits, the changes from 2015, the nine contacts, the mating sequence and the locking device."
+    },
+    {
+      "id": "gb-t-20234-3-2023-preview",
+      "title": "GB/T 20234.3-2023, English translation preview: foreword, scope and notes to Table 1",
+      "publisher": "Chinastandards.org (unofficial commercial translation)",
+      "type": "standard",
+      "url": "https://ivzjnmqpfbpljtwwtgho.supabase.co/storage/v1/object/public/standards-previews/gb-t/GBT%2020234.3-2023-preview.pdf",
+      "accessed": "2026-11-08",
+      "note": "Five-page preview PDF linked from chinastandards.org/standards/gb-t-20234-3-2023. Unofficial translation; facts only. Used for the meaning of the rated current and the active-cooling note."
+    },
+    {
+      "id": "gb-t-20234-3-2015-translation",
+      "title": "GB/T 20234.3-2015, English translation preview: foreword, scope, Table 2 (contact ratings and functions)",
+      "publisher": "ChineseStandard.net (unofficial commercial translation)",
+      "type": "standard",
+      "url": "https://www.chinesestandard.net/PDF.aspx/GBT20234.3-2015",
+      "accessed": "2026-11-08",
+      "note": "Unofficial translation; facts only."
+    },
+    {
+      "id": "phoenix-1271833",
+      "title": "CHARX GBH4I-DC250-2,0M GB/T DC vehicle charging inlet datasheet, pin assignment of vehicle charging inlets",
+      "publisher": "Phoenix Contact",
+      "type": "manufacturer",
+      "url": "https://docs.rs-online.com/fdc2/A700000013600927.pdf",
+      "accessed": "2026-11-08",
+      "note": "Used for the inlet face layout and the contact set; its product rating (1000 V, 250 A, GB/T 20234.3-2015) is not used as the connector rating."
+    },
+    {
+      "id": "wikipedia-gb-t",
+      "title": "GB/T charging standard",
+      "publisher": "Wikipedia",
+      "type": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/GB/T_charging_standard",
+      "accessed": "2026-11-08",
+      "note": "Secondary: contact gender of the vehicle connector."
+    },
+    {
+      "id": "chademo-chaoji-gb-t",
+      "title": "ChaoJi GB/T standards released",
+      "publisher": "CHAdeMO Association",
+      "type": "other",
+      "url": "https://www.chademo.com/chaoji-gbt-standards-released",
+      "accessed": "2026-11-08",
+      "note": "States that GB/T 20234.4-2023 is one of the documents released for ChaoJi-1."
+    }
+  ],
+  "verification": {
+    "status": "partial",
+    "lastVerified": "2026-11-08",
+    "notes": [
+      "Table 1 (rating steps) and Table 2 (contact ratings) of the 2023 edition were not reviewed; contact ratings in the conditions come from the 2015 edition.",
+      "Conflict: Wikipedia gives the auxiliary supply A+/A− as 12 V, 10 A, while GB/T 20234.3-2015 Table 2 gives 0 to 30 V, 20 A. The standard value is kept.",
+      "Contact genders (male vehicle connector, female vehicle inlet) rest on Wikipedia and on the 2023 foreword, which mentions the CC2 contact sleeve of the vehicle inlet; the Chinese original text was not checked.",
+      "The inlet face drawing relies on a single manufacturer source (Phoenix Contact 1271833, a 2015-edition product). The vehicle connector face is not drawn: no source depicting it was reviewed.",
+      "GB/T 20234.4-2023 (high-power DC coupler, ChaoJi) is a separate interface, not modelled yet.",
+      "The OpenStreetMap socket key for GB/T DC could not be checked against the pinned wiki revision; the mapping is left empty pending that check, not because no key exists.",
+      "The CC1/CC2 resistor coding and the control guidance circuit (GB/T 18487.1) are not recorded.",
+      "The EVicons plug-gbt-dc icon (0.8.0) is not attached: its outline has a flat top edge, while the inlet face recorded here (keying and front view) has none; the contact layout matches."
+    ]
+  }
+}

@@ -1,0 +1,226 @@
+{
+  "$schema": "../../schemas/connector-family.schema.json",
+  "id": "bs-1363",
+  "name": "BS 1363",
+  "aliases": ["Type G", "13 A plug", "UK plug"],
+  "category": "domestic",
+  "subcategory": "household",
+  "description": "British 13 A fused plug and shuttered socket-outlet: three rectangular pins in a triangle, the earth pin above line and neutral. Line and neutral pins carry insulating sleeves; the plug holds a BS 1362 cartridge fuse.",
+  "status": "current",
+  "regions": ["europe", "asia", "africa", "middle_east"],
+  "countries": [
+    "GB",
+    "IE",
+    "MT",
+    "CY",
+    "HK",
+    "MO",
+    "SG",
+    "MY",
+    "BN",
+    "LK",
+    "AE",
+    "SA",
+    "QA",
+    "KW",
+    "BH",
+    "OM",
+    "KE",
+    "UG",
+    "TZ",
+    "ZM",
+    "ZW",
+    "MW"
+  ],
+  "standards": [
+    {
+      "id": "bs-1363-1",
+      "designation": "BS 1363-1",
+      "edition": "2023",
+      "title": "13 A plugs, socket-outlets, adaptors and connection units - Rewirable and non-rewirable 13 A fused plugs. Specification",
+      "scope": "13 A fused plugs",
+      "url": "https://knowledge.bsigroup.com/products/13-a-plugs-socket-outlets-adaptors-and-connection-units-rewirable-and-non-rewirable-13-a-fused-plugs-specification"
+    },
+    {
+      "id": "bs-1363-2",
+      "designation": "BS 1363-2",
+      "edition": "2023",
+      "title": "13 A plugs, socket-outlets, adaptors and connection units - 13 A switched and unswitched socket-outlets. Specification",
+      "scope": "13 A socket-outlets"
+    },
+    {
+      "id": "bs-1362",
+      "designation": "BS 1362",
+      "edition": null,
+      "title": null,
+      "scope": "Cartridge fuses fitted in BS 1363 plugs"
+    },
+    {
+      "id": "iec-tr-60083",
+      "designation": "IEC TR 60083",
+      "edition": "7.0 (2015)",
+      "title": "Plugs and socket-outlets for domestic and similar general use standardized in member countries of IEC",
+      "scope": "Catalogue of national plug and socket-outlet systems",
+      "url": "https://webstore.iec.ch/en/publication/23628"
+    }
+  ],
+  "relations": [],
+  "variants": [
+    {
+      "id": "bs-1363-plug",
+      "name": "BS 1363 13 A fused plug",
+      "role": "plug",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "L", "label": "Line", "gender": "male" },
+        { "id": "N", "label": "Neutral", "gender": "male" },
+        { "id": "PE", "label": "Earth", "gender": "male", "form": "earth_pin" }
+      ],
+      "keying": "The earth pin enforces polarity. Seen from the pins with the earth pin at the top: line lower left, neutral lower right.",
+      "mechanicalNotes": [
+        "Line and neutral pins 6.4 × 4.0 mm, 17.7 mm long, 22.2 mm between centres, with insulating sleeves.",
+        "Earth pin 8.0 × 4.0 mm, 22.2 mm from the line-neutral axis; its length is 22.3 mm on Wikipedia and 22.7 mm on WorldStandards.",
+        "Fused with a BS 1362 cartridge fuse in the line path."
+      ],
+      "electricalProfiles": ["ac-1ph"],
+      "matesWith": [{ "family": "bs-1363", "variant": "bs-1363-socket" }],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/bs-1363/bs-1363-plug-front.svg",
+          "title": "BS 1363 plug (male), mating face, earth pin up",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["wikipedia-bs-1363", "worldstandards-type-g"]
+        }
+      ]
+    },
+    {
+      "id": "bs-1363-socket",
+      "name": "BS 1363 13 A socket-outlet",
+      "role": "socket_outlet",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "L", "label": "Line", "gender": "female" },
+        { "id": "N", "label": "Neutral", "gender": "female" },
+        { "id": "PE", "label": "Earth", "gender": "female", "form": "earth_hole" }
+      ],
+      "keying": "Shuttered line and neutral apertures. Seen from the front with the earth aperture at the top: neutral lower left, line lower right.",
+      "mechanicalNotes": [
+        "Apertures at most 7.2 × 4.8 mm (line and neutral) and 8.8 × 4.8 mm (earth).",
+        "At least 9.6 mm of insertion before the first live part.",
+        "Shutters open with the earth pin on older designs, or with line and neutral (or all three pins) together on others; a two-pin Europlug must not open them."
+      ],
+      "electricalProfiles": ["ac-1ph"],
+      "matesWith": [],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/bs-1363/bs-1363-socket-front.svg",
+          "title": "BS 1363 socket-outlet (female), mating face, earth aperture up",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["wikipedia-bs-1363", "worldstandards-type-g"]
+        },
+        {
+          "kind": "icon",
+          "file": "icons/evicons-extension/plug-bs-1363.svg",
+          "title": "BS 1363 socket-outlet, mating face, earth aperture up (icon)",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "MIT",
+          "basedOn": ["wikipedia-bs-1363", "worldstandards-type-g"]
+        }
+      ]
+    }
+  ],
+  "electricalProfiles": [
+    {
+      "id": "ac-1ph",
+      "name": "AC single-phase",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": true,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "max", "value": 250, "reference": "line_to_neutral" },
+      "current": { "qualifier": "rated", "value": 13 },
+      "frequencyHz": [50, 60],
+      "maxPowerKw": null,
+      "conditions": [
+        "13 A comes from the BS 1363 part titles; the 250 V limit comes from a secondary source only.",
+        "50 Hz to 60 Hz is in the scope of the 2023 editions.",
+        "A plug's marked rating can be lower: it follows the BS 1362 fuse fitted (3 A and 13 A are common). The fuse rating is not the interface rating."
+      ],
+      "contactFunctions": { "L": "line", "N": "neutral", "PE": "protective_earth" },
+      "standardRef": "bs-1363-1",
+      "jurisdiction": null,
+      "sourceRefs": ["bsi-bs-1363-1", "bsi-bs-1363-2023-changes", "wikipedia-bs-1363"],
+      "confidence": "medium"
+    }
+  ],
+  "mappings": {
+    "ocpi-2.2.1": [{ "value": "DOMESTIC_G", "match": "exact" }],
+    "ocpi-2.3.0": [{ "value": "DOMESTIC_G", "match": "exact" }],
+    "openchargemap": [{ "value": "3", "match": "exact" }],
+    "openstreetmap": [
+      { "value": "socket:bs1363", "match": "exact", "variants": ["bs-1363-socket"] }
+    ]
+  },
+  "sources": [
+    {
+      "id": "bsi-bs-1363-1",
+      "title": "BS 1363-1:2023 product record",
+      "publisher": "BSI",
+      "type": "standard_abstract",
+      "url": "https://knowledge.bsigroup.com/products/13-a-plugs-socket-outlets-adaptors-and-connection-units-rewirable-and-non-rewirable-13-a-fused-plugs-specification",
+      "accessed": "2026-11-08",
+      "note": "Edition (30 June 2023), status, scope: 13 A fused plugs with sleeved pins, 50 Hz to 60 Hz. No voltage stated."
+    },
+    {
+      "id": "bsi-bs-1363-2023-changes",
+      "title": "Get plugged in to the changes to the BS 1363 standard series",
+      "publisher": "BSI",
+      "type": "other",
+      "url": "https://knowledge.bsigroup.com/articles/get-plugged-in-to-the-changes-to-the-bs-1363-standard-series",
+      "accessed": "2026-11-08",
+      "note": "2023 editions of parts 1 to 5; 50 Hz to 60 Hz brought into scope for all parts."
+    },
+    {
+      "id": "wikipedia-bs-1363",
+      "title": "BS 1363",
+      "publisher": "Wikipedia",
+      "type": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/BS_1363",
+      "accessed": "2026-11-08",
+      "note": "Secondary source: 250 V, pin and aperture dimensions, line and neutral positions, shutters, countries."
+    },
+    {
+      "id": "worldstandards-type-g",
+      "title": "Plug type G",
+      "publisher": "WorldStandards",
+      "type": "reference_database",
+      "url": "https://www.worldstandards.eu/electricity/plugs-and-sockets/g/",
+      "accessed": "2026-11-08",
+      "note": "Facts only (pin dimensions, fuses); no text or image reused."
+    }
+  ],
+  "verification": {
+    "status": "partial",
+    "lastVerified": "2026-11-08",
+    "notes": [
+      "The 250 V limit and all dimensions rely on secondary sources; the BS 1363 texts were not reviewed.",
+      "Source conflict on the earth pin length: 22.3 mm (Wikipedia, citing BS 1363-1) against 22.7 mm (WorldStandards). Not stored as a value.",
+      "The line and neutral positions of both faces rely on a single secondary source (Wikipedia); the dimensions are confirmed by a second one.",
+      "Fused connection units and adaptors (BS 1363-3, -4, -5) are not modelled."
+    ]
+  }
+}

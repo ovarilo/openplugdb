@@ -1,0 +1,237 @@
+{
+  "$schema": "../../schemas/connector-family.schema.json",
+  "id": "iec-60309-16a-3p-n-e-6h",
+  "name": "IEC 60309 16 A 3P+N+E 6h (red)",
+  "aliases": ["CEE red 16 A", "CEE 16 A 400 V 5-pin", "IEC 60309 5-pin", "CEE 5 Pin"],
+  "category": "industrial",
+  "subcategory": "pin-and-sleeve",
+  "description": "Industrial pin-and-sleeve accessory with three phases, neutral and earth, 16 A, colour-coded red for 346–415 V. The earth contact sits at the 6 h position of the clock system, aligned with the major keyway.",
+  "status": "current",
+  "regions": ["worldwide"],
+  "countries": [],
+  "standards": [
+    {
+      "id": "iec-60309-2",
+      "designation": "IEC 60309-2",
+      "edition": "5.0 (2021)",
+      "title": "Plugs, fixed or portable socket-outlets and appliance inlets for industrial purposes – Part 2: Dimensional interchangeability requirements for pin and contact-tube accessories",
+      "scope": "Standard sheets for the 16 A 3P+N+E configurations"
+    },
+    {
+      "id": "iec-60309-1",
+      "designation": "IEC 60309-1",
+      "edition": null,
+      "title": "Plugs, fixed or portable socket-outlets and appliance inlets for industrial purposes – Part 1: General requirements",
+      "scope": "General requirements (datasheets cite EN IEC 60309-1:2022)"
+    }
+  ],
+  "relations": [
+    {
+      "type": "related",
+      "family": "iec-60309-16a-2p-e-6h",
+      "note": "Same standard and earth position; different number of poles, voltage and colour."
+    }
+  ],
+  "variants": [
+    {
+      "id": "plug",
+      "name": "Plug",
+      "role": "plug",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "L1", "label": "L1", "gender": "male" },
+        { "id": "L2", "label": "L2", "gender": "male" },
+        { "id": "L3", "label": "L3", "gender": "male" },
+        { "id": "N", "label": "N", "gender": "male" },
+        { "id": "PE", "label": "PE", "gender": "male", "form": "earth_pin" }
+      ],
+      "keying": "Earth pin at 6 h, aligned with the major keyway; earth pin larger than the other pins.",
+      "mechanicalNotes": [],
+      "electricalProfiles": ["ac-3ph"],
+      "matesWith": [
+        { "family": "iec-60309-16a-3p-n-e-6h", "variant": "socket-outlet" },
+        { "family": "iec-60309-16a-3p-n-e-6h", "variant": "connector" }
+      ],
+      "visuals": []
+    },
+    {
+      "id": "socket-outlet",
+      "name": "Socket-outlet",
+      "role": "socket_outlet",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "L1", "label": "L1", "gender": "female" },
+        { "id": "L2", "label": "L2", "gender": "female" },
+        { "id": "L3", "label": "L3", "gender": "female" },
+        { "id": "N", "label": "N", "gender": "female" },
+        { "id": "PE", "label": "PE", "gender": "female" }
+      ],
+      "keying": "Earth contact at 6 h, aligned with the major keyway.",
+      "mechanicalNotes": ["Enclosures exist in IP44 and IP66/IP67 versions."],
+      "electricalProfiles": ["ac-3ph"],
+      "matesWith": [],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/iec-60309-16a-3p-n-e-6h/socket-front.svg",
+          "title": "IEC 60309 16 A 3P+N+E 6h socket-outlet and connector (female), mating face",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["mennekes-clock-positions", "wikipedia-iec-60309"]
+        },
+        {
+          "kind": "icon",
+          "file": "icons/evicons/plug-cee-red.svg",
+          "title": "IEC 60309 3P+N+E 6h socket-outlet, mating face (EVicons icon)",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "third_party",
+          "author": "Landolsi Digital (EVicons)",
+          "license": "MIT",
+          "sourceUrl": "https://github.com/evicons/evicons/blob/v0.8.0/packages/svg/svg/plug-cee-red.svg"
+        }
+      ]
+    },
+    {
+      "id": "connector",
+      "name": "Connector",
+      "role": "cable_connector",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "L1", "label": "L1", "gender": "female" },
+        { "id": "L2", "label": "L2", "gender": "female" },
+        { "id": "L3", "label": "L3", "gender": "female" },
+        { "id": "N", "label": "N", "gender": "female" },
+        { "id": "PE", "label": "PE", "gender": "female" }
+      ],
+      "keying": "Earth contact at 6 h, aligned with the major keyway.",
+      "mechanicalNotes": ["Portable socket on a flexible cable."],
+      "electricalProfiles": ["ac-3ph"],
+      "matesWith": [{ "family": "iec-60309-16a-3p-n-e-6h", "variant": "appliance-inlet" }],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/iec-60309-16a-3p-n-e-6h/socket-front.svg",
+          "title": "IEC 60309 16 A 3P+N+E 6h socket-outlet and connector (female), mating face",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["mennekes-clock-positions", "wikipedia-iec-60309"]
+        }
+      ]
+    },
+    {
+      "id": "appliance-inlet",
+      "name": "Appliance inlet",
+      "role": "appliance_inlet",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "L1", "label": "L1", "gender": "male" },
+        { "id": "L2", "label": "L2", "gender": "male" },
+        { "id": "L3", "label": "L3", "gender": "male" },
+        { "id": "N", "label": "N", "gender": "male" },
+        { "id": "PE", "label": "PE", "gender": "male", "form": "earth_pin" }
+      ],
+      "keying": "Earth pin at 6 h, aligned with the major keyway.",
+      "mechanicalNotes": [],
+      "electricalProfiles": ["ac-3ph"],
+      "matesWith": [],
+      "visuals": []
+    }
+  ],
+  "electricalProfiles": [
+    {
+      "id": "ac-3ph",
+      "name": "AC three-phase",
+      "currentType": "ac",
+      "supply": "three_phase",
+      "phases": 3,
+      "neutral": true,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "range", "min": 346, "max": 415, "reference": "line_to_line" },
+      "current": { "qualifier": "rated", "value": 16 },
+      "frequencyHz": [50, 60],
+      "maxPowerKw": null,
+      "conditions": [
+        "346–415 V is the rating of the 3P+N+E version; the 3P+E version without neutral is rated 380–415 V."
+      ],
+      "contactFunctions": {
+        "L1": "line",
+        "L2": "line",
+        "L3": "line",
+        "N": "neutral",
+        "PE": "protective_earth"
+      },
+      "standardRef": "iec-60309-2",
+      "jurisdiction": null,
+      "sourceRefs": ["abb-416-c6", "wikipedia-iec-60309"],
+      "confidence": "high"
+    }
+  ],
+  "mappings": {
+    "ocpi-2.2.1": [{ "value": "IEC_60309_2_three_16", "match": "exact" }],
+    "ocpi-2.3.0": [{ "value": "IEC_60309_2_three_16", "match": "exact" }],
+    "openchargemap": [
+      { "value": "35", "match": "broader", "note": "IEC 60309 5-pin, any current rating." },
+      {
+        "value": "17",
+        "match": "broader",
+        "note": "Near-duplicate entry in Open Charge Map; 35 is the one used by its OCPI importer."
+      }
+    ],
+    "openstreetmap": [
+      { "value": "socket:cee_red_16a", "match": "exact", "variants": ["socket-outlet"] }
+    ]
+  },
+  "sources": [
+    {
+      "id": "abb-416-c6",
+      "title": "ABB 416-C6 connector 16 A 3P+N+E 6h datasheet",
+      "publisher": "ABB",
+      "type": "manufacturer",
+      "url": "https://www.farnell.com/datasheets/1825414.pdf",
+      "accessed": "2026-11-08"
+    },
+    {
+      "id": "wikipedia-iec-60309",
+      "title": "IEC 60309",
+      "publisher": "Wikipedia",
+      "type": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/IEC_60309",
+      "accessed": "2026-11-08",
+      "note": "Secondary source for the colour code and the clock system."
+    },
+    {
+      "id": "scame-optima-3p-e",
+      "title": "Scame OPTIMA 16 A 3P+E 6h datasheet",
+      "publisher": "Scame",
+      "type": "manufacturer",
+      "url": "https://docs.rs-online.com/2ead/A700000015998420.pdf",
+      "accessed": "2026-11-08",
+      "note": "Used only to distinguish the 3P+E (380–415 V) rating."
+    },
+    {
+      "id": "mennekes-clock-positions",
+      "title": "Protective conductor contact, clock position and plug colours",
+      "publisher": "Mennekes",
+      "type": "manufacturer",
+      "url": "https://www.mennekes.org/industry/knowledge/for-electrical-engineers/protective-conductor-contact-clock-position-and-plug-colours/",
+      "accessed": "2026-11-08",
+      "note": "Front-view figures of the socket contact arrangement, including a 6 h 3P+N+E example; facts only, no image reused."
+    }
+  ],
+  "verification": {
+    "status": "partial",
+    "lastVerified": "2026-11-08",
+    "notes": [
+      "The socket-outlet and connector face is drawn from the Mennekes front-view figures (earth at 6 h, then L1, L2, L3, N clockwise; contact tubes of sockets and connectors arranged clockwise as viewed from the front), consistent with the Wikipedia caption 'clockwise from bottom: PE, L1, L2, L3, N'. Contact angles and pitch-circle diameter are not dimensioned by these sources (schematic drawing).",
+      "No plug or appliance-inlet drawing: no cited source depicts the pin face with the contacts identified (sources only state that the pins are arranged the opposite way, which would mean deriving the face by mirroring).",
+      "The IEC 60309-2 standard sheets were not reviewed; ratings come from a manufacturer datasheet."
+    ]
+  }
+}

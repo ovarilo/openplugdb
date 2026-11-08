@@ -1,0 +1,134 @@
+{
+  "$schema": "../schemas/vocabulary.schema.json",
+  "system": "ocpi-2.2.1",
+  "name": "OCPI 2.2.1 ConnectorType",
+  "vocabulary": "closed",
+  "source": {
+    "url": "https://github.com/ocpi/ocpi/blob/2.2.1/mod_locations.asciidoc",
+    "revision": "git tag 2.2.1",
+    "accessed": "2026-11-08"
+  },
+  "licenseNote": "Identifiers only are listed, for interoperability. The OCPI specification text is (c) EVRoaming Foundation, CC BY-ND 4.0, and is not reproduced here.",
+  "values": [
+    {
+      "value": "CHADEMO"
+    },
+    {
+      "value": "CHAOJI"
+    },
+    {
+      "value": "DOMESTIC_A"
+    },
+    {
+      "value": "DOMESTIC_B"
+    },
+    {
+      "value": "DOMESTIC_C"
+    },
+    {
+      "value": "DOMESTIC_D"
+    },
+    {
+      "value": "DOMESTIC_E"
+    },
+    {
+      "value": "DOMESTIC_F"
+    },
+    {
+      "value": "DOMESTIC_G"
+    },
+    {
+      "value": "DOMESTIC_H"
+    },
+    {
+      "value": "DOMESTIC_I"
+    },
+    {
+      "value": "DOMESTIC_J"
+    },
+    {
+      "value": "DOMESTIC_K"
+    },
+    {
+      "value": "DOMESTIC_L"
+    },
+    {
+      "value": "DOMESTIC_M"
+    },
+    {
+      "value": "DOMESTIC_N"
+    },
+    {
+      "value": "DOMESTIC_O"
+    },
+    {
+      "value": "GBT_AC"
+    },
+    {
+      "value": "GBT_DC"
+    },
+    {
+      "value": "IEC_60309_2_single_16"
+    },
+    {
+      "value": "IEC_60309_2_three_16"
+    },
+    {
+      "value": "IEC_60309_2_three_32"
+    },
+    {
+      "value": "IEC_60309_2_three_64"
+    },
+    {
+      "value": "IEC_62196_T1"
+    },
+    {
+      "value": "IEC_62196_T1_COMBO"
+    },
+    {
+      "value": "IEC_62196_T2"
+    },
+    {
+      "value": "IEC_62196_T2_COMBO"
+    },
+    {
+      "value": "IEC_62196_T3A"
+    },
+    {
+      "value": "IEC_62196_T3C"
+    },
+    {
+      "value": "NEMA_5_20"
+    },
+    {
+      "value": "NEMA_6_30"
+    },
+    {
+      "value": "NEMA_6_50"
+    },
+    {
+      "value": "NEMA_10_30"
+    },
+    {
+      "value": "NEMA_10_50"
+    },
+    {
+      "value": "NEMA_14_30"
+    },
+    {
+      "value": "NEMA_14_50"
+    },
+    {
+      "value": "PANTOGRAPH_BOTTOM_UP"
+    },
+    {
+      "value": "PANTOGRAPH_TOP_DOWN"
+    },
+    {
+      "value": "TESLA_R"
+    },
+    {
+      "value": "TESLA_S"
+    }
+  ]
+}

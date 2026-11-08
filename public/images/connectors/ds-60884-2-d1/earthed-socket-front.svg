@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" role="img" aria-labelledby="title desc">
+  <title id="title">Danish Type K socket-outlet (female), mating face, earth hole down</title>
+  <desc id="desc">Schematic front view with the earth hole down. Line hole upper left, neutral hole upper right, earth hole below the centre. Rings are female sleeve contacts. Proportions follow 19 mm between the line and neutral holes and a 13 mm earth offset; the half-round earth sleeve is simplified to a circle and the outline is schematic.</desc>
+  <g fill="none" stroke="#1c2430" stroke-width="3">
+    <circle cx="100" cy="100" r="78"/>
+    <circle cx="62" cy="80" r="10"/>
+    <circle cx="138" cy="80" r="10"/>
+    <circle cx="100" cy="132" r="10"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#1c2430" text-anchor="middle" dominant-baseline="central">
+    <text x="62" y="80">L</text>
+    <text x="138" y="80">N</text>
+    <text x="100" y="158">PE</text>
+  </g>
+  <text x="100" y="202" font-family="system-ui, sans-serif" font-size="9" fill="#5a6472" text-anchor="middle" letter-spacing="1">MATING FACE · FEMALE</text>
+</svg>

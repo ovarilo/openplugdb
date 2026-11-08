@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" role="img" aria-labelledby="title desc">
+  <title id="title">Europlug CEE 7/16 plug (male), mating face</title>
+  <desc id="desc">Schematic view of the pins. Flat body with side faces at 45°; two round pins on a horizontal line, line or neutral on either side (unpolarised). Filled circles are pins (male contacts). Proportions follow a 35.3 × 13.7 mm body, 4 mm pins and 18 mm between pin centres (17–18 mm at the tip, 18–19 mm at the base).</desc>
+  <g fill="none" stroke="#1c2430" stroke-width="3">
+    <path d="M29.5 100 L57 72.5 H143 L170.5 100 L143 127.5 H57 Z"/>
+  </g>
+  <g fill="#1c2430">
+    <circle cx="64" cy="100" r="8"/>
+    <circle cx="136" cy="100" r="8"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#1c2430" text-anchor="middle" dominant-baseline="central">
+    <text x="64" y="144">L/N</text>
+    <text x="136" y="144">L/N</text>
+  </g>
+  <text x="100" y="202" font-family="system-ui, sans-serif" font-size="9" fill="#5a6472" text-anchor="middle" letter-spacing="1">MATING FACE · MALE</text>
+</svg>

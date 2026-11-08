@@ -1,0 +1,50 @@
+{
+  "category": "connector",
+  "meaning": {
+    "en": "TIS 166 socket (Type O, Thailand), shown as the socket face seen from the front, earth hole up",
+    "de": "TIS-166-Steckdose (Typ O, Thailand), dargestellt als Steckdosenfläche von vorn, Schutzkontakt oben"
+  },
+  "tags": {
+    "en": [
+      "tis 166",
+      "type o",
+      "thailand",
+      "thai socket",
+      "household socket",
+      "ac",
+      "socket"
+    ],
+    "de": [
+      "tis 166",
+      "typ o",
+      "thailand",
+      "thailändische steckdose",
+      "haushaltssteckdose",
+      "ac",
+      "steckdose"
+    ],
+    "fr": [
+      "tis 166",
+      "type o",
+      "thaïlande",
+      "prise thaïlandaise",
+      "prise domestique",
+      "ac",
+      "prise"
+    ]
+  },
+  "since": "0.9.0",
+  "aliases": [],
+  "standard": {
+    "norm": "TIS 166-2549",
+    "source": "TIS 166-2549 not consulted; contact layout taken from the OpenPlugDB front view \"TIS 166 socket-outlet (female), mating face, earth hole up\" (https://github.com/ovarilo/openplugdb/blob/main/public/images/connectors/tis-166/socket-front.svg, retrieved 2026-11-08), drawn from Thai Industrial Standards Institute (TISI), published by Public.Resource.Org \"TIS 166-2549: Plugs and socket-outlets for household and similar purposes: plugs and socket-outlets with rated voltage not exceeding 250 V\" (https://archive.org/details/th.cs.166.t.2549, retrieved 2026-11-08)"
+  },
+  "ocpi": [
+    "Connector.standard=DOMESTIC_O"
+  ],
+  "provenance": {
+    "createdBy": "ai",
+    "approvedBy": null,
+    "approvedOn": null
+  }
+}

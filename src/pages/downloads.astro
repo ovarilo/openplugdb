@@ -1,0 +1,105 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../lib/format.ts';
+import { families } from '../lib/site-data.ts';
+
+const all = families();
+---
+
+<Base
+  title="Data downloads"
+  description="Download the OpenPlugDB dataset as JSON or CSV, per-family JSON documents, the JSON Schema and the SVG drawings."
+>
+  <h1>Data downloads</h1>
+  <p class="lead muted">
+    The dataset is built from one JSON file per connector family. The exports below are generated from those
+    sources and published under <a href={url('/about/#licenses')}>CC0-1.0</a>.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h2>connectors.json</h2>
+      <p class="muted">Complete dataset: families, variants, electrical profiles, mappings and sources.</p>
+      <a class="button primary" href={url('/data/connectors.json')} download>Download JSON</a>
+    </div>
+    <div class="card">
+      <h2>connectors.csv</h2>
+      <p class="muted">One row per variant and electrical profile, for spreadsheets.</p>
+      <a class="button primary" href={url('/data/connectors.csv')} download>Download CSV</a>
+    </div>
+    <div class="card">
+      <h2>JSON Schema</h2>
+      <p class="muted">Draft 2020-12 schema of a connector family source file.</p>
+      <a class="button" href="https://github.com/ovarilo/openplugdb/blob/main/schemas/connector-family.schema.json">
+        View schema
+      </a>
+    </div>
+  </div>
+
+  <h2>CSV conventions</h2>
+  <ul>
+    <li>UTF-8, comma-separated, RFC 4180 quoting, LF line endings, one header row.</li>
+    <li>One row per (variant, electrical profile); a variant without profile has one row with empty profile columns.</li>
+    <li>Several values in one cell are separated by <code>|</code>, e.g. <code>50|60</code>.</li>
+    <li><code>unknown</code> means the value is not documented; an empty cell means it does not apply.</li>
+    <li>Ranges are written <code>min..max</code>, e.g. <code>200..250</code>; the qualifier column says whether a value is rated, a maximum or a range.</li>
+    <li>Mating relations are listed in both directions as <code>family/variant</code>.</li>
+  </ul>
+  <p>
+    Full details: <a href="https://github.com/ovarilo/openplugdb/blob/main/docs/exports.md">docs/exports.md</a>.
+  </p>
+
+  <h2>Per family</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th scope="col">Family</th><th scope="col">JSON</th><th scope="col">Drawings</th></tr>
+      </thead>
+      <tbody>
+        {
+          all.map((f) => (
+            <tr>
+              <td>
+                <a href={url(`/connectors/${f.id}/`)}>{f.name}</a>
+              </td>
+              <td>
+                <a href={url(`/data/families/${f.id}.json`)}>
+                  <code>{f.id}.json</code>
+                </a>
+              </td>
+              <td>
+                {f.variants.flatMap((v) => v.visuals).length === 0 ? (
+                  <span class="muted">none yet</span>
+                ) : (
+                  f.variants
+                    .flatMap((v) => v.visuals)
+                    .map((v) => (
+                      <a class="svg-link" href={url(`/images/${v.file}`)} download>
+                        <code>{v.file.split('/').at(-1)}</code>
+                      </a>
+                    ))
+                )}
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+</Base>
+
+<style>
+  .lead {
+    max-width: 48rem;
+  }
+
+  .card h2 {
+    margin-top: 0;
+    font-family: var(--mono);
+    font-size: 1.05rem;
+  }
+
+  .svg-link {
+    display: block;
+  }
+</style>

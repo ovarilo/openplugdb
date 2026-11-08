@@ -1,0 +1,147 @@
+{
+  "$schema": "../../schemas/connector-family.schema.json",
+  "id": "nema-1-15",
+  "name": "NEMA 1-15",
+  "aliases": ["Type A", "1-15P", "1-15R", "US two-pin plug"],
+  "category": "domestic",
+  "subcategory": "household",
+  "description": "North American 2-pole, 2-wire non-grounding plug and receptacle rated 15 A, 125 V: two flat parallel blades, the neutral blade wider on polarised plugs. A 1-15P plug also fits the grounding NEMA 5-15R receptacle.",
+  "status": "current",
+  "regions": ["north_america"],
+  "countries": [],
+  "standards": [
+    {
+      "id": "nema-wd-6",
+      "designation": "ANSI/NEMA WD 6",
+      "edition": "2021",
+      "title": "Wiring Devices – Dimensional Specifications",
+      "scope": "Configuration 1-15 dimensions"
+    },
+    {
+      "id": "iec-tr-60083",
+      "designation": "IEC TR 60083",
+      "edition": "7.0 (2015)",
+      "title": "Plugs and socket-outlets for domestic and similar general use standardized in member countries of IEC",
+      "scope": "Catalogue of national plug and socket-outlet systems",
+      "url": "https://webstore.iec.ch/en/publication/23628"
+    }
+  ],
+  "relations": [
+    {
+      "type": "related",
+      "family": "nema-5-15",
+      "note": "NEMA 5-15 adds a ground pin to the same blade layout; 1-15P plugs fit 5-15R receptacles."
+    }
+  ],
+  "variants": [
+    {
+      "id": "1-15p-plug",
+      "name": "NEMA 1-15P plug",
+      "role": "plug",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "L", "label": "Hot", "gender": "male" },
+        { "id": "N", "label": "Neutral", "gender": "male" }
+      ],
+      "keying": "Polarised plugs have a wider neutral blade; unpolarised plugs have two equal blades and fit either way.",
+      "mechanicalNotes": [
+        "Blades 6.4 mm wide, 1.5 mm thick, 15.9–18.3 mm long, 12.7 mm between centres.",
+        "On polarised plugs the neutral blade is 7.9 mm wide."
+      ],
+      "electricalProfiles": ["ac-1ph"],
+      "matesWith": [
+        {
+          "family": "nema-1-15",
+          "variant": "1-15r-receptacle",
+          "note": "A polarised plug does not fit an unpolarised receptacle."
+        },
+        {
+          "family": "nema-5-15",
+          "variant": "5-15r-receptacle",
+          "note": "Polarised and unpolarised 1-15P plugs fit; the ground hole stays unused."
+        }
+      ],
+      "visuals": []
+    },
+    {
+      "id": "1-15r-receptacle",
+      "name": "NEMA 1-15R receptacle",
+      "role": "socket_outlet",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "L", "label": "Hot", "gender": "female" },
+        { "id": "N", "label": "Neutral", "gender": "female" }
+      ],
+      "keying": "Polarised receptacles have a wider neutral slot; older ones have two equal slots.",
+      "mechanicalNotes": [
+        "Not allowed in new construction in the United States and Canada since 1962; still found in older buildings and sold for replacement."
+      ],
+      "electricalProfiles": ["ac-1ph"],
+      "matesWith": [],
+      "visuals": []
+    }
+  ],
+  "electricalProfiles": [
+    {
+      "id": "ac-1ph",
+      "name": "AC single-phase",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": true,
+      "protectiveEarth": false,
+      "voltage": { "qualifier": "rated", "value": 125, "reference": "line_to_neutral" },
+      "current": { "qualifier": "rated", "value": 15 },
+      "frequencyHz": null,
+      "maxPowerKw": null,
+      "conditions": [
+        "The rating comes from secondary sources; ANSI/NEMA WD 6 was not reviewed.",
+        "On unpolarised plugs line and neutral can be on either blade."
+      ],
+      "contactFunctions": { "L": "line", "N": "neutral" },
+      "standardRef": "nema-wd-6",
+      "jurisdiction": "NEMA",
+      "sourceRefs": ["wikipedia-nema", "wikipedia-ac-plugs"],
+      "confidence": "medium"
+    }
+  ],
+  "mappings": {
+    "ocpi-2.2.1": [{ "value": "DOMESTIC_A", "match": "exact" }],
+    "ocpi-2.3.0": [{ "value": "DOMESTIC_A", "match": "exact" }],
+    "openchargemap": [],
+    "openstreetmap": [
+      { "value": "socket:nema_1_15", "match": "exact", "variants": ["1-15r-receptacle"] }
+    ]
+  },
+  "sources": [
+    {
+      "id": "wikipedia-nema",
+      "title": "NEMA connector",
+      "publisher": "Wikipedia",
+      "type": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/NEMA_connector",
+      "accessed": "2026-11-08",
+      "note": "Secondary source: rating, blade dimensions, polarisation, 1962 restriction."
+    },
+    {
+      "id": "wikipedia-ac-plugs",
+      "title": "AC power plugs and sockets",
+      "publisher": "Wikipedia",
+      "type": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/AC_power_plugs_and_sockets",
+      "accessed": "2026-11-08",
+      "note": "Secondary source: NEMA 1 rated 15 A at 125 V."
+    }
+  ],
+  "verification": {
+    "status": "partial",
+    "lastVerified": "2026-11-08",
+    "notes": [
+      "Ratings and dimensions rely on secondary sources; ANSI/NEMA WD 6 was not reviewed.",
+      "Frequency is not stated by the cited sources.",
+      "IEC type A also covers other national plugs (e.g. JIS C 8303 in Japan); they are not modelled here.",
+      "The IEC World Plugs page could not be retrieved (HTTP 403) and the WorldStandards type A page returned HTTP 404.",
+      "No front view is drawn: the receptacle exists in polarised and unpolarised forms and no reviewed source fixes one face layout to draw."
+    ]
+  }
+}

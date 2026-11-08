@@ -1,0 +1,137 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../lib/format.ts';
+---
+
+<Base
+  title="About"
+  description="What OpenPlugDB is, how its data is sourced and verified, how it is licensed and how to contribute."
+>
+  <article class="prose">
+    <h1>About OpenPlugDB</h1>
+    <p class="lead">
+      OpenPlugDB is an open, international and static reference of electrical plugs and connectors: EV charging
+      interfaces, household plugs and sockets, industrial connectors and appliance couplers. It is two products
+      built from the same sources: a versioned dataset (JSON and CSV) and this website.
+    </p>
+
+    <div class="notice" role="note">
+      <strong>Important.</strong> OpenPlugDB describes connector <em>interfaces</em> as defined by standards. A
+      rating is the maximum the interface is designed for. It is not the power available at a socket or charging
+      station, which depends on the supply, the cable, the protection devices and the equipment. Two parts that
+      fit together physically are not necessarily electrically compatible (voltage, frequency, earthing). Always
+      check the rating plate of the equipment and local regulations, and have electrical work done by qualified
+      people. The data is provided as is, without warranty.
+    </div>
+
+    <h2 id="model">Data model</h2>
+    <p>Each connector family is one JSON file in <code>data/&lt;category&gt;/</code>. It holds:</p>
+    <ul>
+      <li>
+        <strong>The family</strong>: stable OpenPlugDB identifier, names and aliases, category, standards with their
+        editions, status and regions.
+      </li>
+      <li>
+        <strong>Physical variants</strong>: one per role (plug, socket-outlet, vehicle inlet, appliance inlet…),
+        with the gender of its contacts, the contact list, keying, mechanical notes and what it mates with. The role
+        and the contact gender are separate: a CEE 7/7 plug has male pins and a female earth hole.
+      </li>
+      <li>
+        <strong>Electrical profiles</strong>: AC or DC, supply, phases, neutral and earth, voltage and current with
+        their qualifier (rated, maximum or range), frequency, and the function of each contact. A family can have
+        several profiles, e.g. AC single-phase, AC three-phase and DC.
+      </li>
+      <li>
+        <strong>Drawings</strong>: SVG files with their kind, orientation, author, license and provenance.
+      </li>
+      <li>
+        <strong>Mappings</strong> to OCPI 2.2.1 and 2.3.0, Open Charge Map and OpenStreetMap, checked against
+        vocabularies kept in <code>mappings/</code>.
+      </li>
+      <li><strong>Sources</strong> with access dates, a confidence level per profile and a verification status.</li>
+    </ul>
+    <p>
+      In the JSON, <code>null</code> means unknown (not documented in the cited sources), while a missing key means
+      not applicable (for example no frequency on a DC profile).
+    </p>
+
+    <h2 id="methodology">Methodology</h2>
+    <ul>
+      <li>
+        Values come from standards (official abstracts and preview samples), specifications and manufacturer
+        datasheets. Encyclopedic sources are only used as secondary sources, and flagged as such.
+      </li>
+      <li>No electrical value is derived or estimated. A maximum power is only recorded when a source states it.</li>
+      <li>
+        Product ratings are not connector ratings: when a manufacturer value is cited, it is only an example.
+      </li>
+      <li>
+        Families whose data still has gaps are marked <span class="badge partial">partial</span>, with the gaps
+        listed on their page.
+      </li>
+      <li>
+        Every change is checked automatically: JSON Schema, cross references, external mappings, SVG structure and
+        electrical consistency (phases, contact functions, voltage reference, power bound).
+      </li>
+    </ul>
+
+    <h2 id="drawings">Drawings</h2>
+    <p>
+      Front views show the mating face, seen straight on, as you look at the part before connecting it. The
+      opposite gender is drawn separately and never obtained by mirroring. Filled circles are pins (male contacts),
+      rings are contact tubes (female contacts). Drawings are schematic: relative contact positions follow the
+      cited sources, dimensions are not to scale. A drawing is only published once its layout is confirmed.
+    </p>
+
+    <h2 id="licenses">Licenses</h2>
+    <ul>
+      <li><strong>Code</strong> (site, scripts, schemas): MIT.</li>
+      <li>
+        <strong>Data</strong> (<code>data/</code>, <code>mappings/</code>, exports): CC0-1.0. The data consists of
+        facts compiled by the project. External identifiers (OCPI, Open Charge Map, OpenStreetMap) are listed for
+        interoperability only; their specification texts are not reproduced.
+      </li>
+      <li>
+        <strong>Drawings</strong>: each file has its own license, shown next to it. Original OpenPlugDB drawings are
+        CC-BY-4.0.
+      </li>
+      <li>
+        <strong>Icons</strong>: interface icons from <a href="https://github.com/evicons/evicons">EVicons</a> are MIT
+        (Copyright (c) 2026 Landolsi Digital) and are shipped unchanged with their license file; icons OpenPlugDB
+        draws in the same style for connectors EVicons does not cover are MIT too (OpenPlugDB contributors); each
+        icon shows its own license next to it.
+      </li>
+    </ul>
+    <p>
+      Details: <a href="https://github.com/ovarilo/openplugdb/blob/main/docs/licensing.md">licensing policy</a> and
+      <a href="https://github.com/ovarilo/openplugdb/blob/main/docs/provenance.md">provenance policy</a>.
+    </p>
+
+    <h2 id="contributing">Contributing</h2>
+    <p>
+      Corrections and new connectors are welcome on
+      <a href="https://github.com/ovarilo/openplugdb">GitHub</a>. Each connector page has a “Suggest a correction”
+      link to its source file. Please cite a source for every value: see
+      <a href="https://github.com/ovarilo/openplugdb/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>.
+    </p>
+    <p><a href={url('/connectors/')}>Browse the catalog →</a></p>
+  </article>
+</Base>
+
+<style>
+  .prose {
+    max-width: 48rem;
+  }
+
+  .lead {
+    font-size: 1.1rem;
+  }
+
+  .notice {
+    margin: 1.5rem 0;
+  }
+
+  li {
+    margin-bottom: 0.4rem;
+  }
+</style>

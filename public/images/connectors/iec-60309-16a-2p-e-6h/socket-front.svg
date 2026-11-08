@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" role="img" aria-labelledby="title desc">
+  <title id="title">IEC 60309 16 A 2P+E 6h socket-outlet and connector (female), mating face</title>
+  <desc id="desc">Schematic front view, looking into the socket, major keyway at the bottom (6 h). The earth contact tube (PE, larger) sits at 6 h, aligned with the keyway; the two pole contact tubes sit above it, P1 upper left and P2 upper right, the three on one contact circle. Going clockwise from the earth: PE, P1, P2. P1 is the position the cited manufacturer figure marks as line. Rings are contact tubes (female contacts). Not to scale.</desc>
+  <g fill="none" stroke="#1c2430" stroke-width="3">
+    <path d="M91 166.4 A72 72 0 1 1 109 166.4 L109 174 A9 9 0 0 1 91 174 Z"/>
+    <circle cx="70.6" cy="78" r="11"/>
+    <circle cx="129.4" cy="78" r="11"/>
+    <circle cx="100" cy="129" r="13"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#1c2430" text-anchor="middle" dominant-baseline="central">
+    <text x="70.6" y="78">P1</text>
+    <text x="129.4" y="78">P2</text>
+    <text x="100" y="129">PE</text>
+  </g>
+  <text x="100" y="202" font-family="system-ui, sans-serif" font-size="9" fill="#5a6472" text-anchor="middle" letter-spacing="1">MATING FACE · FEMALE</text>
+</svg>

@@ -1,0 +1,190 @@
+{
+  "$schema": "../../schemas/connector-family.schema.json",
+  "id": "bs-546-15a",
+  "name": "BS 546 15 A / SANS 164-1 (Type M)",
+  "aliases": ["Type M", "BS 546 15 A", "SANS 164-1", "SABS 164-1", "South African plug"],
+  "category": "domestic",
+  "subcategory": "household",
+  "description": "Large three-round-pin plug and socket of the British BS 546 family in its 15 A size: line and neutral pins 25.4 mm apart with a larger earth pin above them. The IEC letter M designates this configuration. South Africa standardises it as SANS 164-1 and rates it 16 A; SANS 164-2 (Type N) is its designated successor there.",
+  "status": "current",
+  "regions": ["africa"],
+  "countries": ["ZA"],
+  "standards": [
+    {
+      "id": "bs-546",
+      "designation": "BS 546",
+      "edition": null,
+      "title": null,
+      "scope": "British round-pin system in 2, 5, 15 and 30 A sizes; the 15 A size is IEC type M; not reviewed"
+    },
+    {
+      "id": "sans-164-1",
+      "designation": "SANS 164-1",
+      "edition": null,
+      "title": null,
+      "scope": "South African 16 A, 250 V version of the BS 546 15 A configuration (first published as SABS 164 in 1994); not reviewed"
+    }
+  ],
+  "relations": [
+    {
+      "type": "related",
+      "family": "bs-546-5a",
+      "note": "Both are sizes of BS 546; the 5 A size (Type D) is the smaller member of the same system."
+    }
+  ],
+  "variants": [
+    {
+      "id": "plug",
+      "name": "15/16 A three-round-pin plug",
+      "role": "plug",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "L", "label": "L", "gender": "male" },
+        { "id": "N", "label": "N", "gender": "male" },
+        { "id": "PE", "label": "Earth", "gender": "male", "form": "earth_pin" }
+      ],
+      "keying": "The larger, longer earth pin above the line pins enforces one orientation.",
+      "mechanicalNotes": [
+        "Line and neutral pins 7.0 mm in diameter, 21.1 mm long, 25.4 mm apart (SANS 164-1 figures).",
+        "Earth pin 8.7 mm in diameter, 29.0 mm long, 28.6 mm from the line and neutral pin centres (SANS 164-1 figures)."
+      ],
+      "electricalProfiles": ["bs-546-15a", "sans-164-1-16a"],
+      "matesWith": [{ "family": "bs-546-15a", "variant": "socket" }],
+      "visuals": []
+    },
+    {
+      "id": "socket",
+      "name": "15/16 A three-round-pin socket-outlet",
+      "role": "socket_outlet",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "L", "label": "L", "gender": "female" },
+        { "id": "N", "label": "N", "gender": "female" },
+        { "id": "PE", "label": "Earth", "gender": "female", "form": "earth_hole" }
+      ],
+      "keying": "Large earth hole above the line and neutral holes.",
+      "mechanicalNotes": [
+        "SANS 164-1 socket-outlets have mandatory shutters on the line and neutral holes, opened by the earth pin or by both line pins together."
+      ],
+      "electricalProfiles": ["bs-546-15a", "sans-164-1-16a"],
+      "matesWith": [],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/bs-546-15a/socket-front.svg",
+          "title": "BS 546 15 A / SANS 164-1 socket-outlet (female), mating face, earth hole up",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["plugsocketmuseum-south-africa", "wikipedia-sans-164"]
+        },
+        {
+          "kind": "icon",
+          "file": "icons/evicons-extension/plug-bs-546-15a.svg",
+          "title": "BS 546 15 A / SANS 164-1 socket-outlet, mating face, earth hole up (icon)",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "MIT",
+          "basedOn": ["plugsocketmuseum-south-africa", "wikipedia-sans-164"]
+        }
+      ]
+    }
+  ],
+  "electricalProfiles": [
+    {
+      "id": "bs-546-15a",
+      "name": "AC single-phase, 15 A (BS 546)",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": true,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "rated", "value": 250, "reference": "line_to_neutral" },
+      "current": { "qualifier": "rated", "value": 15 },
+      "frequencyHz": null,
+      "maxPowerKw": null,
+      "conditions": [
+        "Unfused plug: protection comes from the installation.",
+        "Values come from a secondary source; BS 546 was not reviewed."
+      ],
+      "contactFunctions": { "L": "line", "N": "neutral", "PE": "protective_earth" },
+      "standardRef": "bs-546",
+      "jurisdiction": "BS",
+      "sourceRefs": ["wikipedia-ac-plugs"],
+      "confidence": "medium"
+    },
+    {
+      "id": "sans-164-1-16a",
+      "name": "AC single-phase, 16 A (SANS 164-1)",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": true,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "rated", "value": 250, "reference": "line_to_neutral" },
+      "current": { "qualifier": "rated", "value": 16 },
+      "frequencyHz": null,
+      "maxPowerKw": null,
+      "conditions": [
+        "South African rating of the same configuration, raised to 16 A to match the IEC 60898 circuit-breaker ratings.",
+        "Values come from secondary sources; SANS 164-1 was not reviewed."
+      ],
+      "contactFunctions": { "L": "line", "N": "neutral", "PE": "protective_earth" },
+      "standardRef": "sans-164-1",
+      "jurisdiction": "SANS",
+      "sourceRefs": ["plugsocketmuseum-south-africa", "wikipedia-sans-164"],
+      "confidence": "medium"
+    }
+  ],
+  "mappings": {
+    "ocpi-2.2.1": [{ "value": "DOMESTIC_M", "match": "exact" }],
+    "ocpi-2.3.0": [{ "value": "DOMESTIC_M", "match": "exact" }],
+    "openchargemap": [{ "value": "1043", "match": "exact", "variants": ["socket"] }],
+    "openstreetmap": []
+  },
+  "sources": [
+    {
+      "id": "wikipedia-ac-plugs",
+      "title": "AC power plugs and sockets",
+      "publisher": "Wikipedia",
+      "type": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/AC_power_plugs_and_sockets",
+      "accessed": "2026-11-08",
+      "note": "Secondary source: BS 546 sizes, 15 A size as IEC type M, 15 A 250 V rating."
+    },
+    {
+      "id": "wikipedia-sans-164",
+      "title": "SANS 164",
+      "publisher": "Wikipedia",
+      "type": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/SANS_164",
+      "accessed": "2026-11-08",
+      "note": "Secondary source: SANS 164-1 equivalent to IEC type M, identical to BS 546 15 A, rated 16 A in South Africa."
+    },
+    {
+      "id": "plugsocketmuseum-south-africa",
+      "title": "South Africa: plugs and sockets",
+      "publisher": "Museum of Plugs and Sockets",
+      "type": "other",
+      "url": "https://plugsocketmuseum.nl/SouthAfrica1.html",
+      "accessed": "2026-11-08",
+      "note": "Facts only (SANS 164-1 pin dimensions, 16 A 250 V rating, shutters); no text or image reused."
+    }
+  ],
+  "verification": {
+    "status": "partial",
+    "lastVerified": "2026-11-08",
+    "notes": [
+      "Type M designates the BS 546 15 A configuration; SANS 164-1 is the same plug re-rated 16 A in South Africa. Both ratings are kept as separate profiles.",
+      "Ratings and dimensions rely on secondary sources; BS 546 and SANS 164-1 were not reviewed, and their editions are not recorded.",
+      "Frequency is not stated by the cited sources.",
+      "Which side carries the line is not stated by the cited sources: the drawing labels both holes L/N.",
+      "The Indian IS 1293 16 A plug, a related design, is not linked.",
+      "Other countries using Type M are not recorded."
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" role="img" aria-labelledby="title desc">
+  <title id="title">IEC 62196 Type 2 vehicle inlet (male), mating face</title>
+  <desc id="desc">Schematic front view, flat edge at the top. Top row: PP left, CP right (small pins). Middle row: L1, PE, N. Bottom row: L2, L3. Filled circles are pins (male contacts). Not to scale.</desc>
+  <g fill="none" stroke="#1c2430" stroke-width="3">
+    <path d="M52 36 H148 A80 80 0 1 1 52 36 Z"/>
+  </g>
+  <g fill="#1c2430">
+    <circle cx="80" cy="60" r="6"/>
+    <circle cx="120" cy="60" r="6"/>
+    <circle cx="55" cy="98" r="12"/>
+    <circle cx="100" cy="98" r="12"/>
+    <circle cx="145" cy="98" r="12"/>
+    <circle cx="77" cy="140" r="12"/>
+    <circle cx="123" cy="140" r="12"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="10" font-weight="700" text-anchor="middle" dominant-baseline="central">
+    <g fill="#ffffff">
+      <text x="55" y="98">L1</text>
+      <text x="100" y="98">PE</text>
+      <text x="145" y="98">N</text>
+      <text x="77" y="140">L2</text>
+      <text x="123" y="140">L3</text>
+    </g>
+    <g fill="#1c2430">
+      <text x="64" y="60" text-anchor="end">PP</text>
+      <text x="136" y="60" text-anchor="start">CP</text>
+    </g>
+  </g>
+  <text x="100" y="202" font-family="system-ui, sans-serif" font-size="9" fill="#5a6472" text-anchor="middle" letter-spacing="1">MATING FACE · MALE</text>
+</svg>

@@ -1,0 +1,53 @@
+{
+  "category": "connector",
+  "meaning": {
+    "en": "NEMA 5-15 receptacle (Type B, North American household AC with ground), shown as the socket face seen from the front, ground hole down",
+    "de": "NEMA-5-15-Steckdose (Typ B, nordamerikanische Haushaltssteckdose mit Schutzkontakt), dargestellt als Steckdosenfläche von vorn, Schutzkontakt unten"
+  },
+  "tags": {
+    "en": [
+      "nema 5-15",
+      "nema",
+      "type b",
+      "north america",
+      "household socket",
+      "ac",
+      "socket"
+    ],
+    "de": [
+      "nema 5-15",
+      "nema",
+      "typ b",
+      "nordamerika",
+      "haushaltssteckdose",
+      "ac",
+      "steckdose"
+    ],
+    "fr": [
+      "nema 5-15",
+      "nema",
+      "type b",
+      "amérique du nord",
+      "prise domestique",
+      "ac",
+      "prise"
+    ]
+  },
+  "since": "0.9.0",
+  "aliases": [],
+  "standard": {
+    "norm": "ANSI/NEMA WD 6 (5-15R)",
+    "source": "ANSI/NEMA WD 6 (5-15R) not consulted; contact layout taken from the OpenPlugDB front view \"NEMA 5-15R receptacle (female), mating face, ground hole down\" (https://github.com/ovarilo/openplugdb/blob/main/public/images/connectors/nema-5-15/5-15r-receptacle-front.svg, retrieved 2026-11-08), drawn from Wikipedia \"NEMA connector\" (https://en.wikipedia.org/wiki/NEMA_connector, retrieved 2026-11-08); WorldStandards \"Plug type B\" (https://www.worldstandards.eu/electricity/plugs-and-sockets/b/, retrieved 2026-11-08)"
+  },
+  "osm": [
+    "socket:nema_5_15"
+  ],
+  "ocpi": [
+    "Connector.standard=DOMESTIC_B"
+  ],
+  "provenance": {
+    "createdBy": "ai",
+    "approvedBy": null,
+    "approvedOn": null
+  }
+}

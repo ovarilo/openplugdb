@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" role="img" aria-labelledby="title desc">
+  <title id="title">IEC 60320 C13 connector (female), mating face</title>
+  <desc id="desc">Schematic front view of the connector body, chamfered corners at the top. Earth contact slot (PE) at top centre, set higher than the two pole slots at lower left and lower right. The pole slots are not assigned to line or neutral by the cited sources and are labelled L/N. Outlined slots are female contacts. Proportions follow the front view of the Schurter 4782 datasheet (drawn there with the chamfers on the left); not to scale.</desc>
+  <g fill="none" stroke="#1c2430" stroke-width="3">
+    <path d="M57 45 H143 L172 74 V126 A17 17 0 0 1 155 143 H45 A17 17 0 0 1 28 126 V74 Z"/>
+    <rect x="93" y="65" width="14" height="32" rx="2"/>
+    <rect x="51" y="89" width="14" height="32" rx="2"/>
+    <rect x="135" y="89" width="14" height="32" rx="2"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#1c2430" text-anchor="middle" dominant-baseline="central">
+    <text x="114" y="81" text-anchor="start">PE</text>
+    <text x="58" y="132">L/N</text>
+    <text x="142" y="132">L/N</text>
+  </g>
+  <text x="100" y="202" font-family="system-ui, sans-serif" font-size="9" fill="#5a6472" text-anchor="middle" letter-spacing="1">MATING FACE · FEMALE</text>
+</svg>

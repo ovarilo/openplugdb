@@ -1,0 +1,205 @@
+{
+  "$schema": "../../schemas/connector-family.schema.json",
+  "id": "cee-7-type-e",
+  "name": "Type E (CEE 7/5, CEE 7/6)",
+  "aliases": ["Type E", "CEE 7/5", "CEE 7/6", "French socket"],
+  "category": "domestic",
+  "subcategory": "household",
+  "description": "Household plug and socket system with two round 4.8 mm pins and a male earth pin projecting from the socket-outlet; the plug has a matching earth hole. The earth pin makes earthed plugs polarised in this socket. The CEE 7/7 hybrid plug fits both type E and type F sockets.",
+  "status": "current",
+  "regions": ["europe"],
+  "countries": ["FR", "BE", "PL", "CZ", "SK"],
+  "standards": [
+    {
+      "id": "cee-7",
+      "designation": "CEE Publication 7",
+      "edition": null,
+      "title": "Specification for plugs and socket-outlets for domestic and similar purposes",
+      "scope": "Standard sheets V (CEE 7/5 socket-outlet) and VI (CEE 7/6 plug)"
+    },
+    {
+      "id": "nf-c-61-314",
+      "designation": "NF C 61-314",
+      "edition": "2017",
+      "title": "Plugs and socket-outlets for household and similar purposes - 6 A/250 V and 16 A/250 V systems",
+      "scope": "French national standard; the 16 A/250 V system is the type E socket-outlet"
+    },
+    {
+      "id": "nbn-c-61-112",
+      "designation": "NBN C 61-112",
+      "edition": null,
+      "title": null,
+      "scope": "Belgian national standard (cited by secondary sources)"
+    },
+    {
+      "id": "iec-tr-60083",
+      "designation": "IEC TR 60083",
+      "edition": "7.0 (2015)",
+      "title": "Plugs and socket-outlets for domestic and similar general use standardized in member countries of IEC",
+      "scope": "Catalogue of national plug and socket-outlet systems",
+      "url": "https://webstore.iec.ch/en/publication/23628"
+    }
+  ],
+  "relations": [
+    {
+      "type": "related",
+      "family": "cee-7-schuko",
+      "note": "Same pin size and spacing; the CEE 7/7 plug of that family fits CEE 7/5 socket-outlets."
+    }
+  ],
+  "variants": [
+    {
+      "id": "cee-7-5-socket",
+      "name": "CEE 7/5 socket-outlet",
+      "role": "socket_outlet",
+      "contactGender": "mixed",
+      "contacts": [
+        { "id": "P1", "label": "L/N", "gender": "female" },
+        { "id": "P2", "label": "L/N", "gender": "female" },
+        {
+          "id": "PE",
+          "label": "PE",
+          "gender": "male",
+          "form": "earth_pin",
+          "note": "Round earth pin projecting from the socket; it connects before the line contacts."
+        }
+      ],
+      "keying": "The earth pin lets an earthed plug enter one way only. Which hole carries line is not fixed by the cited sources.",
+      "mechanicalNotes": [
+        "Two pin holes 19 mm apart on a horizontal line.",
+        "Earth pin 4.8 mm in diameter and 14 mm long, centred between the holes and offset 10 mm from the line joining them.",
+        "Recessed 15 mm.",
+        "Mounting orientation (earth pin up or down) is not set by the cited sources."
+      ],
+      "electricalProfiles": ["ac-1ph"],
+      "matesWith": [
+        {
+          "family": "cee-7-schuko",
+          "variant": "cee-7-7-plug",
+          "note": "The CEE 7/7 earth hole receives the earth pin; the side earthing strips stay unused."
+        }
+      ],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/cee-7-type-e/cee-7-5-socket-front.svg",
+          "title": "CEE 7/5 socket-outlet (female holes, male earth pin), mating face, earth pin up",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["wikipedia-ac-plugs", "worldstandards-type-e"]
+        },
+        {
+          "kind": "icon",
+          "file": "icons/evicons-extension/plug-cee-7-5.svg",
+          "title": "CEE 7/5 socket-outlet, mating face, earth pin up (icon)",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "MIT",
+          "basedOn": ["wikipedia-ac-plugs", "worldstandards-type-e"]
+        }
+      ]
+    },
+    {
+      "id": "cee-7-6-plug",
+      "name": "CEE 7/6 plug",
+      "role": "plug",
+      "contactGender": "mixed",
+      "contacts": [
+        { "id": "P1", "label": "L/N", "gender": "male" },
+        { "id": "P2", "label": "L/N", "gender": "male" },
+        {
+          "id": "PE",
+          "label": "PE hole",
+          "gender": "female",
+          "form": "earth_hole",
+          "note": "Receives the earth pin of the socket-outlet."
+        }
+      ],
+      "keying": "The earth hole lets the plug enter a CEE 7/5 socket one way only.",
+      "mechanicalNotes": ["Round pins 4.8 mm in diameter and 19 mm long, 19 mm between centres."],
+      "electricalProfiles": ["ac-1ph"],
+      "matesWith": [{ "family": "cee-7-type-e", "variant": "cee-7-5-socket" }],
+      "visuals": []
+    }
+  ],
+  "electricalProfiles": [
+    {
+      "id": "ac-1ph",
+      "name": "AC single-phase",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": true,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "rated", "value": 250, "reference": "line_to_neutral" },
+      "current": { "qualifier": "rated", "value": 16 },
+      "frequencyHz": null,
+      "maxPowerKw": null,
+      "conditions": [
+        "The 16 A/250 V system of NF C 61-314 (title of the 2017 edition); the same standard also defines a 6 A/250 V system that is not type E.",
+        "The cited sources do not fix which pin carries line: P1 and P2 are interchangeable here."
+      ],
+      "contactFunctions": { "P1": "line", "P2": "neutral", "PE": "protective_earth" },
+      "standardRef": "nf-c-61-314",
+      "jurisdiction": null,
+      "sourceRefs": ["nf-c-61-314-catalogue", "wikipedia-ac-plugs", "worldstandards-type-e"],
+      "confidence": "medium"
+    }
+  ],
+  "mappings": {
+    "ocpi-2.2.1": [
+      { "value": "DOMESTIC_E", "match": "exact", "variants": ["cee-7-5-socket", "cee-7-6-plug"] }
+    ],
+    "ocpi-2.3.0": [
+      { "value": "DOMESTIC_E", "match": "exact", "variants": ["cee-7-5-socket", "cee-7-6-plug"] }
+    ],
+    "openchargemap": [{ "value": "23", "match": "exact", "variants": ["cee-7-5-socket"] }],
+    "openstreetmap": [{ "value": "socket:typee", "match": "exact", "variants": ["cee-7-5-socket"] }]
+  },
+  "sources": [
+    {
+      "id": "nf-c-61-314-catalogue",
+      "title": "NF C 61-314:2017 catalogue record",
+      "publisher": "DIN Media",
+      "type": "standard_abstract",
+      "url": "https://www.dinmedia.de/en/standard/nf-c-61-314/272964419",
+      "accessed": "2026-11-08",
+      "note": "Designation, 2017-05-05 edition, status (current) and title (6 A/250 V and 16 A/250 V systems). No abstract."
+    },
+    {
+      "id": "wikipedia-ac-plugs",
+      "title": "AC power plugs and sockets",
+      "publisher": "Wikipedia",
+      "type": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/AC_power_plugs_and_sockets",
+      "accessed": "2026-11-08",
+      "note": "Secondary source: type E rating (16 A, 250 V), pin size and spacing, 10 mm earth pin offset, national standards, countries."
+    },
+    {
+      "id": "worldstandards-type-e",
+      "title": "Plug type E",
+      "publisher": "WorldStandards",
+      "type": "reference_database",
+      "url": "https://www.worldstandards.eu/electricity/plugs-and-sockets/e/",
+      "accessed": "2026-11-08",
+      "note": "Facts only (dimensions, earth pin, recess, compatibility); no text or image reused."
+    }
+  ],
+  "verification": {
+    "status": "partial",
+    "lastVerified": "2026-11-08",
+    "notes": [
+      "The NF C 61-314 and CEE 7 texts were not reviewed; the link between the 16 A/250 V system and type E, and the dimensions, rely on secondary sources.",
+      "Frequency is not stated by the cited sources.",
+      "Line and neutral positions are not fixed by the cited sources.",
+      "The socket drawing shows the earth pin up; the cited sources do not fix the mounting orientation.",
+      "The CEE 7/6 plug face is not drawn: no reviewed source depicts it separately.",
+      "Whether a CEE 7/6 plug fits a CEE 7/3 (type F) socket is not stated by the cited sources and is not recorded."
+    ]
+  }
+}

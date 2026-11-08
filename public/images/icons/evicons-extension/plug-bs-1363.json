@@ -1,0 +1,53 @@
+{
+  "category": "connector",
+  "meaning": {
+    "en": "BS 1363 socket (Type G, UK 13 A socket with rectangular pins), shown as the socket face seen from the front, earth aperture up",
+    "de": "BS-1363-Steckdose (Typ G, britische 13-A-Steckdose mit Flachstiften), dargestellt als Steckdosenfläche von vorn, Schutzkontakt oben"
+  },
+  "tags": {
+    "en": [
+      "bs 1363",
+      "type g",
+      "uk socket",
+      "13 a",
+      "household socket",
+      "ac",
+      "socket"
+    ],
+    "de": [
+      "bs 1363",
+      "typ g",
+      "britische steckdose",
+      "13 a",
+      "haushaltssteckdose",
+      "ac",
+      "steckdose"
+    ],
+    "fr": [
+      "bs 1363",
+      "type g",
+      "prise britannique",
+      "13 a",
+      "prise domestique",
+      "ac",
+      "prise"
+    ]
+  },
+  "since": "0.9.0",
+  "aliases": [],
+  "standard": {
+    "norm": "BS 1363-2",
+    "source": "BS 1363-2 not consulted; contact layout taken from the OpenPlugDB front view \"BS 1363 socket-outlet (female), mating face, earth aperture up\" (https://github.com/ovarilo/openplugdb/blob/main/public/images/connectors/bs-1363/bs-1363-socket-front.svg, retrieved 2026-11-08), drawn from Wikipedia \"BS 1363\" (https://en.wikipedia.org/wiki/BS_1363, retrieved 2026-11-08); WorldStandards \"Plug type G\" (https://www.worldstandards.eu/electricity/plugs-and-sockets/g/, retrieved 2026-11-08)"
+  },
+  "osm": [
+    "socket:bs1363"
+  ],
+  "ocpi": [
+    "Connector.standard=DOMESTIC_G"
+  ],
+  "provenance": {
+    "createdBy": "ai",
+    "approvedBy": null,
+    "approvedOn": null
+  }
+}

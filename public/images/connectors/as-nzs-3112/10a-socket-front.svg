@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" role="img" aria-labelledby="title desc">
+  <title id="title">AS/NZS 3112 10 A socket-outlet (female), mating face, earth slot down</title>
+  <desc id="desc">Schematic front view with the earth slot down. Two flat slots at 30 degrees to the vertical forming an inverted V (active and neutral, sides not assigned because the secondary sources conflict) and a vertical earth slot below. Outlined slots are female contacts. Proportions follow 7.92 mm from the centre to each blade slot, 10.31 mm to the earth slot, and 6.35 mm long slots; the outline is schematic.</desc>
+  <g fill="none" stroke="#1c2430" stroke-width="3">
+    <rect x="30" y="20" width="140" height="160" rx="24"/>
+    <rect x="68" y="66" width="9" height="26" rx="2" transform="rotate(30 72.5 79)"/>
+    <rect x="123" y="66" width="9" height="26" rx="2" transform="rotate(-30 127.5 79)"/>
+    <rect x="95.5" y="123" width="9" height="26" rx="2"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#1c2430" text-anchor="middle" dominant-baseline="central">
+    <text x="62" y="48">L/N</text>
+    <text x="138" y="48">L/N</text>
+    <text x="100" y="164">PE</text>
+  </g>
+  <text x="100" y="202" font-family="system-ui, sans-serif" font-size="9" fill="#5a6472" text-anchor="middle" letter-spacing="1">MATING FACE · FEMALE</text>
+</svg>

@@ -1,0 +1,158 @@
+---
+import '../styles/global.css';
+import { url } from '../lib/format.ts';
+
+interface Props {
+  title: string;
+  description: string;
+  jsonLd?: Record<string, unknown>;
+}
+
+const { title, description, jsonLd } = Astro.props;
+const fullTitle = title === 'OpenPlugDB' ? title : `${title} · OpenPlugDB`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const nav = [
+  { href: url('/connectors/'), label: 'Connectors' },
+  { href: url('/downloads/'), label: 'Data' },
+  { href: url('/about/'), label: 'About' },
+];
+const current = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
+    <link rel="sitemap" href={url('/sitemap-index.xml')} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OpenPlugDB" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="theme-color" content="#0b6bcb" />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="inner">
+        <a class="brand" href={url('/')} aria-label="OpenPlugDB home">
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
+            <circle cx="8.5" cy="12" r="1.8" fill="currentColor"></circle>
+            <circle cx="15.5" cy="12" r="1.8" fill="currentColor"></circle>
+          </svg>
+          <span>OpenPlugDB</span>
+        </a>
+        <nav aria-label="Main">
+          <ul>
+            {
+              nav.map((item) => (
+                <li>
+                  <a href={item.href} aria-current={current.startsWith(item.href) ? 'page' : undefined}>
+                    {item.label}
+                  </a>
+                </li>
+              ))
+            }
+            <li><a href="https://github.com/ovarilo/openplugdb">GitHub</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="inner">
+        <p>
+          OpenPlugDB — an open reference of electrical plugs and connectors. Code{' '}
+          <a href="https://github.com/ovarilo/openplugdb/blob/main/LICENSE">MIT</a>, data{' '}
+          <a href={url('/about/#licenses')}>CC0-1.0</a>, illustrations under their own licenses.
+        </p>
+        <p class="muted">
+          Normative values are informative only. Always check the equipment rating and local regulations.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0.75rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem 1.5rem;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .brand svg {
+    color: var(--accent);
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  nav a:hover,
+  nav a[aria-current='page'] {
+    color: var(--text);
+  }
+
+  nav a[aria-current='page'] {
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.4em;
+  }
+
+  .site-footer {
+    border-top: 1px solid var(--border);
+    font-size: 0.875rem;
+  }
+
+  .site-footer .inner {
+    display: block;
+    padding: 1.5rem 1rem;
+  }
+
+  .site-footer p {
+    margin: 0.25rem 0;
+  }
+</style>

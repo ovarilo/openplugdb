@@ -1,0 +1,75 @@
+---
+import { url } from '../lib/format.ts';
+
+// Full-text search. Without JavaScript, or before the Pagefind index exists
+// (astro dev), the form submits to the catalog filter. After `bun run build`,
+// it is enhanced with Pagefind's static index of the connector pages.
+const base = url('/');
+---
+
+<div class="search" data-base={base}>
+  <form action={url('/connectors/')} method="get" role="search" class="fallback">
+    <label for="home-q" class="visually-hidden">Search connectors</label>
+    <input id="home-q" name="q" type="search" placeholder="Search: Type 2, Schuko, IEC 60309, NACS…" />
+    <button class="button primary" type="submit">Search</button>
+  </form>
+  <div id="pagefind" hidden></div>
+</div>
+
+<script>
+  const root = document.querySelector<HTMLElement>('.search');
+  const target = document.querySelector<HTMLElement>('#pagefind');
+  const base = root?.dataset.base ?? '/';
+
+  if (root && target) {
+    const css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = `${base}pagefind/pagefind-ui.css`;
+    const script = document.createElement('script');
+    script.src = `${base}pagefind/pagefind-ui.js`;
+    script.onload = () => {
+      const ui = (window as unknown as { PagefindUI?: new (options: object) => unknown }).PagefindUI;
+      if (!ui) return;
+      document.head.append(css);
+      root.querySelector('.fallback')?.remove();
+      target.hidden = false;
+      new ui({
+        element: '#pagefind',
+        baseUrl: base,
+        showSubResults: false,
+        showImages: false,
+        resetStyles: false,
+      });
+    };
+    // A missing index (dev server) keeps the plain form.
+    script.onerror = () => script.remove();
+    document.head.append(script);
+  }
+</script>
+
+<style>
+  .search {
+    margin-top: 1.5rem;
+    max-width: 40rem;
+  }
+
+  form {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  input {
+    flex: 1;
+    min-width: 0;
+  }
+
+  #pagefind {
+    --pagefind-ui-scale: 0.85;
+    --pagefind-ui-primary: var(--accent);
+    --pagefind-ui-text: var(--text);
+    --pagefind-ui-background: var(--surface);
+    --pagefind-ui-border: var(--border);
+    --pagefind-ui-tag: var(--surface-2);
+    --pagefind-ui-font: var(--font);
+  }
+</style>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" role="img" aria-labelledby="title desc">
+  <title id="title">CEE 7/5 socket-outlet (female holes, male earth pin), mating face, earth pin up</title>
+  <desc id="desc">Schematic front view of the circular recess with the earth pin up; the cited sources do not fix the mounting orientation. Two pin holes on a horizontal line, line or neutral not fixed by the sources. Earth pin projecting from the socket, centred above the holes. Rings are female contacts; the filled circle is the male earth pin. Proportions follow 19 mm between pin holes, 10 mm from the hole line to the earth pin and a 4.8 mm earth pin.</desc>
+  <g fill="none" stroke="#1c2430" stroke-width="3">
+    <circle cx="100" cy="100" r="78"/>
+    <circle cx="62" cy="100" r="11"/>
+    <circle cx="138" cy="100" r="11"/>
+  </g>
+  <circle cx="100" cy="60" r="10" fill="#1c2430"/>
+  <g font-family="system-ui, sans-serif" font-size="10" font-weight="700" text-anchor="middle" dominant-baseline="central">
+    <text x="100" y="60" fill="#ffffff">PE</text>
+    <g fill="#1c2430">
+      <text x="62" y="124">L/N</text>
+      <text x="138" y="124">L/N</text>
+    </g>
+  </g>
+  <text x="100" y="202" font-family="system-ui, sans-serif" font-size="9" fill="#5a6472" text-anchor="middle" letter-spacing="1">MATING FACE · MIXED</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" role="img" aria-labelledby="title desc">
+  <title id="title">BS 1363 socket-outlet (female), mating face, earth aperture up</title>
+  <desc id="desc">Schematic front view with the earth aperture at the top. Vertical earth aperture above the centre; horizontal neutral aperture lower left and line aperture lower right. Outlined shapes are female contacts. Proportions follow 22.2 mm between line and neutral centres, 22.2 mm from the earth aperture to the line-neutral axis, and apertures of 7.2 × 4.8 mm and 8.8 × 4.8 mm.</desc>
+  <g fill="none" stroke="#1c2430" stroke-width="3">
+    <rect x="25" y="15" width="150" height="165" rx="10"/>
+    <rect x="93" y="49" width="14" height="26" rx="1"/>
+    <rect x="56" y="122" width="22" height="14" rx="1"/>
+    <rect x="122" y="122" width="22" height="14" rx="1"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#1c2430" text-anchor="middle" dominant-baseline="central">
+    <text x="100" y="38">PE</text>
+    <text x="67" y="152">N</text>
+    <text x="133" y="152">L</text>
+  </g>
+  <text x="100" y="202" font-family="system-ui, sans-serif" font-size="9" fill="#5a6472" text-anchor="middle" letter-spacing="1">MATING FACE · FEMALE</text>
+</svg>

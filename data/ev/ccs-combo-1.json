@@ -1,0 +1,262 @@
+{
+  "$schema": "../../schemas/connector-family.schema.json",
+  "id": "ccs-combo-1",
+  "name": "CCS Combo 1",
+  "aliases": ["CCS1", "Combo 1", "IEC 62196-3 configuration EE", "SAE J1772 combo", "CCS (Type 1)"],
+  "category": "ev",
+  "subcategory": "dc-charging",
+  "description": "Combined AC/DC charging interface: configuration EE of IEC 62196-3, the combo coupler of SAE J1772. The vehicle inlet combines a Type 1 AC section with two DC contacts below it; the DC vehicle connector keeps only PE, CP, CS and the two DC contacts.",
+  "status": "current",
+  "regions": ["north_america", "asia"],
+  "countries": [],
+  "standards": [
+    {
+      "id": "iec-62196-3-2022",
+      "designation": "IEC 62196-3",
+      "edition": "2.0 (2022)",
+      "title": "Plugs, socket-outlets, and vehicle couplers – Conductive charging of electric vehicles – Part 3: Dimensional compatibility requirements for DC and AC/DC pin and contact-tube vehicle couplers",
+      "scope": "Configuration EE (standard sheets 3-III), ratings and contacts (tables 302 to 304)",
+      "url": "https://webstore.iec.ch/en/publication/59923"
+    },
+    {
+      "id": "iec-62196-3-2026",
+      "designation": "IEC 62196-3",
+      "edition": "3.0 (2026)",
+      "title": "Plugs, socket-outlets, and vehicle couplers – Conductive charging of electric vehicles – Part 3: Dimensional compatibility requirements for DC and AC/DC pin and contact-tube vehicle couplers",
+      "scope": "Current edition; integrates IEC TS 62196-3-1 (thermal management) as Annex AA and announces increased ratings. Not yet reviewed in detail."
+    },
+    {
+      "id": "iec-62196-2",
+      "designation": "IEC 62196-2",
+      "edition": "4.0 (2025)",
+      "title": "Plugs, socket-outlets, vehicle connectors and vehicle inlets – Conductive charging of electric vehicles – Part 2: Dimensional compatibility requirements for AC pin and contact-tube accessories",
+      "scope": "Type 1 AC section of the vehicle inlet",
+      "url": "https://webstore.iec.ch/en/publication/86317"
+    },
+    {
+      "id": "sae-j1772",
+      "designation": "SAE J1772",
+      "edition": "J1772_202401 (January 2024)",
+      "title": "SAE Electric Vehicle and Plug-in Hybrid Electric Vehicle Conductive Charge Coupler",
+      "scope": "North American conductive charge coupler, including the combined AC/DC coupler",
+      "url": "https://saemobilus.sae.org/standards/j1772_202401-sae-electric-vehicle-plug-hybrid-electric-vehicle-conductive-charge-coupler"
+    },
+    {
+      "id": "iec-61851-23",
+      "designation": "IEC 61851-23",
+      "edition": null,
+      "title": "Electric vehicle conductive charging system – Part 23: DC electric vehicle supply equipment",
+      "scope": "System C (Annex CC), the only DC system configuration EE couplers are used with"
+    }
+  ],
+  "relations": [
+    {
+      "type": "extends",
+      "family": "iec-62196-type-1",
+      "note": "The vehicle inlet contains a complete Type 1 AC section and also accepts a Type 1 AC vehicle connector."
+    }
+  ],
+  "variants": [
+    {
+      "id": "vehicle-inlet",
+      "name": "CCS Combo 1 vehicle inlet",
+      "role": "vehicle_inlet",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "L1", "label": "L1", "gender": "male" },
+        { "id": "L2-N", "label": "L2/N", "gender": "male" },
+        { "id": "PE", "label": "PE", "gender": "male" },
+        { "id": "CP", "label": "CP", "gender": "male" },
+        {
+          "id": "CS",
+          "label": "CS",
+          "gender": "male",
+          "note": "Connection switch, also called proximity (PP)."
+        },
+        { "id": "DC+", "label": "DC+", "gender": "male" },
+        { "id": "DC-", "label": "DC−", "gender": "male" }
+      ],
+      "keying": "Type 1 section (circular, latch receptacle at the top) above a separate DC section with two large contacts.",
+      "mechanicalNotes": [
+        "AC contacts L1 and L2/N exist only on the configuration EE single-phase vehicle inlet (IEC 62196-3:2022, table 302, footnote b)."
+      ],
+      "electricalProfiles": ["dc", "ac-1ph"],
+      "matesWith": [
+        { "family": "ccs-combo-1", "variant": "vehicle-connector" },
+        {
+          "family": "iec-62196-type-1",
+          "variant": "vehicle-connector",
+          "note": "AC charging through the Type 1 section."
+        }
+      ],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/ccs-combo-1/vehicle-inlet-front.svg",
+          "title": "CCS Combo 1 vehicle inlet (male), mating face",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["phoenix-1211595"]
+        },
+        {
+          "kind": "icon",
+          "file": "icons/evicons/plug-ccs1.svg",
+          "title": "CCS Combo 1 vehicle inlet, mating face (EVicons icon)",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "third_party",
+          "author": "Landolsi Digital (EVicons)",
+          "license": "MIT",
+          "sourceUrl": "https://github.com/evicons/evicons/blob/v0.8.0/packages/svg/svg/plug-ccs1.svg"
+        }
+      ]
+    },
+    {
+      "id": "vehicle-connector",
+      "name": "CCS Combo 1 vehicle connector",
+      "role": "vehicle_connector",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "PE", "label": "PE", "gender": "female" },
+        { "id": "CP", "label": "CP", "gender": "female" },
+        {
+          "id": "CS",
+          "label": "CS",
+          "gender": "female",
+          "note": "Connection switch, also called proximity (PP)."
+        },
+        { "id": "DC+", "label": "DC+", "gender": "female" },
+        { "id": "DC-", "label": "DC−", "gender": "female" }
+      ],
+      "keying": "Type 1 shaped upper section without AC contacts, above the DC section.",
+      "mechanicalNotes": [
+        "The AC contact positions L1 and L2/N are not fitted on the DC vehicle connector."
+      ],
+      "electricalProfiles": ["dc"],
+      "matesWith": [],
+      "visuals": []
+    }
+  ],
+  "electricalProfiles": [
+    {
+      "id": "dc",
+      "name": "DC",
+      "currentType": "dc",
+      "supply": "dc",
+      "neutral": false,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "max", "value": 1000, "reference": "dc" },
+      "current": { "qualifier": "max", "value": 400 },
+      "maxPowerKw": null,
+      "conditions": [
+        "Maximum rating of configuration EE in IEC 62196-3:2022 (edition 2.0), tables 302 and 303.",
+        "IEC 62196-3:2026 (edition 3.0) announces increased ratings for all configurations; they are not recorded here yet.",
+        "Products are rated individually and may be lower; for example one inlet datasheet gives 200 A / 1000 V DC.",
+        "Used only with DC EV supply equipment of System C (IEC 61851-23 Annex CC).",
+        "CP and CS are signal contacts rated 30 V, 2 A."
+      ],
+      "contactFunctions": {
+        "DC+": "dc_positive",
+        "DC-": "dc_negative",
+        "PE": "protective_earth",
+        "CP": "control_pilot",
+        "CS": "proximity_pilot"
+      },
+      "standardRef": "iec-62196-3-2022",
+      "jurisdiction": null,
+      "sourceRefs": ["iec-62196-3-2022-sample", "phoenix-1211595"],
+      "confidence": "high"
+    },
+    {
+      "id": "ac-1ph",
+      "name": "AC single-phase (Type 1 section)",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": null,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "max", "value": 250, "reference": "line_to_neutral" },
+      "current": { "qualifier": "max", "value": 32 },
+      "frequencyHz": [50, 60],
+      "maxPowerKw": null,
+      "conditions": [
+        "AC ratings follow IEC 62196-2 Type 1 (IEC 62196-3:2022, table 302: 250 V, 32 A on L1 and L2/N).",
+        "The second power contact is L2 or N depending on the supply; it is not mapped to a single function here.",
+        "IEC 62196-2:2025 allows Type 1 vehicle connectors up to 80 A in the US, KR and JP; see the iec-62196-type-1 family."
+      ],
+      "contactFunctions": {
+        "L1": "line",
+        "PE": "protective_earth",
+        "CP": "control_pilot",
+        "CS": "proximity_pilot"
+      },
+      "standardRef": "iec-62196-2",
+      "jurisdiction": "IEC",
+      "sourceRefs": ["iec-62196-3-2022-sample", "iec-62196-2-2025-sample"],
+      "confidence": "high"
+    }
+  ],
+  "mappings": {
+    "ocpi-2.2.1": [{ "value": "IEC_62196_T1_COMBO", "match": "exact" }],
+    "ocpi-2.3.0": [{ "value": "IEC_62196_T1_COMBO", "match": "exact" }],
+    "openchargemap": [{ "value": "32", "match": "exact" }],
+    "openstreetmap": [{ "value": "socket:type1_combo", "match": "exact" }]
+  },
+  "sources": [
+    {
+      "id": "iec-62196-3-2022-sample",
+      "title": "IEC 62196-3:2022 (edition 2.0), official preview sample: clauses 5 to 9, tables 301 to 303",
+      "publisher": "IEC (via iTeh Standards)",
+      "type": "standard",
+      "url": "https://cdn.standards.iteh.ai/samples/100328/a2a7173f588046bdad7086b7b7739e24/IEC-62196-3-2022.pdf",
+      "accessed": "2026-11-08"
+    },
+    {
+      "id": "iec-62196-3-2026-sample",
+      "title": "IEC 62196-3:2026 (edition 3.0), official preview sample: foreword and scope",
+      "publisher": "IEC (via iTeh Standards)",
+      "type": "standard",
+      "url": "https://cdn.standards.iteh.ai/samples/iec/iec-62196-3-2026/cbf4dcef0a9c403ba21f35bb48ab8c17/iec62196-3-ed3-0-en.pdf",
+      "accessed": "2026-11-08"
+    },
+    {
+      "id": "iec-62196-2-2025-sample",
+      "title": "IEC 62196-2:2025 (edition 4.0), official preview sample: scope, clauses 5 to 9, tables 201 to 204",
+      "publisher": "IEC (via iTeh Standards)",
+      "type": "standard",
+      "url": "https://cdn.standards.iteh.ai/samples/iec/iec-62196-2-2025/51dfebd365b4454e9fcf88aa3ec324cc/iec-62196-2-2025.pdf",
+      "accessed": "2026-11-08"
+    },
+    {
+      "id": "sae-j1772-202401-abstract",
+      "title": "SAE J1772_202401 publication page and scope",
+      "publisher": "SAE International",
+      "type": "standard_abstract",
+      "url": "https://saemobilus.sae.org/standards/j1772_202401-sae-electric-vehicle-plug-hybrid-electric-vehicle-conductive-charge-coupler",
+      "accessed": "2026-11-08",
+      "note": "Edition and scope only; the abstract gives no ratings."
+    },
+    {
+      "id": "phoenix-1211595",
+      "title": "CHARX T1HBI12-DC200-2,0M1 CCS Type 1 vehicle charging inlet (1211595) datasheet, pin assignment of vehicle charging inlets",
+      "publisher": "Phoenix Contact",
+      "type": "manufacturer",
+      "url": "https://static.chipdip.ru/lib/747/DOC044747154.pdf",
+      "accessed": "2026-11-08",
+      "note": "Phoenix Contact catalogue datasheet (generated 2024-04-19) mirrored by a distributor. Used for the inlet face layout and as an example of a product rating; not a normative rating."
+    }
+  ],
+  "verification": {
+    "status": "partial",
+    "lastVerified": "2026-11-08",
+    "notes": [
+      "DC ratings come from the 2022 edition; the increased ratings of IEC 62196-3:2026 are not reviewed yet.",
+      "The SAE J1772 combo coupler text was not reviewed, only the abstract of SAE J1772_202401.",
+      "The DC vehicle connector contact set follows IEC 62196-3:2022 table 302 (AC contacts only on the inlet); its contact gender is inferred from mating with the male inlet, and its face is not drawn because no reviewed source depicts it.",
+      "Liquid-cooled ratings (IEC 62196-3:2026 Annex AA, formerly IEC TS 62196-3-1) are not modelled yet."
+    ]
+  }
+}

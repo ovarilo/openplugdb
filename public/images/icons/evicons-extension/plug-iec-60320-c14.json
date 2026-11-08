@@ -1,0 +1,47 @@
+{
+  "category": "connector",
+  "meaning": {
+    "en": "IEC 60320 C14 appliance inlet (mates with the C13 connector of a power cord), shown as the appliance inlet face seen from the front",
+    "de": "IEC-60320-C14-Gerätestecker (Gegenstück zur C13-Kaltgerätekupplung eines Netzkabels), dargestellt als Gerätesteckerfläche von vorn"
+  },
+  "tags": {
+    "en": [
+      "iec 60320",
+      "c14",
+      "c13",
+      "appliance inlet",
+      "power cord",
+      "ac",
+      "inlet"
+    ],
+    "de": [
+      "iec 60320",
+      "c14",
+      "c13",
+      "kaltgerätestecker",
+      "gerätestecker",
+      "netzkabel",
+      "ac"
+    ],
+    "fr": [
+      "iec 60320",
+      "c14",
+      "c13",
+      "embase",
+      "connecteur iec",
+      "cordon secteur",
+      "ac"
+    ]
+  },
+  "since": "0.9.0",
+  "aliases": [],
+  "standard": {
+    "norm": "IEC 60320-1 (C14)",
+    "source": "IEC 60320-1 (C14) not consulted; contact layout taken from the OpenPlugDB front view \"IEC 60320 C14 appliance inlet (male), mating face\" (https://github.com/ovarilo/openplugdb/blob/main/public/images/connectors/iec-60320-c13-c14/c14-inlet-front.svg, retrieved 2026-11-08), drawn from Schurter \"6010 C14 appliance inlet datasheet\" (https://at.schurter.com/en/datasheet/6010, retrieved 2026-11-08)"
+  },
+  "provenance": {
+    "createdBy": "ai",
+    "approvedBy": null,
+    "approvedOn": null
+  }
+}

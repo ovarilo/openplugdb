@@ -1,0 +1,254 @@
+{
+  "$schema": "../../schemas/connector-family.schema.json",
+  "id": "as-nzs-3112",
+  "name": "AS/NZS 3112 (Type I)",
+  "aliases": ["Type I", "Australian plug", "AS 3112"],
+  "category": "domestic",
+  "subcategory": "household",
+  "description": "Australian and New Zealand household plug and socket system: two flat blades set at 30° to the vertical in an inverted V, and a vertical flat earth pin below. Rated 10 A in its basic form, with 15, 20, 25 and 32 A variants whose wider or reshaped pins keep a higher-rated plug out of a lower-rated socket.",
+  "status": "current",
+  "regions": ["oceania"],
+  "countries": ["AU", "NZ", "FJ", "TO", "PG", "SB"],
+  "standards": [
+    {
+      "id": "as-nzs-3112-2025",
+      "designation": "AS/NZS 3112",
+      "edition": "2025",
+      "title": "Approval and test specification – Plugs and socket-outlets",
+      "scope": "Current edition (published 2025-11-21), supersedes AS/NZS 3112:2017; not reviewed",
+      "url": "https://store.standards.org.au/product/as-nzs-3112-2025"
+    },
+    {
+      "id": "as-nzs-3112-2017",
+      "designation": "AS/NZS 3112",
+      "edition": "2017 (Amd 1:2021)",
+      "title": "Approval and test specification – Plugs and socket-outlets",
+      "scope": "Edition cited by the secondary sources for pin dimensions",
+      "url": "https://store.standards.org.au/product/as-nzs-3112-2017"
+    }
+  ],
+  "relations": [],
+  "variants": [
+    {
+      "id": "10a-plug",
+      "name": "AS/NZS 3112 10 A plug",
+      "role": "plug",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "A", "label": "Active", "gender": "male" },
+        { "id": "N", "label": "Neutral", "gender": "male" },
+        { "id": "PE", "label": "Earth", "gender": "male", "form": "earth_pin" }
+      ],
+      "keying": "The inverted-V blades and the earth pin allow one orientation only.",
+      "mechanicalNotes": [
+        "Active and neutral blades about 6.35 × 1.6 mm, at 30° to the vertical, centred 7.92 mm from the plug centre.",
+        "Earth pin centred 10.31 mm below the plug centre, slightly longer than the blades.",
+        "Active and neutral blades carry insulating sleeves since the 2000 revision of the standard.",
+        "Blade lengths differ between secondary sources (17.06 mm or 17.35 mm); not recorded."
+      ],
+      "electricalProfiles": ["ac-1ph-10a"],
+      "matesWith": [
+        { "family": "as-nzs-3112", "variant": "10a-socket" },
+        { "family": "as-nzs-3112", "variant": "15a-socket" }
+      ],
+      "visuals": []
+    },
+    {
+      "id": "10a-socket",
+      "name": "AS/NZS 3112 10 A socket-outlet",
+      "role": "socket_outlet",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "A", "label": "Active", "gender": "female" },
+        { "id": "N", "label": "Neutral", "gender": "female" },
+        { "id": "PE", "label": "Earth", "gender": "female", "form": "earth_hole" }
+      ],
+      "keying": "Inverted-V slots and earth slot accept the plug one way only; the earth slot rejects the wider earth pin of 15 A and higher plugs.",
+      "mechanicalNotes": ["Flush socket-outlet; mounting orientation is earth slot down."],
+      "electricalProfiles": ["ac-1ph-10a"],
+      "matesWith": [],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/as-nzs-3112/10a-socket-front.svg",
+          "title": "AS/NZS 3112 10 A socket-outlet (female), mating face, earth slot down",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["wikipedia-ac-plugs", "wikipedia-as-nzs-3112"]
+        },
+        {
+          "kind": "icon",
+          "file": "icons/evicons-extension/plug-as-nzs-3112.svg",
+          "title": "AS/NZS 3112 10 A socket-outlet, mating face, earth slot down (icon)",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "MIT",
+          "basedOn": ["wikipedia-ac-plugs", "wikipedia-as-nzs-3112"]
+        }
+      ]
+    },
+    {
+      "id": "15a-plug",
+      "name": "AS/NZS 3112 15 A plug",
+      "role": "plug",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "A", "label": "Active", "gender": "male" },
+        { "id": "N", "label": "Neutral", "gender": "male" },
+        { "id": "PE", "label": "Earth", "gender": "male", "form": "earth_pin" }
+      ],
+      "keying": "Wider earth pin: fits 15 A and higher sockets, not 10 A sockets.",
+      "mechanicalNotes": [
+        "Same blade layout as the 10 A plug; the earth pin is wider (9.08 mm instead of 6.35 mm per one secondary source)."
+      ],
+      "electricalProfiles": ["ac-1ph-15a"],
+      "matesWith": [{ "family": "as-nzs-3112", "variant": "15a-socket" }],
+      "visuals": []
+    },
+    {
+      "id": "15a-socket",
+      "name": "AS/NZS 3112 15 A socket-outlet",
+      "role": "socket_outlet",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "A", "label": "Active", "gender": "female" },
+        { "id": "N", "label": "Neutral", "gender": "female" },
+        { "id": "PE", "label": "Earth", "gender": "female", "form": "earth_hole" }
+      ],
+      "keying": "Wider earth slot: accepts 10 A and 15 A plugs.",
+      "mechanicalNotes": [],
+      "electricalProfiles": ["ac-1ph-15a"],
+      "matesWith": [],
+      "visuals": []
+    }
+  ],
+  "electricalProfiles": [
+    {
+      "id": "ac-1ph-10a",
+      "name": "AC single-phase, 10 A",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": true,
+      "protectiveEarth": true,
+      "voltage": null,
+      "current": { "qualifier": "rated", "value": 10 },
+      "frequencyHz": null,
+      "maxPowerKw": null,
+      "conditions": [
+        "The 10 A rating comes from secondary sources; the AS/NZS 3112 text was not reviewed.",
+        "The cited sources give the nominal supply (230 V, 240 V in Western Australia), not a rated voltage of the configuration."
+      ],
+      "contactFunctions": { "A": "line", "N": "neutral", "PE": "protective_earth" },
+      "standardRef": "as-nzs-3112-2017",
+      "jurisdiction": null,
+      "sourceRefs": ["wikipedia-ac-plugs", "wikipedia-as-nzs-3112", "osm-wiki-socket"],
+      "confidence": "medium"
+    },
+    {
+      "id": "ac-1ph-15a",
+      "name": "AC single-phase, 15 A",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": true,
+      "protectiveEarth": true,
+      "voltage": null,
+      "current": { "qualifier": "rated", "value": 15 },
+      "frequencyHz": null,
+      "maxPowerKw": null,
+      "conditions": [
+        "The 15 A rating comes from secondary sources; the AS/NZS 3112 text was not reviewed."
+      ],
+      "contactFunctions": { "A": "line", "N": "neutral", "PE": "protective_earth" },
+      "standardRef": "as-nzs-3112-2017",
+      "jurisdiction": null,
+      "sourceRefs": ["wikipedia-ac-plugs", "wikipedia-as-nzs-3112", "osm-wiki-socket"],
+      "confidence": "medium"
+    }
+  ],
+  "mappings": {
+    "ocpi-2.2.1": [
+      { "value": "DOMESTIC_I", "match": "exact", "variants": ["10a-plug", "10a-socket"] },
+      {
+        "value": "DOMESTIC_I",
+        "match": "partial",
+        "variants": ["15a-socket"],
+        "note": "A 15 A socket-outlet accepts Type I (10 A) plugs but is a 15 A configuration; the 15 A plug does not fit a Type I socket-outlet."
+      }
+    ],
+    "ocpi-2.3.0": [
+      { "value": "DOMESTIC_I", "match": "exact", "variants": ["10a-plug", "10a-socket"] },
+      {
+        "value": "DOMESTIC_I",
+        "match": "partial",
+        "variants": ["15a-socket"],
+        "note": "A 15 A socket-outlet accepts Type I (10 A) plugs but is a 15 A configuration; the 15 A plug does not fit a Type I socket-outlet."
+      }
+    ],
+    "openchargemap": [{ "value": "29", "match": "exact", "variants": ["10a-socket"] }],
+    "openstreetmap": [
+      {
+        "value": "socket:as3112",
+        "match": "broader",
+        "variants": ["10a-socket", "15a-socket"],
+        "note": "The OSM key covers AS/NZS 3112 sockets of every rating."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "standards-australia-3112-2025",
+      "title": "AS/NZS 3112:2025 Approval and test specification – Plugs and socket-outlets",
+      "publisher": "Standards Australia",
+      "type": "standard_abstract",
+      "url": "https://store.standards.org.au/product/as-nzs-3112-2025",
+      "accessed": "2026-11-08",
+      "note": "Store listing: edition and supersession only; the page body could not be read directly, details confirmed through search results."
+    },
+    {
+      "id": "wikipedia-ac-plugs",
+      "title": "AC power plugs and sockets",
+      "publisher": "Wikipedia",
+      "type": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/AC_power_plugs_and_sockets",
+      "accessed": "2026-11-08",
+      "note": "Secondary source citing AS/NZS 3112:2017 for dimensions."
+    },
+    {
+      "id": "wikipedia-as-nzs-3112",
+      "title": "AS/NZS 3112",
+      "publisher": "Wikipedia",
+      "type": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/AS/NZS_3112",
+      "accessed": "2026-11-08",
+      "note": "Secondary source."
+    },
+    {
+      "id": "osm-wiki-socket",
+      "title": "Key:socket:* (revision 3080014)",
+      "publisher": "OpenStreetMap Wiki",
+      "type": "other",
+      "url": "https://wiki.openstreetmap.org/w/index.php?title=Key:socket:*&oldid=3080014",
+      "accessed": "2026-11-08",
+      "note": "Key name and the 10 A / 15 A ratings only; wiki text (CC BY-SA 2.0) not reproduced."
+    }
+  ],
+  "verification": {
+    "status": "partial",
+    "lastVerified": "2026-11-08",
+    "notes": [
+      "Ratings and dimensions rely on secondary sources citing AS/NZS 3112:2017; neither the 2017 nor the current 2025 edition was reviewed.",
+      "Rated voltage is not stated by the cited sources (they give the nominal supply only), so it is null.",
+      "Frequency is not stated for the configuration (the sources give 50 Hz as the supply frequency of the countries).",
+      "Active/neutral sides conflict between two secondary sources: one puts the active on the left looking into the socket with the earth down, the other says the top-right pin is active. The drawing therefore labels both blade slots L/N.",
+      "The 20 A, 25 A and 32 A variants (wider pins, L- or U-shaped earth pin) are not modelled yet.",
+      "Argentina (IRAM 2073) and China (GB 1002) use a near-identical layout with different pin lengths and, in Argentina, reversed polarity; they are not part of this family."
+    ]
+  }
+}

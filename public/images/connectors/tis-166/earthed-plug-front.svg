@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" role="img" aria-labelledby="title desc">
+  <title id="title">TIS 166 earthed plug (male), mating face, earth pin up</title>
+  <desc id="desc">Schematic view of the pin side with the earth pin up. Neutral pin lower left, line pin lower right, earth pin above the centre. Filled circles are male pins. Proportions follow TIS 166 figure 1: 4.8 mm pins, 19 mm between the line and neutral pins, 11.89 mm from their line to the earth pin. The standard leaves the face outline free; the circle is schematic.</desc>
+  <circle cx="100" cy="100" r="78" fill="none" stroke="#1c2430" stroke-width="3"/>
+  <g fill="#1c2430">
+    <circle cx="62" cy="113" r="11"/>
+    <circle cx="138" cy="113" r="11"/>
+    <circle cx="100" cy="65" r="11"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">
+    <text x="62" y="113">N</text>
+    <text x="138" y="113">L</text>
+    <text x="100" y="65">PE</text>
+  </g>
+  <text x="100" y="202" font-family="system-ui, sans-serif" font-size="9" fill="#5a6472" text-anchor="middle" letter-spacing="1">MATING FACE · MALE</text>
+</svg>

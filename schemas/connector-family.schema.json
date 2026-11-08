@@ -1,0 +1,457 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openplugdb.org/schemas/connector-family.schema.json",
+  "title": "OpenPlugDB connector family",
+  "description": "One connector family with its physical variants, electrical profiles, external mappings and sources. Convention: a required key set to null means 'unknown / not documented'; a key that is forbidden (absent) means 'not applicable'.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "id",
+    "name",
+    "aliases",
+    "category",
+    "subcategory",
+    "description",
+    "status",
+    "regions",
+    "countries",
+    "standards",
+    "relations",
+    "variants",
+    "electricalProfiles",
+    "mappings",
+    "sources",
+    "verification"
+  ],
+  "properties": {
+    "$schema": { "type": "string" },
+    "id": {
+      "$ref": "#/$defs/slug",
+      "description": "Stable OpenPlugDB identifier, independent from external standards. Must match the file name."
+    },
+    "name": { "$ref": "#/$defs/text" },
+    "aliases": { "$ref": "#/$defs/uniqueTexts" },
+    "category": {
+      "enum": ["domestic", "industrial", "ev", "appliance"],
+      "description": "Must match the parent directory under data/."
+    },
+    "subcategory": { "$ref": "#/$defs/slug" },
+    "description": { "$ref": "#/$defs/text" },
+    "status": { "enum": ["current", "discontinued", "obsolete", "unknown"] },
+    "regions": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "worldwide",
+          "africa",
+          "asia",
+          "europe",
+          "middle_east",
+          "north_america",
+          "oceania",
+          "south_america"
+        ]
+      }
+    },
+    "countries": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z]{2}$",
+        "description": "ISO 3166-1 alpha-2 code."
+      }
+    },
+    "standards": { "type": "array", "items": { "$ref": "#/$defs/standard" } },
+    "relations": { "type": "array", "items": { "$ref": "#/$defs/relation" } },
+    "variants": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/variant" } },
+    "electricalProfiles": { "type": "array", "items": { "$ref": "#/$defs/electricalProfile" } },
+    "mappings": { "$ref": "#/$defs/mappings" },
+    "sources": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/source" } },
+    "verification": { "$ref": "#/$defs/verification" }
+  },
+  "$defs": {
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "maxLength": 64 },
+    "text": { "type": "string", "minLength": 1, "pattern": "^\\S(.*\\S)?$" },
+    "uniqueTexts": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/text" } },
+    "refs": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/slug" } },
+    "nonEmptyRefs": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/slug" }
+    },
+    "date": { "type": "string", "format": "date" },
+    "confidence": { "enum": ["high", "medium", "low"] },
+
+    "standard": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "designation", "edition", "title", "scope"],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/slug",
+          "description": "Local reference used by profiles (standardRef)."
+        },
+        "designation": {
+          "$ref": "#/$defs/text",
+          "description": "Official designation, e.g. 'IEC 62196-2'."
+        },
+        "edition": {
+          "type": ["string", "null"],
+          "description": "Edition or publication year as published, e.g. '3.0 (2022)'. null when unknown."
+        },
+        "title": { "type": ["string", "null"] },
+        "scope": {
+          "type": ["string", "null"],
+          "description": "What this standard defines for the family (e.g. 'Type 2 configuration')."
+        },
+        "url": { "type": "string", "format": "uri" }
+      }
+    },
+
+    "relation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "family", "note"],
+      "properties": {
+        "type": { "enum": ["extends", "derived_from", "superseded_by", "related"] },
+        "family": { "$ref": "#/$defs/slug" },
+        "note": { "type": ["string", "null"] }
+      }
+    },
+
+    "contact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "gender"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9+_-]+$",
+          "description": "Stable position id, unique within the variant (e.g. 'L1', 'PE', 'DC+')."
+        },
+        "label": {
+          "$ref": "#/$defs/text",
+          "description": "Marking or common name of the contact position."
+        },
+        "gender": {
+          "enum": ["male", "female", "sexless"],
+          "description": "Pin (male), sleeve/receptacle (female), or sexless for flat or spring contacts that mate by surface contact (e.g. Schuko earthing clips and strips)."
+        },
+        "form": {
+          "enum": ["pin", "sleeve", "side_clip", "earth_pin", "earth_hole"],
+          "description": "Optional physical form when it differs from a plain pin/sleeve."
+        },
+        "note": { "type": "string" }
+      }
+    },
+
+    "variant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "role",
+        "contactGender",
+        "contacts",
+        "keying",
+        "mechanicalNotes",
+        "electricalProfiles",
+        "matesWith",
+        "visuals"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/slug" },
+        "name": { "$ref": "#/$defs/text" },
+        "aliases": { "$ref": "#/$defs/uniqueTexts" },
+        "role": {
+          "enum": [
+            "plug",
+            "socket_outlet",
+            "cable_connector",
+            "vehicle_connector",
+            "vehicle_inlet",
+            "appliance_inlet",
+            "appliance_outlet"
+          ],
+          "description": "Physical role of the part. Independent from contactGender."
+        },
+        "contactGender": {
+          "enum": ["male", "female", "mixed", "unknown"],
+          "description": "Overall gender of the mating contacts. 'mixed' when male and female contacts coexist."
+        },
+        "contacts": {
+          "type": ["array", "null"],
+          "items": { "$ref": "#/$defs/contact" },
+          "description": "null when the contact set is not documented."
+        },
+        "keying": {
+          "type": ["string", "null"],
+          "description": "Polarisation / keying description. null when unknown."
+        },
+        "mechanicalNotes": { "$ref": "#/$defs/uniqueTexts" },
+        "electricalProfiles": {
+          "$ref": "#/$defs/refs",
+          "description": "Ids of the family electrical profiles this variant supports."
+        },
+        "matesWith": {
+          "type": "array",
+          "description": "Counterparts this variant physically mates with. Stored in one direction only; the reverse is derived.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["family", "variant"],
+            "properties": {
+              "family": { "$ref": "#/$defs/slug" },
+              "variant": { "$ref": "#/$defs/slug" },
+              "note": { "type": "string" }
+            }
+          }
+        },
+        "visuals": { "type": "array", "items": { "$ref": "#/$defs/visual" } }
+      }
+    },
+
+    "voltage": {
+      "type": "object",
+      "allOf": [{ "$ref": "#/$defs/quantity" }],
+      "required": ["reference"],
+      "properties": {
+        "reference": { "enum": ["line_to_neutral", "line_to_line", "dc"] }
+      },
+      "unevaluatedProperties": false
+    },
+    "current": {
+      "type": "object",
+      "allOf": [{ "$ref": "#/$defs/quantity" }],
+      "unevaluatedProperties": false
+    },
+    "quantity": {
+      "type": "object",
+      "required": ["qualifier"],
+      "properties": {
+        "qualifier": {
+          "enum": ["rated", "max", "range"],
+          "description": "'rated': single rated value; 'max': upper limit ('up to'); 'range': min..max."
+        },
+        "value": { "type": "number", "exclusiveMinimum": 0 },
+        "min": { "type": "number", "exclusiveMinimum": 0 },
+        "max": { "type": "number", "exclusiveMinimum": 0 }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "qualifier": { "const": "range" } } },
+          "then": { "required": ["min", "max"], "not": { "required": ["value"] } },
+          "else": {
+            "required": ["value"],
+            "not": { "anyOf": [{ "required": ["min"] }, { "required": ["max"] }] }
+          }
+        }
+      ]
+    },
+
+    "electricalProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "currentType",
+        "supply",
+        "neutral",
+        "protectiveEarth",
+        "voltage",
+        "current",
+        "maxPowerKw",
+        "conditions",
+        "contactFunctions",
+        "standardRef",
+        "jurisdiction",
+        "sourceRefs",
+        "confidence"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/slug" },
+        "name": { "$ref": "#/$defs/text" },
+        "currentType": { "enum": ["ac", "dc"] },
+        "supply": { "enum": ["single_phase", "split_phase", "three_phase", "dc"] },
+        "phases": { "type": ["integer", "null"], "minimum": 1, "maximum": 3 },
+        "neutral": { "type": ["boolean", "null"] },
+        "protectiveEarth": { "type": ["boolean", "null"] },
+        "voltage": { "anyOf": [{ "type": "null" }, { "$ref": "#/$defs/voltage" }] },
+        "current": { "anyOf": [{ "type": "null" }, { "$ref": "#/$defs/current" }] },
+        "frequencyHz": {
+          "type": ["array", "null"],
+          "uniqueItems": true,
+          "items": { "enum": [50, 60] }
+        },
+        "maxPowerKw": {
+          "type": ["object", "null"],
+          "description": "Only when a maximum power is explicitly defined by a cited source. null otherwise; never derived.",
+          "additionalProperties": false,
+          "required": ["value", "sourceRefs"],
+          "properties": {
+            "value": { "type": "number", "exclusiveMinimum": 0 },
+            "sourceRefs": { "$ref": "#/$defs/nonEmptyRefs" }
+          }
+        },
+        "cooling": {
+          "enum": ["none", "liquid"],
+          "description": "Only for profiles whose rating depends on cooling."
+        },
+        "conditions": { "$ref": "#/$defs/uniqueTexts" },
+        "contactFunctions": {
+          "type": ["object", "null"],
+          "description": "Function of each energised contact under this profile, keyed by contact id. null when unknown.",
+          "propertyNames": { "pattern": "^[A-Za-z0-9+_-]+$" },
+          "additionalProperties": {
+            "enum": [
+              "line",
+              "neutral",
+              "protective_earth",
+              "control_pilot",
+              "proximity_pilot",
+              "dc_positive",
+              "dc_negative",
+              "communication"
+            ]
+          }
+        },
+        "standardRef": { "anyOf": [{ "$ref": "#/$defs/slug" }, { "type": "null" }] },
+        "jurisdiction": {
+          "type": ["string", "null"],
+          "description": "Rating system the values belong to when they differ by region (e.g. 'IEC', 'UL/CSA')."
+        },
+        "sourceRefs": { "$ref": "#/$defs/nonEmptyRefs" },
+        "confidence": { "$ref": "#/$defs/confidence" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "currentType": { "const": "dc" } } },
+          "then": {
+            "properties": { "supply": { "const": "dc" } },
+            "not": { "anyOf": [{ "required": ["phases"] }, { "required": ["frequencyHz"] }] }
+          },
+          "else": {
+            "required": ["phases", "frequencyHz"],
+            "properties": { "supply": { "not": { "const": "dc" } } }
+          }
+        }
+      ]
+    },
+
+    "visual": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "file",
+        "title",
+        "orientation",
+        "accuracy",
+        "provenance",
+        "author",
+        "license"
+      ],
+      "properties": {
+        "kind": { "enum": ["icon", "technical_diagram", "front_view", "side_view", "pinout"] },
+        "file": {
+          "type": "string",
+          "pattern": "^(?:connectors/[a-z0-9-]+|icons/evicons|icons/evicons-extension)/[a-z0-9-]+\\.svg$",
+          "description": "Path relative to public/images/: 'connectors/<family-id>/<name>.svg' for drawings, 'icons/evicons/<name>.svg' (vendored EVicons) or 'icons/evicons-extension/<name>.svg' (OpenPlugDB extension icons) for icons."
+        },
+        "title": { "$ref": "#/$defs/text" },
+        "orientation": { "enum": ["mating_face", "side", "not_applicable"] },
+        "accuracy": {
+          "enum": ["schematic", "to_scale"],
+          "description": "'schematic': contact positions are correct relative to each other, dimensions are not to scale."
+        },
+        "provenance": { "enum": ["original", "third_party"] },
+        "author": { "$ref": "#/$defs/text" },
+        "license": { "type": "string", "description": "SPDX identifier." },
+        "sourceUrl": { "type": "string", "format": "uri" },
+        "basedOn": {
+          "$ref": "#/$defs/refs",
+          "description": "Source ids the drawing was checked against."
+        }
+      }
+    },
+
+    "mappings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ocpi-2.2.1", "ocpi-2.3.0", "openchargemap", "openstreetmap"],
+      "properties": {
+        "ocpi-2.2.1": { "$ref": "#/$defs/mappingList" },
+        "ocpi-2.3.0": { "$ref": "#/$defs/mappingList" },
+        "openchargemap": { "$ref": "#/$defs/mappingList" },
+        "openstreetmap": { "$ref": "#/$defs/mappingList" }
+      }
+    },
+    "mappingList": {
+      "type": "array",
+      "description": "Empty array: no equivalent value exists in that system.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["value", "match"],
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1,
+            "description": "External identifier, as defined in mappings/<system>.json."
+          },
+          "match": { "enum": ["exact", "broader", "narrower", "partial"] },
+          "variants": {
+            "$ref": "#/$defs/refs",
+            "description": "Restricts the mapping to some variants. Absent: whole family."
+          },
+          "note": { "type": "string" }
+        }
+      }
+    },
+
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "publisher", "type", "url", "accessed"],
+      "properties": {
+        "id": { "$ref": "#/$defs/slug" },
+        "title": { "$ref": "#/$defs/text" },
+        "publisher": { "$ref": "#/$defs/text" },
+        "type": {
+          "enum": [
+            "standard",
+            "standard_abstract",
+            "regulation",
+            "manufacturer",
+            "reference_database",
+            "encyclopedia",
+            "other"
+          ]
+        },
+        "url": { "type": ["string", "null"], "format": "uri" },
+        "accessed": { "$ref": "#/$defs/date" },
+        "note": { "type": "string" }
+      }
+    },
+
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "lastVerified", "notes"],
+      "properties": {
+        "status": {
+          "enum": ["verified", "partial", "incomplete"],
+          "description": "'partial': published with known gaps listed in notes. 'incomplete': draft, flagged on the site."
+        },
+        "lastVerified": { "$ref": "#/$defs/date" },
+        "notes": { "$ref": "#/$defs/uniqueTexts" }
+      }
+    }
+  }
+}

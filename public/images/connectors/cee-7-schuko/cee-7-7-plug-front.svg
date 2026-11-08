@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" role="img" aria-labelledby="title desc">
+  <title id="title">CEE 7/7 hybrid plug (male pins, earth hole), mating face</title>
+  <desc id="desc">Schematic front view looking at the pins. Round face with two flats on the left and right sides, each with a guide rib. Two pins on a horizontal line, line or neutral on either side (unpolarised in a CEE 7/3 socket). Earthing strips at the top and bottom edges; earth hole below the pin line, above the bottom strip. Filled circles are pins (male contacts), bars are sexless earthing strips, the ring is the earth hole (female). Proportions follow 36.5 mm face diameter, 32 mm across the flats, 19 mm between pin centres and 4.8 mm pins; the earth hole position is scaled from a manufacturer drawing.</desc>
+  <g fill="none" stroke="#1c2430" stroke-width="3">
+    <path d="M167 62 A77 77 0 0 0 33 62 L33 91 L24 91 L24 109 L33 109 L33 138 A77 77 0 0 0 167 138 L167 109 L176 109 L176 91 L167 91 Z"/>
+    <circle cx="100" cy="142" r="10"/>
+  </g>
+  <g fill="#1c2430">
+    <circle cx="60" cy="100" r="10"/>
+    <circle cx="140" cy="100" r="10"/>
+    <rect x="86" y="26" width="28" height="8" rx="2"/>
+    <rect x="86" y="166" width="28" height="8" rx="2"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#1c2430" text-anchor="middle" dominant-baseline="central">
+    <text x="60" y="124">L/N</text>
+    <text x="140" y="124">L/N</text>
+    <text x="100" y="46">PE</text>
+    <text x="115" y="142" text-anchor="start">PE hole</text>
+  </g>
+  <text x="100" y="202" font-family="system-ui, sans-serif" font-size="9" fill="#5a6472" text-anchor="middle" letter-spacing="1">MATING FACE · MIXED</text>
+</svg>

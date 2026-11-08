@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../lib/format.ts';
+---
+
+<Base title="Page not found" description="This page does not exist.">
+  <h1>Page not found</h1>
+  <p>This page does not exist. Try the <a href={url('/connectors/')}>connector catalog</a>.</p>
+</Base>

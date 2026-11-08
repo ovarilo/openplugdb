@@ -1,0 +1,608 @@
+---
+import Base from '../../layouts/Base.astro';
+import { variantKey } from '../../lib/dataset.ts';
+import {
+  CATEGORY_LABEL,
+  ROLE_LABEL,
+  SUPPLY_LABEL,
+  formatFrequency,
+  formatQuantity,
+  formatVoltage,
+  splitVisuals,
+  url,
+  yesNo,
+} from '../../lib/format.ts';
+import type { ConnectorFamily, MappingSystem } from '../../lib/model.ts';
+import { dataset, families, findFamily, matings } from '../../lib/site-data.ts';
+
+export function getStaticPaths() {
+  return families().map((family) => ({ params: { id: family.id } }));
+}
+
+const family = findFamily(Astro.params.id) as ConnectorFamily;
+const matingMap = matings();
+const sourceById = new Map(family.sources.map((s) => [s.id, s]));
+const standardById = new Map(family.standards.map((s) => [s.id, s]));
+const sourceIndex = new Map(family.sources.map((s, i) => [s.id, i + 1]));
+const variantName = (familyId: string, variantId: string) =>
+  findFamily(familyId)?.variants.find((v) => v.id === variantId)?.name ?? variantId;
+
+const vocabularies = new Map(dataset().vocabularies.map((v) => [v.system, v]));
+const SYSTEM_LABEL: Record<MappingSystem, string> = {
+  'ocpi-2.2.1': 'OCPI 2.2.1 ConnectorType',
+  'ocpi-2.3.0': 'OCPI 2.3.0 ConnectorType',
+  openchargemap: 'Open Charge Map ConnectionType',
+  openstreetmap: 'OpenStreetMap key',
+};
+const { drawings, icons } = splitVisuals(family.variants);
+const relations = family.relations.map((r) => ({ ...r, target: findFamily(r.family) }));
+const editUrl = `https://github.com/ovarilo/openplugdb/blob/main/data/${family.category}/${family.id}.json`;
+const jsonUrl = url(`/data/families/${family.id}.json`);
+---
+
+<Base
+  title={family.name}
+  description={`${family.name}: ${family.description}`.slice(0, 300)}
+  jsonLd={{
+    '@context': 'https://schema.org',
+    '@type': 'Dataset',
+    name: `OpenPlugDB — ${family.name}`,
+    description: family.description,
+    identifier: family.id,
+    license: 'https://creativecommons.org/publicdomain/zero/1.0/',
+    keywords: [family.name, ...family.aliases, ...family.standards.map((s) => s.designation)],
+    distribution: [{ '@type': 'DataDownload', encodingFormat: 'application/json', contentUrl: new URL(jsonUrl, Astro.site).href }],
+  }}
+>
+  <article data-pagefind-body>
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href={url('/connectors/')}>Connectors</a> /{' '}
+      <a href={url(`/connectors/?category=${family.category}`)}>{CATEGORY_LABEL[family.category]}</a>
+    </nav>
+
+    <header class="head">
+      <h1>{family.name}</h1>
+      <p class="meta">
+        <code>{family.id}</code>
+        <span class="badge" data-pagefind-filter="category">{CATEGORY_LABEL[family.category]}</span>
+        <span class="badge">status: {family.status}</span>
+        <span class={`badge ${family.verification.status}`}>
+          {family.verification.status} · checked {family.verification.lastVerified}
+        </span>
+      </p>
+      {family.aliases.length > 0 && <p class="muted">Also known as: {family.aliases.join(', ')}</p>}
+      <p class="lead">{family.description}</p>
+      {
+        family.verification.notes.length > 0 && (
+          <div class="notice">
+            <strong>Data notes</strong>
+            <ul>
+              {family.verification.notes.map((n) => (
+                <li>{n}</li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+      {
+        relations.length > 0 && (
+          <p>
+            {relations.map((r) => (
+              <span class="relation">
+                {r.type.replace('_', ' ')}{' '}
+                <a href={url(`/connectors/${r.family}/`)}>{r.target?.name ?? r.family}</a>
+                {r.note && <span class="muted"> — {r.note}</span>}
+              </span>
+            ))}
+          </p>
+        )
+      }
+      <p class="actions">
+        <a class="button" href={jsonUrl}>JSON data</a>
+        <a class="button" href={editUrl}>Suggest a correction</a>
+      </p>
+    </header>
+
+    <section aria-labelledby="drawings">
+      <h2 id="drawings">Drawings</h2>
+      {
+        drawings.length === 0 ? (
+          <p class="muted">No drawing is available yet for this family.</p>
+        ) : (
+          <>
+            <p class="muted small">
+              Front views show the <strong>mating face</strong>: the side you see when looking straight at the part
+              before plugging it in. Male and female parts are drawn separately, never mirrored. Drawings are
+              schematic: contact positions are correct relative to each other, dimensions are not to scale.
+            </p>
+            <div class="grid drawings">
+              {drawings.map(({ visual, variant }) => (
+                <figure class="card">
+                  <div class="drawing">
+                    <img src={url(`/images/${visual.file}`)} alt={visual.title} width="240" height="240" />
+                  </div>
+                  <figcaption>
+                    <strong>{variant.name}</strong>
+                    <span class="muted small">
+                      {ROLE_LABEL[variant.role]} · {variant.contactGender} contacts · {visual.kind.replace('_', ' ')} ·{' '}
+                      {visual.accuracy}
+                    </span>
+                    <span class="muted small">
+                      {visual.provenance === 'original' ? 'Original drawing' : 'Third-party'} by {visual.author} ·{' '}
+                      {visual.license}
+                      {visual.sourceUrl && (
+                        <>
+                          {' '}
+                          · <a href={visual.sourceUrl}>source</a>
+                        </>
+                      )}
+                    </span>
+                    <a href={url(`/images/${visual.file}`)} download>
+                      Download SVG
+                    </a>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </>
+        )
+      }
+    </section>
+
+    {
+      icons.length > 0 && (
+        <section aria-labelledby="icons">
+          <h2 id="icons">Icons</h2>
+          <p class="muted small">
+            Simplified pictograms for user interfaces, not technical references: use the drawings above to identify
+            contacts.
+          </p>
+          <div class="grid icons">
+            {icons.map(({ visual, variant }) => (
+              <figure class="card icon-card">
+                <div class="drawing icon">
+                  <img src={url(`/images/${visual.file}`)} alt={visual.title} width="64" height="64" />
+                </div>
+                <figcaption>
+                  <strong>{visual.title}</strong>
+                  <span class="muted small">{variant.name}</span>
+                  <span class="muted small">
+                    {visual.provenance === 'original' ? 'Original icon' : 'Third-party'} by {visual.author} ·{' '}
+                    {visual.license}
+                    {visual.sourceUrl && (
+                      <>
+                        {' '}
+                        · <a href={visual.sourceUrl}>source</a>
+                      </>
+                    )}
+                  </span>
+                  <a href={url(`/images/${visual.file}`)} download>
+                    Download SVG
+                  </a>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    <section aria-labelledby="variants">
+      <h2 id="variants">Physical variants</h2>
+      <div class="grid variants">
+        {
+          family.variants.map((v) => {
+            const mates = matingMap.get(variantKey({ family: family.id, variant: v.id })) ?? [];
+            return (
+              <div class="card variant" id={`variant-${v.id}`}>
+                <h3>{v.name}</h3>
+                <dl>
+                  <dt>Role</dt>
+                  <dd>{ROLE_LABEL[v.role]}</dd>
+                  <dt>Contact gender</dt>
+                  <dd>{v.contactGender}</dd>
+                  <dt>Contacts</dt>
+                  <dd>
+                    {v.contacts === null ? (
+                      'unknown'
+                    ) : (
+                      <ul class="contacts">
+                        {v.contacts.map((c) => (
+                          <li>
+                            <code>{c.id}</code> {c.label !== c.id && c.label}{' '}
+                            <span class="muted small">
+                              ({c.gender}
+                              {c.form && `, ${c.form.replace('_', ' ')}`})
+                            </span>
+                            {c.note && <span class="muted small"> — {c.note}</span>}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </dd>
+                  <dt>Keying</dt>
+                  <dd>{v.keying ?? 'unknown'}</dd>
+                  {v.mechanicalNotes.length > 0 && (
+                    <>
+                      <dt>Mechanical notes</dt>
+                      <dd>
+                        <ul>
+                          {v.mechanicalNotes.map((n) => (
+                            <li>{n}</li>
+                          ))}
+                        </ul>
+                      </dd>
+                    </>
+                  )}
+                  <dt>Mates with</dt>
+                  <dd>
+                    {mates.length === 0 ? (
+                      <span class="muted">not documented</span>
+                    ) : (
+                      <ul>
+                        {mates.map((m) => (
+                          <li>
+                            <a href={url(`/connectors/${m.family}/#variant-${m.variant}`)}>
+                              {variantName(m.family, m.variant)}
+                            </a>
+                            {m.family !== family.id && <span class="muted small"> ({findFamily(m.family)?.name})</span>}
+                            {m.note && <span class="muted small"> — {m.note}</span>}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </dd>
+                  <dt>Electrical profiles</dt>
+                  <dd>
+                    {v.electricalProfiles.length === 0
+                      ? 'none documented'
+                      : v.electricalProfiles.map((p) => (
+                          <a class="profile-link" href={`#profile-${p}`}>
+                            {family.electricalProfiles.find((x) => x.id === p)?.name ?? p}
+                          </a>
+                        ))}
+                  </dd>
+                </dl>
+              </div>
+            );
+          })
+        }
+      </div>
+    </section>
+
+    <section aria-labelledby="electrical">
+      <h2 id="electrical">Electrical characteristics</h2>
+      <p class="muted small">
+        Ratings as defined by the cited standards or specifications. They are the capability of the connector
+        interface, not the power available at a given installation, which also depends on the supply, the cable and
+        the equipment. “up to” marks a maximum; “unknown” means not documented in the cited sources.
+      </p>
+      {
+        family.electricalProfiles.length === 0 ? (
+          <p class="muted">No electrical profile documented yet.</p>
+        ) : (
+          family.electricalProfiles.map((p) => (
+            <div class="card profile" id={`profile-${p.id}`}>
+              <h3>
+                {p.name} <span class={`badge ${p.currentType}`}>{SUPPLY_LABEL[p.supply]}</span>
+                <span class="badge">confidence: {p.confidence}</span>
+              </h3>
+              <div class="table-wrap">
+                <table>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Voltage</th>
+                      <td class="mono">{formatVoltage(p)}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Current</th>
+                      <td class="mono">{formatQuantity(p.current, 'A')}</td>
+                    </tr>
+                    {p.phases !== undefined && (
+                      <tr>
+                        <th scope="row">Phases</th>
+                        <td class="mono">{p.phases ?? 'unknown'}</td>
+                      </tr>
+                    )}
+                    <tr>
+                      <th scope="row">Frequency</th>
+                      <td class="mono">{formatFrequency(p)}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Neutral</th>
+                      <td>{yesNo(p.neutral)}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Protective earth</th>
+                      <td>{yesNo(p.protectiveEarth)}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Max power</th>
+                      <td class="mono">
+                        {p.maxPowerKw ? (
+                          <>
+                            {p.maxPowerKw.value} kW{' '}
+                            {p.maxPowerKw.sourceRefs.map((s) => (
+                              <a href={`#source-${s}`}>[{sourceIndex.get(s)}]</a>
+                            ))}
+                          </>
+                        ) : (
+                          <span class="muted">not defined by the cited sources</span>
+                        )}
+                      </td>
+                    </tr>
+                    {p.cooling && (
+                      <tr>
+                        <th scope="row">Cooling</th>
+                        <td>{p.cooling}</td>
+                      </tr>
+                    )}
+                    {p.jurisdiction && (
+                      <tr>
+                        <th scope="row">Rating system</th>
+                        <td>{p.jurisdiction}</td>
+                      </tr>
+                    )}
+                    <tr>
+                      <th scope="row">Contact functions</th>
+                      <td>
+                        {p.contactFunctions === null
+                          ? 'unknown'
+                          : Object.entries(p.contactFunctions).map(([contact, fn]) => (
+                              <span class="fn">
+                                <code>{contact}</code> {fn.replaceAll('_', ' ')}
+                              </span>
+                            ))}
+                      </td>
+                    </tr>
+                    {p.conditions.length > 0 && (
+                      <tr>
+                        <th scope="row">Conditions</th>
+                        <td>
+                          <ul>
+                            {p.conditions.map((c) => (
+                              <li>{c}</li>
+                            ))}
+                          </ul>
+                        </td>
+                      </tr>
+                    )}
+                    <tr>
+                      <th scope="row">Reference</th>
+                      <td>
+                        {p.standardRef && standardById.get(p.standardRef)?.designation}{' '}
+                        {p.sourceRefs.map((s) => (
+                          <a href={`#source-${s}`} title={sourceById.get(s)?.title}>
+                            [{sourceIndex.get(s)}]
+                          </a>
+                        ))}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          ))
+        )
+      }
+    </section>
+
+    <section aria-labelledby="standards">
+      <h2 id="standards">Standards</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Designation</th><th scope="col">Edition</th><th scope="col">Scope</th></tr>
+          </thead>
+          <tbody>
+            {
+              family.standards.map((s) => (
+                <tr>
+                  <td>
+                    {s.url ? <a href={s.url}>{s.designation}</a> : s.designation}
+                    {s.title && <div class="muted small">{s.title}</div>}
+                  </td>
+                  <td class="mono">{s.edition ?? 'unknown'}</td>
+                  <td>{s.scope ?? ''}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="mappings">
+      <h2 id="mappings">External mappings</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">System</th><th scope="col">Value</th><th scope="col">Match</th><th scope="col">Notes</th></tr>
+          </thead>
+          <tbody>
+            {
+              (Object.keys(SYSTEM_LABEL) as MappingSystem[]).map((system) =>
+                family.mappings[system].length === 0 ? (
+                  <tr>
+                    <td>{SYSTEM_LABEL[system]}</td>
+                    <td class="muted" colspan="3">no equivalent value</td>
+                  </tr>
+                ) : (
+                  family.mappings[system].map((m) => (
+                    <tr>
+                      <td>{SYSTEM_LABEL[system]}</td>
+                      <td>
+                        <code>{m.value}</code>
+                        {vocabularies.get(system)?.values.find((v) => v.value === m.value)?.label && (
+                          <div class="muted small">{vocabularies.get(system)?.values.find((v) => v.value === m.value)?.label}</div>
+                        )}
+                      </td>
+                      <td>{m.match}</td>
+                      <td class="small">
+                        {m.variants && <div>Variants: {m.variants.join(', ')}</div>}
+                        {m.note}
+                      </td>
+                    </tr>
+                  ))
+                ),
+              )
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="sources">
+      <h2 id="sources">Sources</h2>
+      <ol class="sources">
+        {
+          family.sources.map((s) => (
+            <li id={`source-${s.id}`}>
+              {s.url ? <a href={s.url}>{s.title}</a> : s.title} <span class="muted">— {s.publisher}</span>
+              <span class="badge">{s.type.replace('_', ' ')}</span>
+              <span class="muted small">accessed {s.accessed}</span>
+              {s.note && <div class="muted small">{s.note}</div>}
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+  </article>
+</Base>
+
+<style>
+  .crumbs {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    color: var(--muted);
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .lead {
+    font-size: 1.1rem;
+    max-width: 50rem;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .relation {
+    margin-right: 1rem;
+  }
+
+  .small {
+    font-size: 0.85rem;
+  }
+
+  .drawings {
+    grid-template-columns: repeat(auto-fill, minmax(min(14rem, 100%), 1fr));
+  }
+
+  .icons {
+    grid-template-columns: repeat(auto-fill, minmax(min(11rem, 100%), 1fr));
+  }
+
+  /* Icons use currentColor, which an <img> cannot inherit: they render in
+     black, so they stay on the light plate of the drawings in both themes. */
+  .drawing.icon {
+    display: flex;
+    justify-content: center;
+  }
+
+  .drawing.icon img {
+    width: 4rem;
+  }
+
+  figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .variants {
+    grid-template-columns: repeat(auto-fill, minmax(min(20rem, 100%), 1fr));
+  }
+
+  .variant h3 {
+    margin-top: 0;
+  }
+
+  dl {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.4rem 1rem;
+    margin: 0;
+    font-size: 0.93rem;
+  }
+
+  dt {
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  dd {
+    margin: 0;
+  }
+
+  dd ul {
+    margin: 0;
+    padding-left: 1.1rem;
+  }
+
+  .contacts {
+    list-style: none;
+    padding: 0 !important;
+  }
+
+  .profile {
+    margin-bottom: 1rem;
+  }
+
+  .profile h3 {
+    margin-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .profile-link {
+    display: block;
+  }
+
+  .fn {
+    display: inline-block;
+    margin: 0 0.75rem 0.25rem 0;
+  }
+
+  td ul {
+    margin: 0;
+    padding-left: 1.1rem;
+  }
+
+  .sources li {
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 30rem) {
+    dl {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

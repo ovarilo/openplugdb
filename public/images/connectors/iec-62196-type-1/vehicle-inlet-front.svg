@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" role="img" aria-labelledby="title desc">
+  <title id="title">IEC 62196 Type 1 vehicle inlet (male), mating face</title>
+  <desc id="desc">Schematic front view, latch receptacle at the top. Upper row: L2/N left, L1 right (power pins). Middle: CP left, CS right (small signal pins). Bottom: PE. Filled circles are pins (male contacts). Not to scale.</desc>
+  <g fill="none" stroke="#1c2430" stroke-width="3">
+    <circle cx="100" cy="120" r="72"/>
+    <path d="M86 50 V30 H114 V50"/>
+  </g>
+  <g fill="#1c2430">
+    <circle cx="68" cy="91" r="15"/>
+    <circle cx="132" cy="91" r="15"/>
+    <circle cx="56" cy="138" r="7"/>
+    <circle cx="144" cy="138" r="7"/>
+    <circle cx="100" cy="162" r="15"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="10" font-weight="700" text-anchor="middle" dominant-baseline="central">
+    <g fill="#ffffff">
+      <text x="68" y="91">L2/N</text>
+      <text x="132" y="91">L1</text>
+      <text x="100" y="162">PE</text>
+    </g>
+    <g fill="#1c2430">
+      <text x="56" y="156">CP</text>
+      <text x="144" y="156">CS</text>
+    </g>
+  </g>
+  <text x="100" y="204" font-family="system-ui, sans-serif" font-size="9" fill="#5a6472" text-anchor="middle" letter-spacing="1">MATING FACE · MALE</text>
+</svg>

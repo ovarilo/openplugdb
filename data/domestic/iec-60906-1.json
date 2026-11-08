@@ -1,0 +1,306 @@
+{
+  "$schema": "../../schemas/connector-family.schema.json",
+  "id": "iec-60906-1",
+  "name": "IEC 60906-1 / NBR 14136 (Type N)",
+  "aliases": ["Type N", "IEC 60906-1", "NBR 14136", "SANS 164-2", "Brazilian plug"],
+  "category": "domestic",
+  "subcategory": "household",
+  "description": "Recessed three-round-pin household system: line and neutral pins 19 mm apart and an earth pin slightly offset between them. IEC 60906-1 defines a 16 A, 250 V version (adopted in South Africa as SANS 164-2); Brazil's NBR 14136 derives from it with 10 A (4.0 mm pins) and 20 A (4.8 mm pins) sizes that do not follow the IEC pin dimensions.",
+  "status": "current",
+  "regions": ["south_america", "africa"],
+  "countries": ["BR", "ZA"],
+  "standards": [
+    {
+      "id": "iec-60906-1-2009",
+      "designation": "IEC 60906-1",
+      "edition": "2.0 (2009)",
+      "title": "IEC system of plugs and socket-outlets for household and similar purposes – Part 1: Plugs and socket-outlets 16 A 250 V a.c.",
+      "scope": "Dimensions of the 16 A 250 V configuration for 200–250 V systems; shutters mandatory",
+      "url": "https://webstore.iec.ch/publication/3882"
+    },
+    {
+      "id": "nbr-14136-2012",
+      "designation": "ABNT NBR 14136",
+      "edition": "2012 (Versão Corrigida 5:2021)",
+      "title": "Plugues e tomadas para uso doméstico e análogo até 20 A/250 V em corrente alternada – Padronização",
+      "scope": "Brazilian 10 A and 20 A configurations; not reviewed"
+    },
+    {
+      "id": "sans-164-2",
+      "designation": "SANS 164-2",
+      "edition": null,
+      "title": null,
+      "scope": "South African adoption of the IEC 60906-1 configuration; not reviewed"
+    }
+  ],
+  "relations": [],
+  "variants": [
+    {
+      "id": "iec-plug",
+      "name": "IEC 60906-1 plug (16 A)",
+      "aliases": ["SANS 164-2 plug"],
+      "role": "plug",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "L", "label": "L", "gender": "male" },
+        { "id": "N", "label": "N", "gender": "male" },
+        { "id": "PE", "label": "PE", "gender": "male", "form": "earth_pin" }
+      ],
+      "keying": "The offset earth pin enforces polarity.",
+      "mechanicalNotes": [
+        "Pins 4.5 mm in diameter; line and neutral 19 mm apart; earth pin offset 3 mm from their line.",
+        "Line and neutral pins carry insulating sleeves (SANS 164-2)."
+      ],
+      "electricalProfiles": ["iec-16a"],
+      "matesWith": [{ "family": "iec-60906-1", "variant": "iec-socket" }],
+      "visuals": []
+    },
+    {
+      "id": "iec-socket",
+      "name": "IEC 60906-1 socket-outlet (16 A)",
+      "aliases": ["SANS 164-2 socket-outlet"],
+      "role": "socket_outlet",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "L", "label": "L", "gender": "female" },
+        { "id": "N", "label": "N", "gender": "female" },
+        { "id": "PE", "label": "PE", "gender": "female", "form": "earth_hole" }
+      ],
+      "keying": "Offset earth hole: the plug enters one way only.",
+      "mechanicalNotes": [
+        "Recessed socket-outlet (10 mm recess in SANS 164-2); shutters are mandatory since IEC 60906-1:2009."
+      ],
+      "electricalProfiles": ["iec-16a"],
+      "matesWith": [],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/iec-60906-1/iec-socket-front.svg",
+          "title": "IEC 60906-1 socket-outlet (female), mating face, earth offset up",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["wikipedia-ac-plugs", "plugsocketmuseum-south-africa"]
+        },
+        {
+          "kind": "icon",
+          "file": "icons/evicons-extension/plug-iec-60906-1.svg",
+          "title": "IEC 60906-1 socket-outlet, mating face, earth offset up (icon)",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "MIT",
+          "basedOn": ["wikipedia-ac-plugs", "plugsocketmuseum-south-africa"]
+        }
+      ]
+    },
+    {
+      "id": "nbr-10a-plug",
+      "name": "NBR 14136 10 A plug",
+      "role": "plug",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "P1", "label": "L/N", "gender": "male" },
+        { "id": "P2", "label": "L/N", "gender": "male" },
+        { "id": "PE", "label": "PE", "gender": "male", "form": "earth_pin" }
+      ],
+      "keying": "Earthed three-pin plugs are polarised by the earth pin position (secondary source).",
+      "mechanicalNotes": ["Pins 4.0 mm in diameter."],
+      "electricalProfiles": ["nbr-10a"],
+      "matesWith": [
+        { "family": "iec-60906-1", "variant": "nbr-10a-socket" },
+        { "family": "iec-60906-1", "variant": "nbr-20a-socket" }
+      ],
+      "visuals": []
+    },
+    {
+      "id": "nbr-10a-socket",
+      "name": "NBR 14136 10 A socket-outlet",
+      "role": "socket_outlet",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "P1", "label": "L/N", "gender": "female" },
+        { "id": "P2", "label": "L/N", "gender": "female" },
+        { "id": "PE", "label": "PE", "gender": "female", "form": "earth_hole" }
+      ],
+      "keying": "Accepts 4.0 mm pins only.",
+      "mechanicalNotes": [
+        "Recessed socket-outlet; fixed socket-outlets always have an earth contact."
+      ],
+      "electricalProfiles": ["nbr-10a"],
+      "matesWith": [],
+      "visuals": []
+    },
+    {
+      "id": "nbr-20a-plug",
+      "name": "NBR 14136 20 A plug",
+      "role": "plug",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "P1", "label": "L/N", "gender": "male" },
+        { "id": "P2", "label": "L/N", "gender": "male" },
+        { "id": "PE", "label": "PE", "gender": "male", "form": "earth_pin" }
+      ],
+      "keying": "4.8 mm pins keep it out of 10 A socket-outlets.",
+      "mechanicalNotes": ["Pins 4.8 mm in diameter."],
+      "electricalProfiles": ["nbr-20a"],
+      "matesWith": [{ "family": "iec-60906-1", "variant": "nbr-20a-socket" }],
+      "visuals": []
+    },
+    {
+      "id": "nbr-20a-socket",
+      "name": "NBR 14136 20 A socket-outlet",
+      "role": "socket_outlet",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "P1", "label": "L/N", "gender": "female" },
+        { "id": "P2", "label": "L/N", "gender": "female" },
+        { "id": "PE", "label": "PE", "gender": "female", "form": "earth_hole" }
+      ],
+      "keying": "Accepts 4.0 mm and 4.8 mm pins.",
+      "mechanicalNotes": [
+        "Recessed socket-outlet; fixed socket-outlets always have an earth contact."
+      ],
+      "electricalProfiles": ["nbr-20a"],
+      "matesWith": [],
+      "visuals": []
+    }
+  ],
+  "electricalProfiles": [
+    {
+      "id": "iec-16a",
+      "name": "AC single-phase, 16 A (IEC 60906-1)",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": true,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "rated", "value": 250, "reference": "line_to_neutral" },
+      "current": { "qualifier": "rated", "value": 16 },
+      "frequencyHz": null,
+      "maxPowerKw": null,
+      "conditions": ["For distribution systems with a nominal voltage of 200 V to 250 V a.c."],
+      "contactFunctions": { "L": "line", "N": "neutral", "PE": "protective_earth" },
+      "standardRef": "iec-60906-1-2009",
+      "jurisdiction": "IEC",
+      "sourceRefs": ["iec-webstore-60906-1"],
+      "confidence": "high"
+    },
+    {
+      "id": "nbr-10a",
+      "name": "AC single-phase, 10 A (NBR 14136)",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": true,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "max", "value": 250, "reference": "line_to_neutral" },
+      "current": { "qualifier": "rated", "value": 10 },
+      "frequencyHz": null,
+      "maxPowerKw": null,
+      "conditions": [
+        "250 V is the upper limit in the title of NBR 14136; the same sockets serve 127 V and 220 V circuits.",
+        "Which pin carries the line is not defined by the cited sources (P1 and P2 shown as L/N).",
+        "The NBR 14136 text was not reviewed."
+      ],
+      "contactFunctions": { "P1": "line", "P2": "neutral", "PE": "protective_earth" },
+      "standardRef": "nbr-14136-2012",
+      "jurisdiction": "ABNT",
+      "sourceRefs": ["pucrs-labelo-nbr-14136", "wikipedia-ac-plugs"],
+      "confidence": "medium"
+    },
+    {
+      "id": "nbr-20a",
+      "name": "AC single-phase, 20 A (NBR 14136)",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": true,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "max", "value": 250, "reference": "line_to_neutral" },
+      "current": { "qualifier": "rated", "value": 20 },
+      "frequencyHz": null,
+      "maxPowerKw": null,
+      "conditions": [
+        "250 V is the upper limit in the title of NBR 14136; the same sockets serve 127 V and 220 V circuits.",
+        "Which pin carries the line is not defined by the cited sources (P1 and P2 shown as L/N).",
+        "The NBR 14136 text was not reviewed."
+      ],
+      "contactFunctions": { "P1": "line", "P2": "neutral", "PE": "protective_earth" },
+      "standardRef": "nbr-14136-2012",
+      "jurisdiction": "ABNT",
+      "sourceRefs": ["pucrs-labelo-nbr-14136", "wikipedia-ac-plugs"],
+      "confidence": "medium"
+    }
+  ],
+  "mappings": {
+    "ocpi-2.2.1": [{ "value": "DOMESTIC_N", "match": "exact" }],
+    "ocpi-2.3.0": [{ "value": "DOMESTIC_N", "match": "exact" }],
+    "openchargemap": [],
+    "openstreetmap": []
+  },
+  "sources": [
+    {
+      "id": "iec-webstore-60906-1",
+      "title": "IEC 60906-1:2009 IEC system of plugs and socket-outlets for household and similar purposes – Part 1: Plugs and socket-outlets 16 A 250 V a.c.",
+      "publisher": "IEC",
+      "type": "standard_abstract",
+      "url": "https://webstore.iec.ch/publication/3882",
+      "accessed": "2026-11-08",
+      "note": "Abstract: edition 2.0 (2009-04-07), 16 A 250 V a.c., 200–250 V systems, shutters mandatory."
+    },
+    {
+      "id": "pucrs-labelo-nbr-14136",
+      "title": "Laboratório de Plugues e Tomadas",
+      "publisher": "LABELO, Pontifícia Universidade Católica do Rio Grande do Sul",
+      "type": "other",
+      "url": "https://portal.pucrs.br/labelo/?p=1399",
+      "accessed": "2026-11-08",
+      "note": "Testing laboratory summary of ABNT NBR 14136:2012 (corrected version 5:2021): 10 A and 20 A sockets, accepted pin diameters, earth contact on fixed sockets."
+    },
+    {
+      "id": "wikipedia-ac-plugs",
+      "title": "AC power plugs and sockets",
+      "publisher": "Wikipedia",
+      "type": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/AC_power_plugs_and_sockets",
+      "accessed": "2026-11-08",
+      "note": "Secondary source: IEC 60906-1 pin layout and polarity, NBR 14136 pin diameters."
+    },
+    {
+      "id": "plugsocketmuseum-south-africa",
+      "title": "South Africa: plugs and sockets",
+      "publisher": "Museum of Plugs and Sockets",
+      "type": "other",
+      "url": "https://plugsocketmuseum.nl/SouthAfrica1.html",
+      "accessed": "2026-11-08",
+      "note": "Facts only (SANS 164-2 pin dimensions, recess); no text or image reused."
+    },
+    {
+      "id": "plugsocketmuseum-brazil",
+      "title": "Brazil: plugs and sockets",
+      "publisher": "Museum of Plugs and Sockets",
+      "type": "other",
+      "url": "https://www.plugsocketmuseum.nl/Brazil1.html",
+      "accessed": "2026-11-08",
+      "note": "Facts only (recessed sockets, pin diameters); no text or image reused."
+    }
+  ],
+  "verification": {
+    "status": "partial",
+    "lastVerified": "2026-11-08",
+    "notes": [
+      "The IEC 60906-1 rating comes from the IEC abstract; the pin layout, the 3 mm earth offset and the polarity come from secondary sources.",
+      "Line on the right looking into the IEC 60906-1 socket-outlet with the earth offset up relies on a single secondary source (Wikipedia); the drawing follows it.",
+      "Earth-to-line distance differs between secondary sources (a 3 mm offset gives about 10 mm; one site gives 10.2 mm); the drawing uses the 3 mm offset.",
+      "NBR 14136 pin spacing and earth offset are not stated by the cited sources; NBR 14136 does not follow the IEC 60906-1 pin dimensions, and physical mating between IEC 60906-1 and NBR 14136 parts is not recorded.",
+      "NBR 14136 polarity (which pin carries the line) is not stated by the cited sources.",
+      "Frequency is not stated by the cited sources.",
+      "Unearthed two-pin NBR plugs are not modelled; the Europlug (Type C), which fits NBR 14136 sockets, is mated from the 'europlug' family.",
+      "SANS 164-2 is treated as the IEC 60906-1 configuration; its 16 A rating was not checked against the SANS text."
+    ]
+  }
+}

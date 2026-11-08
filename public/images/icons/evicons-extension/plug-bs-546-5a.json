@@ -1,0 +1,47 @@
+{
+  "category": "connector",
+  "meaning": {
+    "en": "BS 546 5 A socket (Type D, three round pins, earth at the top), shown as the socket face seen from the front",
+    "de": "BS-546-Steckdose 5 A (Typ D, drei Rundstifte, Schutzkontakt oben), dargestellt als Steckdosenfläche von vorn"
+  },
+  "tags": {
+    "en": [
+      "bs 546",
+      "5 a",
+      "type d",
+      "is 1293",
+      "household socket",
+      "ac",
+      "socket"
+    ],
+    "de": [
+      "bs 546",
+      "5 a",
+      "typ d",
+      "is 1293",
+      "haushaltssteckdose",
+      "ac",
+      "steckdose"
+    ],
+    "fr": [
+      "bs 546",
+      "5 a",
+      "type d",
+      "is 1293",
+      "prise domestique",
+      "ac",
+      "prise"
+    ]
+  },
+  "since": "0.9.0",
+  "aliases": [],
+  "standard": {
+    "norm": "BS 546 (5 A)",
+    "source": "BS 546 (5 A) not consulted; contact layout taken from the OpenPlugDB front view \"BS 546 5 A socket-outlet (female), mating face\" (https://github.com/ovarilo/openplugdb/blob/main/public/images/connectors/bs-546-5a/bs-546-5a-socket-front.svg, retrieved 2026-11-08), drawn from Wikipedia \"BS 546\" (https://en.wikipedia.org/wiki/BS_546, retrieved 2026-11-08); WorldStandards \"Plug type D\" (https://www.worldstandards.eu/electricity/plugs-and-sockets/d/, retrieved 2026-11-08)"
+  },
+  "provenance": {
+    "createdBy": "ai",
+    "approvedBy": null,
+    "approvedOn": null
+  }
+}

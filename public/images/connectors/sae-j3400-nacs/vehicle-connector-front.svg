@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" role="img" aria-labelledby="title desc">
+  <title id="title">SAE J3400 (NACS) vehicle connector (female), mating face</title>
+  <desc id="desc">Schematic front view, the two power contacts at the top. Top row: P2 (HV−, DC− / L2) left, P1 (HV+, DC+ / L1) right. Bottom row: PP left, PE (ground) in the middle, CP right (small contacts). Rings are sockets (female contacts). Contact positions follow the connector interface figure of Tesla TS-0023666 section 5.1.1.1; not to scale.</desc>
+  <g fill="none" stroke="#1c2430" stroke-width="3">
+    <path d="M60 36 H140 Q172 36 172 70 V110 A72 72 0 0 1 28 110 V70 Q28 36 60 36 Z"/>
+    <circle cx="68" cy="82" r="20"/>
+    <circle cx="132" cy="82" r="20"/>
+    <circle cx="72" cy="140" r="6"/>
+    <circle cx="100" cy="142" r="11"/>
+    <circle cx="128" cy="140" r="6"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#1c2430" text-anchor="middle" dominant-baseline="central">
+    <text x="68" y="82">P2</text>
+    <text x="132" y="82">P1</text>
+    <text x="100" y="142">PE</text>
+    <text x="62" y="140" text-anchor="end">PP</text>
+    <text x="138" y="140" text-anchor="start">CP</text>
+  </g>
+  <text x="100" y="202" font-family="system-ui, sans-serif" font-size="9" fill="#5a6472" text-anchor="middle" letter-spacing="1">MATING FACE · FEMALE</text>
+</svg>

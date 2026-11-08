@@ -1,0 +1,201 @@
+{
+  "$schema": "../../schemas/connector-family.schema.json",
+  "id": "bs-546-5a",
+  "name": "BS 546 5 A",
+  "aliases": ["Type D", "BS 546", "5 A round-pin plug"],
+  "category": "domestic",
+  "subcategory": "household",
+  "description": "British round-pin plug and socket-outlet, 5 A size of BS 546: three round pins in a triangle, a larger earth pin above line and neutral. Superseded by BS 1363 for general UK use; still used in South Asia and parts of Africa, and in the UK for switched lighting circuits.",
+  "status": "current",
+  "regions": ["europe", "asia", "africa"],
+  "countries": ["GB", "IN", "NP", "BT", "NA", "PK", "LK"],
+  "standards": [
+    {
+      "id": "bs-546",
+      "designation": "BS 546",
+      "edition": "1950",
+      "title": "Specification. Two-pole and earthing-pin plugs, socket-outlets and socket-outlet adaptors",
+      "scope": "5 A size",
+      "url": "https://knowledge.bsigroup.com/products/specification-two-pole-and-earthing-pin-plugs-socket-outlets-and-socket-outlet-adaptors"
+    },
+    {
+      "id": "is-1293",
+      "designation": "IS 1293",
+      "edition": "2019",
+      "title": null,
+      "scope": "Indian 6 A version of the 5 A BS 546 plug (cited by secondary sources)"
+    },
+    {
+      "id": "iec-tr-60083",
+      "designation": "IEC TR 60083",
+      "edition": "7.0 (2015)",
+      "title": "Plugs and socket-outlets for domestic and similar general use standardized in member countries of IEC",
+      "scope": "Catalogue of national plug and socket-outlet systems",
+      "url": "https://webstore.iec.ch/en/publication/23628"
+    }
+  ],
+  "relations": [
+    {
+      "type": "related",
+      "family": "bs-1363",
+      "note": "BS 1363 replaced BS 546 sockets in new UK installations from 1947; BS 546 remains in use elsewhere."
+    }
+  ],
+  "variants": [
+    {
+      "id": "bs-546-5a-plug",
+      "name": "BS 546 5 A plug",
+      "role": "plug",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "L", "label": "Line", "gender": "male" },
+        { "id": "N", "label": "Neutral", "gender": "male" },
+        { "id": "PE", "label": "Earth", "gender": "male", "form": "earth_pin" }
+      ],
+      "keying": "The larger earth pin enforces polarity.",
+      "mechanicalNotes": [
+        "Line and neutral pins 5.1 mm in diameter, 14.9 mm long (15.9 mm in the original standard), 19.1 mm between centres.",
+        "Earth pin 7.1 mm in diameter, 20.6 mm long, 22.2 mm from the line-neutral axis.",
+        "Pins are not sleeved."
+      ],
+      "electricalProfiles": ["ac-1ph"],
+      "matesWith": [{ "family": "bs-546-5a", "variant": "bs-546-5a-socket" }],
+      "visuals": []
+    },
+    {
+      "id": "bs-546-5a-socket",
+      "name": "BS 546 5 A socket-outlet",
+      "role": "socket_outlet",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "L", "label": "Line", "gender": "female" },
+        { "id": "N", "label": "Neutral", "gender": "female" },
+        { "id": "PE", "label": "Earth", "gender": "female", "form": "earth_hole" }
+      ],
+      "keying": "Larger earth hole above the line and neutral holes.",
+      "mechanicalNotes": [
+        "Seen from the front with the earth hole at the top: neutral on the left, line on the right.",
+        "Sockets are not recessed; in the UK they are only permitted with shutters."
+      ],
+      "electricalProfiles": ["ac-1ph"],
+      "matesWith": [],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/bs-546-5a/bs-546-5a-socket-front.svg",
+          "title": "BS 546 5 A socket-outlet (female), mating face",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["wikipedia-bs-546", "worldstandards-type-d"]
+        },
+        {
+          "kind": "icon",
+          "file": "icons/evicons-extension/plug-bs-546-5a.svg",
+          "title": "BS 546 5 A socket-outlet, mating face (icon)",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "MIT",
+          "basedOn": ["wikipedia-bs-546", "worldstandards-type-d"]
+        }
+      ]
+    }
+  ],
+  "electricalProfiles": [
+    {
+      "id": "ac-1ph",
+      "name": "AC single-phase",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": true,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "max", "value": 250, "reference": "line_to_neutral" },
+      "current": { "qualifier": "rated", "value": 5 },
+      "frequencyHz": null,
+      "maxPowerKw": null,
+      "conditions": [
+        "The rating comes from secondary sources; the BS 546 text was not reviewed. The 250 V limit is stated for the whole BS 546 family.",
+        "The Indian IS 1293 version of the same plug is rated 6 A; WorldStandards gives 6 A for type D."
+      ],
+      "contactFunctions": { "L": "line", "N": "neutral", "PE": "protective_earth" },
+      "standardRef": "bs-546",
+      "jurisdiction": null,
+      "sourceRefs": ["wikipedia-bs-546", "wikipedia-ac-plugs", "worldstandards-type-d"],
+      "confidence": "medium"
+    }
+  ],
+  "mappings": {
+    "ocpi-2.2.1": [
+      {
+        "value": "DOMESTIC_D",
+        "match": "broader",
+        "note": "OCPI describes DOMESTIC_D only as a 3-pin type D plug; type D also covers the Indian 6 A IS 1293 version."
+      }
+    ],
+    "ocpi-2.3.0": [
+      {
+        "value": "DOMESTIC_D",
+        "match": "broader",
+        "note": "OCPI describes DOMESTIC_D only as a 3-pin type D plug; type D also covers the Indian 6 A IS 1293 version."
+      }
+    ],
+    "openchargemap": [],
+    "openstreetmap": []
+  },
+  "sources": [
+    {
+      "id": "bsi-bs-546",
+      "title": "BS 546:1950 product record",
+      "publisher": "BSI",
+      "type": "standard_abstract",
+      "url": "https://knowledge.bsigroup.com/products/specification-two-pole-and-earthing-pin-plugs-socket-outlets-and-socket-outlet-adaptors",
+      "accessed": "2026-11-08",
+      "note": "Title, publication date (16 March 1950) and status (current). No ratings."
+    },
+    {
+      "id": "wikipedia-bs-546",
+      "title": "BS 546",
+      "publisher": "Wikipedia",
+      "type": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/BS_546",
+      "accessed": "2026-11-08",
+      "note": "Secondary source: 5 A rating, pin dimensions, face layout, IS 1293."
+    },
+    {
+      "id": "wikipedia-ac-plugs",
+      "title": "AC power plugs and sockets",
+      "publisher": "Wikipedia",
+      "type": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/AC_power_plugs_and_sockets",
+      "accessed": "2026-11-08",
+      "note": "Secondary source: BS 546 5 A, 250 V."
+    },
+    {
+      "id": "worldstandards-type-d",
+      "title": "Plug type D",
+      "publisher": "WorldStandards",
+      "type": "reference_database",
+      "url": "https://www.worldstandards.eu/electricity/plugs-and-sockets/d/",
+      "accessed": "2026-11-08",
+      "note": "Facts only (dimensions, 6 A rating); no text or image reused."
+    }
+  ],
+  "verification": {
+    "status": "partial",
+    "lastVerified": "2026-11-08",
+    "notes": [
+      "Ratings and dimensions rely on secondary sources; the BS 546 text was not reviewed.",
+      "Source conflict on the current rating: Wikipedia gives 5 A for the BS 546 size, WorldStandards gives 6 A for type D (the IS 1293 value). The profile records 5 A.",
+      "Status conflict: the BSI record lists BS 546:1950 as current, while some resellers list it as superseded or withdrawn.",
+      "Frequency is not stated by the cited sources.",
+      "The line and neutral positions of the socket face rely on a single secondary source (Wikipedia); the dimensions are confirmed by a second one.",
+      "The plug face is not drawn: no reviewed source depicts it separately.",
+      "The 2 A, 15 A and 30 A sizes of BS 546 and the IS 1293 6 A version are not modelled."
+    ]
+  }
+}

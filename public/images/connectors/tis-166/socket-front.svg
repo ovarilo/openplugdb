@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" role="img" aria-labelledby="title desc">
+  <title id="title">TIS 166 socket-outlet (female), mating face, earth hole up</title>
+  <desc id="desc">Schematic front view with the earth hole up. Line hole lower left, neutral hole lower right, earth hole above the centre. Rings are female contacts. Proportions follow TIS 166 figure 3: 19 mm between the line and neutral holes, 11.89 mm from their line to the earth hole, 5.3 mm holes, and a 39 mm diameter face area centred 3.18 mm above the line and neutral holes.</desc>
+  <g fill="none" stroke="#1c2430" stroke-width="3">
+    <circle cx="100" cy="100" r="78"/>
+    <circle cx="62" cy="113" r="11"/>
+    <circle cx="138" cy="113" r="11"/>
+    <circle cx="100" cy="65" r="11"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#1c2430" text-anchor="middle" dominant-baseline="central">
+    <text x="62" y="113">L</text>
+    <text x="138" y="113">N</text>
+    <text x="100" y="40">PE</text>
+  </g>
+  <text x="100" y="202" font-family="system-ui, sans-serif" font-size="9" fill="#5a6472" text-anchor="middle" letter-spacing="1">MATING FACE · FEMALE</text>
+</svg>

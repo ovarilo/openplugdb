@@ -1,0 +1,53 @@
+{
+  "category": "connector",
+  "meaning": {
+    "en": "BS 546 15 A / SANS 164-1 socket (Type M, three round pins, earth at the top), shown as the socket face seen from the front",
+    "de": "BS-546-/SANS-164-1-Steckdose 15 A (Typ M, drei Rundstifte, Schutzkontakt oben), dargestellt als Steckdosenfläche von vorn"
+  },
+  "tags": {
+    "en": [
+      "bs 546",
+      "15 a",
+      "sans 164-1",
+      "type m",
+      "south africa",
+      "household socket",
+      "ac",
+      "socket"
+    ],
+    "de": [
+      "bs 546",
+      "15 a",
+      "sans 164-1",
+      "typ m",
+      "südafrika",
+      "haushaltssteckdose",
+      "ac",
+      "steckdose"
+    ],
+    "fr": [
+      "bs 546",
+      "15 a",
+      "sans 164-1",
+      "type m",
+      "afrique du sud",
+      "prise domestique",
+      "ac",
+      "prise"
+    ]
+  },
+  "since": "0.9.0",
+  "aliases": [],
+  "standard": {
+    "norm": "BS 546 (15 A) / SANS 164-1",
+    "source": "BS 546 (15 A) / SANS 164-1 not consulted; contact layout taken from the OpenPlugDB front view \"BS 546 15 A / SANS 164-1 socket-outlet (female), mating face, earth hole up\" (https://github.com/ovarilo/openplugdb/blob/main/public/images/connectors/bs-546-15a/socket-front.svg, retrieved 2026-11-08), drawn from Museum of Plugs and Sockets \"South Africa: plugs and sockets\" (https://plugsocketmuseum.nl/SouthAfrica1.html, retrieved 2026-11-08); Wikipedia \"SANS 164\" (https://en.wikipedia.org/wiki/SANS_164, retrieved 2026-11-08)"
+  },
+  "ocpi": [
+    "Connector.standard=DOMESTIC_M"
+  ],
+  "provenance": {
+    "createdBy": "ai",
+    "approvedBy": null,
+    "approvedOn": null
+  }
+}

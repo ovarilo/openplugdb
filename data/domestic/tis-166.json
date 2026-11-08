@@ -1,0 +1,222 @@
+{
+  "$schema": "../../schemas/connector-family.schema.json",
+  "id": "tis-166",
+  "name": "TIS 166-2549 (Type O, Thai plug)",
+  "aliases": ["Type O", "TIS 166-2549", "TIS 166-2547", "Thai plug"],
+  "category": "domestic",
+  "subcategory": "household",
+  "description": "Thai household plug and socket system: two round 4.8 mm pins 19 mm apart, with a round earth pin 11.89 mm above their line on the earthed plug. Line and neutral pins are partly insulated. The standard also defines a two-pole plug for class II appliances on the same pin spacing.",
+  "status": "current",
+  "regions": ["asia"],
+  "countries": ["TH"],
+  "standards": [
+    {
+      "id": "tis-166-2549",
+      "designation": "TIS 166-2549",
+      "edition": "2549 (2006)",
+      "title": "Plugs and socket-outlets for household and similar purposes: plugs and socket-outlets with rated voltage not exceeding 250 V",
+      "scope": "Thai plug and socket-outlet configurations (figures 1 to 3), rated up to 250 V and 16 A; renumbered from TIS 166-2547, whose text the published scan carries",
+      "url": "https://archive.org/details/th.cs.166.t.2549"
+    },
+    {
+      "id": "tis-2162",
+      "designation": "TIS 2162",
+      "edition": null,
+      "title": null,
+      "scope": "General requirements referenced by TIS 166 (clauses 2 to 6)"
+    }
+  ],
+  "relations": [],
+  "variants": [
+    {
+      "id": "earthed-plug",
+      "name": "Two-pole plug with earthing pin (class I)",
+      "role": "plug",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "L", "label": "L", "gender": "male" },
+        { "id": "N", "label": "N", "gender": "male" },
+        { "id": "PE", "label": "PE", "gender": "male", "form": "earth_pin" }
+      ],
+      "keying": "The earth pin above the line pins enforces polarity; L, N and the earth symbol are marked on the engagement face.",
+      "mechanicalNotes": [
+        "Pins 4.8 mm in diameter; line and neutral 19 mm apart and 19 mm long, insulated for 10 mm from the face.",
+        "Earth pin 21.4 mm long, 11.89 mm from the line of the line and neutral pins.",
+        "Seen on the pin side with the earth pin up, neutral is on the left and line on the right (figure 1)."
+      ],
+      "electricalProfiles": ["ac-1ph"],
+      "matesWith": [{ "family": "tis-166", "variant": "socket" }],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/tis-166/earthed-plug-front.svg",
+          "title": "TIS 166 earthed plug (male), mating face, earth pin up",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["tis-166-2549-text"]
+        }
+      ]
+    },
+    {
+      "id": "class-ii-plug",
+      "name": "Two-pole plug (class II)",
+      "role": "plug",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "P1", "label": "L/N", "gender": "male" },
+        { "id": "P2", "label": "L/N", "gender": "male" }
+      ],
+      "keying": "None: unpolarised.",
+      "mechanicalNotes": [
+        "Pins 4.8 mm in diameter, 19 mm long, 19 mm apart, insulated for 10 mm.",
+        "Non-rewirable version has an elongated hexagonal face 35.5 × 14.6 mm (figure 2)."
+      ],
+      "electricalProfiles": ["ac-1ph-class-ii"],
+      "matesWith": [{ "family": "tis-166", "variant": "socket" }],
+      "visuals": []
+    },
+    {
+      "id": "socket",
+      "name": "Two-pole socket-outlet with earthing contact",
+      "role": "socket_outlet",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "L", "label": "L", "gender": "female" },
+        { "id": "N", "label": "N", "gender": "female" },
+        { "id": "PE", "label": "PE", "gender": "female", "form": "earth_hole" }
+      ],
+      "keying": "Earth hole above the line and neutral holes; L, N and the earth symbol are marked on the face.",
+      "mechanicalNotes": [
+        "Holes 5.3 mm in diameter; line and neutral 19 mm apart; earth hole 11.89 mm above their line (figure 3).",
+        "Looking into the socket-outlet with the earth hole up, line is on the left and neutral on the right (figure 3).",
+        "Nothing may protrude within a 39 mm diameter around the contacts, apart from the markings; protection against single-pole insertion is required (cover or shutter)."
+      ],
+      "electricalProfiles": ["ac-1ph"],
+      "matesWith": [],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/tis-166/socket-front.svg",
+          "title": "TIS 166 socket-outlet (female), mating face, earth hole up",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["tis-166-2549-text"]
+        },
+        {
+          "kind": "icon",
+          "file": "icons/evicons-extension/plug-tis-166.svg",
+          "title": "TIS 166 socket-outlet, mating face, earth hole up (icon)",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "MIT",
+          "basedOn": ["tis-166-2549-text"]
+        }
+      ]
+    }
+  ],
+  "electricalProfiles": [
+    {
+      "id": "ac-1ph",
+      "name": "AC single-phase, earthed",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": true,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "rated", "value": 250, "reference": "line_to_neutral" },
+      "current": { "qualifier": "rated", "value": 16 },
+      "frequencyHz": null,
+      "maxPowerKw": null,
+      "conditions": [
+        "Table 1 rates the socket-outlet and rewirable plugs 250 V, 16 A; non-rewirable plugs may be rated 2.5, 6, 10 or 16 A."
+      ],
+      "contactFunctions": { "L": "line", "N": "neutral", "PE": "protective_earth" },
+      "standardRef": "tis-166-2549",
+      "jurisdiction": null,
+      "sourceRefs": ["tis-166-2549-text"],
+      "confidence": "high"
+    },
+    {
+      "id": "ac-1ph-class-ii",
+      "name": "AC single-phase, class II (no earth)",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": true,
+      "protectiveEarth": false,
+      "voltage": { "qualifier": "rated", "value": 250, "reference": "line_to_neutral" },
+      "current": { "qualifier": "rated", "value": 16 },
+      "frequencyHz": null,
+      "maxPowerKw": null,
+      "conditions": [
+        "Table 1 rates rewirable two-pole plugs 250 V, 16 A; non-rewirable plugs may be rated 2.5, 6, 10 or 16 A.",
+        "Not polarised: P1 and P2 are interchangeable."
+      ],
+      "contactFunctions": { "P1": "line", "P2": "neutral" },
+      "standardRef": "tis-166-2549",
+      "jurisdiction": null,
+      "sourceRefs": ["tis-166-2549-text"],
+      "confidence": "high"
+    }
+  ],
+  "mappings": {
+    "ocpi-2.2.1": [
+      { "value": "DOMESTIC_O", "match": "exact", "variants": ["earthed-plug", "socket"] },
+      {
+        "value": "DOMESTIC_O",
+        "match": "partial",
+        "variants": ["class-ii-plug"],
+        "note": "The two-pole plug fits the Type O socket-outlet but has no earth pin."
+      }
+    ],
+    "ocpi-2.3.0": [
+      { "value": "DOMESTIC_O", "match": "exact", "variants": ["earthed-plug", "socket"] },
+      {
+        "value": "DOMESTIC_O",
+        "match": "partial",
+        "variants": ["class-ii-plug"],
+        "note": "The two-pole plug fits the Type O socket-outlet but has no earth pin."
+      }
+    ],
+    "openchargemap": [],
+    "openstreetmap": []
+  },
+  "sources": [
+    {
+      "id": "tis-166-2549-text",
+      "title": "TIS 166-2549: Plugs and socket-outlets for household and similar purposes: plugs and socket-outlets with rated voltage not exceeding 250 V",
+      "publisher": "Thai Industrial Standards Institute (TISI), published by Public.Resource.Org",
+      "type": "standard",
+      "url": "https://archive.org/details/th.cs.166.t.2549",
+      "accessed": "2026-11-08",
+      "note": "Full standard text (Thai): table 1 ratings, figure 1 (earthed plug), figure 2 (class II plug), figure 3 (socket-outlet). Figures and text are not reproduced; drawings were made from their dimensions."
+    },
+    {
+      "id": "wikipedia-ac-plugs",
+      "title": "AC power plugs and sockets",
+      "publisher": "Wikipedia",
+      "type": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/AC_power_plugs_and_sockets",
+      "accessed": "2026-11-08",
+      "note": "Secondary source: TIS 166-2549 updates TIS 166-2547; dual socket of figure 4."
+    }
+  ],
+  "verification": {
+    "status": "verified",
+    "lastVerified": "2026-11-08",
+    "notes": [
+      "Values come from a scan of the standard published by Public.Resource.Org; its pages carry the TIS 166-2547 header, renumbered TIS 166-2549 in 2006.",
+      "Frequency is not stated in the reviewed clauses.",
+      "The universal dual socket-outlet of figure 4, which also takes Type A, B and C plugs, is not modelled; those cross-family matings wait for the corresponding family ids.",
+      "The earth pin spacing (11.89 mm) equals that of NEMA 5-15; a NEMA 5-15 plug mating with the Thai socket-outlet is not recorded."
+    ]
+  }
+}

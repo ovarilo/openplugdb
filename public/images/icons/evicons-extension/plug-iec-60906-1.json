@@ -1,0 +1,50 @@
+{
+  "category": "connector",
+  "meaning": {
+    "en": "IEC 60906-1 socket (Type N; NBR 14136 in Brazil), shown as the socket face seen from the front, earth offset up",
+    "de": "IEC-60906-1-Steckdose (Typ N; NBR 14136 in Brasilien), dargestellt als Steckdosenfläche von vorn, Schutzkontakt nach oben versetzt"
+  },
+  "tags": {
+    "en": [
+      "iec 60906-1",
+      "nbr 14136",
+      "type n",
+      "brazil",
+      "household socket",
+      "ac",
+      "socket"
+    ],
+    "de": [
+      "iec 60906-1",
+      "nbr 14136",
+      "typ n",
+      "brasilien",
+      "haushaltssteckdose",
+      "ac",
+      "steckdose"
+    ],
+    "fr": [
+      "iec 60906-1",
+      "nbr 14136",
+      "type n",
+      "brésil",
+      "prise domestique",
+      "ac",
+      "prise"
+    ]
+  },
+  "since": "0.9.0",
+  "aliases": [],
+  "standard": {
+    "norm": "IEC 60906-1",
+    "source": "IEC 60906-1 not consulted; contact layout taken from the OpenPlugDB front view \"IEC 60906-1 socket-outlet (female), mating face, earth offset up\" (https://github.com/ovarilo/openplugdb/blob/main/public/images/connectors/iec-60906-1/iec-socket-front.svg, retrieved 2026-11-08), drawn from Wikipedia \"AC power plugs and sockets\" (https://en.wikipedia.org/wiki/AC_power_plugs_and_sockets, retrieved 2026-11-08); Museum of Plugs and Sockets \"South Africa: plugs and sockets\" (https://plugsocketmuseum.nl/SouthAfrica1.html, retrieved 2026-11-08)"
+  },
+  "ocpi": [
+    "Connector.standard=DOMESTIC_N"
+  ],
+  "provenance": {
+    "createdBy": "ai",
+    "approvedBy": null,
+    "approvedOn": null
+  }
+}

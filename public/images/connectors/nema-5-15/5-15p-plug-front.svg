@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" role="img" aria-labelledby="title desc">
+  <title id="title">NEMA 5-15P plug (male), mating face, ground pin down</title>
+  <desc id="desc">Schematic front view looking at the pins, ground pin down. Hot blade upper left, neutral blade upper right, ground pin below the centre. Filled shapes are pins and blades seen end-on (male contacts). Contact proportions follow 12.7 mm between blade centres, 6.3 mm by 1.5 mm blades and a 4.8 mm ground pin 11.9 mm from the blade line; the ground pin is simplified to a circle and the body outline is not to scale.</desc>
+  <g fill="none" stroke="#1c2430" stroke-width="3">
+    <circle cx="100" cy="95" r="72"/>
+  </g>
+  <g fill="#1c2430">
+    <rect x="72" y="60.5" width="6" height="25" rx="1"/>
+    <rect x="122" y="60.5" width="6" height="25" rx="1"/>
+    <circle cx="100" cy="120" r="9.5"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#1c2430" text-anchor="middle" dominant-baseline="central">
+    <text x="75" y="46">L</text>
+    <text x="125" y="46">N</text>
+    <text x="100" y="145">PE</text>
+  </g>
+  <text x="100" y="202" font-family="system-ui, sans-serif" font-size="9" fill="#5a6472" text-anchor="middle" letter-spacing="1">MATING FACE · MALE</text>
+</svg>

@@ -1,0 +1,247 @@
+{
+  "$schema": "../../schemas/connector-family.schema.json",
+  "id": "sn-441011",
+  "name": "SN 441011 (Type J, Swiss T12/T13 and T23)",
+  "aliases": ["Type J", "SEV 1011", "T12", "T13", "T23", "Swiss plug"],
+  "category": "domestic",
+  "subcategory": "household",
+  "description": "Swiss household plug and socket system: two pins 19 mm apart with a central earth pin offset by 5 mm, which polarises the connection. The 10 A series (T12 plug, T13 socket) has round pins; the 16 A series (T23) has rectangular pins. Sockets are hierarchically downward compatible: a 16 A socket also takes 10 A plugs.",
+  "status": "current",
+  "regions": ["europe"],
+  "countries": ["CH", "LI"],
+  "standards": [
+    {
+      "id": "sn-441011-2019",
+      "designation": "SN 441011",
+      "edition": "2019",
+      "title": "Plugs and socket-outlets for household and similar purposes (Switzerland)",
+      "scope": "Current series (parts 1, 2-1, 2-2, 2-3), in force since 2019-03-01; not reviewed",
+      "url": "https://connect.snv.ch/en/sn-sn-441011-1-2019"
+    },
+    {
+      "id": "sev-1011-2009",
+      "designation": "SEV 1011",
+      "edition": "2009",
+      "title": null,
+      "scope": "Previous Swiss standard, cited by secondary sources for the dimensions"
+    }
+  ],
+  "relations": [],
+  "variants": [
+    {
+      "id": "t12-plug",
+      "name": "Type 12 plug (10 A)",
+      "role": "plug",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "L", "label": "L", "gender": "male" },
+        { "id": "N", "label": "N", "gender": "male" },
+        { "id": "PE", "label": "PE", "gender": "male", "form": "earth_pin" }
+      ],
+      "keying": "The offset earth pin enforces polarity.",
+      "mechanicalNotes": [
+        "Round pins 4 mm in diameter, 19 mm long; line and neutral 19 mm apart, earth offset 5 mm from their line.",
+        "Line and neutral pins partially insulated (8 mm) on current plugs."
+      ],
+      "electricalProfiles": ["ac-1ph-10a"],
+      "matesWith": [
+        { "family": "sn-441011", "variant": "t13-socket" },
+        { "family": "sn-441011", "variant": "t23-socket" }
+      ],
+      "visuals": []
+    },
+    {
+      "id": "t13-socket",
+      "name": "Type 13 socket-outlet (10 A)",
+      "role": "socket_outlet",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "L", "label": "L", "gender": "female" },
+        { "id": "N", "label": "N", "gender": "female" },
+        { "id": "PE", "label": "PE", "gender": "female", "form": "earth_hole" }
+      ],
+      "keying": "Offset earth hole: the plug enters one way only.",
+      "mechanicalNotes": [
+        "Recessed socket; the line and neutral contacts sit deeper than the earth contact, so earth makes first.",
+        "Also made as a triple socket-outlet."
+      ],
+      "electricalProfiles": ["ac-1ph-10a"],
+      "matesWith": [],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/sn-441011/t13-socket-front.svg",
+          "title": "SN 441011 Type 13 socket-outlet (female), mating face, earth hole down",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["wikipedia-sn-441011", "osm-wiki-socket"]
+        },
+        {
+          "kind": "icon",
+          "file": "icons/evicons-extension/plug-sn-441011.svg",
+          "title": "SN 441011 Type 13 socket-outlet, mating face, earth hole down (icon)",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "MIT",
+          "basedOn": ["wikipedia-sn-441011", "osm-wiki-socket"]
+        }
+      ]
+    },
+    {
+      "id": "t23-plug",
+      "name": "Type 23 plug (16 A)",
+      "role": "plug",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "L", "label": "L", "gender": "male" },
+        { "id": "N", "label": "N", "gender": "male" },
+        { "id": "PE", "label": "PE", "gender": "male", "form": "earth_pin" }
+      ],
+      "keying": "Offset earth pin enforces polarity; rectangular pins keep it out of 10 A sockets.",
+      "mechanicalNotes": ["Rectangular pins 4 × 5 mm, same 19 mm spacing and 5 mm earth offset."],
+      "electricalProfiles": ["ac-1ph-16a"],
+      "matesWith": [{ "family": "sn-441011", "variant": "t23-socket" }],
+      "visuals": []
+    },
+    {
+      "id": "t23-socket",
+      "name": "Type 23 socket-outlet (16 A)",
+      "role": "socket_outlet",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "L", "label": "L", "gender": "female" },
+        { "id": "N", "label": "N", "gender": "female" },
+        { "id": "PE", "label": "PE", "gender": "female", "form": "earth_hole" }
+      ],
+      "keying": "Offset earth hole; slots accept round 10 A and rectangular 16 A pins.",
+      "mechanicalNotes": ["Recessed socket."],
+      "electricalProfiles": ["ac-1ph-16a"],
+      "matesWith": [],
+      "visuals": []
+    }
+  ],
+  "electricalProfiles": [
+    {
+      "id": "ac-1ph-10a",
+      "name": "AC single-phase, 10 A",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": true,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "rated", "value": 250, "reference": "line_to_neutral" },
+      "current": { "qualifier": "rated", "value": 10 },
+      "frequencyHz": [50],
+      "maxPowerKw": null,
+      "conditions": [
+        "Values come from secondary sources citing SEV 1011:2009; SN 441011 was not reviewed.",
+        "Single-phase plugs also fit the three-phase Type 15 socket (not modelled)."
+      ],
+      "contactFunctions": { "L": "line", "N": "neutral", "PE": "protective_earth" },
+      "standardRef": "sn-441011-2019",
+      "jurisdiction": null,
+      "sourceRefs": ["wikipedia-sn-441011", "osm-wiki-socket"],
+      "confidence": "medium"
+    },
+    {
+      "id": "ac-1ph-16a",
+      "name": "AC single-phase, 16 A",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": true,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "rated", "value": 250, "reference": "line_to_neutral" },
+      "current": { "qualifier": "rated", "value": 16 },
+      "frequencyHz": [50],
+      "maxPowerKw": null,
+      "conditions": [
+        "Values come from secondary sources citing SEV 1011:2009; SN 441011 was not reviewed."
+      ],
+      "contactFunctions": { "L": "line", "N": "neutral", "PE": "protective_earth" },
+      "standardRef": "sn-441011-2019",
+      "jurisdiction": null,
+      "sourceRefs": ["wikipedia-sn-441011", "osm-wiki-socket"],
+      "confidence": "medium"
+    }
+  ],
+  "mappings": {
+    "ocpi-2.2.1": [
+      { "value": "DOMESTIC_J", "match": "exact", "variants": ["t12-plug", "t13-socket"] },
+      {
+        "value": "DOMESTIC_J",
+        "match": "partial",
+        "variants": ["t23-socket"],
+        "note": "A T23 socket accepts Type J (T12) plugs but is a 16 A configuration."
+      }
+    ],
+    "ocpi-2.3.0": [
+      { "value": "DOMESTIC_J", "match": "exact", "variants": ["t12-plug", "t13-socket"] },
+      {
+        "value": "DOMESTIC_J",
+        "match": "partial",
+        "variants": ["t23-socket"],
+        "note": "A T23 socket accepts Type J (T12) plugs but is a 16 A configuration."
+      }
+    ],
+    "openchargemap": [{ "value": "1037", "match": "exact", "variants": ["t13-socket"] }],
+    "openstreetmap": [
+      { "value": "socket:sev1011_t13", "match": "exact", "variants": ["t13-socket"] },
+      { "value": "socket:sev1011_t23", "match": "exact", "variants": ["t23-socket"] }
+    ]
+  },
+  "sources": [
+    {
+      "id": "snv-sn-441011-1",
+      "title": "SN 441011-1:2019",
+      "publisher": "Swiss Association for Standardization (SNV)",
+      "type": "standard_abstract",
+      "url": "https://connect.snv.ch/en/sn-sn-441011-1-2019",
+      "accessed": "2026-11-08",
+      "note": "Store listing: designation and edition only."
+    },
+    {
+      "id": "esti-sn-441011",
+      "title": "Mitteilung SN 441011 IP55",
+      "publisher": "Swiss Federal Inspectorate for Heavy Current Installations (ESTI)",
+      "type": "regulation",
+      "url": "https://www.esti.admin.ch/inhalte/2020-0701_Mitteilung_SN_441011_IP55_ESTI_d.pdf",
+      "accessed": "2026-11-08",
+      "note": "Designation only (SN 441011 replacing SEV 1011); listed from a search result, not read in full."
+    },
+    {
+      "id": "wikipedia-sn-441011",
+      "title": "SN 441011",
+      "publisher": "Wikipedia",
+      "type": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/SN_441011",
+      "accessed": "2026-11-08",
+      "note": "Secondary source citing SEV 1011:2009 and Electrosuisse/ESTI documents."
+    },
+    {
+      "id": "osm-wiki-socket",
+      "title": "Key:socket:* (revision 3080014)",
+      "publisher": "OpenStreetMap Wiki",
+      "type": "other",
+      "url": "https://wiki.openstreetmap.org/w/index.php?title=Key:socket:*&oldid=3080014",
+      "accessed": "2026-11-08",
+      "note": "Key names and the T13 10 A / T23 16 A ratings only; wiki text (CC BY-SA 2.0) not reproduced."
+    }
+  ],
+  "verification": {
+    "status": "partial",
+    "lastVerified": "2026-11-08",
+    "notes": [
+      "Ratings and dimensions rely on secondary sources citing SEV 1011:2009; the SN 441011 parts were not reviewed.",
+      "Line on the right looking into a T13 socket with the earth hole down relies on a single secondary source (Wikipedia); the drawing follows it.",
+      "The Type 13 socket also accepts the Europlug (Type C, CEE 7/16); the mating is stored on the 'europlug' family.",
+      "Unearthed plugs (T11, T21), the obsolete flush T12 socket and the three-phase T15/T25 types are not modelled.",
+      "IEC 60906-1 (Type N) derives from this design but is not compatible: reversed polarity and a 3 mm earth offset."
+    ]
+  }
+}

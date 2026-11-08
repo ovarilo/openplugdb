@@ -1,0 +1,280 @@
+{
+  "$schema": "../../schemas/connector-family.schema.json",
+  "id": "chademo",
+  "name": "CHAdeMO",
+  "aliases": ["IEC 62196-3 configuration AA"],
+  "category": "ev",
+  "subcategory": "dc-charging",
+  "description": "DC-only charging interface defined by the CHAdeMO Association and standardised as configuration AA of IEC 62196-3, used with DC EV supply equipment of System A (IEC 61851-23 Annex AA). The circular face has two large DC contacts side by side between two groups of signal contacts. The CHAdeMO protocol versions 0.9 to 2.x share this connector; CHAdeMO 3.0 uses the different ChaoJi connector.",
+  "status": "current",
+  "regions": ["asia", "europe", "north_america", "worldwide"],
+  "countries": [],
+  "standards": [
+    {
+      "id": "iec-62196-3-2022",
+      "designation": "IEC 62196-3",
+      "edition": "2.0 (2022)",
+      "title": "Plugs, socket-outlets, and vehicle couplers – Conductive charging of electric vehicles – Part 3: Dimensional compatibility requirements for DC and AC/DC pin and contact-tube vehicle couplers",
+      "scope": "Configuration AA (standard sheets 3-I), ratings and contacts (tables 301 and 303, 5.2.2)",
+      "url": "https://webstore.iec.ch/en/publication/59923"
+    },
+    {
+      "id": "iec-62196-3-2026",
+      "designation": "IEC 62196-3",
+      "edition": "3.0 (2026)",
+      "title": "Plugs, socket-outlets, and vehicle couplers – Conductive charging of electric vehicles – Part 3: Dimensional compatibility requirements for DC and AC/DC pin and contact-tube vehicle couplers",
+      "scope": "Current edition; announces increased ratings. Not yet reviewed in detail."
+    },
+    {
+      "id": "iec-61851-23",
+      "designation": "IEC 61851-23",
+      "edition": null,
+      "title": "Electric vehicle conductive charging system – Part 23: DC electric vehicle supply equipment",
+      "scope": "System A (Annex AA), the only DC system configuration AA couplers are used with"
+    },
+    {
+      "id": "chademo-1-2",
+      "designation": "CHAdeMO protocol 1.2",
+      "edition": "1.2 (March 2017)",
+      "title": "CHAdeMO protocol specification, version 1.2",
+      "scope": "High-power charging up to 200 kW with the same connector"
+    },
+    {
+      "id": "chademo-2-0",
+      "designation": "CHAdeMO protocol 2.0",
+      "edition": "2.0 (May 2018)",
+      "title": "CHAdeMO protocol specification, version 2.0",
+      "scope": "Charging up to 400 kW (1 kV) with the same plug shape; released to Regular members on 29 May 2018"
+    },
+    {
+      "id": "chademo-0-9",
+      "designation": "CHAdeMO protocol 0.9",
+      "edition": "0.9",
+      "title": "CHAdeMO protocol specification, version 0.9",
+      "scope": "First published protocol; most deployed CHAdeMO chargers follow it"
+    }
+  ],
+  "relations": [],
+  "variants": [
+    {
+      "id": "vehicle-inlet",
+      "name": "CHAdeMO vehicle inlet",
+      "role": "vehicle_inlet",
+      "contactGender": "unknown",
+      "contacts": null,
+      "keying": null,
+      "mechanicalNotes": [],
+      "electricalProfiles": ["dc-iec", "dc-protocol-0-9", "dc-protocol-1-2", "dc-protocol-2-0"],
+      "matesWith": [{ "family": "chademo", "variant": "vehicle-connector" }],
+      "visuals": []
+    },
+    {
+      "id": "vehicle-connector",
+      "name": "CHAdeMO vehicle connector",
+      "role": "vehicle_connector",
+      "contactGender": "unknown",
+      "contacts": null,
+      "keying": "Latch at the top of the circular face.",
+      "mechanicalNotes": [
+        "Ten contact positions: two large DC contacts side by side, a group of four signal positions above and a group of four below; one manufacturer specification marks one upper position as an empty circuit.",
+        "Electrically latched to the inlet during charging."
+      ],
+      "electricalProfiles": ["dc-iec", "dc-protocol-0-9", "dc-protocol-1-2", "dc-protocol-2-0"],
+      "matesWith": [],
+      "visuals": []
+    }
+  ],
+  "electricalProfiles": [
+    {
+      "id": "dc-iec",
+      "name": "DC (IEC 62196-3 configuration AA)",
+      "currentType": "dc",
+      "supply": "dc",
+      "neutral": false,
+      "protectiveEarth": null,
+      "voltage": { "qualifier": "max", "value": 1000, "reference": "dc" },
+      "current": { "qualifier": "max", "value": 400 },
+      "maxPowerKw": null,
+      "conditions": [
+        "Maximum rating of configuration AA in IEC 62196-3:2022 (edition 2.0), tables 301 and 303.",
+        "IEC 62196-3:2026 (edition 3.0) announces increased ratings for all configurations; they are not recorded here yet.",
+        "Contact functions of configuration AA (table 301; position numbers do not give the location): DC+ and DC− 1000 V, 400 A; control pilots CP, CP2 and CP3 30 V, 10 A; communication COM1 (+) and COM2 (−) 30 V, 2 A; isolation monitor IM 30 V, 2 A; proximity detection or connection switch (PP or CS) 30 V, 2 A; optional auxiliary power supply AUX1 30 V, 10 A.",
+        "Table 301 lists no protective earth position for configuration AA; a PE contact is required only for use with non-isolated DC EV supply equipment.",
+        "Used only with DC EV supply equipment of System A (IEC 61851-23 Annex AA).",
+        "Products are rated individually; for example one vehicle connector specification gives 125 A, 100 A or 60 A at 500 V DC depending on the cable.",
+        "The values come from IEC 62196-3, whose sample does not name CHAdeMO; the identification of CHAdeMO with configuration AA comes from a secondary source, consistent with a CHAdeMO connector specification referring to IEC 62196-3."
+      ],
+      "contactFunctions": null,
+      "standardRef": "iec-62196-3-2022",
+      "jurisdiction": null,
+      "sourceRefs": [
+        "iec-62196-3-2022-sample",
+        "wikipedia-chademo",
+        "chademo-iec-recognition",
+        "jae-ff-00368h"
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "dc-protocol-0-9",
+      "name": "DC, CHAdeMO protocol 0.9",
+      "currentType": "dc",
+      "supply": "dc",
+      "neutral": false,
+      "protectiveEarth": null,
+      "voltage": { "qualifier": "max", "value": 500, "reference": "dc" },
+      "current": { "qualifier": "max", "value": 125 },
+      "maxPowerKw": { "value": 62.5, "sourceRefs": ["wikipedia-chademo"] },
+      "conditions": [
+        "Figures from a secondary source (125 A × 500 V DC, 62.5 kW); the CHAdeMO Association pages reviewed give no figures for versions 0.9, 1.0 and 1.1.",
+        "The CHAdeMO Association states that most CHAdeMO chargers deployed worldwide follow protocol 0.9."
+      ],
+      "contactFunctions": null,
+      "standardRef": "chademo-0-9",
+      "jurisdiction": null,
+      "sourceRefs": ["wikipedia-chademo", "chademo-protocol-development"],
+      "confidence": "medium"
+    },
+    {
+      "id": "dc-protocol-1-2",
+      "name": "DC, CHAdeMO protocol 1.2",
+      "currentType": "dc",
+      "supply": "dc",
+      "neutral": false,
+      "protectiveEarth": null,
+      "voltage": { "qualifier": "max", "value": 500, "reference": "dc" },
+      "current": { "qualifier": "max", "value": 400 },
+      "maxPowerKw": {
+        "value": 200,
+        "sourceRefs": ["chademo-2-0-release", "chademo-protocol-development"]
+      },
+      "conditions": ["CHAdeMO 1.2 (March 2017): 400 A × 500 V, up to 200 kW."],
+      "contactFunctions": null,
+      "standardRef": "chademo-1-2",
+      "jurisdiction": null,
+      "sourceRefs": ["chademo-2-0-release", "chademo-protocol-development"],
+      "confidence": "high"
+    },
+    {
+      "id": "dc-protocol-2-0",
+      "name": "DC, CHAdeMO protocol 2.0",
+      "currentType": "dc",
+      "supply": "dc",
+      "neutral": false,
+      "protectiveEarth": null,
+      "voltage": { "qualifier": "max", "value": 1000, "reference": "dc" },
+      "current": { "qualifier": "max", "value": 400 },
+      "maxPowerKw": {
+        "value": 400,
+        "sourceRefs": ["chademo-2-0-release", "chademo-protocol-development"]
+      },
+      "conditions": [
+        "CHAdeMO 2.0 (released to Regular members on 29 May 2018): 400 A × 1 kV, up to 400 kW, with the exact same plug shape.",
+        "The Association describes high-power charging at this level with liquid-cooled cable assemblies (or pantographs)."
+      ],
+      "contactFunctions": null,
+      "standardRef": "chademo-2-0",
+      "jurisdiction": null,
+      "sourceRefs": ["chademo-2-0-release", "chademo-protocol-development"],
+      "confidence": "high"
+    }
+  ],
+  "mappings": {
+    "ocpi-2.2.1": [{ "value": "CHADEMO", "match": "exact" }],
+    "ocpi-2.3.0": [{ "value": "CHADEMO", "match": "exact" }],
+    "openchargemap": [
+      {
+        "value": "2",
+        "match": "exact",
+        "note": "Open Charge Map 1044 (ChaoJi / CHAdeMO 3.x) is a different connector and is not mapped here."
+      }
+    ],
+    "openstreetmap": [{ "value": "socket:chademo", "match": "exact" }]
+  },
+  "sources": [
+    {
+      "id": "iec-62196-3-2022-sample",
+      "title": "IEC 62196-3:2022 (edition 2.0), official preview sample: clauses 5 to 9, tables 301 to 303",
+      "publisher": "IEC (via iTeh Standards)",
+      "type": "standard",
+      "url": "https://cdn.standards.iteh.ai/samples/100328/a2a7173f588046bdad7086b7b7739e24/IEC-62196-3-2022.pdf",
+      "accessed": "2026-11-08"
+    },
+    {
+      "id": "iec-62196-3-2026-sample",
+      "title": "IEC 62196-3:2026 (edition 3.0), official preview sample: foreword and scope",
+      "publisher": "IEC (via iTeh Standards)",
+      "type": "standard",
+      "url": "https://cdn.standards.iteh.ai/samples/iec/iec-62196-3-2026/cbf4dcef0a9c403ba21f35bb48ab8c17/iec62196-3-ed3-0-en.pdf",
+      "accessed": "2026-11-08"
+    },
+    {
+      "id": "chademo-protocol-development",
+      "title": "Protocol development",
+      "publisher": "CHAdeMO Association",
+      "type": "other",
+      "url": "https://www.chademo.com/technology/protocol-development",
+      "accessed": "2026-11-08",
+      "note": "Lists protocol versions 0.9 to 3.0; gives 200 kW for 1.2 and up to 400 kW for 2.0."
+    },
+    {
+      "id": "chademo-2-0-release",
+      "title": "CHAdeMO releases the latest version of the protocol enabling up to 400 kW",
+      "publisher": "CHAdeMO Association",
+      "type": "other",
+      "url": "https://www.chademo.com/wp2016/?p=15577",
+      "accessed": "2026-11-08",
+      "note": "Dated 2018-06-15; gives 1.2 (March 2017) as 400 A × 500 V and 2.0 as 400 A × 1 kV with the same plug shape."
+    },
+    {
+      "id": "chademo-3-0-release",
+      "title": "CHAdeMO 3.0 released",
+      "publisher": "CHAdeMO Association",
+      "type": "other",
+      "url": "https://www.chademo.com/chademo3-0",
+      "accessed": "2026-11-08",
+      "note": "CHAdeMO 3.0 (600 A, over 500 kW) uses the new ChaoJi plug, outside this family."
+    },
+    {
+      "id": "chademo-iec-recognition",
+      "title": "CHAdeMO officially recognised as international DC fast charging standard published by IEC",
+      "publisher": "CHAdeMO Association",
+      "type": "other",
+      "url": "https://www.chademo.com/chademo-officially-recognised-as-international-dc-fast-charging-standard-published-by-iec",
+      "accessed": "2026-11-08",
+      "note": "Dated 2014-03-12: CHAdeMO recognised by IEC through IEC 61851-23, IEC 61851-24 and IEC 62196-3; the page does not name configuration AA."
+    },
+    {
+      "id": "jae-ff-00368h",
+      "title": "Specification FF-00368H, charging connector with cable for electric vehicle quick charger (E55057 series)",
+      "publisher": "Japan Energy Components Co., Ltd.",
+      "type": "manufacturer",
+      "url": "https://285624.selcdn.ru/syms1/iblock/2bf/2bff8e968732b35b905a84528147add6/FF_00368H_CHAdeMO-Connector.pdf",
+      "accessed": "2026-11-08",
+      "note": "Dated 2021-10-20, distributor mirror. Front view of the vehicle connector with positions 1 to 10 (position 3: empty circuit), without contact functions or genders. Its 500 V DC, 60 to 125 A ratings are product ratings, used only as an example."
+    },
+    {
+      "id": "wikipedia-chademo",
+      "title": "CHAdeMO",
+      "publisher": "Wikipedia",
+      "type": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/CHAdeMO",
+      "accessed": "2026-11-08",
+      "note": "Secondary source for the protocol 0.9 rating only."
+    }
+  ],
+  "verification": {
+    "status": "partial",
+    "lastVerified": "2026-11-08",
+    "notes": [
+      "Contacts and genders are not recorded: IEC 62196-3:2022 table 301 lists the configuration AA contact functions without positions, and the manufacturer specification shows the connector positions 1 to 10 without functions or genders. Mapping functions to positions would rely on secondary sources only.",
+      "Protective earth conflict: table 301 gives no PE position for configuration AA, while secondary pinouts describe a frame-ground contact; protectiveEarth is left null.",
+      "No face is drawn: the only reviewed face (JAE FF-00368H, vehicle connector) gives neither contact functions nor genders, and no vehicle inlet face was reviewed.",
+      "Protocol versions 1.0 (2012) and 1.1 have no ratings in the reviewed Association pages and are not modelled; 0.9 relies on Wikipedia (confidence medium).",
+      "CHAdeMO 3.0 (ChaoJi connector) is out of this family. Association pages give two dates: released to Regular members on 24 April 2020 (CHAdeMO 3.0 page), \"published in April 2021\" (protocol development page).",
+      "DC ratings of configuration AA come from the 2022 edition; the increased ratings of IEC 62196-3:2026 are not reviewed yet.",
+      "Other standards carrying CHAdeMO (IEC 61851-24 communication, IEEE adoption, Japanese JEVS documents) were not reviewed.",
+      "The EVicons plug-chademo icon (0.8.0) is not attached: no vehicle inlet face was reviewed, and the icon draws 6 of the 10 contact positions recorded for the vehicle connector."
+    ]
+  }
+}

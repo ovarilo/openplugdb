@@ -1,0 +1,47 @@
+{
+  "category": "connector",
+  "meaning": {
+    "en": "CEI 23-50 10 A socket (Type L, Italian socket with three holes in line), shown as the socket face seen from the front",
+    "de": "CEI-23-50-Steckdose 10 A (Typ L, italienische Steckdose mit drei Kontakten in einer Reihe), dargestellt als Steckdosenfläche von vorn"
+  },
+  "tags": {
+    "en": [
+      "cei 23-50",
+      "type l",
+      "italian socket",
+      "10 a",
+      "household socket",
+      "ac",
+      "socket"
+    ],
+    "de": [
+      "cei 23-50",
+      "typ l",
+      "italienische steckdose",
+      "10 a",
+      "haushaltssteckdose",
+      "ac",
+      "steckdose"
+    ],
+    "fr": [
+      "cei 23-50",
+      "type l",
+      "prise italienne",
+      "10 a",
+      "prise domestique",
+      "ac",
+      "prise"
+    ]
+  },
+  "since": "0.9.0",
+  "aliases": [],
+  "standard": {
+    "norm": "CEI 23-50 (10 A)",
+    "source": "CEI 23-50 (10 A) not consulted; contact layout taken from the OpenPlugDB front view \"CEI 23-50 10 A socket-outlet (female), mating face\" (https://github.com/ovarilo/openplugdb/blob/main/public/images/connectors/cei-23-50/10a-socket-front.svg, retrieved 2026-11-08), drawn from Wikipedia \"AC power plugs and sockets\" (https://en.wikipedia.org/wiki/AC_power_plugs_and_sockets, retrieved 2026-11-08); Museum of Plugs and Sockets \"Italy: plugs and sockets\" (https://www.plugsocketmuseum.nl/Italian1.html, retrieved 2026-11-08)"
+  },
+  "provenance": {
+    "createdBy": "ai",
+    "approvedBy": null,
+    "approvedOn": null
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "$schema": "../../schemas/connector-family.schema.json",
+  "id": "iec-60320-c13-c14",
+  "name": "IEC 60320 C13/C14",
+  "aliases": ["C13", "C14", "IEC kettle-lead connector", "IEC power cord"],
+  "category": "appliance",
+  "subcategory": "appliance-coupler",
+  "description": "Appliance coupler for class I equipment (with earth) and cold conditions. The C13 connector on the cord mates with the C14 appliance inlet. The face is a rectangle with the two top corners chamfered and the earth contact at top centre.",
+  "status": "current",
+  "regions": ["worldwide"],
+  "countries": [],
+  "standards": [
+    {
+      "id": "iec-60320-1",
+      "designation": "IEC 60320-1",
+      "edition": "4.0 (2021)",
+      "title": "Appliance couplers for household and similar general purposes – Part 1: General requirements",
+      "scope": "General requirements, ratings up to 250 V and 16 A"
+    },
+    {
+      "id": "iec-60320-3",
+      "designation": "IEC 60320-3",
+      "edition": "2014 + AMD1:2018",
+      "title": "Appliance couplers for household and similar general purposes – Part 3: Standard sheets and gauges",
+      "scope": "Standard sheets C13 and C14 (moved from part 1 in 2021); edition as referenced by IEC 60320-1:2021"
+    }
+  ],
+  "relations": [],
+  "variants": [
+    {
+      "id": "c13-connector",
+      "name": "C13 connector",
+      "role": "cable_connector",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "P1", "label": "L/N", "gender": "female" },
+        { "id": "P2", "label": "L/N", "gender": "female" },
+        { "id": "PE", "label": "PE", "gender": "female" }
+      ],
+      "keying": "Two chamfered top corners; earth contact at top centre.",
+      "mechanicalNotes": [],
+      "electricalProfiles": ["iec", "ul-csa"],
+      "matesWith": [{ "family": "iec-60320-c13-c14", "variant": "c14-inlet" }],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/iec-60320-c13-c14/c13-connector-front.svg",
+          "title": "IEC 60320 C13 connector (female), mating face",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["schurter-4782"]
+        }
+      ]
+    },
+    {
+      "id": "c14-inlet",
+      "name": "C14 appliance inlet",
+      "role": "appliance_inlet",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "P1", "label": "L/N", "gender": "male" },
+        { "id": "P2", "label": "L/N", "gender": "male" },
+        { "id": "PE", "label": "PE", "gender": "male" }
+      ],
+      "keying": "Two chamfered top corners; earth pin at top centre.",
+      "mechanicalNotes": ["Flat blade-shaped pins."],
+      "electricalProfiles": ["iec", "ul-csa"],
+      "matesWith": [],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/iec-60320-c13-c14/c14-inlet-front.svg",
+          "title": "IEC 60320 C14 appliance inlet (male), mating face",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["schurter-6010"]
+        },
+        {
+          "kind": "icon",
+          "file": "icons/evicons-extension/plug-iec-60320-c14.svg",
+          "title": "IEC 60320 C14 appliance inlet, mating face (icon)",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "MIT",
+          "basedOn": ["schurter-6010"]
+        }
+      ]
+    }
+  ],
+  "electricalProfiles": [
+    {
+      "id": "iec",
+      "name": "AC, IEC rating",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": null,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "rated", "value": 250, "reference": "line_to_neutral" },
+      "current": { "qualifier": "rated", "value": 10 },
+      "frequencyHz": [50],
+      "maxPowerKw": null,
+      "conditions": [
+        "Cold conditions: maximum pin temperature 70 °C.",
+        "Schurter 6010 marks L/N on the rear terminal view only; no source assigns them on the mating face."
+      ],
+      "contactFunctions": { "P1": "line", "PE": "protective_earth" },
+      "standardRef": "iec-60320-1",
+      "jurisdiction": "IEC",
+      "sourceRefs": ["schurter-6010", "iec-60320-1-2021-preview"],
+      "confidence": "high"
+    },
+    {
+      "id": "ul-csa",
+      "name": "AC, UL/CSA rating",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": null,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "rated", "value": 250, "reference": "line_to_neutral" },
+      "current": { "qualifier": "rated", "value": 15 },
+      "frequencyHz": [60],
+      "maxPowerKw": null,
+      "conditions": [
+        "North American rating under UL 60320-1 and CSA C22.2 No. 60320-1.",
+        "Schurter 6010 marks L/N on the rear terminal view only; no source assigns them on the mating face."
+      ],
+      "contactFunctions": { "P1": "line", "PE": "protective_earth" },
+      "standardRef": null,
+      "jurisdiction": "UL/CSA",
+      "sourceRefs": ["schurter-6010"],
+      "confidence": "high"
+    }
+  ],
+  "mappings": {
+    "ocpi-2.2.1": [],
+    "ocpi-2.3.0": [],
+    "openchargemap": [],
+    "openstreetmap": []
+  },
+  "sources": [
+    {
+      "id": "schurter-6010",
+      "title": "6010 C14 appliance inlet datasheet",
+      "publisher": "Schurter",
+      "type": "manufacturer",
+      "url": "https://at.schurter.com/en/datasheet/6010",
+      "accessed": "2026-11-08"
+    },
+    {
+      "id": "iec-60320-1-2021-preview",
+      "title": "IEC 60320-1:2021 (edition 4.0) preview: scope and normative references",
+      "publisher": "IEC (via VDE Verlag)",
+      "type": "standard",
+      "url": "https://assets.vde-verlag.de/iec-normen/preview-pdf/info_iec60320-1%7Bed4.0.CMV%7Den.pdf",
+      "accessed": "2026-11-08"
+    },
+    {
+      "id": "schurter-4782",
+      "title": "4782 C13 connector, rewireable, datasheet",
+      "publisher": "Schurter",
+      "type": "manufacturer",
+      "url": "https://www.schurter.com/en/datasheet/typ_4782.pdf",
+      "accessed": "2026-11-08",
+      "note": "Dimension drawing with a front view of the C13 face; facts only, no image reused."
+    }
+  ],
+  "verification": {
+    "status": "partial",
+    "lastVerified": "2026-11-08",
+    "notes": [
+      "The C14 face is drawn from the front view of the Schurter 6010 datasheet and the C13 face from the front view of the Schurter 4782 datasheet (chamfered corners, earth contact at centre set towards the chamfers, two pole contacts). Proportions are scaled from these drawings; the IEC 60320-3 standard sheet dimensions were not reviewed.",
+      "The Schurter 6010 datasheet marks L and N only on the terminal (rear) side; no cited source assigns line and neutral on the mating face, and IEC 60320-3 was not reviewed, so both drawings label the pole contacts L/N.",
+      "The current edition of IEC 60320-3 was not checked."
+    ]
+  }
+}

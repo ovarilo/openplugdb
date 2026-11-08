@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" role="img" aria-labelledby="title desc">
+  <title id="title">BS 546 5 A socket-outlet (female), mating face</title>
+  <desc id="desc">Schematic front view with the earth hole at the top. Larger earth hole above the centre; neutral hole lower left, line hole lower right. Rings are female contacts. Proportions follow 19.1 mm between line and neutral centres, 22.2 mm from the earth hole to the line-neutral axis, and pin diameters of 5.1 mm and 7.1 mm.</desc>
+  <g fill="none" stroke="#1c2430" stroke-width="3">
+    <rect x="30" y="18" width="140" height="160" rx="24"/>
+    <circle cx="100" cy="58" r="11"/>
+    <circle cx="71.5" cy="125" r="8"/>
+    <circle cx="128.5" cy="125" r="8"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#1c2430" text-anchor="middle" dominant-baseline="central">
+    <text x="100" y="36">PE</text>
+    <text x="71.5" y="147">N</text>
+    <text x="128.5" y="147">L</text>
+  </g>
+  <text x="100" y="202" font-family="system-ui, sans-serif" font-size="9" fill="#5a6472" text-anchor="middle" letter-spacing="1">MATING FACE · FEMALE</text>
+</svg>

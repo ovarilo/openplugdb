@@ -1,0 +1,214 @@
+{
+  "$schema": "../../schemas/connector-family.schema.json",
+  "id": "sae-j3400-nacs",
+  "name": "SAE J3400 (NACS)",
+  "aliases": [
+    "NACS",
+    "North American Charging Standard",
+    "North American Charging System",
+    "J3400",
+    "Tesla connector"
+  ],
+  "category": "ev",
+  "subcategory": "ac-dc-charging",
+  "description": "Compact charging coupler developed by Tesla and standardised by SAE as J3400. Two current-carrying contacts carry either DC or single-phase AC, plus control pilot, proximity pilot and ground.",
+  "status": "current",
+  "regions": ["north_america"],
+  "countries": ["US", "CA"],
+  "standards": [
+    {
+      "id": "sae-j3400",
+      "designation": "SAE J3400",
+      "edition": "J3400_202409 (Recommended Practice, 2024-09-30)",
+      "title": "North American Charging System (NACS) for Electric Vehicles",
+      "scope": "Coupler transferring either DC or single-phase AC power through two current-carrying contacts",
+      "url": "https://saemobilus.sae.org/standards/j3400_202409-north-american-charging-system-nacs-electric-vehicles"
+    },
+    {
+      "id": "tesla-ts-0023666",
+      "designation": "Tesla TS-0023666",
+      "edition": "rev 1.1 (2022-11-03)",
+      "title": "North American Charging Standard Technical Specification",
+      "scope": "Original open specification of the connector and inlet",
+      "url": "https://digitalassets.tesla.com/tesla-contents/image/upload/North-American-Charging-Standard-Technical-Specification-TS-0023666"
+    }
+  ],
+  "relations": [],
+  "variants": [
+    {
+      "id": "vehicle-inlet",
+      "name": "J3400 vehicle inlet",
+      "role": "vehicle_inlet",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "P1", "label": "DC+ / L1", "gender": "male" },
+        { "id": "P2", "label": "DC− / L2", "gender": "male" },
+        { "id": "PE", "label": "Ground", "gender": "male" },
+        { "id": "CP", "label": "CP", "gender": "male" },
+        { "id": "PP", "label": "PP", "gender": "male" }
+      ],
+      "keying": null,
+      "mechanicalNotes": ["Inlet contacts are described as exterior-facing pins."],
+      "electricalProfiles": ["dc", "ac-1ph"],
+      "matesWith": [{ "family": "sae-j3400-nacs", "variant": "vehicle-connector" }],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/sae-j3400-nacs/vehicle-inlet-front.svg",
+          "title": "SAE J3400 (NACS) vehicle inlet (male), mating face",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["tesla-ts-0023666"]
+        },
+        {
+          "kind": "icon",
+          "file": "icons/evicons/plug-nacs.svg",
+          "title": "SAE J3400 (NACS) vehicle inlet, mating face (EVicons icon)",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "third_party",
+          "author": "Landolsi Digital (EVicons)",
+          "license": "MIT",
+          "sourceUrl": "https://github.com/evicons/evicons/blob/v0.8.0/packages/svg/svg/plug-nacs.svg"
+        }
+      ]
+    },
+    {
+      "id": "vehicle-connector",
+      "name": "J3400 vehicle connector",
+      "role": "vehicle_connector",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "P1", "label": "DC+ / L1", "gender": "female" },
+        { "id": "P2", "label": "DC− / L2", "gender": "female" },
+        { "id": "PE", "label": "Ground", "gender": "female" },
+        { "id": "CP", "label": "CP", "gender": "female" },
+        { "id": "PP", "label": "PP", "gender": "female" }
+      ],
+      "keying": null,
+      "mechanicalNotes": ["The connector includes a latch switch (S1) in the proximity circuit."],
+      "electricalProfiles": ["dc", "ac-1ph"],
+      "matesWith": [],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/sae-j3400-nacs/vehicle-connector-front.svg",
+          "title": "SAE J3400 (NACS) vehicle connector (female), mating face",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["tesla-ts-0023666"]
+        }
+      ]
+    }
+  ],
+  "electricalProfiles": [
+    {
+      "id": "dc",
+      "name": "DC",
+      "currentType": "dc",
+      "supply": "dc",
+      "neutral": false,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "max", "value": 1000, "reference": "dc" },
+      "current": null,
+      "maxPowerKw": null,
+      "conditions": [
+        "The Tesla specification defines a 500 V and a 1000 V configuration, which are mechanically interoperable.",
+        "The Tesla specification sets no maximum current rating: the manufacturer determines it within the 105 °C contact temperature limit.",
+        "CP carries PWM signalling per IEC 61851-1 Annex A, with power line communication superimposed during DC charging."
+      ],
+      "contactFunctions": {
+        "P1": "dc_positive",
+        "P2": "dc_negative",
+        "PE": "protective_earth",
+        "CP": "control_pilot",
+        "PP": "proximity_pilot"
+      },
+      "standardRef": "tesla-ts-0023666",
+      "jurisdiction": null,
+      "sourceRefs": ["tesla-ts-0023666"],
+      "confidence": "high"
+    },
+    {
+      "id": "ac-1ph",
+      "name": "AC single-phase",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": null,
+      "protectiveEarth": true,
+      "voltage": null,
+      "current": null,
+      "frequencyHz": null,
+      "maxPowerKw": null,
+      "conditions": [
+        "P2 carries L2 or the neutral depending on the supply.",
+        "AC voltage and current limits are not stated in the Tesla specification; figures quoted by secondary sources are not recorded until a primary source is reviewed."
+      ],
+      "contactFunctions": {
+        "P1": "line",
+        "PE": "protective_earth",
+        "CP": "control_pilot",
+        "PP": "proximity_pilot"
+      },
+      "standardRef": "sae-j3400",
+      "jurisdiction": null,
+      "sourceRefs": ["tesla-ts-0023666", "sae-j3400-abstract"],
+      "confidence": "medium"
+    }
+  ],
+  "mappings": {
+    "ocpi-2.2.1": [
+      {
+        "value": "TESLA_S",
+        "match": "partial",
+        "note": "Same physical interface before standardisation; TESLA_S denotes the CAN-based Tesla protocol variant."
+      }
+    ],
+    "ocpi-2.3.0": [
+      { "value": "SAE_J3400", "match": "exact" },
+      {
+        "value": "TESLA_S",
+        "match": "partial",
+        "note": "Mechanically compatible, but uses CAN bus instead of power line communication."
+      }
+    ],
+    "openchargemap": [{ "value": "27", "match": "exact" }],
+    "openstreetmap": [{ "value": "socket:nacs", "match": "exact" }]
+  },
+  "sources": [
+    {
+      "id": "tesla-ts-0023666",
+      "title": "North American Charging Standard Technical Specification TS-0023666 rev 1.1",
+      "publisher": "Tesla, Inc.",
+      "type": "manufacturer",
+      "url": "https://digitalassets.tesla.com/tesla-contents/image/upload/North-American-Charging-Standard-Technical-Specification-TS-0023666",
+      "accessed": "2026-11-08"
+    },
+    {
+      "id": "sae-j3400-abstract",
+      "title": "SAE J3400_202409 publication page and scope",
+      "publisher": "SAE International",
+      "type": "standard_abstract",
+      "url": "https://saemobilus.sae.org/standards/j3400_202409-north-american-charging-system-nacs-electric-vehicles",
+      "accessed": "2026-11-08"
+    }
+  ],
+  "verification": {
+    "status": "partial",
+    "lastVerified": "2026-11-08",
+    "notes": [
+      "AC voltage and current limits are unknown pending review of the SAE J3400 text.",
+      "Contact genders per role come from the Tesla specification wording (\"exterior facing pins\" on the inlet, section 7.2) and its interface figures; the SAE J3400 text was not reviewed.",
+      "Both mating faces are drawn from the Tesla TS-0023666 rev 1.1 interface figures (section 5.1.1, page 12), each from the figure of that face: connector with HV− top left, HV+ top right, proximity pilot, ground and control pilot from left to right below; inlet with HV+ top left, HV− top right, control pilot, ground and proximity pilot below. HV+ is P1 (DC+ / L1) and HV− is P2 (DC− / L2) per sections 4.1.11 and 4.1.12.",
+      "The Tesla PDF carries no license or copyright statement; the drawings are original schematics of the contact positions, not traced from its figures. Proportions are approximate (the specification's dimensioned drawings in sections 5.1.2 and 5.1.3 were not used for scale), and unlabelled mechanical features are omitted.",
+      "The SAE J3400 figures were not reviewed: only its publication page and scope are cited."
+    ]
+  }
+}

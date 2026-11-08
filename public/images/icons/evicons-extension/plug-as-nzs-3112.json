@@ -1,0 +1,53 @@
+{
+  "category": "connector",
+  "meaning": {
+    "en": "AS/NZS 3112 10 A socket (Type I, Australia and New Zealand; two angled flat pins and an earth pin below), shown as the socket face seen from the front, earth down",
+    "de": "AS/NZS-3112-Steckdose 10 A (Typ I, Australien und Neuseeland; zwei schräge Flachstifte, Schutzkontakt darunter), dargestellt als Steckdosenfläche von vorn, Schutzkontakt unten"
+  },
+  "tags": {
+    "en": [
+      "as/nzs 3112",
+      "type i",
+      "australia",
+      "new zealand",
+      "10 a",
+      "household socket",
+      "ac",
+      "socket"
+    ],
+    "de": [
+      "as/nzs 3112",
+      "typ i",
+      "australien",
+      "neuseeland",
+      "10 a",
+      "haushaltssteckdose",
+      "ac",
+      "steckdose"
+    ],
+    "fr": [
+      "as/nzs 3112",
+      "type i",
+      "australie",
+      "nouvelle-zélande",
+      "10 a",
+      "prise domestique",
+      "ac",
+      "prise"
+    ]
+  },
+  "since": "0.9.0",
+  "aliases": [],
+  "standard": {
+    "norm": "AS/NZS 3112 (10 A)",
+    "source": "AS/NZS 3112 (10 A) not consulted; contact layout taken from the OpenPlugDB front view \"AS/NZS 3112 10 A socket-outlet (female), mating face, earth slot down\" (https://github.com/ovarilo/openplugdb/blob/main/public/images/connectors/as-nzs-3112/10a-socket-front.svg, retrieved 2026-11-08), drawn from Wikipedia \"AC power plugs and sockets\" (https://en.wikipedia.org/wiki/AC_power_plugs_and_sockets, retrieved 2026-11-08); Wikipedia \"AS/NZS 3112\" (https://en.wikipedia.org/wiki/AS/NZS_3112, retrieved 2026-11-08)"
+  },
+  "ocpi": [
+    "Connector.standard=DOMESTIC_I"
+  ],
+  "provenance": {
+    "createdBy": "ai",
+    "approvedBy": null,
+    "approvedOn": null
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "category": "connector",
+  "meaning": {
+    "en": "CEE 7/5 socket (Type E, French socket with a protruding earth pin), shown as the socket face seen from the front, earth pin up",
+    "de": "CEE-7/5-Steckdose (Typ E, französische Steckdose mit Erdungsstift), dargestellt als Steckdosenfläche von vorn, Erdungsstift oben"
+  },
+  "tags": {
+    "en": [
+      "cee 7/5",
+      "type e",
+      "nf c 61-314",
+      "french socket",
+      "earth pin",
+      "household socket",
+      "ac",
+      "socket"
+    ],
+    "de": [
+      "cee 7/5",
+      "typ e",
+      "nf c 61-314",
+      "französische steckdose",
+      "erdungsstift",
+      "haushaltssteckdose",
+      "ac",
+      "steckdose"
+    ],
+    "fr": [
+      "cee 7/5",
+      "type e",
+      "nf c 61-314",
+      "prise française",
+      "broche de terre",
+      "prise domestique",
+      "ac",
+      "prise"
+    ]
+  },
+  "since": "0.9.0",
+  "aliases": [],
+  "standard": {
+    "norm": "CEE 7/5 (NF C 61-314)",
+    "source": "CEE 7/5 (NF C 61-314) not consulted; contact layout taken from the OpenPlugDB front view \"CEE 7/5 socket-outlet (female holes, male earth pin), mating face, earth pin up\" (https://github.com/ovarilo/openplugdb/blob/main/public/images/connectors/cee-7-type-e/cee-7-5-socket-front.svg, retrieved 2026-11-08), drawn from Wikipedia \"AC power plugs and sockets\" (https://en.wikipedia.org/wiki/AC_power_plugs_and_sockets, retrieved 2026-11-08); WorldStandards \"Plug type E\" (https://www.worldstandards.eu/electricity/plugs-and-sockets/e/, retrieved 2026-11-08)"
+  },
+  "osm": [
+    "socket:typee"
+  ],
+  "ocpi": [
+    "Connector.standard=DOMESTIC_E"
+  ],
+  "provenance": {
+    "createdBy": "ai",
+    "approvedBy": null,
+    "approvedOn": null
+  }
+}

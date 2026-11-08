@@ -1,0 +1,157 @@
+{
+  "$schema": "../../schemas/connector-family.schema.json",
+  "id": "mcs",
+  "name": "MCS (Megawatt Charging System)",
+  "aliases": ["MCS", "Megawatt Charging System", "HPCCV", "IEC TS 63379 configuration HH"],
+  "category": "ev",
+  "subcategory": "dc-charging",
+  "description": "DC-only megawatt charging interface for heavy-duty and other large vehicles, developed by CharIN and specified by IEC TS 63379 (configuration HH, up to 1500 V DC and 3000 A) and SAE J3271. It uses thermal sensing or thermal management of the contacts, single-pair Ethernet (10BASE-T1S) and ISO 15118-20 for charging communication, and an electrically actuated lock.",
+  "status": "current",
+  "regions": ["worldwide"],
+  "countries": [],
+  "standards": [
+    {
+      "id": "iec-ts-63379-2026",
+      "designation": "IEC TS 63379",
+      "edition": "1.0 (2026)",
+      "title": "Vehicle connector, vehicle inlet and cable assembly for megawatt DC charging",
+      "scope": "Configuration HH (Annex A, vehicle coupler 1500 V DC and up to 3000 A); read with IEC 62196-1:2022 and IEC 62196-3:2022. Configuration JJ (Annex B, up to 1600 A) is a different coupler, not modelled here.",
+      "url": "https://webstore.iec.ch/en/publication/67975"
+    },
+    {
+      "id": "sae-j3271-202503",
+      "designation": "SAE J3271",
+      "edition": "2025-03 (J3271_202503, Technical Information Report)",
+      "title": "SAE Megawatt Charging System for Electric Vehicles",
+      "scope": "Information report covering the coupler, communication and controls, cables and cooling, use cases and interoperability testing.",
+      "url": "https://saemobilus.sae.org/standards/j3271_202503-sae-megawatt-charging-system-electric-vehicles"
+    },
+    {
+      "id": "iec-61851-23-3",
+      "designation": "IEC 61851-23-3",
+      "edition": null,
+      "title": "Electric vehicle conductive charging system – Part 23-3: DC electric vehicle supply equipment for megawatt charging systems",
+      "scope": "Supply equipment the IEC TS 63379 accessories are used with"
+    }
+  ],
+  "relations": [],
+  "variants": [
+    {
+      "id": "vehicle-inlet",
+      "name": "MCS vehicle inlet",
+      "role": "vehicle_inlet",
+      "contactGender": "male",
+      "contacts": null,
+      "keying": null,
+      "mechanicalNotes": [
+        "The DC contacts of the configuration HH inlet are pins: IEC TS 63379 Annex C specifies DC pins for the vehicle inlet reference device.",
+        "The retaining means (electrically actuated lock) is integrated into the inlet side, at one to three locations (CharIN white paper 2.0).",
+        "Temperature sensing is required for the DC contacts of both the inlet and the connector."
+      ],
+      "electricalProfiles": ["dc"],
+      "matesWith": [{ "family": "mcs", "variant": "vehicle-connector" }],
+      "visuals": []
+    },
+    {
+      "id": "vehicle-connector",
+      "name": "MCS vehicle connector",
+      "role": "vehicle_connector",
+      "contactGender": "female",
+      "contacts": null,
+      "keying": null,
+      "mechanicalNotes": [
+        "Tethered to the charger; the cable assembly may use thermal transport (active cooling) and thermal sensing.",
+        "The PE contact is 8 mm in diameter (CharIN white paper 2.0)."
+      ],
+      "electricalProfiles": ["dc"],
+      "matesWith": [],
+      "visuals": []
+    }
+  ],
+  "electricalProfiles": [
+    {
+      "id": "dc",
+      "name": "DC",
+      "currentType": "dc",
+      "supply": "dc",
+      "neutral": false,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "max", "value": 1500, "reference": "dc" },
+      "current": { "qualifier": "max", "value": 3000 },
+      "maxPowerKw": null,
+      "conditions": [
+        "Upper limits of the scope of IEC TS 63379:2026 and of configuration HH: rated operating voltage up to 1500 V DC, rated current up to and including 3000 A, with thermal sensing, or thermal transport and thermal sensing.",
+        "CharIN recommends a system operating range of 400 to 1250 V DC for MCS supply equipment and vehicles; the connector itself is designed for 1500 V DC.",
+        "The maximum continuous rating has been tested up to 3000 A DC (CharIN white paper 2.0); active cooling is recommended for higher currents.",
+        "Configuration HH has inlet reference devices for 1000, 1500, 2000, 2500 and 3000 A (IEC TS 63379 Annex C).",
+        "Charging communication uses 10BASE-T1S single-pair Ethernet on dedicated contacts and ISO 15118-20 only (CharIN recommendation)."
+      ],
+      "contactFunctions": null,
+      "standardRef": "iec-ts-63379-2026",
+      "jurisdiction": null,
+      "sourceRefs": ["iec-ts-63379-2026-abstract", "iec-ts-63379-2026-preview", "charin-mcs-2-0"],
+      "confidence": "high"
+    }
+  ],
+  "mappings": {
+    "ocpi-2.2.1": [],
+    "ocpi-2.3.0": [
+      {
+        "value": "MCS",
+        "match": "exact",
+        "note": "Added in OCPI 2.3.0; OCPI 2.2.1 has no MCS value."
+      }
+    ],
+    "openchargemap": [],
+    "openstreetmap": []
+  },
+  "sources": [
+    {
+      "id": "iec-ts-63379-2026-abstract",
+      "title": "IEC TS 63379:2026 (edition 1.0) publication page and abstract",
+      "publisher": "IEC Webstore",
+      "type": "standard_abstract",
+      "url": "https://webstore.iec.ch/en/publication/67975",
+      "accessed": "2026-11-08"
+    },
+    {
+      "id": "iec-ts-63379-2026-preview",
+      "title": "IEC TS 63379:2026 (edition 1.0), official preview: table of contents, foreword, introduction, scope and normative references",
+      "publisher": "IEC (via VDE Verlag)",
+      "type": "standard",
+      "url": "https://www.vde-verlag.de/iec-normen/preview-pdf/info_iects63379%7Bed1.0%7Den.pdf",
+      "accessed": "2026-11-08",
+      "note": "Used for the scope, the two configurations (HH up to 3000 A, JJ up to 1600 A) and the contact genders implied by the reference device annexes."
+    },
+    {
+      "id": "sae-j3271-abstract",
+      "title": "SAE J3271_202503 Megawatt Charging System for Electric Vehicles, publication page and abstract",
+      "publisher": "SAE International",
+      "type": "standard_abstract",
+      "url": "https://saemobilus.sae.org/standards/j3271_202503-sae-megawatt-charging-system-electric-vehicles",
+      "accessed": "2026-11-08"
+    },
+    {
+      "id": "charin-mcs-2-0",
+      "title": "CharIN White Paper Megawatt Charging System (MCS), version 2.0 (2025-04-11): recommendations and requirements for MCS related standards bodies and solution suppliers",
+      "publisher": "CharIN e.V.",
+      "type": "other",
+      "url": "https://www.charin.global/media/pages/technology/knowledge-base/0c2cc2c8da-1747654352/250508_whitepaper_megawatt_charging_system_2.0.pdf",
+      "accessed": "2026-11-08",
+      "note": "Industry specification body; used for the operating voltage range, tested current, PE pin size, communication and locking recommendations."
+    }
+  ],
+  "verification": {
+    "status": "incomplete",
+    "lastVerified": "2026-11-08",
+    "notes": [
+      "The contact set and contact functions are not recorded: IEC TS 63379 Table 2 (interface overview) and the standard sheets were not reviewed. Secondary sources describe seven contacts (DC+, DC−, PE and four signal or communication contacts) without a primary confirmation of their names.",
+      "Contact genders are inferred from the IEC TS 63379 table of contents (DC pins in the configuration HH vehicle inlet reference device); the genders of the signal and PE contacts are not confirmed.",
+      "Configuration HH is taken as the CharIN MCS because it matches the 3000 A rating of the CharIN white paper; no source reviewed states the correspondence explicitly. Configuration JJ (up to 1600 A, contact tubes on the inlet) is not modelled.",
+      "No face is drawn: no source depicting the mating faces was reviewed.",
+      "Open Charge Map has no MCS connection type in the pinned reference data.",
+      "The OpenStreetMap socket key for MCS could not be checked against the pinned wiki revision; the mapping is left empty pending that check, not because no key exists.",
+      "The EVicons plug-mcs icon (0.8.0) is not attached: no source depicting the MCS mating faces was reviewed."
+    ]
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "$schema": "../schemas/vocabulary.schema.json",
+  "system": "openstreetmap",
+  "name": "OpenStreetMap socket:* keys",
+  "vocabulary": "subset",
+  "note": "Curated subset of documented, non-deprecated keys. Extend it when a family needs another documented key. Deprecated: socket:tesla_*, socket:cee, socket:typeb.",
+  "source": {
+    "url": "https://wiki.openstreetmap.org/w/index.php?title=Key:socket:*&oldid=3080014",
+    "revision": "wiki revision 3080014 (2026-09-16)",
+    "accessed": "2026-11-08"
+  },
+  "licenseNote": "Key names only, for interoperability. OSM wiki text is CC BY-SA 2.0 and is not reproduced here.",
+  "values": [
+    {
+      "value": "socket:type1"
+    },
+    {
+      "value": "socket:type1_combo"
+    },
+    {
+      "value": "socket:type2"
+    },
+    {
+      "value": "socket:type2_cable"
+    },
+    {
+      "value": "socket:type2_combo"
+    },
+    {
+      "value": "socket:chademo"
+    },
+    {
+      "value": "socket:nacs"
+    },
+    {
+      "value": "socket:schuko"
+    },
+    {
+      "value": "socket:typec"
+    },
+    {
+      "value": "socket:typee"
+    },
+    {
+      "value": "socket:bs1363"
+    },
+    {
+      "value": "socket:as3112"
+    },
+    {
+      "value": "socket:sev1011_t13"
+    },
+    {
+      "value": "socket:sev1011_t23"
+    },
+    {
+      "value": "socket:typek"
+    },
+    {
+      "value": "socket:cee_blue"
+    },
+    {
+      "value": "socket:cee_red_16a"
+    },
+    {
+      "value": "socket:cee_red_32a"
+    },
+    {
+      "value": "socket:cee_red_63a"
+    },
+    {
+      "value": "socket:cee_red_125a"
+    },
+    {
+      "value": "socket:nema_1_15"
+    },
+    {
+      "value": "socket:nema_5_15"
+    },
+    {
+      "value": "socket:nema_5_20"
+    },
+    {
+      "value": "socket:domestic"
+    },
+    {
+      "value": "socket:unknown"
+    }
+  ]
+}

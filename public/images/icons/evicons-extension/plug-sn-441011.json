@@ -1,0 +1,56 @@
+{
+  "category": "connector",
+  "meaning": {
+    "en": "SN 441011 type 13 socket (Type J, Swiss 10 A socket), shown as the socket face seen from the front, earth hole down",
+    "de": "SN-441011-Steckdose Typ 13 (Typ J, Schweizer 10-A-Steckdose), dargestellt als Steckdosenfläche von vorn, Schutzkontakt unten"
+  },
+  "tags": {
+    "en": [
+      "sn 441011",
+      "sev 1011",
+      "t13",
+      "type j",
+      "swiss socket",
+      "household socket",
+      "ac",
+      "socket"
+    ],
+    "de": [
+      "sn 441011",
+      "sev 1011",
+      "t13",
+      "typ j",
+      "schweizer steckdose",
+      "haushaltssteckdose",
+      "ac",
+      "steckdose"
+    ],
+    "fr": [
+      "sn 441011",
+      "sev 1011",
+      "t13",
+      "type j",
+      "prise suisse",
+      "prise domestique",
+      "ac",
+      "prise"
+    ]
+  },
+  "since": "0.9.0",
+  "aliases": [],
+  "standard": {
+    "norm": "SN 441011 (type 13)",
+    "source": "SN 441011 (type 13) not consulted; contact layout taken from the OpenPlugDB front view \"SN 441011 Type 13 socket-outlet (female), mating face, earth hole down\" (https://github.com/ovarilo/openplugdb/blob/main/public/images/connectors/sn-441011/t13-socket-front.svg, retrieved 2026-11-08), drawn from Wikipedia \"SN 441011\" (https://en.wikipedia.org/wiki/SN_441011, retrieved 2026-11-08); OpenStreetMap Wiki \"Key:socket:* (revision 3080014)\" (https://wiki.openstreetmap.org/w/index.php?title=Key:socket:*&oldid=3080014, retrieved 2026-11-08)"
+  },
+  "osm": [
+    "socket:sev1011_t13"
+  ],
+  "ocpi": [
+    "Connector.standard=DOMESTIC_J"
+  ],
+  "provenance": {
+    "createdBy": "ai",
+    "approvedBy": null,
+    "approvedOn": null
+  }
+}

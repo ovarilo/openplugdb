@@ -1,0 +1,179 @@
+{
+  "$schema": "../../schemas/connector-family.schema.json",
+  "id": "ds-60884-2-d1",
+  "name": "Danish plug and socket (Type K)",
+  "aliases": ["Type K", "DS 60884-2-D1", "Afsnit 107-2-D1", "Danish plug"],
+  "category": "domestic",
+  "subcategory": "household",
+  "description": "Danish household earthed plug and socket: two round 4.8 mm pins 19 mm apart and a half-round (D-shaped) earth pin on the plug below them, received by an earth sleeve in the socket. Defined by the Danish national standard DS 60884-2-D1, which also admits French (type E) and Schuko (type F) socket-outlets in Denmark.",
+  "status": "current",
+  "regions": ["europe"],
+  "countries": ["DK", "GL"],
+  "standards": [
+    {
+      "id": "ds-60884-2-d1-2023",
+      "designation": "DS 60884-2-D1",
+      "edition": "2023",
+      "title": "Stikpropper og stikkontakter til husholdningsbrug o.l. – Bestemmelser for danske systemer",
+      "scope": "Danish systems: normal Danish socket with sleeve contacts, plus pin-earth (type E) and side-earth (Schuko) socket-outlets; not reviewed"
+    },
+    {
+      "id": "afsnit-107-2-d1",
+      "designation": "Afsnit 107-2-D1",
+      "edition": null,
+      "title": null,
+      "scope": "Earlier Danish plug equipment section for this configuration, cited by secondary sources"
+    }
+  ],
+  "relations": [],
+  "variants": [
+    {
+      "id": "earthed-plug",
+      "name": "Danish earthed plug",
+      "role": "plug",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "L", "label": "L", "gender": "male" },
+        { "id": "N", "label": "N", "gender": "male" },
+        {
+          "id": "PE",
+          "label": "PE",
+          "gender": "male",
+          "form": "earth_pin",
+          "note": "Half-round (D-shaped) earth pin, shorter than the line and neutral pins."
+        }
+      ],
+      "keying": "The earth pin below the line pins enforces one orientation.",
+      "mechanicalNotes": [
+        "Line and neutral pins 4.8 mm in diameter, 19 mm long, 19 mm apart.",
+        "Earth pin offset 13 mm from the line of the power pins (secondary source).",
+        "Earth pin about 14 mm long per one secondary source and 5 mm shorter than the power pins per another; not reconciled."
+      ],
+      "electricalProfiles": ["ac-1ph"],
+      "matesWith": [{ "family": "ds-60884-2-d1", "variant": "earthed-socket" }],
+      "visuals": []
+    },
+    {
+      "id": "earthed-socket",
+      "name": "Danish earthed socket-outlet",
+      "aliases": ["Normal dansk stikkontakt"],
+      "role": "socket_outlet",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "L", "label": "L", "gender": "female" },
+        { "id": "N", "label": "N", "gender": "female" },
+        { "id": "PE", "label": "PE", "gender": "female", "form": "earth_hole" }
+      ],
+      "keying": "Earth sleeve below the line and neutral holes: the earthed plug enters one way only.",
+      "mechanicalNotes": ["All contacts are sleeve contacts (bøsningskontakter)."],
+      "electricalProfiles": ["ac-1ph"],
+      "matesWith": [],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/ds-60884-2-d1/earthed-socket-front.svg",
+          "title": "Danish Type K socket-outlet (female), mating face, earth hole down",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["wikipedia-ac-plugs", "sik-stikkontakter"]
+        },
+        {
+          "kind": "icon",
+          "file": "icons/evicons-extension/plug-ds-60884-2-d1.svg",
+          "title": "Danish Type K socket-outlet, mating face, earth hole down (icon)",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "MIT",
+          "basedOn": ["wikipedia-ac-plugs", "sik-stikkontakter"]
+        }
+      ]
+    }
+  ],
+  "electricalProfiles": [
+    {
+      "id": "ac-1ph",
+      "name": "AC single-phase",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": true,
+      "protectiveEarth": true,
+      "voltage": null,
+      "current": { "qualifier": "rated", "value": 16 },
+      "frequencyHz": null,
+      "maxPowerKw": null,
+      "conditions": [
+        "The 16 A rating comes from a secondary source; DS 60884-2-D1 was not reviewed.",
+        "Product examples, not configuration ratings: 10 A 250 V sockets, 13 A and 16 A 250 V plugs seen in a collection."
+      ],
+      "contactFunctions": { "L": "line", "N": "neutral", "PE": "protective_earth" },
+      "standardRef": "ds-60884-2-d1-2023",
+      "jurisdiction": null,
+      "sourceRefs": ["wikipedia-ac-plugs", "plugsocketmuseum-danish"],
+      "confidence": "low"
+    }
+  ],
+  "mappings": {
+    "ocpi-2.2.1": [{ "value": "DOMESTIC_K", "match": "exact" }],
+    "ocpi-2.3.0": [{ "value": "DOMESTIC_K", "match": "exact" }],
+    "openchargemap": [],
+    "openstreetmap": [{ "value": "socket:typek", "match": "exact", "variants": ["earthed-socket"] }]
+  },
+  "sources": [
+    {
+      "id": "sik-stikkontakter",
+      "title": "Vejledning – Markedsføring af stikkontakter",
+      "publisher": "Sikkerhedsstyrelsen (Danish Safety Technology Authority)",
+      "type": "regulation",
+      "url": "https://www.sik.dk/sites/default/files/2026-05/Vejledning%20til%20markedsf%C3%B8ring%20af%20stikkontakter.pdf",
+      "accessed": "2026-11-08",
+      "note": "Regulator guidance: DS 60884-2-D1 (current edition, 2023 cited) applies; three main socket types (Danish sleeve contacts, pin earth, side earth). Photographs show the Danish socket face."
+    },
+    {
+      "id": "wikipedia-ac-plugs",
+      "title": "AC power plugs and sockets",
+      "publisher": "Wikipedia",
+      "type": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/AC_power_plugs_and_sockets",
+      "accessed": "2026-11-08",
+      "note": "Secondary source citing Afsnit 107-2-D1 for the 16 A rating and dimensions."
+    },
+    {
+      "id": "plugsocketmuseum-danish",
+      "title": "Denmark: plugs and sockets",
+      "publisher": "Museum of Plugs and Sockets",
+      "type": "other",
+      "url": "https://www.plugsocketmuseum.nl/Danish1.html",
+      "accessed": "2026-11-08",
+      "note": "Facts only (product ratings, dates); no text or image reused."
+    },
+    {
+      "id": "osm-wiki-socket",
+      "title": "Key:socket:* (revision 3080014)",
+      "publisher": "OpenStreetMap Wiki",
+      "type": "other",
+      "url": "https://wiki.openstreetmap.org/w/index.php?title=Key:socket:*&oldid=3080014",
+      "accessed": "2026-11-08",
+      "note": "Key name only; wiki text (CC BY-SA 2.0) not reproduced."
+    }
+  ],
+  "verification": {
+    "status": "partial",
+    "lastVerified": "2026-11-08",
+    "notes": [
+      "The 16 A configuration rating relies on a single secondary source (confidence low); DS 60884-2-D1:2023 was not reviewed. Products seen in a collection carry 10, 13 or 16 A.",
+      "Rated voltage is not stated by a normative source and is null; products are marked 250 V.",
+      "Frequency is not stated by a normative source.",
+      "Line on the left looking into the socket with the earth hole down relies on a single secondary source (Wikipedia); the drawing follows it.",
+      "The drawing simplifies the half-round earth sleeve to a circle and its 13 mm offset to schematic proportions.",
+      "The Danish socket also accepts unearthed plugs, among them the Europlug (Type C, family 'europlug'); that mating is stored on the 'europlug' family; the Danish 2-pin plugs are not modelled.",
+      "DS 60884-2-D1 also admits type E (pin earth) and Schuko socket-outlets and the CEE 7/7 plug in Denmark; those parts belong to their own families.",
+      "A 16 A unearthed Danish plug fits Schuko sockets according to a collection site; not stored as a mating."
+    ]
+  }
+}

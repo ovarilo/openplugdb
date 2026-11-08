@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" role="img" aria-labelledby="title desc">
+  <title id="title">BS 546 15 A / SANS 164-1 socket-outlet (female), mating face, earth hole up</title>
+  <desc id="desc">Schematic front view with the earth hole up. Two line or neutral holes at the bottom (sides not assigned by the cited sources) and a larger earth hole above the centre. Rings are female contacts. Proportions follow the SANS 164-1 figures: 25.4 mm between the line and neutral holes, 28.6 mm from each to the earth hole, 7.0 mm and 8.7 mm pins; the outline is schematic.</desc>
+  <g fill="none" stroke="#1c2430" stroke-width="3">
+    <rect x="22" y="22" width="156" height="156" rx="20"/>
+    <circle cx="62" cy="132" r="11"/>
+    <circle cx="138" cy="132" r="11"/>
+    <circle cx="100" cy="55" r="13"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#1c2430" text-anchor="middle" dominant-baseline="central">
+    <text x="62" y="158">L/N</text>
+    <text x="138" y="158">L/N</text>
+    <text x="100" y="55">PE</text>
+  </g>
+  <text x="100" y="202" font-family="system-ui, sans-serif" font-size="9" fill="#5a6472" text-anchor="middle" letter-spacing="1">MATING FACE · FEMALE</text>
+</svg>

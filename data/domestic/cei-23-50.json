@@ -1,0 +1,244 @@
+{
+  "$schema": "../../schemas/connector-family.schema.json",
+  "id": "cei-23-50",
+  "name": "CEI 23-50 (Type L, Italian 10 A and 16 A)",
+  "aliases": ["Type L", "Italian plug", "CEI 23-16", "S11", "S17", "Bipasso", "P17/11"],
+  "category": "domestic",
+  "subcategory": "household",
+  "description": "Italian household plug and socket system with three round pins in a row: line and neutral on either side of a central earth pin. Two sizes exist, 10 A (4 mm pins, 19 mm apart) and 16 A (5 mm pins, 26 mm apart); the unpolarised layout lets the plug enter either way. The 'bipasso' socket-outlet accepts both sizes.",
+  "status": "current",
+  "regions": ["europe"],
+  "countries": ["IT"],
+  "standards": [
+    {
+      "id": "cei-23-50-2007",
+      "designation": "CEI 23-50",
+      "edition": "2007-03 (with variants V1 to V4)",
+      "title": "Spine e prese per usi domestici e similari – Parte 1: Prescrizioni generali",
+      "scope": "Italian plugs and socket-outlets, including the standard sheets of the 10 A and 16 A configurations; not reviewed",
+      "url": "https://mycatalogo.ceinorme.it/cei/item/000008764"
+    },
+    {
+      "id": "cei-23-16",
+      "designation": "CEI 23-16",
+      "edition": "1971",
+      "title": null,
+      "scope": "Former Italian standard, replaced by CEI 23-50"
+    }
+  ],
+  "relations": [],
+  "variants": [
+    {
+      "id": "10a-plug",
+      "name": "CEI 23-50 10 A plug",
+      "aliases": ["S11"],
+      "role": "plug",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "P1", "label": "L/N", "gender": "male" },
+        { "id": "PE", "label": "PE", "gender": "male", "form": "earth_pin" },
+        { "id": "P2", "label": "L/N", "gender": "male" }
+      ],
+      "keying": "None: symmetric, line and neutral can be on either outer pin.",
+      "mechanicalNotes": [
+        "Pins 4 mm in diameter; outer pins 19 mm apart, earth pin in the middle."
+      ],
+      "electricalProfiles": ["ac-1ph-10a"],
+      "matesWith": [
+        { "family": "cei-23-50", "variant": "10a-socket" },
+        { "family": "cei-23-50", "variant": "bipasso-socket" }
+      ],
+      "visuals": []
+    },
+    {
+      "id": "10a-socket",
+      "name": "CEI 23-50 10 A socket-outlet",
+      "role": "socket_outlet",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "P1", "label": "L/N", "gender": "female" },
+        { "id": "PE", "label": "PE", "gender": "female", "form": "earth_hole" },
+        { "id": "P2", "label": "L/N", "gender": "female" }
+      ],
+      "keying": "None: symmetric.",
+      "mechanicalNotes": [
+        "Line and neutral holes about 4.5 mm in diameter, 19 mm apart (collection site); shutters are compulsory on current socket-outlets."
+      ],
+      "electricalProfiles": ["ac-1ph-10a"],
+      "matesWith": [],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/cei-23-50/10a-socket-front.svg",
+          "title": "CEI 23-50 10 A socket-outlet (female), mating face",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["wikipedia-ac-plugs", "plugsocketmuseum-italian"]
+        },
+        {
+          "kind": "icon",
+          "file": "icons/evicons-extension/plug-cei-23-50-10a.svg",
+          "title": "CEI 23-50 10 A socket-outlet, mating face (icon)",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "MIT",
+          "basedOn": ["wikipedia-ac-plugs", "plugsocketmuseum-italian"]
+        }
+      ]
+    },
+    {
+      "id": "16a-plug",
+      "name": "CEI 23-50 16 A plug",
+      "aliases": ["S17"],
+      "role": "plug",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "P1", "label": "L/N", "gender": "male" },
+        { "id": "PE", "label": "PE", "gender": "male", "form": "earth_pin" },
+        { "id": "P2", "label": "L/N", "gender": "male" }
+      ],
+      "keying": "None: symmetric.",
+      "mechanicalNotes": [
+        "Pins 5 mm in diameter; outer pins 26 mm apart, earth pin in the middle."
+      ],
+      "electricalProfiles": ["ac-1ph-16a"],
+      "matesWith": [
+        { "family": "cei-23-50", "variant": "16a-socket" },
+        { "family": "cei-23-50", "variant": "bipasso-socket" }
+      ],
+      "visuals": []
+    },
+    {
+      "id": "16a-socket",
+      "name": "CEI 23-50 16 A socket-outlet",
+      "role": "socket_outlet",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "P1", "label": "L/N", "gender": "female" },
+        { "id": "PE", "label": "PE", "gender": "female", "form": "earth_hole" },
+        { "id": "P2", "label": "L/N", "gender": "female" }
+      ],
+      "keying": "None: symmetric.",
+      "mechanicalNotes": ["Holes about 5.1 mm in diameter, 26 mm apart (collection site)."],
+      "electricalProfiles": ["ac-1ph-16a"],
+      "matesWith": [],
+      "visuals": []
+    },
+    {
+      "id": "bipasso-socket",
+      "name": "CEI 23-50 bipasso socket-outlet (10 A and 16 A)",
+      "aliases": ["P17/11", "Bivalente"],
+      "role": "socket_outlet",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "P1", "label": "L/N", "gender": "female" },
+        { "id": "PE", "label": "PE", "gender": "female", "form": "earth_hole" },
+        { "id": "P2", "label": "L/N", "gender": "female" }
+      ],
+      "keying": "None: symmetric. Figure-8 shaped line and neutral holes take both pin spacings.",
+      "mechanicalNotes": ["Central round earth hole between two figure-8 holes."],
+      "electricalProfiles": ["ac-1ph-16a"],
+      "matesWith": [],
+      "visuals": []
+    }
+  ],
+  "electricalProfiles": [
+    {
+      "id": "ac-1ph-10a",
+      "name": "AC single-phase, 10 A",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": true,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "rated", "value": 250, "reference": "line_to_neutral" },
+      "current": { "qualifier": "rated", "value": 10 },
+      "frequencyHz": null,
+      "maxPowerKw": null,
+      "conditions": [
+        "Not polarised: line and neutral can be on either outer pin (P1 and P2 are interchangeable).",
+        "Values come from secondary sources; the CEI 23-50 standard sheets were not reviewed."
+      ],
+      "contactFunctions": { "P1": "line", "P2": "neutral", "PE": "protective_earth" },
+      "standardRef": "cei-23-50-2007",
+      "jurisdiction": null,
+      "sourceRefs": ["wikipedia-ac-plugs", "plugsocketmuseum-italian"],
+      "confidence": "medium"
+    },
+    {
+      "id": "ac-1ph-16a",
+      "name": "AC single-phase, 16 A",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": true,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "rated", "value": 250, "reference": "line_to_neutral" },
+      "current": { "qualifier": "rated", "value": 16 },
+      "frequencyHz": null,
+      "maxPowerKw": null,
+      "conditions": [
+        "Not polarised: line and neutral can be on either outer pin (P1 and P2 are interchangeable).",
+        "Values come from secondary sources; the CEI 23-50 standard sheets were not reviewed.",
+        "Product example: a porcelain bipasso socket-outlet marked 10/16 A 250 V (collection site)."
+      ],
+      "contactFunctions": { "P1": "line", "P2": "neutral", "PE": "protective_earth" },
+      "standardRef": "cei-23-50-2007",
+      "jurisdiction": null,
+      "sourceRefs": ["wikipedia-ac-plugs", "plugsocketmuseum-italian"],
+      "confidence": "medium"
+    }
+  ],
+  "mappings": {
+    "ocpi-2.2.1": [{ "value": "DOMESTIC_L", "match": "exact" }],
+    "ocpi-2.3.0": [{ "value": "DOMESTIC_L", "match": "exact" }],
+    "openchargemap": [],
+    "openstreetmap": []
+  },
+  "sources": [
+    {
+      "id": "cei-catalogue-23-50",
+      "title": "CEI 23-50:2007-03 Spine e prese per usi domestici e similari – Parte 1: Prescrizioni generali",
+      "publisher": "Comitato Elettrotecnico Italiano (CEI)",
+      "type": "standard_abstract",
+      "url": "https://mycatalogo.ceinorme.it/cei/item/000008764",
+      "accessed": "2026-11-08",
+      "note": "Catalogue entry: edition 2007-03 (fascicolo 8764), scope AC plugs and socket-outlets above 50 V up to 440 V and up to 32 A. Scope limits only, not the ratings of the 10 A and 16 A configurations."
+    },
+    {
+      "id": "wikipedia-ac-plugs",
+      "title": "AC power plugs and sockets",
+      "publisher": "Wikipedia",
+      "type": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/AC_power_plugs_and_sockets",
+      "accessed": "2026-11-08",
+      "note": "Secondary source (Italian section and comparison table)."
+    },
+    {
+      "id": "plugsocketmuseum-italian",
+      "title": "Italy: plugs and sockets",
+      "publisher": "Museum of Plugs and Sockets",
+      "type": "other",
+      "url": "https://www.plugsocketmuseum.nl/Italian1.html",
+      "accessed": "2026-11-08",
+      "note": "Facts only (pin and hole dimensions, dates); no text or image reused."
+    }
+  ],
+  "verification": {
+    "status": "partial",
+    "lastVerified": "2026-11-08",
+    "notes": [
+      "Ratings and dimensions rely on secondary sources; the CEI 23-50 standard sheets were not reviewed.",
+      "Frequency is not stated by the cited sources.",
+      "Plug designations S11 and S17 and socket designation P17/11 come from a secondary source; the other sheet designations are not recorded.",
+      "The 10 A and bipasso socket-outlets also accept the Europlug (Type C); the mating is stored on the 'europlug' family.",
+      "The P40 socket-outlet (bipasso combined with Schuko) is not modelled.",
+      "The drawing places the three holes on one line from photographs and gives no earth hole dimension."
+    ]
+  }
+}

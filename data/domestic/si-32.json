@@ -1,0 +1,143 @@
+{
+  "$schema": "../../schemas/connector-family.schema.json",
+  "id": "si-32",
+  "name": "SI 32 (Israel)",
+  "aliases": ["Type H", "SI 32", "Israeli plug"],
+  "category": "domestic",
+  "subcategory": "household",
+  "description": "Israeli household plug and socket-outlet: three pins in a Y-shaped triangle with the earth pin below line and neutral. Flat pins until 1989, round pins since; sockets made since 1989 accept both and also take the Europlug.",
+  "status": "current",
+  "regions": ["middle_east"],
+  "countries": ["IL", "PS"],
+  "standards": [
+    {
+      "id": "si-32-1-1",
+      "designation": "SI 32 part 1.1",
+      "edition": "2017 (amendments 1 to 3: 2020, 2024, 2025)",
+      "title": "Plugs and socket-outlets for household and similar purposes: Plugs and socket-outlets for current up to 16A - General requirements",
+      "scope": "General requirements for single-phase plugs and socket-outlets above 50 V and up to 250 V, up to 16 A",
+      "url": "https://www.sii.org.il/lobby/standardization/standard-page?id=304"
+    },
+    {
+      "id": "iec-tr-60083",
+      "designation": "IEC TR 60083",
+      "edition": "7.0 (2015)",
+      "title": "Plugs and socket-outlets for domestic and similar general use standardized in member countries of IEC",
+      "scope": "Catalogue of national plug and socket-outlet systems",
+      "url": "https://webstore.iec.ch/en/publication/23628"
+    }
+  ],
+  "relations": [],
+  "variants": [
+    {
+      "id": "si-32-plug",
+      "name": "SI 32 plug (round pins)",
+      "role": "plug",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "L", "label": "Line", "gender": "male" },
+        { "id": "N", "label": "Neutral", "gender": "male" },
+        { "id": "PE", "label": "Earth", "gender": "male", "form": "earth_pin" }
+      ],
+      "keying": "The earth pin enforces polarity.",
+      "mechanicalNotes": [
+        "Since 1989: round pins 4.5 mm in diameter and 19 mm long; before 1989: flat pins in the same positions.",
+        "Line and neutral 19 mm apart; earth pin offset 9.5 mm from the line joining them."
+      ],
+      "electricalProfiles": ["ac-1ph"],
+      "matesWith": [
+        {
+          "family": "si-32",
+          "variant": "si-32-socket",
+          "note": "Round-pin plugs need a socket made since 1989."
+        }
+      ],
+      "visuals": []
+    },
+    {
+      "id": "si-32-socket",
+      "name": "SI 32 socket-outlet",
+      "role": "socket_outlet",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "L", "label": "Line", "gender": "female" },
+        { "id": "N", "label": "Neutral", "gender": "female" },
+        { "id": "PE", "label": "Earth", "gender": "female", "form": "earth_hole" }
+      ],
+      "keying": "Seen from the front with the earth hole at the bottom: neutral on the left, line on the right.",
+      "mechanicalNotes": ["Sockets made since 1989 accept both flat-pin and round-pin plugs."],
+      "electricalProfiles": ["ac-1ph"],
+      "matesWith": [],
+      "visuals": []
+    }
+  ],
+  "electricalProfiles": [
+    {
+      "id": "ac-1ph",
+      "name": "AC single-phase",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": true,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "rated", "value": 250, "reference": "line_to_neutral" },
+      "current": { "qualifier": "rated", "value": 16 },
+      "frequencyHz": null,
+      "maxPowerKw": null,
+      "conditions": [
+        "The 16 A, 250 V rating comes from secondary sources. SI 32 part 1.1 only sets the scope limits (above 50 V up to 250 V, up to 16 A); its text was not reviewed."
+      ],
+      "contactFunctions": { "L": "line", "N": "neutral", "PE": "protective_earth" },
+      "standardRef": "si-32-1-1",
+      "jurisdiction": null,
+      "sourceRefs": ["sii-si-32-1-1", "wikipedia-ac-plugs", "worldstandards-type-h"],
+      "confidence": "medium"
+    }
+  ],
+  "mappings": {
+    "ocpi-2.2.1": [{ "value": "DOMESTIC_H", "match": "exact" }],
+    "ocpi-2.3.0": [{ "value": "DOMESTIC_H", "match": "exact" }],
+    "openchargemap": [],
+    "openstreetmap": []
+  },
+  "sources": [
+    {
+      "id": "sii-si-32-1-1",
+      "title": "SI 32 part 1.1 standard page",
+      "publisher": "Standards Institution of Israel",
+      "type": "standard_abstract",
+      "url": "https://www.sii.org.il/lobby/standardization/standard-page?id=304",
+      "accessed": "2026-11-08",
+      "note": "Title, September 2017 edition, amendments, scope limits (single-phase, above 50 V up to 250 V, up to 16 A)."
+    },
+    {
+      "id": "wikipedia-ac-plugs",
+      "title": "AC power plugs and sockets",
+      "publisher": "Wikipedia",
+      "type": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/AC_power_plugs_and_sockets",
+      "accessed": "2026-11-08",
+      "note": "Secondary source: 16 A, 250 V; 1989 change to round 4.5 mm pins; face layout; Europlug compatibility."
+    },
+    {
+      "id": "worldstandards-type-h",
+      "title": "Plug type H",
+      "publisher": "WorldStandards",
+      "type": "reference_database",
+      "url": "https://www.worldstandards.eu/electricity/plugs-and-sockets/h/",
+      "accessed": "2026-11-08",
+      "note": "Facts only (16 A, pin dimensions, earth offset, compatibility); no text or image reused."
+    }
+  ],
+  "verification": {
+    "status": "partial",
+    "lastVerified": "2026-11-08",
+    "notes": [
+      "Ratings and dimensions rely on secondary sources; the SI 32 text was not reviewed, and the part that holds the type H dimensional sheet was not identified.",
+      "Frequency is not stated by the cited sources.",
+      "The line and neutral positions rely on a single secondary source (Wikipedia).",
+      "No front view is drawn: the apertures of post-1989 sockets accept both flat and round pins, and no reviewed source gives their shape.",
+      "The pre-1989 flat-pin plug is not modelled as a separate variant."
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" role="img" aria-labelledby="title desc">
+  <title id="title">CEE 7/3 Schuko socket-outlet (female), mating face</title>
+  <desc id="desc">Schematic front view of the circular recess. Two pin holes on a horizontal line, line or neutral on either side (unpolarised). Two earthing clips on the recess wall at 12 and 6 o'clock. Rings are contact tubes (female contacts); bars are sexless earthing clips. Proportions follow 19 mm between pin holes and 16 mm from the centre to each clip.</desc>
+  <g fill="none" stroke="#1c2430" stroke-width="3">
+    <circle cx="100" cy="100" r="78"/>
+    <circle cx="62" cy="100" r="11"/>
+    <circle cx="138" cy="100" r="11"/>
+  </g>
+  <g fill="#1c2430">
+    <rect x="84" y="30" width="32" height="8" rx="2"/>
+    <rect x="84" y="162" width="32" height="8" rx="2"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#1c2430" text-anchor="middle" dominant-baseline="central">
+    <text x="62" y="124">L/N</text>
+    <text x="138" y="124">L/N</text>
+    <text x="100" y="50">PE</text>
+    <text x="100" y="150">PE</text>
+  </g>
+  <text x="100" y="202" font-family="system-ui, sans-serif" font-size="9" fill="#5a6472" text-anchor="middle" letter-spacing="1">MATING FACE · FEMALE</text>
+</svg>

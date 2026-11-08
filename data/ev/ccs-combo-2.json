@@ -1,0 +1,269 @@
+{
+  "$schema": "../../schemas/connector-family.schema.json",
+  "id": "ccs-combo-2",
+  "name": "CCS Combo 2",
+  "aliases": ["CCS2", "Combo 2", "IEC 62196-3 configuration FF", "CCS (Type 2)"],
+  "category": "ev",
+  "subcategory": "dc-charging",
+  "description": "Combined AC/DC charging interface: configuration FF of IEC 62196-3. The vehicle inlet combines a Type 2 AC section with two DC contacts below it; the DC vehicle connector keeps only PE, CP, PP and the two DC contacts.",
+  "status": "current",
+  "regions": ["europe", "worldwide"],
+  "countries": [],
+  "standards": [
+    {
+      "id": "iec-62196-3-2022",
+      "designation": "IEC 62196-3",
+      "edition": "2.0 (2022)",
+      "title": "Plugs, socket-outlets, and vehicle couplers – Conductive charging of electric vehicles – Part 3: Dimensional compatibility requirements for DC and AC/DC pin and contact-tube vehicle couplers",
+      "scope": "Configuration FF (standard sheets 3-IV), ratings and contacts (tables 302 and 303)",
+      "url": "https://webstore.iec.ch/en/publication/59923"
+    },
+    {
+      "id": "iec-62196-3-2026",
+      "designation": "IEC 62196-3",
+      "edition": "3.0 (2026)",
+      "title": "Plugs, socket-outlets, and vehicle couplers – Conductive charging of electric vehicles – Part 3: Dimensional compatibility requirements for DC and AC/DC pin and contact-tube vehicle couplers",
+      "scope": "Current edition (published 2026-04-23, corrected version 2026-08 with Corrigendum 1); integrates IEC TS 62196-3-1 (thermal management) as normative Annex AA and announces increased ratings for all configurations. Only the foreword and clauses 1 to 6.3 (preview) were reviewed; the configuration FF ratings (Tables 302 and 303, Annex AA.5) were not available.",
+      "url": "https://webstore.iec.ch/en/publication/86314"
+    },
+    {
+      "id": "iec-62196-2",
+      "designation": "IEC 62196-2",
+      "edition": "4.0 (2025)",
+      "title": "Plugs, socket-outlets, vehicle connectors and vehicle inlets – Conductive charging of electric vehicles – Part 2: Dimensional compatibility requirements for AC pin and contact-tube accessories",
+      "scope": "Type 2 AC section of the vehicle inlet",
+      "url": "https://webstore.iec.ch/en/publication/86317"
+    },
+    {
+      "id": "iec-61851-23",
+      "designation": "IEC 61851-23",
+      "edition": null,
+      "title": "Electric vehicle conductive charging system – Part 23: DC electric vehicle supply equipment",
+      "scope": "System C (Annex CC), the only DC system configuration FF couplers are used with"
+    }
+  ],
+  "relations": [
+    {
+      "type": "extends",
+      "family": "iec-62196-type-2",
+      "note": "The vehicle inlet contains a complete Type 2 AC section and also accepts a Type 2 AC vehicle connector."
+    }
+  ],
+  "variants": [
+    {
+      "id": "vehicle-inlet",
+      "name": "CCS Combo 2 vehicle inlet",
+      "role": "vehicle_inlet",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "L1", "label": "L1", "gender": "male" },
+        { "id": "L2", "label": "L2", "gender": "male" },
+        { "id": "L3", "label": "L3", "gender": "male" },
+        { "id": "N", "label": "N", "gender": "male" },
+        { "id": "PE", "label": "PE", "gender": "male" },
+        { "id": "CP", "label": "CP", "gender": "male" },
+        { "id": "PP", "label": "PP", "gender": "male" },
+        { "id": "DC+", "label": "DC+", "gender": "male" },
+        { "id": "DC-", "label": "DC−", "gender": "male" }
+      ],
+      "keying": "Type 2 section (circular, flat top edge) above a separate DC section with two large contacts.",
+      "mechanicalNotes": ["AC contacts L1, L2, L3 and N are optional in configuration FF."],
+      "electricalProfiles": ["dc", "ac-1ph", "ac-3ph"],
+      "matesWith": [
+        { "family": "ccs-combo-2", "variant": "vehicle-connector" },
+        {
+          "family": "iec-62196-type-2",
+          "variant": "vehicle-connector",
+          "note": "AC charging through the Type 2 section."
+        }
+      ],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/ccs-combo-2/vehicle-inlet-front.svg",
+          "title": "CCS Combo 2 vehicle inlet (male), mating face",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["phoenix-1427757"]
+        },
+        {
+          "kind": "icon",
+          "file": "icons/evicons/plug-ccs2.svg",
+          "title": "CCS Combo 2 vehicle inlet, mating face (EVicons icon)",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "third_party",
+          "author": "Landolsi Digital (EVicons)",
+          "license": "MIT",
+          "sourceUrl": "https://github.com/evicons/evicons/blob/v0.8.0/packages/svg/svg/plug-ccs2.svg"
+        }
+      ]
+    },
+    {
+      "id": "vehicle-connector",
+      "name": "CCS Combo 2 vehicle connector",
+      "role": "vehicle_connector",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "PE", "label": "PE", "gender": "female" },
+        { "id": "CP", "label": "CP", "gender": "female" },
+        { "id": "PP", "label": "PP", "gender": "female" },
+        { "id": "DC+", "label": "DC+", "gender": "female" },
+        { "id": "DC-", "label": "DC−", "gender": "female" }
+      ],
+      "keying": "Type 2 shaped upper section without AC contacts, above the DC section.",
+      "mechanicalNotes": [
+        "The AC contact positions L1, L2, L3 and N are not fitted on the DC vehicle connector."
+      ],
+      "electricalProfiles": ["dc"],
+      "matesWith": [],
+      "visuals": []
+    }
+  ],
+  "electricalProfiles": [
+    {
+      "id": "dc",
+      "name": "DC",
+      "currentType": "dc",
+      "supply": "dc",
+      "neutral": false,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "max", "value": 1000, "reference": "dc" },
+      "current": { "qualifier": "max", "value": 400 },
+      "maxPowerKw": null,
+      "conditions": [
+        "Maximum rating of configuration FF in IEC 62196-3:2022 (edition 2.0), tables 302 and 303.",
+        "IEC 62196-3:2026 (edition 3.0) announces increased ratings for all configurations; the configuration FF values of that edition could not be reviewed and are not recorded here.",
+        "Products are rated individually and may be lower; for example one non-cooled inlet datasheet gives 200 A permanent.",
+        "Used only with DC EV supply equipment of System C (IEC 61851-23 Annex CC).",
+        "CP and PP are signal contacts rated 30 V, 2 A."
+      ],
+      "contactFunctions": {
+        "DC+": "dc_positive",
+        "DC-": "dc_negative",
+        "PE": "protective_earth",
+        "CP": "control_pilot",
+        "PP": "proximity_pilot"
+      },
+      "standardRef": "iec-62196-3-2022",
+      "jurisdiction": null,
+      "sourceRefs": ["iec-62196-3-2022-sample", "phoenix-1427757"],
+      "confidence": "high"
+    },
+    {
+      "id": "ac-1ph",
+      "name": "AC single-phase (Type 2 section)",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": true,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "max", "value": 250, "reference": "line_to_neutral" },
+      "current": { "qualifier": "max", "value": 70 },
+      "frequencyHz": [50, 60],
+      "maxPowerKw": null,
+      "conditions": ["Same ratings as the IEC 62196-2 Type 2 interface."],
+      "contactFunctions": {
+        "L1": "line",
+        "N": "neutral",
+        "PE": "protective_earth",
+        "CP": "control_pilot",
+        "PP": "proximity_pilot"
+      },
+      "standardRef": "iec-62196-2",
+      "jurisdiction": null,
+      "sourceRefs": ["iec-62196-3-2022-sample", "iec-62196-2-2025-sample"],
+      "confidence": "high"
+    },
+    {
+      "id": "ac-3ph",
+      "name": "AC three-phase (Type 2 section)",
+      "currentType": "ac",
+      "supply": "three_phase",
+      "phases": 3,
+      "neutral": true,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "max", "value": 480, "reference": "line_to_line" },
+      "current": { "qualifier": "max", "value": 63 },
+      "frequencyHz": [50, 60],
+      "maxPowerKw": null,
+      "conditions": ["Same ratings as the IEC 62196-2 Type 2 interface."],
+      "contactFunctions": {
+        "L1": "line",
+        "L2": "line",
+        "L3": "line",
+        "N": "neutral",
+        "PE": "protective_earth",
+        "CP": "control_pilot",
+        "PP": "proximity_pilot"
+      },
+      "standardRef": "iec-62196-2",
+      "jurisdiction": null,
+      "sourceRefs": ["iec-62196-3-2022-sample", "iec-62196-2-2025-sample"],
+      "confidence": "high"
+    }
+  ],
+  "mappings": {
+    "ocpi-2.2.1": [{ "value": "IEC_62196_T2_COMBO", "match": "exact" }],
+    "ocpi-2.3.0": [{ "value": "IEC_62196_T2_COMBO", "match": "exact" }],
+    "openchargemap": [{ "value": "33", "match": "exact" }],
+    "openstreetmap": [{ "value": "socket:type2_combo", "match": "exact" }]
+  },
+  "sources": [
+    {
+      "id": "iec-62196-3-2022-sample",
+      "title": "IEC 62196-3:2022 (edition 2.0), official preview sample: clauses 5 to 9, tables 301 to 303",
+      "publisher": "IEC (via iTeh Standards)",
+      "type": "standard",
+      "url": "https://cdn.standards.iteh.ai/samples/100328/a2a7173f588046bdad7086b7b7739e24/IEC-62196-3-2022.pdf",
+      "accessed": "2026-11-08"
+    },
+    {
+      "id": "iec-62196-3-2026-sample",
+      "title": "IEC 62196-3:2026 (edition 3.0), official preview sample: contents, foreword, clauses 1 to 6.3, Table 301 (DC configurations AA, BB and GG only)",
+      "publisher": "IEC (via iTeh Standards)",
+      "type": "standard",
+      "url": "https://cdn.standards.iteh.ai/samples/iec/iec-62196-3-2026/cbf4dcef0a9c403ba21f35bb48ab8c17/iec62196-3-ed3-0-en.pdf",
+      "accessed": "2026-11-08",
+      "note": "The preview stops at page 13, before Table 302 (combined AC/DC interface, page 14) and Table 303 (interface overview, page 16), which hold the configuration FF ratings."
+    },
+    {
+      "id": "iec-62196-3-2026-abstract",
+      "title": "IEC 62196-3:2026 (edition 3.0) publication page and abstract",
+      "publisher": "IEC",
+      "type": "standard_abstract",
+      "url": "https://webstore.iec.ch/en/publication/86314",
+      "accessed": "2026-11-08"
+    },
+    {
+      "id": "iec-62196-2-2025-sample",
+      "title": "IEC 62196-2:2025 (edition 4.0), official preview sample: scope, clauses 5 and 6, tables 201 to 204",
+      "publisher": "IEC (via iTeh Standards)",
+      "type": "standard",
+      "url": "https://cdn.standards.iteh.ai/samples/iec/iec-62196-2-2025/51dfebd365b4454e9fcf88aa3ec324cc/iec-62196-2-2025.pdf",
+      "accessed": "2026-11-08"
+    },
+    {
+      "id": "phoenix-1427757",
+      "title": "CHARX T2HBI24-3AC32DC200 CCS Type 2 vehicle inlet datasheet, pin assignment of vehicle charging inlets",
+      "publisher": "Phoenix Contact",
+      "type": "manufacturer",
+      "url": "https://docs.rs-online.com/9162/A700000013579467.pdf",
+      "accessed": "2026-11-08",
+      "note": "Used for the inlet face layout and as an example of a product rating; not a normative rating."
+    }
+  ],
+  "verification": {
+    "status": "partial",
+    "lastVerified": "2026-11-08",
+    "notes": [
+      "DC ratings come from the 2022 edition (1000 V, 400 A): the configuration FF ratings of IEC 62196-3:2026 could not be sourced. Checked on 2026-11-08: the IEC webstore page (webstore.iec.ch/en/publication/86314) gives the abstract, the publication date 2026-04-23, Corrigendum 1 (2026-08) and the change list ('increased ratings for all configurations') but no figure; the iTeh English preview (cdn.standards.iteh.ai/.../cbf4dcef.../iec62196-3-ed3-0-en.pdf) and the bilingual preview (cdn.standards.iteh.ai/.../4fc7035b.../iec-62196-3-2026.pdf) stop at page 13, after Table 301, which lists only the DC configurations AA, BB and GG; the technickenormy.cz preview (publicdoc/iec_previews/4307460.pdf) and the VDE preview (info_iec62196-3{ed3.0}en.pdf) give the same 13 pages, whose contents place the FF ratings in Table 302 (page 14), Table 303 (page 16), Table 307 (page 60) and Annex AA.5 (page 92); the ANSI preview URL returned an HTML page; web searches (including CharIN) found no document quoting the 2026 FF values.",
+      "The 1500 V / 600 A values and the note that products deployed according to Annex AA can exceed 600 A, in Table 301 of the 2026 preview, apply to configuration GG, not to configuration FF; they are not recorded here.",
+      "Liquid-cooled ratings (IEC 62196-3:2026 Annex AA, formerly IEC TS 62196-3-1) are not modelled: the Annex AA ratings (AA.5) are outside the available preview.",
+      "The DC vehicle connector contact set is taken from the standard's optional AC contacts and secondary sources. Its face is not drawn: no source depicting the DC vehicle connector face could be read. The manufacturer datasheets with a vehicle connector pin assignment (Phoenix Contact DC charging cables via phoenixcontact.com, Mouser and TME; HARTING CCS Type 2 cable technical data) were refused (HTTP 403) or no longer available, and the Phoenix Contact 1427757 datasheet only shows the inlet face."
+    ]
+  }
+}

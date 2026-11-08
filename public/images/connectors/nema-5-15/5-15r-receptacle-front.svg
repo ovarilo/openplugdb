@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" role="img" aria-labelledby="title desc">
+  <title id="title">NEMA 5-15R receptacle (female), mating face, ground hole down</title>
+  <desc id="desc">Schematic front view with the ground hole down. Neutral slot (taller) upper left, hot slot upper right, ground hole below the centre. Outlined shapes are female contacts. Proportions follow 12.7 mm between slot centres and 11.9 mm from the slot line to the ground hole; the ground hole is simplified to a circle.</desc>
+  <g fill="none" stroke="#1c2430" stroke-width="3">
+    <rect x="30" y="20" width="140" height="160" rx="24"/>
+    <rect x="70" y="57" width="10" height="32" rx="2"/>
+    <rect x="120" y="60" width="10" height="26" rx="2"/>
+    <circle cx="100" cy="121" r="10"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#1c2430" text-anchor="middle" dominant-baseline="central">
+    <text x="75" y="44">N</text>
+    <text x="125" y="44">L</text>
+    <text x="100" y="147">PE</text>
+  </g>
+  <text x="100" y="202" font-family="system-ui, sans-serif" font-size="9" fill="#5a6472" text-anchor="middle" letter-spacing="1">MATING FACE · FEMALE</text>
+</svg>

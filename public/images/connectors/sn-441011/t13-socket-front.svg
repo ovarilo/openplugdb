@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" role="img" aria-labelledby="title desc">
+  <title id="title">SN 441011 Type 13 socket-outlet (female), mating face, earth hole down</title>
+  <desc id="desc">Schematic front view with the earth hole down; the hexagonal recess outline follows photographs and is not dimensioned. Neutral hole left, line hole right, earth hole between them and slightly lower. Rings are female contacts. Proportions follow 19 mm between the line and neutral holes and a 5 mm earth offset; the recess outline is schematic.</desc>
+  <g fill="none" stroke="#1c2430" stroke-width="3">
+    <path d="M22 100 L55 52 H145 L178 100 L145 148 H55 Z" stroke-linejoin="round"/>
+    <circle cx="62" cy="92" r="9"/>
+    <circle cx="138" cy="92" r="9"/>
+    <circle cx="100" cy="112" r="9"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#1c2430" text-anchor="middle" dominant-baseline="central">
+    <text x="62" y="70">N</text>
+    <text x="138" y="70">L</text>
+    <text x="100" y="134">PE</text>
+  </g>
+  <text x="100" y="202" font-family="system-ui, sans-serif" font-size="9" fill="#5a6472" text-anchor="middle" letter-spacing="1">MATING FACE · FEMALE</text>
+</svg>

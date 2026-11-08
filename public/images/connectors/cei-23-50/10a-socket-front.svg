@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" role="img" aria-labelledby="title desc">
+  <title id="title">CEI 23-50 10 A socket-outlet (female), mating face</title>
+  <desc id="desc">Schematic front view. Three holes on one horizontal line: line or neutral on either outer hole (unpolarised) and the earth hole in the middle. Rings are female contacts. Proportions follow 19 mm between the outer holes and 4.5 mm holes; the outline is schematic.</desc>
+  <g fill="none" stroke="#1c2430" stroke-width="3">
+    <rect x="30" y="30" width="140" height="140" rx="20"/>
+    <circle cx="62" cy="100" r="9"/>
+    <circle cx="100" cy="100" r="9"/>
+    <circle cx="138" cy="100" r="9"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#1c2430" text-anchor="middle" dominant-baseline="central">
+    <text x="62" y="124">L/N</text>
+    <text x="100" y="76">PE</text>
+    <text x="138" y="124">L/N</text>
+  </g>
+  <text x="100" y="202" font-family="system-ui, sans-serif" font-size="9" fill="#5a6472" text-anchor="middle" letter-spacing="1">MATING FACE · FEMALE</text>
+</svg>

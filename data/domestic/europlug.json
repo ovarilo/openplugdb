@@ -1,0 +1,214 @@
+{
+  "$schema": "../../schemas/connector-family.schema.json",
+  "id": "europlug",
+  "name": "Europlug (CEE 7/16, EN 50075)",
+  "aliases": ["Type C", "CEE 7/16", "CEE 7/16 Alternative II", "EN 50075"],
+  "category": "domestic",
+  "subcategory": "household",
+  "description": "Flat, non-rewirable two-pole plug without earthing contact, rated 2.5 A, 250 V, for class II equipment. Two round pins with insulated sleeves, slightly converging. EN 50075 defines the plug only; it fits most European round-pin socket-outlets.",
+  "status": "current",
+  "regions": ["europe"],
+  "countries": [],
+  "standards": [
+    {
+      "id": "en-50075",
+      "designation": "EN 50075",
+      "edition": "1990",
+      "title": "Flat non-rewirable two-pole plugs, 2,5 A 250 V, with cord, for the connection of class II-equipment for household and similar purposes",
+      "scope": "Europlug requirements and dimensions"
+    },
+    {
+      "id": "cee-7",
+      "designation": "CEE Publication 7",
+      "edition": null,
+      "title": "Specification for plugs and socket-outlets for domestic and similar purposes",
+      "scope": "Standard sheet XVI (CEE 7/16)"
+    },
+    {
+      "id": "iec-tr-60083",
+      "designation": "IEC TR 60083",
+      "edition": "7.0 (2015)",
+      "title": "Plugs and socket-outlets for domestic and similar general use standardized in member countries of IEC",
+      "scope": "Catalogue of national plug and socket-outlet systems",
+      "url": "https://webstore.iec.ch/en/publication/23628"
+    }
+  ],
+  "relations": [
+    {
+      "type": "related",
+      "family": "cee-7-schuko",
+      "note": "Both come from CEE Publication 7; the Europlug fits CEE 7/3 socket-outlets."
+    }
+  ],
+  "variants": [
+    {
+      "id": "europlug-plug",
+      "name": "Europlug (CEE 7/16 Alternative II)",
+      "role": "plug",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "P1", "label": "L/N", "gender": "male" },
+        { "id": "P2", "label": "L/N", "gender": "male" }
+      ],
+      "keying": "None: unpolarised, can be inserted either way.",
+      "mechanicalNotes": [
+        "Pins 19 mm long: 9 mm conductive tip of 4 mm diameter, 10 mm insulated sleeve of at most 3.8 mm diameter.",
+        "Pin centres 17–18 mm at the tip and 18–19 mm at the base: the pins converge slightly.",
+        "Body 35.3 mm wide and 13.7 mm high with side faces at 45°.",
+        "Non-rewirable, moulded on its cord; EN 50075 defines no matching socket-outlet."
+      ],
+      "electricalProfiles": ["ac-1ph"],
+      "matesWith": [
+        { "family": "cee-7-schuko", "variant": "cee-7-3-socket" },
+        { "family": "cee-7-type-e", "variant": "cee-7-5-socket" },
+        {
+          "family": "si-32",
+          "variant": "si-32-socket",
+          "note": "Socket-outlets made since 1989 (round-pin revision); older flat-pin sockets do not accept it."
+        },
+        {
+          "family": "sn-441011",
+          "variant": "t13-socket",
+          "note": "Type J: compatibility reported by secondary sources."
+        },
+        {
+          "family": "cei-23-50",
+          "variant": "10a-socket",
+          "note": "Type L: compatibility reported by secondary sources."
+        },
+        {
+          "family": "cei-23-50",
+          "variant": "bipasso-socket",
+          "note": "Type L: compatibility reported by secondary sources."
+        },
+        {
+          "family": "ds-60884-2-d1",
+          "variant": "earthed-socket",
+          "note": "Type K: compatibility reported by secondary sources."
+        },
+        {
+          "family": "iec-60906-1",
+          "variant": "nbr-10a-socket",
+          "note": "Type N (NBR 14136): compatibility reported by secondary sources."
+        },
+        {
+          "family": "iec-60906-1",
+          "variant": "nbr-20a-socket",
+          "note": "Type N (NBR 14136): compatibility reported by secondary sources."
+        }
+      ],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/europlug/europlug-plug-front.svg",
+          "title": "Europlug CEE 7/16 plug (male), mating face",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["wikipedia-europlug", "worldstandards-type-c"]
+        },
+        {
+          "kind": "icon",
+          "file": "icons/evicons-extension/plug-europlug.svg",
+          "title": "Europlug CEE 7/16 plug, mating face (icon)",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "MIT",
+          "basedOn": ["wikipedia-europlug", "worldstandards-type-c"]
+        }
+      ]
+    }
+  ],
+  "electricalProfiles": [
+    {
+      "id": "ac-1ph",
+      "name": "AC single-phase",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": true,
+      "protectiveEarth": false,
+      "voltage": { "qualifier": "rated", "value": 250, "reference": "line_to_neutral" },
+      "current": { "qualifier": "rated", "value": 2.5 },
+      "frequencyHz": null,
+      "maxPowerKw": null,
+      "conditions": [
+        "Not polarised: line and neutral can be on either pin (P1 and P2 are interchangeable).",
+        "For class II equipment only: no earthing contact."
+      ],
+      "contactFunctions": { "P1": "line", "P2": "neutral" },
+      "standardRef": "en-50075",
+      "jurisdiction": null,
+      "sourceRefs": ["en-50075-catalogue", "worldstandards-type-c"],
+      "confidence": "high"
+    }
+  ],
+  "mappings": {
+    "ocpi-2.2.1": [
+      {
+        "value": "DOMESTIC_C",
+        "match": "partial",
+        "note": "OCPI describes DOMESTIC_C as type C, CEE 7/17; the Europlug is CEE 7/16, the other type C plug."
+      }
+    ],
+    "ocpi-2.3.0": [
+      {
+        "value": "DOMESTIC_C",
+        "match": "partial",
+        "note": "OCPI describes DOMESTIC_C as type C, CEE 7/17; the Europlug is CEE 7/16, the other type C plug."
+      }
+    ],
+    "openchargemap": [{ "value": "13", "match": "exact" }],
+    "openstreetmap": [
+      {
+        "value": "socket:typec",
+        "match": "partial",
+        "note": "The OSM key tags type C socket-outlets, which accept the Europlug; this family defines the plug only."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "en-50075-catalogue",
+      "title": "EN 50075:1990 catalogue record",
+      "publisher": "NSAI Standards Store",
+      "type": "standard_abstract",
+      "url": "https://shop.standards.ie/en-ie/standards/en-50075-1990-353845_saig_cenelec_cenelec_807003",
+      "accessed": "2026-11-08",
+      "note": "Title and scope of EN 50075:1990 (CENELEC): 2.5 A, 250 V a.c., no earthing contact, class II. Only the title and scope statement are used; the page's summary is machine-generated."
+    },
+    {
+      "id": "wikipedia-europlug",
+      "title": "Europlug",
+      "publisher": "Wikipedia",
+      "type": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/Europlug",
+      "accessed": "2026-11-08",
+      "note": "Secondary source citing EN 50075 for pin and body dimensions."
+    },
+    {
+      "id": "worldstandards-type-c",
+      "title": "Plug type C",
+      "publisher": "WorldStandards",
+      "type": "reference_database",
+      "url": "https://www.worldstandards.eu/electricity/plugs-and-sockets/c/",
+      "accessed": "2026-11-08",
+      "note": "Facts only (rating, pin dimensions, socket compatibility); no text or image reused."
+    }
+  ],
+  "verification": {
+    "status": "partial",
+    "lastVerified": "2026-11-08",
+    "notes": [
+      "The rating comes from the EN 50075 title and scope; the dimensions come from a secondary source citing EN 50075, whose text was not reviewed.",
+      "Frequency is not stated by the cited sources.",
+      "The CEE 7/17 plug (10 or 16 A) and the unearthed CEE 7/1 socket-outlet, also called type C, are not modelled here.",
+      "Mating with the type J (T13), K, L (10 A and bipasso) and N (NBR 14136) socket-outlets relies on secondary sources (WorldStandards and the target families' sources); type O (TIS 166) is reported compatible too but not recorded, as the tis-166 family does not state it. It does not fit type G sockets, and in type D sockets it cannot be fully inserted, so neither is recorded as a mating.",
+      "The front view relies on secondary sources for the body outline; pin spacing is drawn at 18 mm."
+    ]
+  }
+}

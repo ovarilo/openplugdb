@@ -1,0 +1,170 @@
+{
+  "$schema": "../../schemas/connector-family.schema.json",
+  "id": "nema-5-15",
+  "name": "NEMA 5-15",
+  "aliases": ["Type B", "5-15P", "5-15R", "US grounded plug"],
+  "category": "domestic",
+  "subcategory": "household",
+  "description": "North American 2-pole, 3-wire grounding plug and receptacle rated 15 A, 125 V: two flat parallel blades and a round or U-shaped ground pin.",
+  "status": "current",
+  "regions": ["north_america"],
+  "countries": ["US", "CA", "MX"],
+  "standards": [
+    {
+      "id": "nema-wd-6",
+      "designation": "ANSI/NEMA WD 6",
+      "edition": "2021",
+      "title": "Wiring Devices – Dimensional Specifications",
+      "scope": "Configuration 5-15 dimensions"
+    },
+    {
+      "id": "ul-498",
+      "designation": "UL 498",
+      "edition": "16th edition (2017)",
+      "title": "Attachment Plugs and Receptacles",
+      "scope": "Safety requirements"
+    }
+  ],
+  "relations": [],
+  "variants": [
+    {
+      "id": "5-15p-plug",
+      "name": "NEMA 5-15P plug",
+      "role": "plug",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "L", "label": "Hot", "gender": "male" },
+        { "id": "N", "label": "Neutral", "gender": "male" },
+        { "id": "PE", "label": "Ground", "gender": "male", "form": "earth_pin" }
+      ],
+      "keying": "The ground pin enforces polarity.",
+      "mechanicalNotes": [
+        "Blades 6.3–6.4 mm wide, 1.5 mm thick, 15.9–18.3 mm long, 12.7 mm between centres.",
+        "Ground pin 4.8 mm in diameter, 3.2 mm longer than the blades, 11.9 mm from the blade line."
+      ],
+      "electricalProfiles": ["ac-1ph"],
+      "matesWith": [{ "family": "nema-5-15", "variant": "5-15r-receptacle" }],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/nema-5-15/5-15p-plug-front.svg",
+          "title": "NEMA 5-15P plug (male), mating face, ground pin down",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["hubbell-nema-chart", "worldstandards-type-b"]
+        }
+      ]
+    },
+    {
+      "id": "5-15r-receptacle",
+      "name": "NEMA 5-15R receptacle",
+      "role": "socket_outlet",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "L", "label": "Hot", "gender": "female" },
+        { "id": "N", "label": "Neutral", "gender": "female" },
+        { "id": "PE", "label": "Ground", "gender": "female", "form": "earth_hole" }
+      ],
+      "keying": "Neutral slot taller than the hot slot; ground hole.",
+      "mechanicalNotes": ["Mounting orientation (ground up or down) is not set by the standard."],
+      "electricalProfiles": ["ac-1ph"],
+      "matesWith": [],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/nema-5-15/5-15r-receptacle-front.svg",
+          "title": "NEMA 5-15R receptacle (female), mating face, ground hole down",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["hubbell-nema-chart", "wikipedia-nema", "worldstandards-type-b"]
+        },
+        {
+          "kind": "icon",
+          "file": "icons/evicons-extension/plug-nema-5-15.svg",
+          "title": "NEMA 5-15R receptacle, mating face, ground hole down (icon)",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "MIT",
+          "basedOn": ["hubbell-nema-chart", "wikipedia-nema", "worldstandards-type-b"]
+        }
+      ]
+    }
+  ],
+  "electricalProfiles": [
+    {
+      "id": "ac-1ph",
+      "name": "AC single-phase",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": true,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "rated", "value": 125, "reference": "line_to_neutral" },
+      "current": { "qualifier": "rated", "value": 15 },
+      "frequencyHz": null,
+      "maxPowerKw": null,
+      "conditions": ["The rating comes from secondary sources; ANSI/NEMA WD 6 was not reviewed."],
+      "contactFunctions": { "L": "line", "N": "neutral", "PE": "protective_earth" },
+      "standardRef": "nema-wd-6",
+      "jurisdiction": "NEMA",
+      "sourceRefs": ["wikipedia-nema", "worldstandards-type-b"],
+      "confidence": "medium"
+    }
+  ],
+  "mappings": {
+    "ocpi-2.2.1": [{ "value": "DOMESTIC_B", "match": "exact" }],
+    "ocpi-2.3.0": [{ "value": "DOMESTIC_B", "match": "exact" }],
+    "openchargemap": [{ "value": "22", "match": "exact", "variants": ["5-15r-receptacle"] }],
+    "openstreetmap": [
+      { "value": "socket:nema_5_15", "match": "exact", "variants": ["5-15r-receptacle"] }
+    ]
+  },
+  "sources": [
+    {
+      "id": "wikipedia-nema",
+      "title": "NEMA connector",
+      "publisher": "Wikipedia",
+      "type": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/NEMA_connector",
+      "accessed": "2026-11-08",
+      "note": "Secondary source."
+    },
+    {
+      "id": "worldstandards-type-b",
+      "title": "Plug type B",
+      "publisher": "WorldStandards",
+      "type": "reference_database",
+      "url": "https://www.worldstandards.eu/electricity/plugs-and-sockets/b/",
+      "accessed": "2026-11-08",
+      "note": "Facts only (dimensions); no text or image reused."
+    },
+    {
+      "id": "hubbell-nema-chart",
+      "title": "NEMA Straight Blade Devices configuration chart",
+      "publisher": "Hubbell Wiring Device-Kellems",
+      "type": "manufacturer",
+      "url": "https://hubbellcdn.com/ohwassets/HCI/WiringDevice/Catalog/NEMA_2017.pdf",
+      "accessed": "2026-11-08",
+      "note": "Face diagrams of receptacles (open slots) and plugs (closed slots) with the neutral (W) and ground (G) terminals marked; facts only, no image reused."
+    }
+  ],
+  "verification": {
+    "status": "partial",
+    "lastVerified": "2026-11-08",
+    "notes": [
+      "Ratings rely on secondary sources and the face layout on secondary sources and a manufacturer chart; ANSI/NEMA WD 6 was not reviewed.",
+      "Frequency is not stated by the cited sources.",
+      "The receptacle drawing shows the ground hole as a circle: its exact D shape is not drawn.",
+      "The hot and neutral sides of the receptacle drawing follow Wikipedia and the 5-15R face diagram of the Hubbell NEMA configuration chart (neutral W marked); the dimensions come from WorldStandards.",
+      "The plug drawing follows the 5-15P face diagram of the Hubbell NEMA configuration chart (ground pin up, neutral blade W on the left), rotated 180° to show the ground pin down like the receptacle drawing; blade and pin proportions follow the dimensions above. The ground pin is drawn as a circle and the body outline is not to scale."
+    ]
+  }
+}

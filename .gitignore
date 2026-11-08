@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Astro / build output
+dist/
+.astro/
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Local tooling
+.env
+.env.*
+.codegraph/
+.serena/
+.remember/
+.context/

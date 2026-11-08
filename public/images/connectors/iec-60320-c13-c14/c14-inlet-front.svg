@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" role="img" aria-labelledby="title desc">
+  <title id="title">IEC 60320 C14 appliance inlet (male), mating face</title>
+  <desc id="desc">Schematic front view of the inlet recess, chamfered corners at the top. Earth pin (PE) at top centre, set higher than the two pole pins at lower left and lower right. The pole pins are not assigned to line or neutral by the cited sources and are labelled L/N. Filled shapes are blade pins seen end-on (male contacts). Proportions follow the front view of the Schurter 6010 datasheet; not to scale.</desc>
+  <g fill="none" stroke="#1c2430" stroke-width="3">
+    <path d="M57 45 H143 L172 74 V131 A12 12 0 0 1 160 143 H40 A12 12 0 0 1 28 131 V74 Z"/>
+  </g>
+  <g fill="#1c2430">
+    <rect x="95" y="66.5" width="10" height="29" rx="2"/>
+    <rect x="53" y="90.5" width="10" height="29" rx="2"/>
+    <rect x="137" y="90.5" width="10" height="29" rx="2"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#1c2430" text-anchor="middle" dominant-baseline="central">
+    <text x="112" y="81" text-anchor="start">PE</text>
+    <text x="58" y="131">L/N</text>
+    <text x="142" y="131">L/N</text>
+  </g>
+  <text x="100" y="202" font-family="system-ui, sans-serif" font-size="9" fill="#5a6472" text-anchor="middle" letter-spacing="1">MATING FACE · MALE</text>
+</svg>

@@ -1,0 +1,53 @@
+{
+  "category": "connector",
+  "meaning": {
+    "en": "Danish socket (DS 60884-2-D1, Type K), shown as the socket face seen from the front, earth hole down",
+    "de": "Dänische Steckdose (DS 60884-2-D1, Typ K), dargestellt als Steckdosenfläche von vorn, Schutzkontakt unten"
+  },
+  "tags": {
+    "en": [
+      "ds 60884-2-d1",
+      "type k",
+      "danish socket",
+      "denmark",
+      "household socket",
+      "ac",
+      "socket"
+    ],
+    "de": [
+      "ds 60884-2-d1",
+      "typ k",
+      "dänische steckdose",
+      "dänemark",
+      "haushaltssteckdose",
+      "ac",
+      "steckdose"
+    ],
+    "fr": [
+      "ds 60884-2-d1",
+      "type k",
+      "prise danoise",
+      "danemark",
+      "prise domestique",
+      "ac",
+      "prise"
+    ]
+  },
+  "since": "0.9.0",
+  "aliases": [],
+  "standard": {
+    "norm": "DS 60884-2-D1",
+    "source": "DS 60884-2-D1 not consulted; contact layout taken from the OpenPlugDB front view \"Danish Type K socket-outlet (female), mating face, earth hole down\" (https://github.com/ovarilo/openplugdb/blob/main/public/images/connectors/ds-60884-2-d1/earthed-socket-front.svg, retrieved 2026-11-08), drawn from Wikipedia \"AC power plugs and sockets\" (https://en.wikipedia.org/wiki/AC_power_plugs_and_sockets, retrieved 2026-11-08); Sikkerhedsstyrelsen (Danish Safety Technology Authority) \"Vejledning – Markedsføring af stikkontakter\" (https://www.sik.dk/sites/default/files/2026-05/Vejledning%20til%20markedsf%C3%B8ring%20af%20stikkontakter.pdf, retrieved 2026-11-08)"
+  },
+  "osm": [
+    "socket:typek"
+  ],
+  "ocpi": [
+    "Connector.standard=DOMESTIC_K"
+  ],
+  "provenance": {
+    "createdBy": "ai",
+    "approvedBy": null,
+    "approvedOn": null
+  }
+}

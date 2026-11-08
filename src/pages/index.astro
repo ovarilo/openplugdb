@@ -1,0 +1,168 @@
+---
+import ConnectorCard from '../components/ConnectorCard.astro';
+import Search from '../components/Search.astro';
+import Base from '../layouts/Base.astro';
+import { CATEGORY_BLURB, CATEGORY_LABEL, url } from '../lib/format.ts';
+import { CATEGORIES } from '../lib/model.ts';
+import { families, stats } from '../lib/site-data.ts';
+
+const s = stats();
+const featured = families().filter((f) => f.variants.some((v) => v.visuals.some((x) => x.kind !== 'icon')));
+const figures = [
+  { value: s.families, label: 'connector families' },
+  { value: s.variants, label: 'physical variants' },
+  { value: s.profiles, label: 'electrical profiles' },
+  { value: s.drawings, label: 'mating-face drawings' },
+  { value: s.sources, label: 'cited sources' },
+];
+---
+
+<Base
+  title="OpenPlugDB"
+  description="An open, international and static reference of electrical plugs and connectors: EV charging, domestic, industrial and appliance couplers, with sourced ratings, mating-face drawings and JSON/CSV exports."
+  jsonLd={{
+    '@context': 'https://schema.org',
+    '@type': 'Dataset',
+    name: 'OpenPlugDB',
+    description: 'Open reference dataset of electrical plugs and connectors.',
+    license: 'https://creativecommons.org/publicdomain/zero/1.0/',
+    url: new URL(url('/'), Astro.site).href,
+    distribution: [
+      { '@type': 'DataDownload', encodingFormat: 'application/json', contentUrl: new URL(url('/data/connectors.json'), Astro.site).href },
+      { '@type': 'DataDownload', encodingFormat: 'text/csv', contentUrl: new URL(url('/data/connectors.csv'), Astro.site).href },
+    ],
+  }}
+>
+  <section class="hero">
+    <h1>The open reference of electrical plugs and connectors</h1>
+    <p class="lead">
+      EV charging, domestic, industrial and appliance connectors, described by their standards: physical
+      variants, contact genders, electrical ratings, mating-face drawings and mappings to OCPI, Open Charge Map
+      and OpenStreetMap. Every value is sourced.
+    </p>
+    <Search />
+    <p class="actions">
+      <a class="button primary" href={url('/connectors/')}>Browse the catalog</a>
+      <a class="button" href={url('/downloads/')}>Download the data</a>
+      <a class="button" href="https://github.com/ovarilo/openplugdb">GitHub</a>
+    </p>
+  </section>
+
+  <section aria-labelledby="figures">
+    <h2 id="figures" class="visually-hidden">Dataset in figures</h2>
+    <ul class="figures">
+      {
+        figures.map((f) => (
+          <li class="card">
+            <strong>{f.value}</strong>
+            <span class="muted">{f.label}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section aria-labelledby="categories">
+    <h2 id="categories">Categories</h2>
+    <ul class="grid categories">
+      {
+        CATEGORIES.map((c) => (
+          <li class="card">
+            <h3>
+              <a href={url(`/connectors/?category=${c}`)}>{CATEGORY_LABEL[c]}</a>
+            </h3>
+            <p class="muted">{CATEGORY_BLURB[c]}</p>
+            <p class="count">{s.byCategory[c]} families</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section aria-labelledby="drawn">
+    <h2 id="drawn">With mating-face drawings</h2>
+    <ul class="grid cards">
+      {featured.map((family) => <ConnectorCard family={family} />)}
+    </ul>
+  </section>
+
+  <section aria-labelledby="principles">
+    <h2 id="principles">Principles</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Sourced, not guessed</h3>
+        <p class="muted">
+          Ratings come from standards, their official abstracts or manufacturer datasheets, with confidence levels.
+          Unknown stays unknown.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Ratings are not installations</h3>
+        <p class="muted">
+          A connector rating is a capability of the interface. No connector is reduced to a single power figure.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Male and female, drawn separately</h3>
+        <p class="muted">Each mating face is drawn on its own, never obtained by mirroring the other part.</p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    padding: 2rem 0 1rem;
+    max-width: 52rem;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    color: var(--muted);
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+  }
+
+  .figures {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0 0;
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(9rem, 100%), 1fr));
+  }
+
+  .figures li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .figures strong {
+    font-size: 2rem;
+    font-family: var(--mono);
+    line-height: 1;
+  }
+
+  .categories,
+  .cards {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .categories h3 {
+    margin-top: 0;
+  }
+
+  .count {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    margin-bottom: 0;
+  }
+</style>

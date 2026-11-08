@@ -1,0 +1,285 @@
+{
+  "$schema": "../../schemas/connector-family.schema.json",
+  "id": "gb-t-20234-2-ac",
+  "name": "GB/T 20234.2 AC",
+  "aliases": ["GB/T AC", "GBT AC", "GB-T AC", "Chinese AC charging coupler"],
+  "category": "ev",
+  "subcategory": "ac-charging",
+  "description": "Chinese national AC charging coupler defined by GB/T 20234.2, rated up to 440 V AC, 50 Hz and 63 A. Seven contacts: three lines, neutral, protective earth, charging connection confirmation (CC) and control pilot (CP). Unlike IEC 62196 Type 2, the vehicle inlet carries contact tubes and the cable-side vehicle connector carries pins.",
+  "status": "current",
+  "regions": ["asia"],
+  "countries": ["CN"],
+  "standards": [
+    {
+      "id": "gb-t-20234-2-2015",
+      "designation": "GB/T 20234.2",
+      "edition": "2015",
+      "title": "Connection set for conductive charging of electric vehicles – Part 2: AC charging coupler",
+      "scope": "Ratings (Table 1), contact functions (Table 2), contact arrangement and dimensions of the vehicle coupler and supply coupler in charging mode 3. Replaces GB/T 20234.2-2011; still the current edition (no 2023 revision of Part 2 was published)."
+    },
+    {
+      "id": "gb-t-20234-1-2023",
+      "designation": "GB/T 20234.1",
+      "edition": "2023",
+      "title": "Connection set for conductive charging of electric vehicles – Part 1: General requirements",
+      "scope": "General technical requirements and test methods referenced by Part 2"
+    },
+    {
+      "id": "gb-t-18487-1",
+      "designation": "GB/T 18487.1",
+      "edition": null,
+      "title": "Electric vehicle conductive charging system – Part 1: General requirements",
+      "scope": "Control pilot circuit and control principle of AC charging (moved out of GB/T 20234.2 in the 2015 edition)"
+    }
+  ],
+  "relations": [
+    {
+      "type": "related",
+      "family": "iec-62196-type-2",
+      "note": "Similar seven-position face with a flat top edge, but genders are reversed (female vehicle inlet, male vehicle connector) and CC takes the place of PP. Not treated as interchangeable."
+    }
+  ],
+  "variants": [
+    {
+      "id": "vehicle-inlet",
+      "name": "GB/T AC vehicle inlet",
+      "aliases": ["Vehicle socket (GB/T terminology)"],
+      "role": "vehicle_inlet",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "L1", "label": "L1", "gender": "female" },
+        { "id": "L2", "label": "L2", "gender": "female" },
+        { "id": "L3", "label": "L3", "gender": "female" },
+        { "id": "N", "label": "N", "gender": "female" },
+        { "id": "PE", "label": "PE", "gender": "female" },
+        { "id": "CC", "label": "CC", "gender": "female" },
+        { "id": "CP", "label": "CP", "gender": "female" }
+      ],
+      "keying": "Circular contact insert with a flat top edge; latch recess above the insert.",
+      "mechanicalNotes": [
+        "Called \"vehicle socket\" in the English translations of GB/T 20234.2.",
+        "L2 and L3 are fitted on three-phase inlets; single-phase inlets use L1 and N."
+      ],
+      "electricalProfiles": ["ac-1ph", "ac-3ph"],
+      "matesWith": [{ "family": "gb-t-20234-2-ac", "variant": "vehicle-connector" }],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/gb-t-20234-2-ac/vehicle-inlet-front.svg",
+          "title": "GB/T 20234.2 AC vehicle inlet (female), mating face",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["phoenix-1271831"]
+        },
+        {
+          "kind": "icon",
+          "file": "icons/evicons/plug-type-2.svg",
+          "title": "GB/T 20234.2 AC vehicle inlet, mating face (EVicons Type 2 icon, which also covers GB/T AC)",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "third_party",
+          "author": "Landolsi Digital (EVicons)",
+          "license": "MIT",
+          "sourceUrl": "https://github.com/evicons/evicons/blob/v0.8.0/packages/svg/svg/plug-type-2.svg"
+        }
+      ]
+    },
+    {
+      "id": "vehicle-connector",
+      "name": "GB/T AC vehicle connector",
+      "aliases": ["Vehicle plug (GB/T terminology)"],
+      "role": "vehicle_connector",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "L1", "label": "L1", "gender": "male" },
+        { "id": "L2", "label": "L2", "gender": "male" },
+        { "id": "L3", "label": "L3", "gender": "male" },
+        { "id": "N", "label": "N", "gender": "male" },
+        { "id": "PE", "label": "PE", "gender": "male" },
+        { "id": "CC", "label": "CC", "gender": "male" },
+        { "id": "CP", "label": "CP", "gender": "male" }
+      ],
+      "keying": "Circular face with a flat top edge, matching the inlet.",
+      "mechanicalNotes": [
+        "Called \"vehicle plug\" in the English translations of GB/T 20234.2.",
+        "Attached to the charging cable; carries the pins."
+      ],
+      "electricalProfiles": ["ac-1ph", "ac-3ph"],
+      "matesWith": [],
+      "visuals": []
+    },
+    {
+      "id": "plug",
+      "name": "GB/T AC supply plug",
+      "role": "plug",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "L1", "label": "L1", "gender": "male" },
+        { "id": "L2", "label": "L2", "gender": "male" },
+        { "id": "L3", "label": "L3", "gender": "male" },
+        { "id": "N", "label": "N", "gender": "male" },
+        { "id": "PE", "label": "PE", "gender": "male" },
+        { "id": "CC", "label": "CC", "gender": "male" },
+        { "id": "CP", "label": "CP", "gender": "male" }
+      ],
+      "keying": null,
+      "mechanicalNotes": [
+        "Station end of a detachable charging cable (supply coupler, charging mode 3)."
+      ],
+      "electricalProfiles": ["ac-1ph", "ac-3ph"],
+      "matesWith": [{ "family": "gb-t-20234-2-ac", "variant": "socket-outlet" }],
+      "visuals": []
+    },
+    {
+      "id": "socket-outlet",
+      "name": "GB/T AC supply socket-outlet",
+      "aliases": ["Supply socket (GB/T terminology)"],
+      "role": "socket_outlet",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "L1", "label": "L1", "gender": "female" },
+        { "id": "L2", "label": "L2", "gender": "female" },
+        { "id": "L3", "label": "L3", "gender": "female" },
+        { "id": "N", "label": "N", "gender": "female" },
+        { "id": "PE", "label": "PE", "gender": "female" },
+        { "id": "CC", "label": "CC", "gender": "female" },
+        { "id": "CP", "label": "CP", "gender": "female" }
+      ],
+      "keying": null,
+      "mechanicalNotes": ["Charging-station socket-outlet (supply coupler, charging mode 3)."],
+      "electricalProfiles": ["ac-1ph", "ac-3ph"],
+      "matesWith": [],
+      "visuals": []
+    }
+  ],
+  "electricalProfiles": [
+    {
+      "id": "ac-1ph",
+      "name": "AC single-phase",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": true,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "rated", "value": 250, "reference": "line_to_neutral" },
+      "current": { "qualifier": "max", "value": 32 },
+      "frequencyHz": [50],
+      "maxPowerKw": null,
+      "conditions": [
+        "Secondary sources give 250 V with 10, 16 or 32 A for single-phase use; GB/T 20234.2-2015 Table 1 itself was not reviewed.",
+        "Single-phase charging uses contacts L1 and N.",
+        "CC is the charging connection confirmation contact; it is recorded as proximity_pilot, the closest function in the OpenPlugDB vocabulary."
+      ],
+      "contactFunctions": {
+        "L1": "line",
+        "N": "neutral",
+        "PE": "protective_earth",
+        "CC": "proximity_pilot",
+        "CP": "control_pilot"
+      },
+      "standardRef": "gb-t-20234-2-2015",
+      "jurisdiction": null,
+      "sourceRefs": ["gb-t-20234-2-2015-translation", "wikipedia-gb-t"],
+      "confidence": "medium"
+    },
+    {
+      "id": "ac-3ph",
+      "name": "AC three-phase",
+      "currentType": "ac",
+      "supply": "three_phase",
+      "phases": 3,
+      "neutral": true,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "max", "value": 440, "reference": "line_to_line" },
+      "current": { "qualifier": "max", "value": 63 },
+      "frequencyHz": [50],
+      "maxPowerKw": null,
+      "conditions": [
+        "440 V AC, 50 Hz and 63 A are the upper limits of the scope of GB/T 20234.2-2015; reading 440 V as line-to-line is an interpretation for three-phase use.",
+        "The 2015 edition raised the maximum rated current from 32 A to 63 A, added 10 A and 63 A to the rated currents and extended the spare contacts to three-phase charging.",
+        "Secondary sources give 440 V with 16, 32 or 63 A for charging mode 3; Table 1 itself was not reviewed.",
+        "CC is the charging connection confirmation contact; it is recorded as proximity_pilot, the closest function in the OpenPlugDB vocabulary."
+      ],
+      "contactFunctions": {
+        "L1": "line",
+        "L2": "line",
+        "L3": "line",
+        "N": "neutral",
+        "PE": "protective_earth",
+        "CC": "proximity_pilot",
+        "CP": "control_pilot"
+      },
+      "standardRef": "gb-t-20234-2-2015",
+      "jurisdiction": null,
+      "sourceRefs": ["gb-t-20234-2-2015-translation", "wikipedia-gb-t"],
+      "confidence": "high"
+    }
+  ],
+  "mappings": {
+    "ocpi-2.2.1": [{ "value": "GBT_AC", "match": "exact" }],
+    "ocpi-2.3.0": [{ "value": "GBT_AC", "match": "exact" }],
+    "openchargemap": [
+      { "value": "1038", "match": "exact", "variants": ["socket-outlet"] },
+      {
+        "value": "1039",
+        "match": "exact",
+        "variants": ["vehicle-connector"],
+        "note": "Tethered cable at the station."
+      }
+    ],
+    "openstreetmap": []
+  },
+  "sources": [
+    {
+      "id": "samr-gb-t-20234-list",
+      "title": "National standards catalogue, GB/T 20234 series: status and dates of each part and edition",
+      "publisher": "State Administration for Market Regulation (SAMR), openstd.samr.gov.cn",
+      "type": "standard_abstract",
+      "url": "https://openstd.samr.gov.cn/bzgk/gb/std_list?p.p1=0&p.p90=circulation_date&p.p91=desc&p.p2=20234",
+      "accessed": "2026-11-08",
+      "note": "Lists GB/T 20234.2-2015 as current, with no 2023 revision of Part 2 (Parts 1, 3 and 4 have 2023 editions)."
+    },
+    {
+      "id": "gb-t-20234-2-2015-translation",
+      "title": "GB/T 20234.2-2015, English translation preview: foreword, scope, clauses 1 to 7 and figure legends",
+      "publisher": "ChineseStandard.net (unofficial commercial translation)",
+      "type": "standard",
+      "url": "https://www.chinesestandard.net/PDF/English.aspx/GBT20234.2-2015",
+      "accessed": "2026-11-08",
+      "note": "Unofficial translation; facts only. Used for the scope limits, the changes from the 2011 edition and the seven contact functions. Tables 1 and 2 are not part of the preview."
+    },
+    {
+      "id": "phoenix-1271831",
+      "title": "CHARX GBHCI12-3AC32-2,0M1 GB/T AC vehicle charging inlet datasheet, pin assignment of vehicle charging inlets",
+      "publisher": "Phoenix Contact",
+      "type": "manufacturer",
+      "url": "https://docs.rs-online.com/05ed/A700000013557490.pdf",
+      "accessed": "2026-11-08",
+      "note": "Used for the inlet face layout and the contact set; its product rating (415 V, 32 A) is not used as the connector rating."
+    },
+    {
+      "id": "wikipedia-gb-t",
+      "title": "GB/T charging standard",
+      "publisher": "Wikipedia",
+      "type": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/GB/T_charging_standard",
+      "accessed": "2026-11-08",
+      "note": "Secondary: rating combinations per charging mode and contact genders per part."
+    }
+  ],
+  "verification": {
+    "status": "partial",
+    "lastVerified": "2026-11-08",
+    "notes": [
+      "GB/T 20234.2-2015 Tables 1 and 2 (rated values and contact ratings) were not reviewed; the single-phase 250 V rating and the per-mode current steps come from secondary sources.",
+      "Contact genders per part (male vehicle connector and supply plug, female vehicle inlet and supply socket-outlet) rest on a single secondary source (Wikipedia); the inlet face layout, a mirror of the Type 2 inlet layout, is consistent with a female inlet.",
+      "The inlet face drawing relies on a single manufacturer source (Phoenix Contact 1271831). The vehicle connector, supply plug and supply socket-outlet faces are not drawn: no source depicting them was reviewed.",
+      "No 2023 revision of GB/T 20234.2 exists in the national catalogue as of the access date; Parts 1, 3 and 4 were revised in 2023.",
+      "The OpenStreetMap socket key for GB/T AC could not be checked against the pinned wiki revision; the mapping is left empty pending that check, not because no key exists.",
+      "The proximity resistor coding of the CC contact (cable current capability) is not recorded: GB/T 18487.1 was not reviewed."
+    ]
+  }
+}

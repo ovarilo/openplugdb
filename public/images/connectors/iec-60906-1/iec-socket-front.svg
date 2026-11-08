@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" role="img" aria-labelledby="title desc">
+  <title id="title">IEC 60906-1 socket-outlet (female), mating face, earth offset up</title>
+  <desc id="desc">Schematic front view of the recess with the earth offset up. Neutral hole left, line hole right, earth hole between them and slightly higher. Rings are female contacts. Proportions follow 19 mm between the line and neutral holes, a 3 mm earth offset and 4.5 mm pins; the recess outline is schematic.</desc>
+  <g fill="none" stroke="#1c2430" stroke-width="3">
+    <circle cx="100" cy="100" r="78"/>
+    <circle cx="62" cy="106" r="10"/>
+    <circle cx="138" cy="106" r="10"/>
+    <circle cx="100" cy="94" r="10"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#1c2430" text-anchor="middle" dominant-baseline="central">
+    <text x="62" y="130">N</text>
+    <text x="138" y="130">L</text>
+    <text x="100" y="70">PE</text>
+  </g>
+  <text x="100" y="202" font-family="system-ui, sans-serif" font-size="9" fill="#5a6472" text-anchor="middle" letter-spacing="1">MATING FACE · FEMALE</text>
+</svg>

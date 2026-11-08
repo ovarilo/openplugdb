@@ -1,0 +1,210 @@
+{
+  "$schema": "../../schemas/connector-family.schema.json",
+  "id": "iec-60309-16a-2p-e-6h",
+  "name": "IEC 60309 16 A 2P+E 6h (blue)",
+  "aliases": ["CEE blue", "Blue Commando", "CEE 16 A 230 V", "IEC 60309 3-pin"],
+  "category": "industrial",
+  "subcategory": "pin-and-sleeve",
+  "description": "Industrial pin-and-sleeve accessory with two poles and earth, 16 A, colour-coded blue for 200–250 V. The earth contact sits at the 6 h position of the clock system, aligned with the major keyway.",
+  "status": "current",
+  "regions": ["worldwide"],
+  "countries": [],
+  "standards": [
+    {
+      "id": "iec-60309-2",
+      "designation": "IEC 60309-2",
+      "edition": "5.0 (2021)",
+      "title": "Plugs, fixed or portable socket-outlets and appliance inlets for industrial purposes – Part 2: Dimensional interchangeability requirements for pin and contact-tube accessories",
+      "scope": "Standard sheets for the 16 A 2P+E configurations"
+    },
+    {
+      "id": "iec-60309-1",
+      "designation": "IEC 60309-1",
+      "edition": null,
+      "title": "Plugs, fixed or portable socket-outlets and appliance inlets for industrial purposes – Part 1: General requirements",
+      "scope": "General requirements (datasheets cite EN IEC 60309-1:2022)"
+    }
+  ],
+  "relations": [],
+  "variants": [
+    {
+      "id": "plug",
+      "name": "Plug",
+      "role": "plug",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "P1", "label": "Pole 1", "gender": "male" },
+        { "id": "P2", "label": "Pole 2", "gender": "male" },
+        { "id": "PE", "label": "PE", "gender": "male", "form": "earth_pin" }
+      ],
+      "keying": "Earth pin at 6 h, aligned with the major keyway; earth pin larger than the pole pins.",
+      "mechanicalNotes": [],
+      "electricalProfiles": ["ac-1ph"],
+      "matesWith": [
+        { "family": "iec-60309-16a-2p-e-6h", "variant": "socket-outlet" },
+        { "family": "iec-60309-16a-2p-e-6h", "variant": "connector" }
+      ],
+      "visuals": []
+    },
+    {
+      "id": "socket-outlet",
+      "name": "Socket-outlet",
+      "role": "socket_outlet",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "P1", "label": "Pole 1", "gender": "female" },
+        { "id": "P2", "label": "Pole 2", "gender": "female" },
+        { "id": "PE", "label": "PE", "gender": "female" }
+      ],
+      "keying": "Earth contact at 6 h, aligned with the major keyway.",
+      "mechanicalNotes": ["Common enclosures are IP44 (splash-proof) and IP67 (watertight)."],
+      "electricalProfiles": ["ac-1ph"],
+      "matesWith": [],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/iec-60309-16a-2p-e-6h/socket-front.svg",
+          "title": "IEC 60309 16 A 2P+E 6h socket-outlet and connector (female), mating face",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["mennekes-clock-positions", "wikipedia-iec-60309"]
+        },
+        {
+          "kind": "icon",
+          "file": "icons/evicons/plug-cee-blue.svg",
+          "title": "IEC 60309 2P+E 6h socket-outlet, mating face (EVicons icon)",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "third_party",
+          "author": "Landolsi Digital (EVicons)",
+          "license": "MIT",
+          "sourceUrl": "https://github.com/evicons/evicons/blob/v0.8.0/packages/svg/svg/plug-cee-blue.svg"
+        }
+      ]
+    },
+    {
+      "id": "connector",
+      "name": "Connector",
+      "role": "cable_connector",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "P1", "label": "Pole 1", "gender": "female" },
+        { "id": "P2", "label": "Pole 2", "gender": "female" },
+        { "id": "PE", "label": "PE", "gender": "female" }
+      ],
+      "keying": "Earth contact at 6 h, aligned with the major keyway.",
+      "mechanicalNotes": ["Portable socket on a flexible cable."],
+      "electricalProfiles": ["ac-1ph"],
+      "matesWith": [{ "family": "iec-60309-16a-2p-e-6h", "variant": "appliance-inlet" }],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/iec-60309-16a-2p-e-6h/socket-front.svg",
+          "title": "IEC 60309 16 A 2P+E 6h socket-outlet and connector (female), mating face",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["mennekes-clock-positions", "wikipedia-iec-60309"]
+        }
+      ]
+    },
+    {
+      "id": "appliance-inlet",
+      "name": "Appliance inlet",
+      "role": "appliance_inlet",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "P1", "label": "Pole 1", "gender": "male" },
+        { "id": "P2", "label": "Pole 2", "gender": "male" },
+        { "id": "PE", "label": "PE", "gender": "male", "form": "earth_pin" }
+      ],
+      "keying": "Earth pin at 6 h, aligned with the major keyway.",
+      "mechanicalNotes": [],
+      "electricalProfiles": ["ac-1ph"],
+      "matesWith": [],
+      "visuals": []
+    }
+  ],
+  "electricalProfiles": [
+    {
+      "id": "ac-1ph",
+      "name": "AC single-phase",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": null,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "range", "min": 200, "max": 250, "reference": "line_to_neutral" },
+      "current": { "qualifier": "rated", "value": 16 },
+      "frequencyHz": [50, 60],
+      "maxPowerKw": null,
+      "conditions": [
+        "Looking into the socket-outlet, the line (P1) is the pole next to the earth contact clockwise and the second pole (P2) follows (Mennekes front view, Wikipedia).",
+        "P2 is the neutral or a second line depending on the installation, so its function is not recorded."
+      ],
+      "contactFunctions": { "P1": "line", "PE": "protective_earth" },
+      "standardRef": "iec-60309-2",
+      "jurisdiction": null,
+      "sourceRefs": ["pce-9136", "wikipedia-iec-60309", "mennekes-clock-positions"],
+      "confidence": "high"
+    }
+  ],
+  "mappings": {
+    "ocpi-2.2.1": [{ "value": "IEC_60309_2_single_16", "match": "exact" }],
+    "ocpi-2.3.0": [{ "value": "IEC_60309_2_single_16", "match": "exact" }],
+    "openchargemap": [
+      { "value": "34", "match": "broader", "note": "IEC 60309 3-pin, any current rating." },
+      {
+        "value": "4",
+        "match": "broader",
+        "note": "Near-duplicate entry in Open Charge Map; 34 is the one used by its OCPI importer."
+      }
+    ],
+    "openstreetmap": [
+      { "value": "socket:cee_blue", "match": "exact", "variants": ["socket-outlet"] }
+    ]
+  },
+  "sources": [
+    {
+      "id": "pce-9136",
+      "title": "PCE 9136 wall socket 16 A 2P+E 6h datasheet",
+      "publisher": "PCE",
+      "type": "manufacturer",
+      "url": "https://mais-automacao.pt/images/uploaded/PCE/PC9136.pdf",
+      "accessed": "2026-11-08"
+    },
+    {
+      "id": "wikipedia-iec-60309",
+      "title": "IEC 60309",
+      "publisher": "Wikipedia",
+      "type": "encyclopedia",
+      "url": "https://en.wikipedia.org/wiki/IEC_60309",
+      "accessed": "2026-11-08",
+      "note": "Secondary source for the colour code and the clock system."
+    },
+    {
+      "id": "mennekes-clock-positions",
+      "title": "Protective conductor contact, clock position and plug colours",
+      "publisher": "Mennekes",
+      "type": "manufacturer",
+      "url": "https://www.mennekes.org/industry/knowledge/for-electrical-engineers/protective-conductor-contact-clock-position-and-plug-colours/",
+      "accessed": "2026-11-08",
+      "note": "Front-view figure of the socket contact arrangement (2P+E, 3P+E, 3P+N+E); facts only, no image reused."
+    }
+  ],
+  "verification": {
+    "status": "partial",
+    "lastVerified": "2026-11-08",
+    "notes": [
+      "The socket-outlet and connector face is drawn from the Mennekes front-view figure of the 2P+E contact arrangement (earth at 6 h, pole marked L/+ upper left) and the Wikipedia caption 'clockwise from bottom: PE, L, N'; P1 is placed at the position both sources give to the line. Contact angles and pitch-circle diameter are not dimensioned by these sources (schematic drawing).",
+      "No plug or appliance-inlet drawing: no cited source depicts the pin face with the poles identified (sources only state that the pins are arranged the opposite way, which would mean deriving the face by mirroring).",
+      "The line position (next to the earth clockwise, looking into the socket-outlet) comes from the Mennekes figure and Wikipedia; the IEC 60309-2 sheets were not reviewed to confirm it. The drawing labels the poles P1/P2 as stored in the data.",
+      "The IEC 60309-2 standard sheets were not reviewed; ratings come from a manufacturer datasheet."
+    ]
+  }
+}

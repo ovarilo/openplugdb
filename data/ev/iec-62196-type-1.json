@@ -1,0 +1,238 @@
+{
+  "$schema": "../../schemas/connector-family.schema.json",
+  "id": "iec-62196-type-1",
+  "name": "IEC 62196 Type 1 (SAE J1772)",
+  "aliases": ["Type 1", "J1772", "SAE J1772", "T1"],
+  "category": "ev",
+  "subcategory": "ac-charging",
+  "description": "Single-phase AC charging interface: configuration Type 1 of IEC 62196-2, the coupler of SAE J1772 used in North America. Five contacts: two power contacts (L1 and L2/N), protective earth, control pilot (CP) and connection switch (CS, the proximity contact). The vehicle connector is always attached to the charging cable; there is no Type 1 socket-outlet.",
+  "status": "current",
+  "regions": ["north_america", "asia"],
+  "countries": [],
+  "standards": [
+    {
+      "id": "iec-62196-2",
+      "designation": "IEC 62196-2",
+      "edition": "4.0 (2025)",
+      "title": "Plugs, socket-outlets, vehicle connectors and vehicle inlets – Conductive charging of electric vehicles – Part 2: Dimensional compatibility requirements for AC pin and contact-tube accessories",
+      "scope": "Type 1 configuration (standard sheets 2-I and 2-Ia), ratings and contact functions (table 201)",
+      "url": "https://webstore.iec.ch/en/publication/86317"
+    },
+    {
+      "id": "sae-j1772",
+      "designation": "SAE J1772",
+      "edition": "J1772_202401 (January 2024)",
+      "title": "SAE Electric Vehicle and Plug-in Hybrid Electric Vehicle Conductive Charge Coupler",
+      "scope": "North American conductive charge coupler: physical, electrical, functional and performance requirements of the vehicle inlet and mating connector",
+      "url": "https://saemobilus.sae.org/standards/j1772_202401-sae-electric-vehicle-plug-hybrid-electric-vehicle-conductive-charge-coupler"
+    },
+    {
+      "id": "iec-61851-1",
+      "designation": "IEC 61851-1",
+      "edition": null,
+      "title": "Electric vehicle conductive charging system – Part 1: General requirements",
+      "scope": "Use of the control pilot (CP) contact"
+    }
+  ],
+  "relations": [],
+  "variants": [
+    {
+      "id": "vehicle-inlet",
+      "name": "Type 1 vehicle inlet",
+      "role": "vehicle_inlet",
+      "contactGender": "male",
+      "contacts": [
+        { "id": "L1", "label": "L1", "gender": "male" },
+        { "id": "L2-N", "label": "L2/N", "gender": "male" },
+        { "id": "PE", "label": "PE", "gender": "male" },
+        { "id": "CP", "label": "CP", "gender": "male" },
+        {
+          "id": "CS",
+          "label": "CS",
+          "gender": "male",
+          "note": "Connection switch, also called proximity (PP)."
+        }
+      ],
+      "keying": "Circular contact face with the latch receptacle at the top.",
+      "mechanicalNotes": [
+        "Power contacts L1 and L2/N in the upper row, CP and CS on either side below them, PE at the bottom; CP and CS are smaller than the power and earth contacts."
+      ],
+      "electricalProfiles": ["ac-1ph", "ac-1ph-80a"],
+      "matesWith": [{ "family": "iec-62196-type-1", "variant": "vehicle-connector" }],
+      "visuals": [
+        {
+          "kind": "front_view",
+          "file": "connectors/iec-62196-type-1/vehicle-inlet-front.svg",
+          "title": "IEC 62196 Type 1 vehicle inlet (male), mating face",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "original",
+          "author": "OpenPlugDB contributors",
+          "license": "CC-BY-4.0",
+          "basedOn": ["phoenix-1271836"]
+        },
+        {
+          "kind": "icon",
+          "file": "icons/evicons/plug-type-1.svg",
+          "title": "Type 1 vehicle inlet, mating face (EVicons icon)",
+          "orientation": "mating_face",
+          "accuracy": "schematic",
+          "provenance": "third_party",
+          "author": "Landolsi Digital (EVicons)",
+          "license": "MIT",
+          "sourceUrl": "https://github.com/evicons/evicons/blob/v0.8.0/packages/svg/svg/plug-type-1.svg"
+        }
+      ]
+    },
+    {
+      "id": "vehicle-connector",
+      "name": "Type 1 vehicle connector",
+      "aliases": ["J1772 connector", "Type 1 charging connector (cable side)"],
+      "role": "vehicle_connector",
+      "contactGender": "female",
+      "contacts": [
+        { "id": "L1", "label": "L1", "gender": "female" },
+        { "id": "L2-N", "label": "L2/N", "gender": "female" },
+        { "id": "PE", "label": "PE", "gender": "female" },
+        { "id": "CP", "label": "CP", "gender": "female" },
+        {
+          "id": "CS",
+          "label": "CS",
+          "gender": "female",
+          "note": "Connection switch, also called proximity (PP)."
+        }
+      ],
+      "keying": "Latch on the top of the connector engages the inlet latch receptacle.",
+      "mechanicalNotes": [
+        "Attached to the charging cable (standard sheet 2-I covers vehicle connectors only); an optional latching system is defined by standard sheet 2-Ia."
+      ],
+      "electricalProfiles": ["ac-1ph", "ac-1ph-80a"],
+      "matesWith": [],
+      "visuals": []
+    }
+  ],
+  "electricalProfiles": [
+    {
+      "id": "ac-1ph",
+      "name": "AC single-phase",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": null,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "max", "value": 250, "reference": "line_to_neutral" },
+      "current": { "qualifier": "max", "value": 32 },
+      "frequencyHz": [50, 60],
+      "maxPowerKw": null,
+      "conditions": [
+        "Rating of the Type 1 vehicle connector in IEC 62196-2:2025: 250 V maximum, up to 32 A single-phase (table 201, standard sheet 2-I).",
+        "IEC 62196-2 table 201 assigns the second power contact as L2 (line 2) or N (neutral), depending on the supply; it is therefore not mapped to a single function here.",
+        "CP and CS are signal contacts rated 30 V, 2 A.",
+        "In the US, branch-circuit overcurrent protection is based on 125 % of the rated current of the device (table 201, footnote)."
+      ],
+      "contactFunctions": {
+        "L1": "line",
+        "PE": "protective_earth",
+        "CP": "control_pilot",
+        "CS": "proximity_pilot"
+      },
+      "standardRef": "iec-62196-2",
+      "jurisdiction": "IEC",
+      "sourceRefs": ["iec-62196-2-2025-sample", "iec-62196-2-2025-abstract"],
+      "confidence": "high"
+    },
+    {
+      "id": "ac-1ph-80a",
+      "name": "AC single-phase, up to 80 A (US, KR, JP)",
+      "currentType": "ac",
+      "supply": "single_phase",
+      "phases": 1,
+      "neutral": null,
+      "protectiveEarth": true,
+      "voltage": { "qualifier": "max", "value": 250, "reference": "line_to_neutral" },
+      "current": { "qualifier": "max", "value": 80 },
+      "frequencyHz": [50, 60],
+      "maxPowerKw": null,
+      "conditions": [
+        "IEC 62196-2:2025, 9.201, NOTE: in the US, KR and JP, standard sheets 2-I and 2-Ia may apply to vehicle connectors with a rated current up to 80 A.",
+        "The second power contact is L2 or N depending on the supply (table 201).",
+        "Products are rated individually; for example one vehicle inlet datasheet gives 80 A / 250 V AC."
+      ],
+      "contactFunctions": {
+        "L1": "line",
+        "PE": "protective_earth",
+        "CP": "control_pilot",
+        "CS": "proximity_pilot"
+      },
+      "standardRef": "iec-62196-2",
+      "jurisdiction": "US, KR, JP",
+      "sourceRefs": ["iec-62196-2-2025-sample", "phoenix-1271836"],
+      "confidence": "high"
+    }
+  ],
+  "mappings": {
+    "ocpi-2.2.1": [
+      {
+        "value": "IEC_62196_T1",
+        "match": "exact",
+        "note": "Type 1 at a charging station is a tethered vehicle connector (OCPI ConnectorFormat CABLE)."
+      }
+    ],
+    "ocpi-2.3.0": [
+      {
+        "value": "IEC_62196_T1",
+        "match": "exact",
+        "note": "Type 1 at a charging station is a tethered vehicle connector (OCPI ConnectorFormat CABLE)."
+      }
+    ],
+    "openchargemap": [{ "value": "1", "match": "exact" }],
+    "openstreetmap": [{ "value": "socket:type1", "match": "exact" }]
+  },
+  "sources": [
+    {
+      "id": "iec-62196-2-2025-sample",
+      "title": "IEC 62196-2:2025 (edition 4.0), official preview sample: scope, clauses 5 to 9, tables 201 to 204",
+      "publisher": "IEC (via iTeh Standards)",
+      "type": "standard",
+      "url": "https://cdn.standards.iteh.ai/samples/iec/iec-62196-2-2025/51dfebd365b4454e9fcf88aa3ec324cc/iec-62196-2-2025.pdf",
+      "accessed": "2026-11-08",
+      "note": "French-language sample; Type 1 ratings in 6.2, table 201 and 9.201."
+    },
+    {
+      "id": "iec-62196-2-2025-abstract",
+      "title": "IEC 62196-2:2025 publication page and abstract",
+      "publisher": "IEC Webstore",
+      "type": "standard_abstract",
+      "url": "https://webstore.iec.ch/en/publication/86317",
+      "accessed": "2026-11-08"
+    },
+    {
+      "id": "sae-j1772-202401-abstract",
+      "title": "SAE J1772_202401 publication page and scope",
+      "publisher": "SAE International",
+      "type": "standard_abstract",
+      "url": "https://saemobilus.sae.org/standards/j1772_202401-sae-electric-vehicle-plug-hybrid-electric-vehicle-conductive-charge-coupler",
+      "accessed": "2026-11-08",
+      "note": "Edition and scope only; the abstract gives no ratings."
+    },
+    {
+      "id": "phoenix-1271836",
+      "title": "CHARX T1HCI12-1AC80-2,0M1 vehicle charging inlet (1271836) datasheet, pin assignment of vehicle charging inlets",
+      "publisher": "Phoenix Contact",
+      "type": "manufacturer",
+      "url": "https://static.chipdip.ru/lib/853/DOC044853573.pdf",
+      "accessed": "2026-11-08",
+      "note": "Phoenix Contact catalogue datasheet (generated 2024-04-22) mirrored by a distributor. Used for the inlet face layout, contact genders and as an example of a product rating; its 80 A rating is not a normative rating."
+    }
+  ],
+  "verification": {
+    "status": "partial",
+    "lastVerified": "2026-11-08",
+    "notes": [
+      "Ratings come from the French-language IEC 62196-2:2025 preview sample; the SAE J1772 text (AC Level 1/Level 2 ratings) was not reviewed, only its abstract.",
+      "The vehicle connector contact gender is inferred from its mating with the male inlet; its face is not drawn because no reviewed source depicts it.",
+      "Proximity (CS) coding is not recorded: the inlet datasheet gives 2.7 kΩ between PE and CS for that product, but the normative SAE J1772 / IEC 61851-1 circuit was not reviewed.",
+      "No split-phase (US 240 V, L1–L2) profile is recorded: no reviewed source gives split-phase ratings."
+    ]
+  }
+}

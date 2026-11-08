@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 210" role="img" aria-labelledby="title desc">
+  <title id="title">BS 1363 plug (male), mating face, earth pin up</title>
+  <desc id="desc">Schematic view of the pins with the earth pin at the top. Vertical earth pin above the centre; horizontal line pin lower left and neutral pin lower right. Filled shapes are pins (male contacts). Proportions follow 22.2 mm between line and neutral centres, 22.2 mm from the earth pin to the line-neutral axis, and pin sections of 6.4 × 4.0 mm and 8.0 × 4.0 mm; the insulating sleeves are not shown.</desc>
+  <g fill="none" stroke="#1c2430" stroke-width="3">
+    <rect x="25" y="15" width="150" height="165" rx="10"/>
+  </g>
+  <g fill="#1c2430">
+    <rect x="94" y="50" width="12" height="24" rx="1"/>
+    <rect x="57.5" y="123" width="19" height="12" rx="1"/>
+    <rect x="123.5" y="123" width="19" height="12" rx="1"/>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#1c2430" text-anchor="middle" dominant-baseline="central">
+    <text x="100" y="38">PE</text>
+    <text x="67" y="152">L</text>
+    <text x="133" y="152">N</text>
+  </g>
+  <text x="100" y="202" font-family="system-ui, sans-serif" font-size="9" fill="#5a6472" text-anchor="middle" letter-spacing="1">MATING FACE · MALE</text>
+</svg>
