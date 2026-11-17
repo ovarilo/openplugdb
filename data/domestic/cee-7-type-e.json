@@ -101,14 +101,14 @@
         },
         {
           "kind": "icon",
-          "file": "icons/evicons-extension/plug-cee-7-5.svg",
-          "title": "CEE 7/5 socket-outlet, mating face, earth pin up (icon)",
+          "file": "icons/evicons/plug-type-e.svg",
+          "title": "CEE 7/5 socket-outlet, mating face (EVicons icon)",
           "orientation": "mating_face",
           "accuracy": "schematic",
-          "provenance": "original",
-          "author": "OpenPlugDB contributors",
+          "provenance": "third_party",
+          "author": "Landolsi Digital (EVicons)",
           "license": "MIT",
-          "basedOn": ["wikipedia-ac-plugs", "worldstandards-type-e"]
+          "sourceUrl": "https://github.com/evicons/evicons/blob/v0.11.0/packages/svg/svg/plug-type-e.svg"
         }
       ]
     },

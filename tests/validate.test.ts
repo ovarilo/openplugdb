@@ -168,7 +168,7 @@ describe('validateReferences', () => {
       provenance: 'third_party' as const,
       author: 'Landolsi Digital (EVicons)',
       license: 'MIT',
-      sourceUrl: 'https://github.com/evicons/evicons/blob/v0.8.0/packages/svg/svg/plug-type-2.svg',
+      sourceUrl: 'https://github.com/evicons/evicons/blob/v0.11.0/packages/svg/svg/plug-type-2.svg',
     };
     const withVisual = (visual: Record<string, unknown>) => {
       const f = family();

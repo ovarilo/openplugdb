@@ -104,14 +104,14 @@ NEMA or most domestic types.
   `node_modules/@evicons/svg/` unchanged. `bun run icons:check` (run by CI) fails when a vendored
   file is missing or differs from the package. They are declared with `provenance: third_party`,
   `license: MIT`, `author: "Landolsi Digital (EVicons)"` and a `sourceUrl` pinned to the package
-  version, e.g. `https://github.com/evicons/evicons/blob/v0.8.0/packages/svg/svg/plug-type-2.svg`.
+  version, e.g. `https://github.com/evicons/evicons/blob/v0.11.0/packages/svg/svg/plug-type-2.svg`.
 - Before attaching a vendored icon, compare it with the variant's sourced layout (contact count and
   positions, keying, outline). An icon that contradicts it, or that cannot be checked because no
   source shows that face, is not attached and the family's `verification.notes` say why
   (`plug-gbt-dc`, `plug-chademo` and `plug-mcs` in this iteration). `plug-type-2` is also attached
   to the GB/T 20234.2 AC vehicle inlet, which EVicons covers with the same face.
-- **Extension icons** are kept apart so that they can be proposed upstream in one pull request.
-  They follow the EVicons design guide and contribution rules exactly (root attributes, grid,
+- **Extension icons** are OpenPlugDB's own icons for faces EVicons does not cover (upstream declined
+  them), kept apart from the vendored files. They follow the EVicons design guide and contribution rules exactly (root attributes, grid,
   stroke, naming `plug-*`, SVGO-normalised markup), not the drawing style above. Each
   `<name>.svg` has a `<name>.json` next to it in the upstream metadata format (`category`,
   `meaning`, `tags`, `since`, `standard` naming the figure checked, `osm`/`ocpi` only for values no
@@ -126,11 +126,9 @@ NEMA or most domestic types.
   `orientation: mating_face` and `accuracy: schematic`.
 - A family without a front view uses its icon as the thumbnail on the site.
 
-To propose the extension icons upstream: open one issue per icon on `evicons/evicons` (name, meaning,
-standard), then copy `<name>.svg` and `<name>.json` into the upstream `icons/` folder, run its
-`npm run lint:icons` and `npm run build:icons`, and follow its `CONTRIBUTING.md` (preview, checks,
-`CHANGELOG` entry). Once released, switch the visuals to `icons/evicons/<name>.svg`
-(`provenance: third_party`), run `bun run icons:sync` and delete the extension copy.
+When a new EVicons release ships an icon for one of these faces (as 0.10.0 did with `plug-type-e`
+for CEE 7/5), switch the visuals to `icons/evicons/<name>.svg` (`provenance: third_party`, with
+its `sourceUrl`), run `bun run icons:sync` and delete the extension copy.
 
 ## Licenses
 

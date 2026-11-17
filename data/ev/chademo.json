@@ -274,7 +274,7 @@
       "CHAdeMO 3.0 (ChaoJi connector) is out of this family. Association pages give two dates: released to Regular members on 24 April 2020 (CHAdeMO 3.0 page), \"published in April 2021\" (protocol development page).",
       "DC ratings of configuration AA come from the 2022 edition; the increased ratings of IEC 62196-3:2026 are not reviewed yet.",
       "Other standards carrying CHAdeMO (IEC 61851-24 communication, IEEE adoption, Japanese JEVS documents) were not reviewed.",
-      "The EVicons plug-chademo icon (0.8.0) is not attached: no vehicle inlet face was reviewed, and the icon draws 6 of the 10 contact positions recorded for the vehicle connector."
+      "The EVicons plug-chademo icon (0.11.0) is not attached: no vehicle inlet face was reviewed, and the icon draws 6 of the 10 contact positions recorded for the vehicle connector."
     ]
   }
 }
