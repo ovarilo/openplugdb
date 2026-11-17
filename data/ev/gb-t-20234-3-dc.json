@@ -222,7 +222,7 @@
       "GB/T 20234.4-2023 (high-power DC coupler, ChaoJi) is a separate interface, not modelled yet.",
       "The OpenStreetMap socket key for GB/T DC could not be checked against the pinned wiki revision; the mapping is left empty pending that check, not because no key exists.",
       "The CC1/CC2 resistor coding and the control guidance circuit (GB/T 18487.1) are not recorded.",
-      "The EVicons plug-gbt-dc icon (0.8.0) is not attached: its outline has a flat top edge, while the inlet face recorded here (keying and front view) has none; the contact layout matches."
+      "The EVicons plug-gbt-dc icon (0.11.0) is not attached: its outline has a flat top edge, while the inlet face recorded here (keying and front view) has none; the contact layout matches."
     ]
   }
 }

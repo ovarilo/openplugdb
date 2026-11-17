@@ -32,7 +32,7 @@
   "devDependencies": {
     "@astrojs/check": "0.9.12",
     "@astrojs/sitemap": "3.7.4",
-    "@evicons/svg": "0.8.0",
+    "@evicons/svg": "0.11.0",
     "@types/node": "24.19.2",
     "ajv": "8.20.0",
     "ajv-formats": "3.0.1",

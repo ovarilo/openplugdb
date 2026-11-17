@@ -133,7 +133,6 @@ Next steps for later iterations, in rough priority order:
   IEC 60309 plug and appliance-inlet faces.
 - Source the CHAdeMO and MCS contact layouts (contacts are `null` today).
 - Verify the OpenStreetMap keys for GB/T and MCS.
-- Propose the OpenPlugDB extension icons upstream to EVicons in one pull request.
 - Record proximity-pilot resistor coding once the IEC 61851-1 table is reviewed.
 - Add families: Type 3, more IEC 60309 and IEC 60320 configurations, NEMA locking and 14-50.
 - Publish the JSON Schema under the site domain and version the dataset with releases.

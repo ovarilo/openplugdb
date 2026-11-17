@@ -10,7 +10,7 @@
       "devDependencies": {
         "@astrojs/check": "0.9.12",
         "@astrojs/sitemap": "3.7.4",
-        "@evicons/svg": "0.8.0",
+        "@evicons/svg": "0.11.0",
         "@types/node": "24.19.2",
         "ajv": "8.20.0",
         "ajv-formats": "3.0.1",
@@ -125,7 +125,7 @@
 
     "@emnapi/wasi-threads": ["@emnapi/wasi-threads@1.2.3", "", { "dependencies": { "tslib": "^2.4.0" } }, "sha512-ELEBe8PsLvvJ6QMr0zLt8ffvOHW/dc1m3CEzNMg7aJUv3bMaoDtw2TXyDAwkYBuroxxuHEwhRTLJSe5sya547g=="],
 
-    "@evicons/svg": ["@evicons/svg@0.8.0", "", {}, "sha512-phjKQ5WzmitPEu18S9Dg8sHjjskpOPY+3h/JV5rR1ziJagh4Gx1kAi6VlfrUPeupyX+g8DF6d3ZY21Iv/JMUIw=="],
+    "@evicons/svg": ["@evicons/svg@0.11.0", "", {}, "sha512-cCr8CWU3x4UYWwSB29IN/PZH/LxdH39rbVBxEh3NzqbU2SBR99FGv+1azZbf1L6it0egSqYm/yu5qojkKBjv1g=="],
 
     "@img/colour": ["@img/colour@1.1.0", "", {}, "sha512-Td76q7j57o/tLVdgS746cYARfSyxk8iEfRxewL9h4OMzYhbW4TAcppl0mT4eyqXddh6L/jwoM75mo7ixa/pCeQ=="],
 

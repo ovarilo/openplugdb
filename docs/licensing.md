@@ -10,7 +10,7 @@ The full texts are in [`LICENSES/`](../LICENSES).
 | Original drawings in `public/images/connectors/`             | CC-BY-4.0 | creative works; attribution keeps the provenance visible when they are reused         |
 | Third-party drawings                                         | their own | declared per file in `visuals[].license`, with `sourceUrl`                            |
 | EVicons icons in `public/images/icons/evicons/`              | MIT       | vendored unchanged from `@evicons/svg`, with the upstream `LICENSE` next to them      |
-| Extension icons in `public/images/icons/evicons-extension/`  | MIT       | the EVicons license, so they can be proposed upstream unchanged                       |
+| Extension icons in `public/images/icons/evicons-extension/`  | MIT       | the EVicons license, like the vendored icons; upstream declined them                  |
 
 ## Why CC0 is possible for the data
 
@@ -42,10 +42,10 @@ must be revisited. **Never relabel third-party data as CC0.**
   `LICENSE` file, which carries the MIT notice (`bun run icons:sync`; CI runs `bun run icons:check`).
   They are declared as `kind: icon`, `provenance: third_party`, `license: MIT` with a `sourceUrl`.
 - Icons the project draws for interfaces EVicons does not cover live in
-  `public/images/icons/evicons-extension/`, apart from the vendored files, so that they can be
-  proposed upstream together. They are MIT ("Copyright (c) 2026 OpenPlugDB contributors", with
-  their own `LICENSE` file in that folder), not CC-BY-4.0 like the drawings: EVicons only accepts
-  MIT contributions. Their geometry is the contact layout of the project's own front views (facts
+  `public/images/icons/evicons-extension/`, apart from the vendored files, which are never edited.
+  EVicons declined them, so they stay OpenPlugDB's own icons. They are MIT ("Copyright (c) 2026
+  OpenPlugDB contributors", with their own `LICENSE` file in that folder), not CC-BY-4.0 like the
+  drawings, so they match the vendored icons and could be offered upstream again. Their geometry is the contact layout of the project's own front views (facts
   from the cited sources), scaled into the EVicons grid; no third-party drawing was traced.
 
 ## Standards

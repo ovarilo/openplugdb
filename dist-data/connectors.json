@@ -1467,7 +1467,7 @@
               "provenance": "third_party",
               "author": "Landolsi Digital (EVicons)",
               "license": "MIT",
-              "sourceUrl": "https://github.com/evicons/evicons/blob/v0.8.0/packages/svg/svg/plug-ccs1.svg"
+              "sourceUrl": "https://github.com/evicons/evicons/blob/v0.11.0/packages/svg/svg/plug-ccs1.svg"
             }
           ],
           "matedBy": []
@@ -1840,7 +1840,7 @@
               "provenance": "third_party",
               "author": "Landolsi Digital (EVicons)",
               "license": "MIT",
-              "sourceUrl": "https://github.com/evicons/evicons/blob/v0.8.0/packages/svg/svg/plug-ccs2.svg"
+              "sourceUrl": "https://github.com/evicons/evicons/blob/v0.11.0/packages/svg/svg/plug-ccs2.svg"
             }
           ],
           "matedBy": []
@@ -2207,7 +2207,7 @@
               "provenance": "third_party",
               "author": "Landolsi Digital (EVicons)",
               "license": "MIT",
-              "sourceUrl": "https://github.com/evicons/evicons/blob/v0.8.0/packages/svg/svg/plug-schuko.svg"
+              "sourceUrl": "https://github.com/evicons/evicons/blob/v0.11.0/packages/svg/svg/plug-schuko.svg"
             }
           ],
           "matedBy": [
@@ -2600,17 +2600,14 @@
             },
             {
               "kind": "icon",
-              "file": "icons/evicons-extension/plug-cee-7-5.svg",
-              "title": "CEE 7/5 socket-outlet, mating face, earth pin up (icon)",
+              "file": "icons/evicons/plug-type-e.svg",
+              "title": "CEE 7/5 socket-outlet, mating face (EVicons icon)",
               "orientation": "mating_face",
               "accuracy": "schematic",
-              "provenance": "original",
-              "author": "OpenPlugDB contributors",
+              "provenance": "third_party",
+              "author": "Landolsi Digital (EVicons)",
               "license": "MIT",
-              "basedOn": [
-                "wikipedia-ac-plugs",
-                "worldstandards-type-e"
-              ]
+              "sourceUrl": "https://github.com/evicons/evicons/blob/v0.11.0/packages/svg/svg/plug-type-e.svg"
             }
           ],
           "matedBy": [
@@ -3586,7 +3583,7 @@
           "CHAdeMO 3.0 (ChaoJi connector) is out of this family. Association pages give two dates: released to Regular members on 24 April 2020 (CHAdeMO 3.0 page), \"published in April 2021\" (protocol development page).",
           "DC ratings of configuration AA come from the 2022 edition; the increased ratings of IEC 62196-3:2026 are not reviewed yet.",
           "Other standards carrying CHAdeMO (IEC 61851-24 communication, IEEE adoption, Japanese JEVS documents) were not reviewed.",
-          "The EVicons plug-chademo icon (0.8.0) is not attached: no vehicle inlet face was reviewed, and the icon draws 6 of the 10 contact positions recorded for the vehicle connector."
+          "The EVicons plug-chademo icon (0.11.0) is not attached: no vehicle inlet face was reviewed, and the icon draws 6 of the 10 contact positions recorded for the vehicle connector."
         ]
       }
     },
@@ -4252,7 +4249,7 @@
               "provenance": "third_party",
               "author": "Landolsi Digital (EVicons)",
               "license": "MIT",
-              "sourceUrl": "https://github.com/evicons/evicons/blob/v0.8.0/packages/svg/svg/plug-type-2.svg"
+              "sourceUrl": "https://github.com/evicons/evicons/blob/v0.11.0/packages/svg/svg/plug-type-2.svg"
             }
           ],
           "matedBy": []
@@ -4960,7 +4957,7 @@
           "GB/T 20234.4-2023 (high-power DC coupler, ChaoJi) is a separate interface, not modelled yet.",
           "The OpenStreetMap socket key for GB/T DC could not be checked against the pinned wiki revision; the mapping is left empty pending that check, not because no key exists.",
           "The CC1/CC2 resistor coding and the control guidance circuit (GB/T 18487.1) are not recorded.",
-          "The EVicons plug-gbt-dc icon (0.8.0) is not attached: its outline has a flat top edge, while the inlet face recorded here (keying and front view) has none; the contact layout matches."
+          "The EVicons plug-gbt-dc icon (0.11.0) is not attached: its outline has a flat top edge, while the inlet face recorded here (keying and front view) has none; the contact layout matches."
         ]
       }
     },
@@ -5094,7 +5091,7 @@
               "provenance": "third_party",
               "author": "Landolsi Digital (EVicons)",
               "license": "MIT",
-              "sourceUrl": "https://github.com/evicons/evicons/blob/v0.8.0/packages/svg/svg/plug-cee-blue.svg"
+              "sourceUrl": "https://github.com/evicons/evicons/blob/v0.11.0/packages/svg/svg/plug-cee-blue.svg"
             }
           ],
           "matedBy": [
@@ -5473,7 +5470,7 @@
               "provenance": "third_party",
               "author": "Landolsi Digital (EVicons)",
               "license": "MIT",
-              "sourceUrl": "https://github.com/evicons/evicons/blob/v0.8.0/packages/svg/svg/plug-cee-red.svg"
+              "sourceUrl": "https://github.com/evicons/evicons/blob/v0.11.0/packages/svg/svg/plug-cee-red.svg"
             }
           ],
           "matedBy": [
@@ -6637,7 +6634,7 @@
               "provenance": "third_party",
               "author": "Landolsi Digital (EVicons)",
               "license": "MIT",
-              "sourceUrl": "https://github.com/evicons/evicons/blob/v0.8.0/packages/svg/svg/plug-type-1.svg"
+              "sourceUrl": "https://github.com/evicons/evicons/blob/v0.11.0/packages/svg/svg/plug-type-1.svg"
             }
           ],
           "matedBy": []
@@ -6983,7 +6980,7 @@
               "provenance": "third_party",
               "author": "Landolsi Digital (EVicons)",
               "license": "MIT",
-              "sourceUrl": "https://github.com/evicons/evicons/blob/v0.8.0/packages/svg/svg/plug-type-2.svg"
+              "sourceUrl": "https://github.com/evicons/evicons/blob/v0.11.0/packages/svg/svg/plug-type-2.svg"
             }
           ],
           "matedBy": []
@@ -7559,7 +7556,7 @@
           "No face is drawn: no source depicting the mating faces was reviewed.",
           "Open Charge Map has no MCS connection type in the pinned reference data.",
           "The OpenStreetMap socket key for MCS could not be checked against the pinned wiki revision; the mapping is left empty pending that check, not because no key exists.",
-          "The EVicons plug-mcs icon (0.8.0) is not attached: no source depicting the MCS mating faces was reviewed."
+          "The EVicons plug-mcs icon (0.11.0) is not attached: no source depicting the MCS mating faces was reviewed."
         ]
       }
     },
@@ -8163,7 +8160,7 @@
               "provenance": "third_party",
               "author": "Landolsi Digital (EVicons)",
               "license": "MIT",
-              "sourceUrl": "https://github.com/evicons/evicons/blob/v0.8.0/packages/svg/svg/plug-nacs.svg"
+              "sourceUrl": "https://github.com/evicons/evicons/blob/v0.11.0/packages/svg/svg/plug-nacs.svg"
             }
           ],
           "matedBy": []
